@@ -1,0 +1,202 @@
+% !TEX root = ../paper.tex
+In this section, we introduce and formally define the log compression problem.
+We begin by exploring several applications that need to repeatedly analyze query logs.
+
+\tinysection{Index Selection}
+Selecting an appropriate set of indexes requires trading off between update costs, access costs, and limitations on available storage space.
+Existing strategies for selecting a near-optimal set of indexes typically repeatedly simulate database performance under different combinations of indexes, which in turn requires repeatedly estimating the frequency of specific predicates in the workload.
+%For example, if \lstinline{status = ?} occurs in $90\%$ of the queries in a workload, a hash index on \lstinline{status} is beneficial.
+
+\tinysection{Materialized View Selection}
+The results of joins or highly selective selection predicates are good candidates for materialization when they appear frequently in the workload.  
+Like index selection, view selection is a non-convex optimization problem, typically requiring repeated simulation, which in turn requires repeated frequency estimation over the workload.
+
+\tinysection{Online Database Monitoring}
+In production settings, it is common to monitor databases for atypical usage patterns that could indicate a serious bug or security threat.
+When query logs are monitored, it is often done retrospectively, some hours after-the-fact~\cite{DBLP:conf/www/KulLXCCKU16}.  
+To support real-time monitoring it is necessary to quickly compute the frequency of a particular class of queries in the system's typical workload.
+
+\smallskip
+
+In each case, the application's interactions with the log amount to counting queries that have specific features: selection predicates, joins, or similar.
+
+\subsection{Preliminaries and Notation}
+\label{sec:notation}
+Let $L$ be a log, or a finite collection of queries $\vec q \in L$.
+We write $f \in \vec q$ to indicate that $\vec q$ has some \emph{feature} $f$, such as a specific predicate or table in its \lstinline{FROM} clause.
+We assume (1) that the universe of features in both a log and a query is enumerable and finite, (2) that the features are selected to suit specific applications and (3) optionally that a query is isomorphic to its feature set (motivated in Section~\ref{sec:communicatinginformationcontent}).  
+We outline one approach to extracting features that satisfies all three assumptions below.
+We abuse syntax and write $\vec q$ to denote both the query itself, as well as the set of its features.  
+
+Let $\pattern$ denote some set of features $f \in \pattern$.
+We write these sets using vector notation: $\pattern=(x_1,\ldots,x_n)$ where $n$ is the number of distinct features in the entire log and $x_i$ indicates the presence (absence) of $i$th feature with a 1 (resp., 0).  
+For any two patterns $\pattern$, $\pattern'$, we say that $\pattern'$ \emph{is contained} or \emph{appears} in $\pattern$ if $\pattern' \subseteq \pattern$, or equivalently if $\forall i,\, x'_i\leq x_i$.  
+%Equivalently, with $\pattern=(x_1,\ldots,x_n)$ and $\pattern'=(x_1',\ldots,x_n')$,
+%$\pattern' \subseteq \pattern\;\;\; \equiv \;\;\;\forall i,\, x'_i\leq x_i$
+%Our goal then is to be able to query the log $L$ for the number of times a pattern $\pattern$ appears, i.e., 
+%$|\comprehension{\vec q}{\vec q \in L \wedge \pattern \subseteq \vec q}|$
+
+
+\subsection{Coding Queries}
+
+For this paper, we specifically adopt the feature extraction conventions of a query summarization scheme by Aligon et al.~\cite{DBLP:journals/kais/AligonGMRT14}.
+In this scheme, each feature is one of the following three query elements:
+(1) a table or sub-query in the \texttt{FROM} clause,
+(2) a column in the \texttt{SELECT} clause, and 
+(3) a conjunctive atom of the \texttt{WHERE} clause.
+\begin{example}
+\label{exampleQuery}
+Consider the following example query.
+\begin{lstlisting}
+SELECT _id, sms_type, _time FROM Messages
+WHERE status=? AND transport_type=?
+\end{lstlisting}
+
+\noindent The query has $6$ features$:$ \cqword{SELECT}{\_id}, 
+\cqword{SELECT}{sms\_type},
+\cqword{SELECT}{\_time},
+\cqword{FROM}{Messages}, 
+\cqword{WHERE}{status=?}, 
+and \cqword{WHERE}{transport\_type=?}
+\end{example}
+
+Although this scheme is simple and limited to conjunctive queries, it fulfills all three assumptions we make on feature extraction schemes.  
+The features of a query (and consequently a log) are enumerable and finite, and the feature set of the query is isomorphic to the original query.
+Furthermore, even if a query is not itself conjunctive, it may be rewritable into a conjunctive equivalent.
+% We quantify this statement with Table~\ref{table:datasummary}, which provides two relevant data points from production query logs; A majority of both datasets' queries can be rewritten into equivalent queries compatible with the Aligon scheme.
+%Second, the scheme is bi-directional: Given a set of features we can recover (modulo commutativity) the original query.  
+%We exploit this feature to provide interpretable summaries of compressed logs.
+
+% v---- what does this mean?
+%\footnote{Feature engineering process is decoupled from summarization process. In general, we only require that SQL syntax is preserved after being transformed into bags of features.}.
+
+Although we do not explore more advanced feature encoding schemes in detail here, we direct the interested reader to work on query summarization~\cite{DBLP:conf/simbig/MakiyamaRS15,DBLP:conf/adbis/AouicheJD06,DBLP:conf/www/KulLXCCKU16}.
+For example, a scheme by Makiyama et. al.~\cite{DBLP:conf/simbig/MakiyamaRS15} also captures aggregation-related features like group-by columns, while an approach by Kul et. al.~\cite{DBLP:conf/www/KulLXCCKU16} encodes partial tree-structures in the query. 
+
+\pagebreak
+
+\subsection{Log Compression}
+\label{queryrepresentation}
+
+As a lossy form of compression, \systemname only approximates the information content of a query log.
+We next develop a simplified form of \systemname that we call pattern-based encoding, and develop a framework for reasoning about the fidelity of a \systemname-compressed log.
+As a basis for this framework, we first formulate the information content of a query log to allow us to adapt classical measures of information content.
+
+\subsubsection{Information Content of Logs}
+\label{sec:informationcontentoflogs}
+
+We define the information content of the log as a distribution $p(Q\;|\;L)$ of queries $Q$ drawn uniformly from the log.
+
+\begin{example}
+\label{distributionExample}
+Consider the following query log, which consists of four conjunctive queries.
+\begin{lstlisting}
+1. SELECT _id FROM Messages WHERE status = ?
+2. SELECT _time FROM Messages 
+          WHERE status = ? AND sms_type = ?
+3. SELECT _id FROM Messages WHERE status = ?
+4. SELECT sms_type, _time FROM Messages 
+          WHERE sms_type = ?
+\end{lstlisting}
+Drawing uniformly from the log, each entry will appear with probability $\frac{1}{4} = 0.25$.
+The query $q_1$ ($=q_3$) occurs twice, so the probability of drawing it is double that of the others (i.e., $p(\vec{q}_1\;|\;L) = p(\vec{q}_3\;|\;L) = \frac{2}{4} = 0.5$)
+\end{example}
+
+Treating a query as a vector of its component features, we can define a query $\vec{q}=(x_1,\ldots,x_n)$ to be an observation of the multivariate distribution over variables $Q = (X_1,\ldots,X_n)$ corresponding to features.
+The event $X_i = 1$ occurs if feature $i$ appears in a uniformly drawn query.
+
+\begin{example}
+Continuing, the universe of features for this query log is (1)~\cqword{SELECT}{\_id}, (2)~\cqword{SELECT}{\_time},\linebreak (3)~\cqword{SELECT}{sms\_type}, (4)~\cqword{WHERE}{status = ?}, \linebreak (5)~\cqword{WHERE}{sms\_type = ?}, and (6)~\cqword{FROM}{Messages}.
+Accordingly, the queries can be encoded as feature vectors, with fields recording each feature's presence:
+{\small
+$\vec{q}_1 = \tuple{1, 0, 0, 1, 0, 1}$, 
+$\vec{q}_2 = \tuple{0, 1, 0, 1, 1, 1}$, 
+$\vec{q}_3 = \tuple{1, 0, 0, 1, 0, 1}$, 
+$\vec{q}_4 = \tuple{0, 1, 1, 0, 1, 1}$
+}
+\end{example}
+
+\begin{figure}
+ \centering
+%  \includegraphics[width=\linewidth]{graphics/Screen_Shot_2.pdf}
+\begin{subfigure}{\columnwidth}
+  {\small
+    \begin{tabular}{rp{60mm}}
+    \textbf{SELECT} & 
+        \texttt{sms\_type},
+        \textcolor{light-gray}{\texttt{external\_ids}},
+        \texttt{\_time},
+        \texttt{\_id}\\ 
+    \textbf{FROM} &
+        \texttt{messages}\\ 
+    \textbf{WHERE} &
+        \textcolor{mid-gray} {\texttt{(sms\_type=?)}} $\wedge$
+        \texttt{(status=?)}   
+%        $\wedge$~\textcolor{light-gray}{\texttt{(\_time$\geq$1426084288402000)}} \hfill\textcolor{white}{.}
+%        $\wedge$~\texttt{(transport\_type=3)} 
+    \end{tabular}
+  }
+  \caption{\textit{Correlation-ignorant}: Features are highlighted independently}
+  \label{fig:screenshots:nocorrelation}
+\end{subfigure}\\[2mm]
+\begin{subfigure}{\columnwidth}
+  {\centering
+    \fbox{\parbox{0.96\textwidth}{
+      {\small \centering
+        \textbf{SELECT} \texttt{sms\_type} \textbf{FROM} \texttt{messages} \textbf{WHERE} \texttt{sms\_type=?}
+      }\\
+      \textcolor{mid-gray}{\small \centering
+        \textbf{SELECT} \texttt{sms\_type} \textbf{FROM} \texttt{messages} \textbf{WHERE} \texttt{status=?} 
+      }
+    }}
+  }
+  \caption{\textit{Correlation-aware}: Pattern groups are highlighted together.
+  %, according to the probability of co-occurrence.
+  }
+  \label{fig:screenshots:correlation}  
+\end{subfigure}\\[2mm]
+\bfcaption{Example Encoding Visualizations}
+\label{fig:screenshots}
+\trimfigurewhitespace
+\end{figure} 
+
+% In summary, our goal is to summarize the multivariate distribution $p(Q\;|\;L)$.
+
+\tinysection{Patterns}
+Our target applications require us to count the number of times features (co-)occur in a query.  
+For example, materialized view selection requires counting tables used together in queries.
+Motivated by this observation, we begin by defining a broad class of \emph{pattern-based encodings} that directly encode co-occurrence probabilities.
+A \emph{pattern} is an arbitrary set of features $\pattern=(x_1,\ldots,x_n)$ that may co-occur together.
+Each pattern captures a piece of information from the distribution $p(Q\;|\;L)$.
+In particular, we are interested in the probability of uniformly drawing a query $\vec{q}$ from the log that \textit{contains} the pattern $\vec b$ (i.e., $\vec{q}\supseteq\pattern$): \vspace*{-1mm}
+\begin{center}
+{\small $p(Q\supseteq\pattern\;|\;L)=\sum_{\vec{q}\in L\land \vec{q}\supseteq \pattern}p(\vec{q}\;|\;L)$}
+\end{center}\vspace*{-1mm}
+\noindent When it is clear from context, we abuse notation and write $p(\cdot)$ instead of $p(\cdot\;|\;L)$.
+%
+Recall that $p(Q)$ can be represented as a joint distribution of variables $(X_1,\ldots,X_n)$ and probability $p(Q\supseteq\pattern)$ is equivalent to $p(X_1\geq x_1,\ldots,X_n\geq x_n)$.
+%\footnote{There are other type of marginals which can be used as carriers of information content. We explain our choice of the specific marginal in Appendix~\ref{appendix:marginalselectionforpatternbasedsummary}}.
+
+\tinysection{Pattern-Based Encodings}
+Denote by $\encoding_{max} : \{0,1\}^n \rightarrow [0,1]$, the mapping from each pattern ($\pattern$) to its frequency in the log: 
+ $\encoding_{max} = \comprehension{\big(\;\pattern \rightarrow p(\pattern)\;\big)}{\pattern \in \{0,1\}^n}$
+
+A \emph{pattern-based encoding} $\encoding$ is any such partial mapping $\encoding \subseteq \encoding_{max}$. 
+We denote the frequency of pattern $\pattern$ in encoding $\encoding$ by $\encoding[\pattern] $ ($= p(Q\supseteq\pattern)$).
+When it is clear from context, we abuse syntax and also use $\encoding$ to denote the set of patterns it maps (i.e., $domain(\encoding)$).
+Hence, $|\encoding|$ is the number of mapped patterns, which we call the encoding's \emph{Verbosity}.
+A \emph{pattern-based encoder} is any algorithm $\texttt{encode}(L, \epsilon) \mapsto \encoding$ whose input is a log $L$ and whose output is a set of patterns $\encoding$, with Verbosity thresholded at some integer $\epsilon$.
+Many pattern mining algorithms~\cite{DBLP:journals/tkdd/MampaeyVT12,DBLP:journals/pvldb/GebalyAGKS14} can be used for this purpose.
+
+\subsubsection{Communicating Information Content}
+\label{sec:communicatinginformationcontent}
+A side-benefit of pattern-based encodings is that, under the assumption of isomorphism in Section~\ref{sec:notation}, patterns can be translated to their query representations and used for human inspection of the log.
+Figure~\ref{fig:screenshots} shows two examples.
+The approach illustrated in Figure~\ref{fig:screenshots:nocorrelation} uses shading to show each feature's frequency in the log, and communicates frequently occurring predicates or columns.
+This approach might, for example, help a human to manually select indexes.
+A second approach illustrated in Figure~\ref{fig:screenshots:correlation} conveys correlations, showing the frequency of entire patterns.
+The accompanying technical report~\cite{DBLP:journals/corr/abs-1809-00405} explores visualizations of pattern-based summaries in greater depth.
+% Both visual encodings in Figure~\ref{fig:screenshots} are pattern based summaries: (a) the correlation-ignorant summary  consists of 10 patterns, one for each word and (b) the correlation-aware summary consists of two patterns (left and right).
+% Henceforth, we will assume that we already have an user-interface for visualizing patterns and focus on selecting which specific set of patterns to present. 
+
+

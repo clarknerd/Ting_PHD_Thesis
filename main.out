@@ -1,0 +1,49 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Problem Statement}{}% 2
+\BOOKMARK [0][-]{chapter.3}{Use-case: Query Log Summarization}{}% 3
+\BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}% 4
+\BOOKMARK [1][-]{section.3.2}{Problem Definition}{chapter.3}% 5
+\BOOKMARK [2][-]{subsection.3.2.1}{Preliminaries and Notation}{section.3.2}% 6
+\BOOKMARK [2][-]{subsection.3.2.2}{Coding Queries}{section.3.2}% 7
+\BOOKMARK [2][-]{subsection.3.2.3}{Log Compression}{section.3.2}% 8
+\BOOKMARK [3][-]{subsubsection.3.2.3.1}{Information Content of Logs}{subsection.3.2.3}% 9
+\BOOKMARK [3][-]{subsubsection.3.2.3.2}{Communicating Information Content}{subsection.3.2.3}% 10
+\BOOKMARK [1][-]{section.3.3}{Information Loss}{chapter.3}% 11
+\BOOKMARK [2][-]{subsection.3.3.1}{Lossless Summaries}{section.3.3}% 12
+\BOOKMARK [2][-]{subsection.3.3.2}{Lossy Summaries}{section.3.3}% 13
+\BOOKMARK [2][-]{subsection.3.3.3}{Idealized Information Loss Measures}{section.3.3}% 14
+\BOOKMARK [1][-]{section.3.4}{Practical Loss Measure}{chapter.3}% 15
+\BOOKMARK [2][-]{subsection.3.4.1}{Reproduction Error}{section.3.4}% 16
+\BOOKMARK [2][-]{subsection.3.4.2}{Practical vs Idealized Information Loss}{section.3.4}% 17
+\BOOKMARK [1][-]{section.3.5}{Pattern Mixture Encodings}{chapter.3}% 18
+\BOOKMARK [2][-]{subsection.3.5.1}{Example: Naive Mixture Encodings}{section.3.5}% 19
+\BOOKMARK [2][-]{subsection.3.5.2}{Generalized Encoding Fidelity}{section.3.5}% 20
+\BOOKMARK [1][-]{section.3.6}{Pattern Mixture Compression}{chapter.3}% 21
+\BOOKMARK [2][-]{subsection.3.6.1}{Constructing Naive Mixture Encodings}{section.3.6}% 22
+\BOOKMARK [3][-]{subsubsection.3.6.1.1}{Clustering}{subsection.3.6.1}% 23
+\BOOKMARK [2][-]{subsection.3.6.2}{Approximating Log Statistics}{section.3.6}% 24
+\BOOKMARK [2][-]{subsection.3.6.3}{Pattern Synthesis \046 Frequency Estimate}{section.3.6}% 25
+\BOOKMARK [2][-]{subsection.3.6.4}{Naive Encoding Refinement}{section.3.6}% 26
+\BOOKMARK [1][-]{section.3.7}{Experiments}{chapter.3}% 27
+\BOOKMARK [2][-]{subsection.3.7.1}{Validating Reproduction Error}{section.3.7}% 28
+\BOOKMARK [2][-]{subsection.3.7.2}{Feature-Correlation Refinement}{section.3.7}% 29
+\BOOKMARK [3][-]{subsubsection.3.7.2.1}{Pattern-based vs Naive Mixture Encodings}{subsection.3.7.2}% 30
+\BOOKMARK [3][-]{subsubsection.3.7.2.2}{Refining Naive Mixture Encodings}{subsection.3.7.2}% 31
+\BOOKMARK [1][-]{section.3.8}{Alternative Applications}{chapter.3}% 32
+\BOOKMARK [2][-]{subsection.3.8.1}{Experiments}{section.3.8}% 33
+\BOOKMARK [3][-]{subsubsection.3.8.1.1}{Error Measures}{subsection.3.8.1}% 34
+\BOOKMARK [3][-]{subsubsection.3.8.1.2}{Classical Laserlight and MTV}{subsection.3.8.1}% 35
+\BOOKMARK [3][-]{subsubsection.3.8.1.3}{Generalizing Laserlight and MTV}{subsection.3.8.1}% 36
+\BOOKMARK [3][-]{subsubsection.3.8.1.4}{Comparison with Naive Mixture Encoding}{subsection.3.8.1}% 37
+\BOOKMARK [1][-]{section.3.9}{Related Work}{chapter.3}% 38
+\BOOKMARK [2][-]{subsection.3.9.1}{Workload Analysis}{section.3.9}% 39
+\BOOKMARK [2][-]{subsection.3.9.2}{Workload Compression Schemes}{section.3.9}% 40
+\BOOKMARK [1][-]{section.3.10}{Conclusions}{chapter.3}% 41
+\BOOKMARK [1][-]{section.3.11}{Future Work}{chapter.3}% 42
+\BOOKMARK [1][-]{section.3.12}{Acknowledgements}{chapter.3}% 43
+\BOOKMARK [0][-]{chapter.4}{Use-case: Summarizing Probabilistic Databases}{}% 44
+\BOOKMARK [0][-]{chapter.5}{Use-case: Schema detection for semi-structured data}{}% 45
+\BOOKMARK [0][-]{chapter.6}{Findings and Discussions}{}% 46
+\BOOKMARK [0][-]{chapter.7}{Conclusions and Future Work}{}% 47
+\BOOKMARK [0][-]{chapter.7}{Bibliography}{}% 48
+\BOOKMARK [0][-]{appendix.A}{Appendix}{}% 49

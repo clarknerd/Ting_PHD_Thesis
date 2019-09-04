@@ -1,0 +1,29 @@
+% !TEX root = ../paper.tex
+In this paper, we introduced the problem of log compression and defined a family of pattern-based log encodings. 
+We precisely characterized the information content of logs and offered three principled and one practical measures of encoding quality: Verbosity, Ambiguity, Deviation and \errorname. 
+To reduce the search space of pattern-based encodings, we introduced the idea of log partitioning, which induces the family of pattern mixture as well as its simplified form: naive mixture encodings. 
+Finally, we experimentally showed that naive mixture encodings are more informative and can be constructed more efficiently than state-of-the-art pattern-based summarization techniques. 
+We expect that making accurate and efficient inference on pattern frequencies will enable a range of more powerful database tuning and intrusion detection systems.
+
+\section{Future Work}
+\label{sec:futurework}
+
+\tinysection{Multiplicity-aware clustering}
+As the number of feature vectors can be millions or more, practically we only keep \textit{distinct} feature vectors as input of clustering schemes.
+We can store feature vector frequencies in a separate column called \textit{multiplicities}.
+A multiplicity-ignorant clustering scheme assumes a uniform distribution of queries in the log.
+However, query distributions $p(Q)$ of production database logs are usually skewed.
+For example, routine queries repeat themselves overwhelmingly in the log but contribute to a minority of distinct queries.
+We plan to improve naive mixture encodings by exploring \textit{multiplicity-aware} clustering schemes such that distinct feature vectors can be clustered \textit{as if they have been replicated}.
+The use of mixture models for summarization has potential implications for work on pattern mining; As we show, existing techniques can be substantially improved both in runtime and Error.
+
+\tinysection{Feature Clustering}
+For the usecase of materialized view selection, computing pattern frequencies may not be enough.
+We may need to summarize a query log as a limited set of \textit{basis} views such that queries in the log can be represented by a simple join of a subset of basis views.
+Capturing basis views is not only relevant to data tuning tasks, but also facilitates human inspection of workloads in the log.
+To achieve the goal, in addition to partitioning queries into separate workload clusters, for each cluster we need to further partition its features into separate clusters where each cluster is equivalent to a \textit{basis view}.
+
+
+
+
+

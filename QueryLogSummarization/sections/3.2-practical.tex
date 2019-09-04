@@ -1,0 +1,98 @@
+%!TEX root = ../paper.tex
+Computing either Ambiguity or Deviation requires enumerating the entire space of permitted distributions.
+One approach to approximating either measure is repeatedly sampling from, rather than enumerating the space.  
+However, accurate approximations require a large number of samples, rendering this approach similarly inefficient.
+In this section, we propose a faster approach to assessing the fidelity of a pattern encoding.
+Specifically, we select a single representative distribution $\overline \rho_\encoding$ from the space $\Omega_\encoding$, and use $\overline \rho_\encoding$ to approximate both Ambiguity and Deviation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{\Errorname}
+\label{sec:maximumentropydistribution}
+
+\tinysection{Maximum Entropy Distribution}
+The representative distribution is chosen by applying the maximum entropy principle~\cite{DBLP:journals/tssc/Jaynes68} commonly used in pattern-based summarization~\cite{DBLP:journals/tkdd/MampaeyVT12,DBLP:journals/pvldb/GebalyAGKS14}.
+That is, we select the distribution $\overline{\rho}_\encoding$ with maximum entropy:
+$$\overline{\rho}_\encoding=\argmaxl_{\rho\in\Omega_\encoding}\entropy(\rho)\;\;\;\;\;\;\text{where }\entropy(\rho)=\mysuml_{\vec{q}\in\{0,1\}^n}-\rho(\vec{q})\log \rho(\vec{q})$$
+The maximum entropy distribution best represents the current state of knowledge.
+That is, a distribution with lower entropy assumes additional constraints derived from patterns that we do not know, while one with higher entropy violates the constraints from patterns we do know.
+
+Maximizing an objective function belonging to the exponential family (entropy in our case) under a mixture of linear equalities/inequality constraints is a convex optimization problem~\cite{Boyd:2004:CO:993483} which guarantees a \emph{unique} solution and can be efficiently solved using the cvx toolkit~\cite{cvx,DBLP:journals/jota/ODonoghueCPB16}, and/or by \textit{iterative scaling}~\cite{DBLP:journals/tkdd/MampaeyVT12,DBLP:journals/pvldb/GebalyAGKS14}.
+For naive encodings specifically, we can assume independence between each feature $X_i$.  
+Under this assumption, $\overline{\rho}_\encoding$ has a closed-form representation:
+\begin{equation*}
+\overline{\rho}_\encoding(\vec{q})=\prod_{i}p(X_i=x_i)\;\;\;\;\;\;\text{where } \vec{q}=(x_1,\ldots,x_n)
+\end{equation*} 
+%
+%\tinysection{\Errorname}
+%the representative distribution $\overline\rho_\encoding$, 
+We define \textit{\errorname} $e(\encoding)$ as the entropy difference between the representative and true distributions:
+$$e(\encoding)=\entropy(\overline{\rho}_\encoding)-\entropy(\rho^*)\;\;\;\;\;\text{where }\overline{\rho}_\encoding=\argminl_{\rho\in\Omega_\encoding}-\entropy(\rho)$$
+
+%\tinysection{Relationship to K-L Divergence}
+%\Errorname is closely related to the K-L divergence from the representative distribution $\overline \rho_\encoding$ to the true distribution $\rho^*$.
+%\begin{multline*}
+%\mathcal{D}_{KL}(\rho^*||\overline{\rho}_\encoding)=\entropy(\rho^*,\overline{\rho}_\encoding)-\entropy(\rho^*)\\
+%\text{where }\entropy(\rho^*,\overline{\rho}_\encoding)=\mysuml_{\vec{q}}-\rho^*(\vec{q})\log\overline{\rho}_\encoding(\vec{q})
+%\end{multline*}
+%$\entropy(\rho^*,\overline{\rho}_\encoding)$ is called the \emph{cross-entropy}. Replacing cross-entropy by entropy $\entropy(\overline{\rho}_\encoding)$, the formula becomes the same as \errorname. Though cross entropy is different from entropy in general, e.g., it is only defined when $\rho^*\ll\overline{\rho}_\encoding$, they are closely correlated. 
+%However, for the specific case of naive encodings the two are equivalent.
+%\begin{lemma}
+%\label{equivalence}
+%For any naive encoding $\encoding$, $\entropy(\rho^*,\overline{\rho}_\encoding) = \entropy(\overline{\rho}_\encoding)$
+%\end{lemma}
+%\begin{proof}
+%With $\vec{q} = (x_1,\ldots,x_n)$ and applying Equation~\ref{eqn:naiveencodingformula}: 
+%{\small
+%\begin{eqnarray*}
+%\sum_{\vec{q}\in L}-\rho^*(\vec{q})\log\overline{\rho}_{\encoding}(\vec{q}) &=&-\sum_{\vec{q}}p(\vec{q})\cdot \sum_{i}\log p(X_i=x_i)\\
+%&=&-\sum_{i,k}\log p(X_i=k)\cdot\sum_{\vec{q}\;|\;x_i = k}p(\vec{q})\\
+%&=&-\sum_{i,k}\log p(X_i=k)\cdot p(X_i=k)\\
+%&=&\sum_{i}\entropy(X_i)
+%\end{eqnarray*}
+%}
+%\noindent  The variables in a naive encoding are independent, so: $\sum_{i}\entropy(X_i) = \entropy(\bar \rho_\encoding)$, and we have the lemma.
+%\end{proof}
+%While we do not provide a similar proof for more general encodings, we show it experimentally in Section~\ref{sec:motivateencodingerror}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Practical vs Idealized Information Loss}
+\label{sec:validateencodingerror}
+
+In this section we prove that \errorname closely parallels Ambiguity. 
+We define a partial order lattice over encodings and show that for any pair of encodings on which the partial order is defined, a like relationship is implied for both \errorname and Ambiguity.
+We supplement the proofs given in this section with an empirical analysis relating \errorname to Deviation in Section~\ref{sec:motivateencodingerror}.
+
+
+% In this section we theoretically prove that \errorname parallels Ambiguity. That is, ordering encodings by Ambiguity is homomorphic to ordering them by \errorname. Our proof is organized as follows: We start by defining a partial order over encodings and show that for any pair of encodings for which the partial order is defined, a like relationship is implied for Ambiguity; We then prove that the total order given by \errorname is a superset of the partial order. 
+% We supplement the theoretical proofs given in this section with an empirical analysis relating \errorname to Deviation in Section~\ref{sec:motivateencodingerror}.
+
+\tinysection{Containment}
+%Recall that each encoding $\encoding$ induces a space of distributions $\Omega_\encoding$.
+We define a partial order over encodings $\leq_\Omega$ based on \textit{containment} of their induced spaces $\Omega_\encoding$:
+$$\encoding_1 \leq_\Omega \encoding_2\;\;\;\equiv\;\;\;\Omega_{\encoding_1} \subseteq \Omega_{\encoding_2}$$
+That is, one encoding (i.e., $\encoding_1$) precedes another (i.e., $\encoding_2$) when all distributions admitted by the former encoding are also admitted by the latter.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tinysection{Containment Captures \Errorname}
+We first prove that the total order given by \errorname is a superset of the partial order $\leq_\Omega$. 
+\begin{lemma}
+\label{prop:monotone}
+For any pair of encodings $\encoding_1,\encoding_2$ that induce spaces $\Omega_{\encoding_1},\Omega_{\encoding_2}$ and maximum entropy distributions $\overline{\rho}_{\encoding_1},\overline{\rho}_{\encoding_2}$ it holds that $\encoding_1 \leq_\Omega \encoding_2\to e(\encoding_1)\leq e(\encoding_2)$. 
+\end{lemma}
+\begin{proof} 
+First we have $\Omega_{\encoding_2}\supseteq \Omega_{\encoding_1}\to\overline{\rho}_{\encoding_1}\in\Omega_{\encoding_2}$. Since $\overline{\rho}_{\encoding_2}$ has the maximum entropy among all distributions $\rho\in\Omega_{\encoding_2}$, we have $\entropy(\overline{\rho}_{\encoding_1})\leq\entropy(\overline{\rho}_{\encoding_2})\equiv e(\encoding_1)\leq e(\encoding_2)$. 
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tinysection{Containment Captures Ambiguity} Next, we show that the partial order based on containment implies a like relationship between Ambiguities of pairs of encodings.
+\begin{lemma}
+\label{prop:containmentrepresentativeness}
+Given encodings $\encoding_1,\encoding_2$ with uninformed prior on $\mathcal{P}_{\encoding_1},\mathcal{P}_{\encoding_2}$, it holds that $\encoding_1 \leq_\Omega \encoding_2\to \text{I}(\encoding_1)\leq \text{I}(\encoding_2)$.
+\end{lemma}
+\begin{proof}
+Given an uninformed prior: $\text{I}(\encoding)=\log|\Omega_\encoding|$, we have $\encoding_1 \leq_\Omega \encoding_2\to|\Omega_{\encoding_1}|\leq|\Omega_{\encoding_2}|\to \text{I}(\encoding_1)\leq \text{I}(\encoding_2)$ 
+\end{proof}
+

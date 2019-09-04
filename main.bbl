@@ -1,0 +1,317 @@
+\begin{thebibliography}{10}
+
+\bibitem{DBLP:conf/sigmod/AbadiMF06}
+D.~J. Abadi, S.~Madden, and M.~Ferreira.
+\newblock Integrating compression and execution in column-oriented database
+  systems.
+\newblock In S.~Chaudhuri, V.~Hristidis, and N.~Polyzotis, editors, {\em
+  Proceedings of the {ACM} {SIGMOD} International Conference on Management of
+  Data, Chicago, Illinois, USA, June 27-29, 2006}, pages 671--682. {ACM}, 2006.
+
+\bibitem{DBLP:conf/vldb/AgrawalCN00}
+S.~Agrawal, S.~Chaudhuri, and V.~R. Narasayya.
+\newblock Automated selection of materialized views and indexes in {SQL}
+  databases.
+\newblock In A.~E. Abbadi, M.~L. Brodie, S.~Chakravarthy, U.~Dayal, N.~Kamel,
+  G.~Schlageter, and K.~Whang, editors, {\em {VLDB} 2000, Proceedings of 26th
+  International Conference on Very Large Data Bases, September 10-14, 2000,
+  Cairo, Egypt}, pages 496--505. Morgan Kaufmann, 2000.
+
+\bibitem{DBLP:journals/kais/AligonGMRT14}
+J.~Aligon, M.~Golfarelli, P.~Marcel, S.~Rizzi, and E.~Turricchia.
+\newblock Similarity measures for {OLAP} sessions.
+\newblock {\em Knowl. Inf. Syst.}, 39(2):463--489, 2014.
+
+\bibitem{DBLP:conf/vldb/JohnsonA00}
+S.~Amer{-}Yahia and T.~Johnson.
+\newblock Optimizing queries on compressed bitmaps.
+\newblock In A.~E. Abbadi, M.~L. Brodie, S.~Chakravarthy, U.~Dayal, N.~Kamel,
+  G.~Schlageter, and K.~Whang, editors, {\em {VLDB} 2000, Proceedings of 26th
+  International Conference on Very Large Data Bases, September 10-14, 2000,
+  Cairo, Egypt}, pages 329--338. Morgan Kaufmann, 2000.
+
+\bibitem{Antoshenkov:1995:BBC:874051.874730}
+G.~Antoshenkov.
+\newblock Byte-aligned bitmap compression.
+\newblock In {\em Proceedings of the Conference on Data Compression}, DCC '95,
+  pages 476--, Washington, DC, USA, 1995. IEEE Computer Society.
+
+\bibitem{DBLP:journals/vldb/AntoshenkovZ96}
+G.~Antoshenkov and M.~Ziauddin.
+\newblock Query processing and optimization in oracle rdb.
+\newblock {\em {VLDB} J.}, 5(4):229--237, 1996.
+
+\bibitem{DBLP:conf/adbis/AouicheJD06}
+K.~Aouiche, P.~Jouve, and J.~Darmont.
+\newblock Clustering-based materialized view selection in data warehouses.
+\newblock In Y.~Manolopoulos, J.~Pokorn{\'{y}}, and T.~K. Sellis, editors, {\em
+  Advances in Databases and Information Systems, 10th East European Conference,
+  {ADBIS} 2006, Thessaloniki, Greece, September 3-7, 2006, Proceedings}, volume
+  4152 of {\em Lecture Notes in Computer Science}, pages 81--95. Springer,
+  2006.
+
+\bibitem{DBLP:journals/cacm/Blei12}
+D.~M. Blei.
+\newblock Probabilistic topic models.
+\newblock {\em Commun. {ACM}}, 55(4):77--84, 2012.
+
+\bibitem{Boyd:2004:CO:993483}
+S.~Boyd and L.~Vandenberghe.
+\newblock {\em Convex Optimization}.
+\newblock Cambridge University Press, New York, NY, USA, 2004.
+
+\bibitem{DBLP:conf/sigmod/BrunoC05}
+N.~Bruno and S.~Chaudhuri.
+\newblock Automatic physical database tuning: {A} relaxation-based approach.
+\newblock In F.~{\"{O}}zcan, editor, {\em Proceedings of the {ACM} {SIGMOD}
+  International Conference on Management of Data, Baltimore, Maryland, USA,
+  June 14-16, 2005}, pages 227--238. {ACM}, 2005.
+
+\bibitem{DBLP:conf/sigmod/BrunoCG01}
+N.~Bruno, S.~Chaudhuri, and L.~Gravano.
+\newblock Stholes: {A} multidimensional workload-aware histogram.
+\newblock In S.~Mehrotra and T.~K. Sellis, editors, {\em Proceedings of the
+  2001 {ACM} {SIGMOD} international conference on Management of data, Santa
+  Barbara, CA, USA, May 21-24, 2001}, pages 211--222. {ACM}, 2001.
+
+\bibitem{DBLP:journals/debu/ChatzopoulouEKMPV11}
+G.~Chatzopoulou, M.~Eirinaki, S.~Koshy, S.~Mittal, N.~Polyzotis, and J.~S.~V.
+  Varman.
+\newblock The querie system for personalized query recommendations.
+\newblock {\em {IEEE} Data Eng. Bull.}, 34(2):55--60, 2011.
+
+\bibitem{DBLP:conf/vldb/ChaudhuriN97}
+S.~Chaudhuri and V.~R. Narasayya.
+\newblock An efficient cost-driven index selection tool for microsoft {SQL}
+  server.
+\newblock In M.~Jarke, M.~J. Carey, K.~R. Dittrich, F.~H. Lochovsky,
+  P.~Loucopoulos, and M.~A. Jeusfeld, editors, {\em VLDB'97, Proceedings of
+  23rd International Conference on Very Large Data Bases, August 25-29, 1997,
+  Athens, Greece}, pages 146--155. Morgan Kaufmann, 1997.
+
+\bibitem{DBLP:conf/icalp/Dwork06}
+C.~Dwork.
+\newblock Differential privacy.
+\newblock In M.~Bugliesi, B.~Preneel, V.~Sassone, and I.~Wegener, editors, {\em
+  Automata, Languages and Programming, 33rd International Colloquium, {ICALP}
+  2006, Venice, Italy, July 10-14, 2006, Proceedings, Part {II}}, volume 4052
+  of {\em Lecture Notes in Computer Science}, pages 1--12. Springer, 2006.
+
+\bibitem{DBLP:journals/tods/FinkelsteinST88}
+S.~J. Finkelstein, M.~Schkolnick, and P.~Tiberio.
+\newblock Physical database design for relational databases.
+\newblock {\em {ACM} Trans. Database Syst.}, 13(1):91--128, 1988.
+
+\bibitem{DBLP:journals/pvldb/GebalyAGKS14}
+K.~E. Gebaly, P.~Agrawal, L.~Golab, F.~Korn, and D.~Srivastava.
+\newblock Interpretable and informative explanations of outcomes.
+\newblock {\em {PVLDB}}, 8(1):61--72, 2014.
+
+\bibitem{DBLP:journals/jdwm/GiacomettiMNS11}
+A.~Giacometti, P.~Marcel, E.~Negre, and A.~Soulet.
+\newblock Query recommendations for {OLAP} discovery-driven analysis.
+\newblock {\em {IJDWM}}, 7(2):1--25, 2011.
+
+\bibitem{cvx}
+M.~Grant and S.~Boyd.
+\newblock {CVX}: Matlab software for disciplined convex programming, version
+  2.1.
+\newblock \url{http://cvxr.com/cvx}, Mar. 2014.
+
+\bibitem{DBLP:journals/datamine/HanCXY07}
+J.~Han, H.~Cheng, D.~Xin, and X.~Yan.
+\newblock Frequent pattern mining: current status and future directions.
+\newblock {\em Data Min. Knowl. Discov.}, 15(1):55--86, 2007.
+
+\bibitem{DBLP:journals/pvldb/HuRCLZ08}
+L.~Hu, K.~A. Ross, Y.~Chang, C.~A. Lang, and D.~Zhang.
+\newblock Queryscope: visualizing queries for repeatable database tuning.
+\newblock {\em {PVLDB}}, 1(2):1488--1491, 2008.
+
+\bibitem{4051119}
+D.~A. Huffman.
+\newblock A method for the construction of minimum-redundancy codes.
+\newblock {\em Proceedings of the IRE}, 40(9):1098--1101, Sept 1952.
+
+\bibitem{DBLP:journals/prl/Jain10}
+A.~K. Jain.
+\newblock Data clustering: 50 years beyond k-means.
+\newblock {\em Pattern Recognition Letters}, 31(8):651--666, 2010.
+
+\bibitem{DBLP:journals/tssc/Jaynes68}
+E.~T. Jaynes.
+\newblock Prior probabilities.
+\newblock {\em {IEEE} Trans. Systems Science and Cybernetics}, 4(3):227--241,
+  1968.
+
+\bibitem{DBLP:reference/stat/Jolliffe11}
+I.~T. Jolliffe.
+\newblock Principal component analysis.
+\newblock In M.~Lovric, editor, {\em International Encyclopedia of Statistical
+  Science}, pages 1094--1096. Springer, 2011.
+
+\bibitem{DBLP:journals/vldb/KamraTB08}
+A.~Kamra, E.~Terzi, and E.~Bertino.
+\newblock Detecting anomalous access patterns in relational databases.
+\newblock {\em {VLDB} J.}, 17(5):1063--1077, 2008.
+
+\bibitem{DBLP:journals/jacm/KannanVV04}
+R.~Kannan, S.~Vempala, and A.~Vetta.
+\newblock On clusterings: Good, bad and spectral.
+\newblock {\em J. {ACM}}, 51(3):497--515, 2004.
+
+\bibitem{DBLP:conf/tpctc/KennedyACZ15}
+O.~Kennedy, J.~A. Ajay, G.~Challen, and L.~Ziarek.
+\newblock Pocket data: The need for {TPC-MOBILE}.
+\newblock In R.~Nambiar and M.~Poess, editors, {\em Performance Evaluation and
+  Benchmarking: Traditional to Big Data to Internet of Things - 7th {TPC}
+  Technology Conference, {TPCTC} 2015, Kohala Coast, HI, USA, August 31 -
+  September 4, 2015. Revised Selected Papers}, volume 9508 of {\em Lecture
+  Notes in Computer Science}, pages 8--25. Springer, 2015.
+
+\bibitem{DBLP:journals/pvldb/KhoussainovaKBS11}
+N.~Khoussainova, Y.~Kwon, M.~Balazinska, and D.~Suciu.
+\newblock Snipsuggest: Context-aware autocompletion for {SQL}.
+\newblock {\em {PVLDB}}, 4(1):22--33, 2010.
+
+\bibitem{DBLP:journals/ai/KnightM02}
+K.~Knight and D.~Marcu.
+\newblock Summarization beyond sentence extraction: {A} probabilistic approach
+  to sentence compression.
+\newblock {\em Artif. Intell.}, 139(1):91--107, 2002.
+
+\bibitem{DBLP:conf/www/KulLXCCKU16}
+G.~Kul, D.~Luong, T.~Xie, P.~Coonan, V.~Chandola, O.~Kennedy, and S.~J.
+  Upadhyaya.
+\newblock Ettu: Analyzing query intents in corporate databases.
+\newblock In J.~Bourdeau, J.~Hendler, R.~Nkambou, I.~Horrocks, and B.~Y. Zhao,
+  editors, {\em Proceedings of the 25th International Conference on World Wide
+  Web, {WWW} 2016, Montreal, Canada, April 11-15, 2016, Companion Volume},
+  pages 463--466. {ACM}, 2016.
+
+\bibitem{8352666}
+G.~Kul, D.~T.~A. Luong, T.~Xie, V.~Chandola, O.~Kennedy, and S.~Upadhyaya.
+\newblock Similarity metrics for sql query clustering.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
+  30(12):2408--2420, Dec 2018.
+
+\bibitem{DBLP:conf/trustcom/KulUC18}
+G.~Kul, S.~J. Upadhyaya, and V.~Chandola.
+\newblock Detecting data leakage from databases on android apps with concept
+  drift.
+\newblock In {\em IEEE TrustCom}, pages 905--913, 2018.
+
+\bibitem{lee1999learning}
+D.~D. Lee and H.~S. Seung.
+\newblock Learning the parts of objects by non-negative matrix factorization.
+\newblock {\em Nature}, 401(6755):788, 1999.
+
+\bibitem{DBLP:conf/simbig/MakiyamaRS15}
+V.~H. Makiyama, J.~Raddick, and R.~D.~C. Santos.
+\newblock Text mining applied to {SQL} queries: {A} case study for the {SDSS}
+  skyserver.
+\newblock In J.~A. Lossio{-}Ventura and H.~Alatrista{-}Salas, editors, {\em
+  Proceedings of the 2nd Annual International Symposium on Information
+  Management and Big Data - SIMBig 2015, Cusco, Peru, September 2-4, 2015.},
+  volume 1478 of {\em {CEUR} Workshop Proceedings}, pages 66--72. CEUR-WS.org,
+  2015.
+
+\bibitem{DBLP:journals/tkdd/MampaeyVT12}
+M.~Mampaey, J.~Vreeken, and N.~Tatti.
+\newblock Summarizing data succinctly with the most informative itemsets.
+\newblock {\em {TKDD}}, 6(4):16:1--16:42, 2012.
+
+\bibitem{DBLP:conf/icdm/MittalVCEP10}
+S.~Mittal, J.~S.~V. Varman, G.~Chatzopoulou, M.~Eirinaki, and N.~Polyzotis.
+\newblock Querie: {A} query recommender system supporting interactive database
+  exploration.
+\newblock In W.~Fan, W.~Hsu, G.~I. Webb, B.~Liu, C.~Zhang, D.~Gunopulos, and
+  X.~Wu, editors, {\em {ICDMW} 2010, The 10th {IEEE} International Conference
+  on Data Mining Workshops, Sydney, Australia, 13 December 2010}, pages
+  1411--1414. {IEEE} Computer Society, 2010.
+
+\bibitem{DBLP:journals/acj/MoffatZ94}
+A.~Moffat and J.~Zobel.
+\newblock Compression and fast indexing for multi-gigabyte text databases.
+\newblock {\em Australian Computer Journal}, 26(1):1--9, 1994.
+
+\bibitem{DBLP:journals/jota/ODonoghueCPB16}
+B.~O'Donoghue, E.~Chu, N.~Parikh, and S.~P. Boyd.
+\newblock Conic optimization via operator splitting and homogeneous self-dual
+  embedding.
+\newblock {\em J. Optimization Theory and Applications}, 169(3):1042--1068,
+  2016.
+
+\bibitem{DBLP:conf/cidr/PavloAALLMMMPQS17}
+A.~Pavlo, G.~Angulo, J.~Arulraj, H.~Lin, J.~Lin, L.~Ma, P.~Menon, T.~C. Mowry,
+  M.~Perron, I.~Quah, S.~Santurkar, A.~Tomasic, S.~Toor, D.~V. Aken, Z.~Wang,
+  Y.~Wu, R.~Xian, and T.~Zhang.
+\newblock Self-driving database management systems.
+\newblock In {\em {CIDR}}, 2017.
+
+\bibitem{scikit-learn}
+F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
+  M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
+  D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay.
+\newblock Scikit-learn: Machine learning in {P}ython.
+\newblock {\em Journal of Machine Learning Research}, 12:2825--2830, 2011.
+
+\bibitem{DBLP:conf/adbis/SkibinskiS07a}
+P.~Skibinski and J.~Swacha.
+\newblock Fast and efficient log file compression.
+\newblock In Y.~E. Ioannidis, B.~Novikov, and B.~Rachev, editors, {\em
+  Communications of the Eleventh East-European Conference on Advances in
+  Databases and Information Systems, Varna, Bulgaria, September 29 - October 3,
+  2007}, volume 325 of {\em {CEUR} Workshop Proceedings}. CEUR-WS.org, 2007.
+
+\bibitem{DBLP:conf/acl/WangZLG09}
+D.~Wang, S.~Zhu, T.~Li, and Y.~Gong.
+\newblock Multi-document summarization using sentence-based topic models.
+\newblock In {\em {ACL} 2009, Proceedings of the 47th Annual Meeting of the
+  Association for Computational Linguistics and the 4th International Joint
+  Conference on Natural Language Processing of the AFNLP, 2-7 August 2009,
+  Singapore, Short Papers}, pages 297--300. The Association for Computer
+  Linguistics, 2009.
+
+\bibitem{DBLP:books/nostrand/WittenMT94}
+I.~H. Witten, A.~Moffat, and T.~C. Bell.
+\newblock {\em Managing Gigabytes: Compressing and Indexing Documents and
+  Images}.
+\newblock Van Nostrand Reinhold, 1994.
+
+\bibitem{DBLP:conf/ssdbm/WuOS02}
+K.~Wu, E.~J. Otoo, and A.~Shoshani.
+\newblock Compressing bitmap indexes for faster search operations.
+\newblock In {\em Proceedings of the 14th International Conference on
+  Scientific and Statistical Database Management, July 24-26, 2002, Edinburgh,
+  Scotland, {UK}}, pages 99--108. {IEEE} Computer Society, 2002.
+
+\bibitem{DBLP:journals/corr/abs-1809-00405}
+T.~Xie, O.~Kennedy, and V.~Chandola.
+\newblock Query log compression for workload analytics.
+\newblock {\em CoRR}, abs/1809.00405, 2018.
+
+\bibitem{DBLP:conf/icde/YangPS09}
+X.~Yang, C.~M. Procopiuc, and D.~Srivastava.
+\newblock Recommending join queries via query log analysis.
+\newblock In Y.~E. Ioannidis, D.~L. Lee, and R.~T. Ng, editors, {\em
+  Proceedings of the 25th International Conference on Data Engineering, {ICDE}
+  2009, March 29 2009 - April 2 2009, Shanghai, China}, pages 964--975. {IEEE}
+  Computer Society, 2009.
+
+\bibitem{DBLP:journals/tit/ZivL77}
+J.~Ziv and A.~Lempel.
+\newblock A universal algorithm for sequential data compression.
+\newblock {\em {IEEE} Trans. Information Theory}, 23(3):337--343, 1977.
+
+\bibitem{DBLP:journals/tit/ZivL78}
+J.~Ziv and A.~Lempel.
+\newblock Compression of individual sequences via variable-rate coding.
+\newblock {\em {IEEE} Trans. Information Theory}, 24(5):530--536, 1978.
+
+\bibitem{DBLP:journals/csur/ZobelM06}
+J.~Zobel and A.~Moffat.
+\newblock Inverted files for text search engines.
+\newblock {\em {ACM} Comput. Surv.}, 38(2):6, 2006.
+
+\end{thebibliography}

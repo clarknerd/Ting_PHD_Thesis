@@ -1,0 +1,281 @@
+% !TEX root = ../paper.tex
+To fairly evaluate \textit{Laserlight} and \textit{MTV}, we incorporate their own data sets and empirically evaluate them against \textit{naive mixture encoding} under their own applications.
+
+\tinysection{Data Sets}
+Specifically, we choose \textit{Mushroom} data set used in \textit{MTV}~\cite{DBLP:journals/tkdd/MampaeyVT12} which is obtained from FIMI dataset repository and U.S. Census data on Income or simply \textit{Income} data set, which is downloaded from IPUMS-USA at \textit{https://usa.ipums.org/usa/} and used in \textit{Laserlight}~\cite{DBLP:journals/pvldb/GebalyAGKS14}.
+The basic statistics of the data sets are given in Table~\ref{table:extendeddatasummary}.
+
+\begin{table}[h!]
+\centering
+\bfcaption{Data Sets of Alternative Applications}
+\label{table:extendeddatasummary}
+{\small \centering
+\begin{tabular}{c c c}
+\toprule
+Statistics & Income & Mushroom \\
+\midrule
+\# Distinct data tuples & 777493 & 8124\\
+\midrule
+\# Features per tuple & 9 & 21\\
+\midrule
+Feature Binary-valued? & no& no\\
+\midrule
+\# Distinct features & 783 & 95\\
+\midrule
+Binary Classification Feature & $>100,000$? & Edibility\\
+\midrule
+Assumed data tuple multiplicity & 1 & 1\\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\subsection{Experiments}
+\label{sec:evaluatingalternativeapplicationsexperiments}
+All experiments involving \textit{Laserlight} and \textit{MTV} will be evaluated under their own Error measures and data sets, unless otherwise stated.
+The experiments are organized as follows: First, we establish baselines by evaluating classical \textit{Laserlight} and \textit{MTV} on their original data; Then we show that classical \textit{Laserlight} and \textit{MTV} can be generalized to partitioned data and that the generalization improves on their Error measures and also runtime; At last, we compare their generalized versions with \textit{naive mixture encoding} to show that \textit{naive mixture encoding} is a reasonable alternative.% in terms of run time and Error.
+
+\subsubsection{Error Measures}
+We first explain how \textit{naive mixture encoding} is evaluated based on Error defined by \textit{Laserlight} and \textit{MTV}.
+
+\tinysection{Evaluating Naive Encoding on Laserlight Error}
+Algorithm \textit{Laserlight} summarizes data $D$ which consists of feature vectors $t$ augmented by some binary feature $v$.
+Denote the valuation of the binary feature $v$ for each feature vector $t$ as $v(t)$. 
+The goal is to mine a summary encoding $\encoding$, which is a set of patterns contained in $t\in D$ that offer predictive power on $v(t)$.
+Denote the estimation (based on $\encoding$) of $v(t)$ as $u_{\encoding}(t)\in [0,1]$, the \textit{Laserlight} Error is measured by $$\sum_t ( v(t)\log(\frac{v(t)}{u_{\encoding}(t)})+(1-v(t))\log(\frac{1-v(t)}{1-u_{\encoding}(t)}) )$$
+Since \textit{naive encoding} $\naiveencoding$  assumes feature independence, estimation of $v(t)$ is independent of $t$, namely $u_{\naiveencoding}(t)=u_{\naiveencoding}=|\{\tau|v(\tau)=1,\tau\in D\}|/|D|$.
+Consequently, the \textit{Laserlight} Error of \textit{naive encoding} is $$-|D|(u_{\naiveencoding}\log u_{\naiveencoding}+(1-u_{\naiveencoding})\log (1-u_{\naiveencoding}) )$$
+
+\tinysection{Evaluating Naive Encoding on MTV Error}
+Given binary feature vectors $D$, the \textit{MTV} Error of encoding $\encoding$ is $$-|D|H(\overline{\rho}_\encoding)+1/2|\encoding|\log|D|$$ where $H(\overline{\rho}_\encoding)$ is the entropy of maximum entropy distribution $\overline{\rho}_\encoding$ defined in Section~\ref{sec:maximumentropydistribution}.
+The second term in \textit{MTV} Error penalizes Verbosity of the encoding $\encoding$.
+Since naive encoding assumes feature independence, we can first compute entropy of the marginal distribution of each individual feature.
+Entropy $H(\overline{\rho}_\encoding)$ is simply the sum of feature entropies.
+
+\tinysection{Evaluating Naive Mixture Encoding}
+Evaluation of \textit{naive encoding} can be generalized to \textit{naive mixture} by taking a weighted average over resulting clusters (See Section~\ref{sec:generalizedinformationlossmeasures}).
+
+%\begin{figure}[ht!]
+%    \captionsetup[subfigure]{justification=centering}
+%    \centering
+%    \begin{subfigure}[b]{0.48\textwidth}
+%        \centering       
+%        \includegraphics[width=\textwidth]{graphics/Laserlight_Error_vs_NumOfPatterns.pdf}
+%        \bfcaption{Laserlight Error v. \# of Patterns on Income data}
+%        \label{fig:Laserlight_Error_vs_NumOfPatterns}
+%    \end{subfigure}
+%    ~
+%    \begin{subfigure}[b]{0.48\textwidth}
+%        \centering       
+%        \includegraphics[width=\textwidth]{graphics/MTV_Error_vs_NumOfPatterns.pdf}
+%        \bfcaption{MTV Error v. \# of Patterns on Mushroom data}     
+%        \label{fig:MTV_Error_vs_NumOfPatterns}
+%    \end{subfigure}
+%    ~
+%    \bfcaption{Error v. Number of Patterns. Note: non-zero start of y-axis.}   \label{fig:performance_vs_num_of_patterns}
+%    \trimfigurewhitespace
+%\end{figure}
+
+\subsubsection{Classical Laserlight and MTV}
+\label{sec:classicallaserlightandmtv}
+
+\tinysection{Establishing Baselines} 
+To establish baselines, we evaluate \textit{Laserlight} and \textit{MTV} on their own data sets.
+The take-aways from related experiments are that (1) \textit{naive encoding} is faster and more accurate than classical \textit{Laserlight} and \textit{MTV}; (2) the runtime increases superlinearly with the number of patterns mined from both \textit{Laserlight} and \textit{MTV}.
+For detailed experiment results, we refer the reader to~\cite{DBLP:journals/corr/abs-1809-00405}. 
+
+\tinysection{Anti-correlation and Dimentionality Reduction}
+Recall in Section~\ref{sec:refiningnaivemixtureencodings} that \textit{Laserlight} is restricted to $100$ features.
+For its own \textit{Income} data set, \textit{Laserlight} can be applied with its full set of $783$ features.
+This is due to the prior knowledge that the $783$ features belong to $9$ groups.
+In each group, features are mutually anti-correlated which can be reduced to a single feature.
+Similarly, \textit{Mushroom} data set can be reduced from $95$ to $21$ features.% (See Table~\ref{table:extendeddatasummary}).
+
+%The results related to Error measures are given in Figure~\ref{fig:performance_vs_num_of_patterns}.
+%X-axis is the number of patterns and y-axis represents the Error measure of \textit{Laserlight} and \textit{MTV} in Figure~\ref{fig:Laserlight_Error_vs_NumOfPatterns} and~\ref{fig:MTV_Error_vs_NumOfPatterns} respectively.
+%We incorporate \textit{naive encoding} in Figure~\ref{fig:Laserlight_Error_vs_NumOfPatterns} as the reference method.
+%Since there are $784$ total number of features for \textit{Income} data set, the verbosity of \textit{naive encoding} will be $784$, which is shown as vertical dotted line in Figure~\ref{fig:Laserlight_Error_vs_NumOfPatterns}.
+%For \textit{Mushroom} data set, the verbosity of its \textit{naive encoding} will be $96$.
+%However, \textit{MTV} quits with error message if it is requested to mine over $15$ patterns.
+%Hence for Figure~\ref{fig:MTV_Error_vs_NumOfPatterns}, the limit of x-axis is $15$ and we only show Error of \textit{naive encoding} as a reference line without marking out its verbosity. 
+%We observe in Figure~\ref{fig:Laserlight_Error_vs_NumOfPatterns} that \textit{naive encoding} outperforms \textit{Laserlight} when their verbosity is equal (i.e., $784$).
+%In addition, after $100$ patterns, the slope of Error reduction becomes relatively flat.
+%Similar observation can be made from Figure~\ref{fig:MTV_Error_vs_NumOfPatterns}.
+
+%\begin{figure}[h!]
+%	\captionsetup[subfigure]{justification=centering}
+%    \centering
+%
+%    \begin{subfigure}[b]{0.48\textwidth}
+%        \centering       
+%        \includegraphics[width=\textwidth]{graphics/Laserlight_runningTimes_vs_NumOfPatterns.pdf}
+% \bfcaption{Laserlight Running Time on Income Data}      \label{fig:laserlight_runningTimes_vs_NumOfPatterns}
+%\end{subfigure}
+%    ~
+%     \begin{subfigure}[b]{0.48\textwidth}
+%        \centering       
+%        \includegraphics[width=\textwidth]{graphics/MTV_runningTimes_vs_NumOfPatterns.pdf}
+% \bfcaption{MTV Running Time on Mushroom data}      \label{fig:mtv_runningTimes_vs_NumOfPatterns}
+%\end{subfigure}
+%    ~   
+%\bfcaption{Running Time of Laserlight and MTV}   \label{fig:runningTime_analysis}
+%\trimfigurewhitespace
+%\end{figure}
+
+%Next we show corresponding run time results in Figure~\ref{fig:runningTime_analysis}.
+%We observe that the running time increases exponentially with the number of patterns, for both \textit{Laserlight} and \textit{MTV}.
+
+\subsubsection{Generalizing Laserlight and MTV}
+\label{sec:generalizinglaserlightandmtv}
+
+We generalize \textit{Laserlight} and \textit{MTV} on partitioned data by applying them on each cluster.
+We then combine Errors on all clusters by taking a weighted average, as described in Section~\ref{sec:generalizedinformationlossmeasures}.
+Depending on how many patterns are mined from each cluster, \textit{Laserlight} and \textit{MTV} can be generalized into two types: (1) The number of patterns mined from each cluster is scaled to be equal to Verbosity of the \emph{naive encoding}; and (2) The total number of patterns mined from all clusters is fixed to a given number.
+We name the first type \emph{Laserlight (MTV) Mixture Scaled}, which is comparable to \emph{naive mixture encoding}.
+We name the second type \emph{Laserlight (MTV) Mixture Fixed}, which is comparable to the classical \emph{LaserLight (MTV)} algorithm.
+
+%\begin{table}[h!]
+%\centering
+%\bfcaption{Summary of Comparison Methods}
+%\label{table:comparisonmethodssummary}
+%{\small \centering
+%\begin{tabular}{c c c}
+%\toprule
+%Name&Data Partition?&Parameters\\
+%\midrule
+%\emph{Classical Laserlight}&No& \# patterns\\
+%\midrule
+%\emph{Classical MTV}&No& \# patterns\\
+%\midrule
+%\emph{Laserlight Mixture Fixed}&Yes&Total\#patterns \\
+%\midrule
+%\emph{Laserlight Mixture Scaled} &Yes& None\\
+%\midrule
+%\emph{MTV Mixture} &Yes& None\\
+%\bottomrule
+%\end{tabular}
+%}
+%\end{table}
+
+%\begin{figure}[h!]
+%	\captionsetup[subfigure]{justification=centering}
+%    \centering
+%    \begin{subfigure}[b]{0.48\textwidth}
+%        \centering       
+%        \includegraphics[width=\textwidth]{graphics/LaserlightMixture_Errors_vs_NumOfClusters.pdf}
+% \bfcaption{Laserlight Error v. \# of Clusters on Income data}      \label{fig:RegularizedLaserlightMixture_Errors_vs_NumOfClusters}
+%\end{subfigure}
+%    ~
+%\begin{subfigure}[b]{0.48\textwidth}
+%  \centering       
+%  \includegraphics[width=\textwidth]{graphics/LaserlightMixture_vs_Laserlight_runningTimes_IncomeData.pdf}
+% \bfcaption{Total Running time v. \# of Clusters on Income data}     
+% \label{fig:RegularizedLaserlightMixture_vs_Laserlight_runningTimes_IncomeData}
+%\end{subfigure}
+%~
+%\bfcaption{Regularized Laserlight Mixture v. Classical Laserlight}   
+%\label{fig:Regularized_Laserlight_Mixture_vs_Classical Laserlight}
+%\trimfigurewhitespace
+%\end{figure}
+
+\tinysection{Take-away}
+As the data is partitioned into more clusters, both runtime and Error of \emph{Laserlight (MTV) Mixture Fixed} exponentially decrease.
+This observation can be potentially generalized to other pattern mining algorithms.
+For experiment details, we refer the reader to~\cite{DBLP:journals/corr/abs-1809-00405}.
+%Specifically we compare \emph{Regularized Laserlight Mixture} with \emph{Classical Laserlight}.
+%As mentioned in Figure~\ref{fig:Laserlight_Error_vs_NumOfPatterns}, the Error reduction of \emph{Laserlight} becomes relatively flat over $100$ patterns.
+%Hence we configure both \emph{Laserlight} and \emph{Regularized Laserlight Mixture} to mine a total of $100$ patterns from original data and partitioned data respectively.
+%We describe the strategy for distributing the $100$ patterns to clusters in Appendix~\ref{appendix:Configuring_Regularized Laserlight_Mixture}.
+%The experiment result is given in Figure~\ref{fig:Regularized_Laserlight_Mixture_vs_Classical Laserlight}.
+%Figure~\ref{fig:RegularizedLaserlightMixture_Errors_vs_NumOfClusters} and Figure~\ref{fig:RegularizedLaserlightMixture_vs_Laserlight_runningTimes_IncomeData} shows \emph{Regularized Laserlight Mixture} versus \emph{Classical Laserlight} in Error and run time respectively (their x-axes are the number of clusters).
+%We observe an exponentially decreasing trend (i.e., improvement) in both of these two sub-figures, which support the argument that data partitioning helps \emph{Laserlight}.
+%We omit the experiment results for \emph{MTV} as they give similar observation.
+\begin{figure}[h!]
+	\captionsetup[subfigure]{justification=centering}
+    \centering
+    \begin{subfigure}[b]{0.47\textwidth}
+        \centering       
+        \includegraphics[width=\textwidth]{QueryLogSummarization/graphics/Laserlight_Errors_vs_NumOfClusters.pdf}
+ \bfcaption{Laserlight Error v. \# of Clusters on Mushroom data}      \label{fig:LaserlightMixture_Errors_vs_NumOfClusters}
+\end{subfigure}
+    ~
+\begin{subfigure}[b]{0.47\textwidth}
+  \centering       
+  \includegraphics[width=\textwidth]{QueryLogSummarization/graphics/MTV_Error_vs_NumOfClusters.pdf}
+ \bfcaption{MTV Error v. \# of Clusters on Mushroom data}     
+ \label{fig:MTVMixture_vs_Laserlight_runningTimes_IncomeData}
+\end{subfigure}
+~
+%\begin{subfigure}[b]{0.48\textwidth}
+%  \centering       
+%  \includegraphics[width=\textwidth]{graphics/Laserlight_MTV_Mixture_NotFixed_runningTimes_vs_NumOfClusters.pdf}
+% \bfcaption{Total Running Time (log scale) v. \# of Clusters on Mushroom data}     
+% \label{fig:Laserlight_MTV_Mixture_NotFixed_runningTimes_vs_NumOfClusters}
+%\end{subfigure}
+%~
+\bfcaption{Naive Mixture v. Laserlight/MTV Mixture}   
+\label{fig:Naive Mixture Encoding_vs_Laserlight&MTV_Mixture}
+\trimfigurewhitespace
+\end{figure}
+\subsubsection{Comparison with Naive Mixture Encoding}
+\label{sec:Evaluating_Naive_Mixture_Encoding}
+
+At last, we compare \emph{Laserlight (MTV) Mixture Scaled} with \emph{naive mixture encoding}.
+Note that it is time-consuming for \emph{Laserlight} to mine the same number of patterns as \emph{naive encoding} on \emph{Income} data (See runtime analysis in~\cite{DBLP:journals/corr/abs-1809-00405}), we choose \emph{Mushroom} data for \emph{Laserlight Mixture Scaled} instead.
+The experiment results are given in Figure~\ref{fig:Naive Mixture Encoding_vs_Laserlight&MTV_Mixture}. 
+The x-axis for all sub-figures in Figure~\ref{fig:Naive Mixture Encoding_vs_Laserlight&MTV_Mixture} represents the number of clusters and the y-axes stands for \emph{Laserlight} and \emph{MTV} Error respectively.
+We incorporate baselines (i.e., \emph{naive encoding}, classical \emph{Laserlight} and \emph{MTV}) as reference lines in Figure~\ref{fig:LaserlightMixture_Errors_vs_NumOfClusters} and~\ref{fig:MTVMixture_vs_Laserlight_runningTimes_IncomeData} respectively.
+We also experienced a limitation of $15$ patterns for \emph{MTV}.
+Hence the comparison between \emph{MTV Mixture Scaled} and {naive mixture encoding} is not strictly on equal footing as \emph{MTV Mixture Scaled} is not able to reach the same Total Verbosity as \emph{naive mixture encoding}.
+Note that their difference in Verbosity is mitigated by the fact that \emph{MTV} Error measure penalizes encoding Verbosity.
+
+Figure~\ref{fig:LaserlightMixture_Errors_vs_NumOfClusters} shows that both \emph{naive mixture encoding} and \emph{Laserlight Mixture Scaled} have lower Error than their baselines.
+In addition, \emph{Laserlight Mixture Scaled} has lower Error than \emph{naive mixture encoding} when the number of clusters is less than $4$ and they become close after $6$ clusters.
+In other words, \emph{Laserlight} is more accurate on lightly partitioned data. 
+As the data is further partitioned, clusters become easier to summarize, and \emph{naive encoding} becomes more similar to \emph{Laserlight}.
+Figure~\ref{fig:MTVMixture_vs_Laserlight_runningTimes_IncomeData} shows that \emph{naive mixture encoding} marginally outperforms \emph{MTV Mixture Scaled}.
+
+%Figure~\ref{fig:Laserlight_MTV_Mixture_NotFixed_runningTimes_vs_NumOfClusters} shows the difference between all methods in run time.
+%Note that y-axis (run time) is in logarithmic scale.
+%We observe that naive mixtures is much faster than \emph{Laserlight} and \emph{MTV}.
+
+\tinysection{Take-away}
+\emph{Naive mixture encoding} is faster and has similar (lower) Error than \emph{Laserlight (MTV) Mixture Scaled}.
+
+%\tinysection{From MTV Performance to \errorname}
+%The performance measure of \emph{MTV} is also derived from the \emph{maximum entropy distribution} (See Section~\ref{sec:maximumentropydistribution}), we can also compare naive mixtures with \emph{MTV} based on \errorname.
+
+%\begin{figure}[h!]
+%	\captionsetup[subfigure]{justification=centering}
+%    \centering
+%
+%    \begin{subfigure}[b]{0.48\textwidth}
+%        \centering       
+%        \includegraphics[width=\textwidth]{graphics/MTV_Error_ReproductionError_vs_NumOfPatterns.pdf}
+% \bfcaption{\errorname v. MTV Error Measure}      \label{fig:ReproductionError_vs_MTVError}
+%\end{subfigure}
+%    ~
+%     \begin{subfigure}[b]{0.48\textwidth}
+%        \centering       
+%        \includegraphics[width=\textwidth]{graphics/MTV_ReproductionError_vs_NumOfPatterns.pdf}
+% \bfcaption{\errorname v. \# of Patterns on \emph{Mushroom}}      \label{fig:MTV_ReproductionError_vs_NumOfPatterns}
+%\end{subfigure}
+%    ~   
+%   \begin{subfigure}[b]{0.48\textwidth}
+%        \centering       
+%        \includegraphics[width=\textwidth]{graphics/MTV_ReproductionError_vs_NumOfClusters.pdf}
+% \bfcaption{\errorname v. \# of Clusters on \emph{Mushroom}}      \label{fig:MTV_ReproductionError_vs_NumOfClusters}
+%\end{subfigure}
+%    ~   
+%\bfcaption{Compare Naive Mixture Encoding with MTV using \errorname on \emph{Mushroom} data.}   \label{fig:CompareMTVBasedOnReproductionError}
+%\trimfigurewhitespace
+%\end{figure}
+
+%First we show in Figure~\ref{fig:ReproductionError_vs_MTVError} that \errorname is closely correlated with performance measure of \emph{MTV} based on its own data set.
+%Note that in Figure~\ref{fig:ReproductionError_vs_MTVError}, for correctly comparing them on the equal footing, we normalized values of both \errorname and \emph{MTV} error measure by subtracting their means and dividing by their standard deviations.
+%Figure~\ref{fig:MTV_ReproductionError_vs_NumOfPatterns} then shows the experiment result of comparing naive mixtures with \emph{MTV} using \errorname based on \emph{mushroom} data (\textbf{not} partitioned), under different number of patterns.
+%In Figure~\ref{fig:MTV_ReproductionError_vs_NumOfPatterns}, we adopt the tradition of Figure~\ref{fig:PatternMixtureEncodingErrorComparisonPiggybacking_bankdata}, taking three cases into consideration: (1) naive mixtures alone, as a reference; (2) \emph{MTV} alone and (3) naive mixtures refined by piggybacking patterns mined by \emph{MTV}.
+%By varying the number of patterns, we observe that naive mixtures (\emph{naive encoding} when data is not partitioned) provides better performance and can be refined by \emph{MTV}.
+%Next we partition the data the same way as in Figure~\ref{fig:performance_vs_Num_of_Clusters} and Figure~\ref{fig:MTV_ReproductionError_vs_NumOfClusters} shows the comparison under the three cases when the number clusters gradually increase.
+%We observe that naive mixtures provides better performance and can be refined by \emph{MTV} consistently under every data partitioning.
+%This fact further supports the conclusion we made from Figure~\ref{fig:performance_vs_Num_of_Clusters}.
