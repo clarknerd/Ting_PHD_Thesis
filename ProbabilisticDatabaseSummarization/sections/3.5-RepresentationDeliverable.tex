@@ -1,0 +1,40 @@
+A pattern-based summary not only delivers marginals that it contains, but also helps in estimating those that are not explicitly given.
+
+\tinysection{Naive Summary Revisited}
+Before detailed explanation, we first consider an intuitive example.
+There is one specific family of pattern-based summaries that treat each tuple as being independent, which is equivalent to naive summaries discuss in Section~\ref{sec:outputrepresentation}.
+As a re-phrase, we call a pattern-based summary as a naive summary $\naiveencoding$ if it is composed of all patterns that have exactly one possible tuple $\tuplesymbol_i$ with marginal $p(X_i\geq 1)$:
+$$domain(\naiveencoding)=\comprehension{(0, \ldots, 0, x_i, 0, \ldots, 0)}{i \in [1,n],\; x_i = 1}$$
+To estimate marginals not given in the summary, we apply multiplication $$p(X_1\geq x_1,\ldots,X_n\geq x_n)=\Pi_{i=1,n}\, p(X_i\geq x_i)$$
+
+\tinysection{Patterns as Constraints}
+For an arbitrary summary $\encoding$, we characterize its process of marginal computation by defining a \emph{space} (denoted by $\Omega_\encoding$) of distributions $\rho \in \Omega_\encoding$ allowed by a summary $\encoding$.
+This space is defined by constraints as follows:
+First, we have the general properties of probability distributions:
+\begin{center}
+$\forall \, \instance_i\in \{0,1\}^n : \rho(\instance_i)\geq 0$
+\hspace{10mm}
+$\sum_{i=1,2^n}\rho(\instance_i)=1$
+\end{center}
+Each pattern $\pattern$ in the summary $\encoding$ constrains relevant probabilities in distribution $\rho$ to sum to the target marginal:
+\begin{equation*}
+\forall \pattern \in domain(\encoding)  :\;\; \encoding[\pattern] = \sum\nolimits_{\instance\supseteq\pattern} \rho(\instance) \;\;\;
+\end{equation*}
+The dual constraints $1-\encoding[\pattern]=\sum_{\instance\not\supseteq\pattern} \rho(\instance)$ are redundant under the constraint $\sum_i\rho(\instance_i)=1$.
+
+The resulting space $\Omega_\encoding$ is the set of all permitted distributions, or equivalently all input $\probabilisticdatabase$, that obey these constraints.
+As a result, the distribution $\rho\in\Omega_\encoding$ that the summary delivers is ambiguous: We model this ambiguity using a random variable $\mathcal P_\encoding$ with support $\Omega_\encoding$.
+The true distribution $\possibleworldsdistribution$ must appear in $\Omega_\encoding$, denoted as $\possibleworldsdistribution\equiv\truedistribution\in\Omega_\encoding$ (i.e., $p(\mathcal P_\encoding = \truedistribution) > 0$). 
+Of the remaining distributions $\rho$ admitted by $\Omega_\encoding$, it is possible that some are more likely than others.
+This prior knowledge may be modeled as a prior on the distribution of $\mathcal P_\encoding$ or equivalently by an additional constraint.
+However, for the purposes of this paper, we take the uninformed prior by assuming that $\mathcal P_\encoding$ is uniformly distributed over $\Omega_\encoding$:
+\begin{equation*}
+\label{uniformprior}
+p(\mathcal P_\encoding = \rho) = 
+\begin{cases}
+\frac{1}{|\Omega_\encoding|} & \text{if } \rho \in \Omega_\encoding\\
+0 & \text{otherwise}
+\end{cases}
+\end{equation*}
+
+The summary delivers marginals by randomly picking one permitted distribution from the entire space and aggregate probabilities accordingly.

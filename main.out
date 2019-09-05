@@ -58,7 +58,20 @@
 \BOOKMARK [1][-]{section.4.4}{Related Work}{chapter.4}% 58
 \BOOKMARK [1][-]{section.4.5}{Future Work}{chapter.4}% 59
 \BOOKMARK [0][-]{chapter.5}{Application: Summarizing Tuple Correlation in Probabilistic Databases}{}% 60
-\BOOKMARK [0][-]{chapter.6}{Findings and Discussions}{}% 61
-\BOOKMARK [0][-]{chapter.7}{Conclusions and Future Work}{}% 62
-\BOOKMARK [0][-]{chapter.7}{Bibliography}{}% 63
-\BOOKMARK [0][-]{appendix.A}{Appendix}{}% 64
+\BOOKMARK [1][-]{section.5.1}{Introduction}{chapter.5}% 61
+\BOOKMARK [1][-]{section.5.2}{Problem Definition}{chapter.5}% 62
+\BOOKMARK [2][-]{subsection.5.2.1}{Practical Input Representation}{section.5.2}% 63
+\BOOKMARK [2][-]{subsection.5.2.2}{Summarizing Joint Distribution}{section.5.2}% 64
+\BOOKMARK [2][-]{subsection.5.2.3}{Pattern-based Summary}{section.5.2}% 65
+\BOOKMARK [1][-]{section.5.3}{Marginal Estimation}{chapter.5}% 66
+\BOOKMARK [1][-]{section.5.4}{Summary Accuracy}{chapter.5}% 67
+\BOOKMARK [2][-]{subsection.5.4.1}{Query Accuracy}{section.5.4}% 68
+\BOOKMARK [3][-]{subsubsection.5.4.1.1}{Accuracy under join}{subsection.5.4.1}% 69
+\BOOKMARK [3][-]{subsubsection.5.4.1.2}{Accuracy under selection predicate}{subsection.5.4.1}% 70
+\BOOKMARK [3][-]{subsubsection.5.4.1.3}{Accuracy under project}{subsection.5.4.1}% 71
+\BOOKMARK [1][-]{section.5.5}{Constructing Summaries}{chapter.5}% 72
+\BOOKMARK [1][-]{section.5.6}{Related Work}{chapter.5}% 73
+\BOOKMARK [0][-]{chapter.6}{Findings and Discussions}{}% 74
+\BOOKMARK [0][-]{chapter.7}{Conclusions and Future Work}{}% 75
+\BOOKMARK [0][-]{chapter.7}{Bibliography}{}% 76
+\BOOKMARK [0][-]{appendix.A}{Appendix}{}% 77

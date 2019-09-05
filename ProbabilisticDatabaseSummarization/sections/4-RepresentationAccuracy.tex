@@ -1,0 +1,102 @@
+% !TEX root = ../paper.tex
+The accuracy of such delivery can be considered from two related, but subtly distinct perspectives:
+(1) \emph{Ambiguity} measures how much room the summary leaves for interpretation and 
+(2) \emph{Deviation} measures how reliably the summary approximates the target distribution $\truedistribution$.
+
+\smallskip
+\tinysection{Ambiguity}
+We define the Ambiguity $\ambiguity(\encoding)$ of a summary as the entropy of the random variable $\mathcal P_\encoding$. 
+The higher the entropy, the less precisely $\encoding$ identifies a specific distribution.
+$$\ambiguity(\encoding) = \mysuml_{\rho}p(\mathcal P_\encoding = \rho)\log \left(p(\mathcal P_\encoding=\rho)\right)$$
+
+\tinysection{Deviation}
+The deviation from any permitted distribution $\rho$ to the true distribution $\rho^*$ can be measured by the Kullback-Leibler (K-L) divergence $\mathcal{D}_{KL}(\rho^*||\rho)$.
+We define the Deviation $\deviation(\encoding)$ of a summary as the expectation of the K-L divergence over all permitted $\rho \in \Omega_\encoding$:
+$$\deviation(\encoding)=\expect_{\mathcal{P}_\encoding}\left[\mathcal{D}_{KL}(\rho^*||\mathcal{P}_\encoding)\right] = \sum_{\rho \in \Omega_\encoding} p(\mathcal P_\encoding = \rho) \cdot \mathcal{D}_{KL}(\rho^*||\rho)$$
+
+\tinysection{Limitations}
+Neither Deviation nor Ambiguity has a closed-form formula and it is not practical to enumerate the infinitely large space.
+Authors in~\cite{xie2018query} suggests that a single \emph{representative} can be chosen from the space that approximates true distribution $\truedistribution$.
+
+\tinysection{Maximum Entropy Distribution}
+The representative distribution is chosen by applying the maximum entropy principle~\cite{DBLP:journals/tssc/Jaynes68} commonly used in pattern-based encoders~\cite{DBLP:journals/tkdd/MampaeyVT12,DBLP:journals/pvldb/GebalyAGKS14}.
+That is, we select the distribution $\maximumentropydistribution_{\encoding}$ with maximum entropy:
+$$\maximumentropydistribution_{\encoding}=\argmaxl_{\rho\in\Omega_\encoding}\entropy(\rho)\;\;\;\;\;\;\text{where }\entropy(\rho)=\mysuml_{i=[1,2^n]}-\rho(I_i)\log \rho(I_i)$$
+The maximum entropy distribution best represents the current state of knowledge.
+That is, a distribution with lower entropy assumes additional constraints derived from patterns that we do not know, while one with higher entropy violates the constraints from patterns we do know.
+
+Maximizing an objective function belonging to the exponential family (entropy in our case) under a mixture of linear equality/inequality constraints is a convex optimization problem~\cite{Boyd:2004:CO:993483} which guarantees a \emph{unique} solution and can be solved using the cvx toolkit~\cite{cvx}, and/or by \textit{iterative scaling}~\cite{DBLP:journals/tkdd/MampaeyVT12,DBLP:journals/pvldb/GebalyAGKS14}.
+
+\tinysection{Naive Summary revisited}
+For naive summaries $\naiveencoding$ specifically, $\maximumentropydistribution_{\naiveencoding}$ has the closed-form representation:
+\begin{equation*}
+\maximumentropydistribution_{\naiveencoding}(I)=\prod_{i}p(X_i=x_i)\;\;\;\;\;\;\text{where } I=(x_1,\ldots,x_n)
+\end{equation*} 
+
+\tinysection{\Errorname}
+We define \emph{\Errorname} $e(\encoding)$ of summary $\encoding$ as the entropy difference between the representative and true distribution:
+$$e(\encoding)=\entropy(\overline{\rho}_\encoding)-\entropy(\rho^*)\;\;\;\;\;\text{where }\overline{\rho}_\encoding=\argminl_{\rho\in\Omega_\encoding}-\entropy(\rho)$$
+It has been proved~\cite{xie2018query} that \Errorname closely parallels both Ambiguity and Deviation. 
+
+\subsection{Query Accuracy} 
+We then study the accuracy of pattern-based summaries when the corresponding probabilistic databases are involved in three basic relational operations: (1) \emph{join}, (2) \emph{selection} and (3) \emph{project}.
+Specifically, we study how to modify existing pattern-based summaries in order to suit these operations and give upper-bounds on \Errorname of the resulting summaries.
+
+\subsubsection{Accuracy under join}
+Consider two uncertain tables, or equivalently possible worlds $\possibleworldsdistribution_1, \possibleworldsdistribution_2$ under \emph{join} operation.
+Recall that possible worlds can be translated into joint distribution, that is, we have $\possibleworldsdistribution_1=p(\ldots,X_i,\ldots)$ and $\possibleworldsdistribution_2=p(\ldots,Y_j,\ldots)$ where $X_i,Y_j$ indicate the presence of $i,j$th tuple in possible worlds $\possibleworldsdistribution_1,\possibleworldsdistribution_2$ respectively.
+The resulting uncertain table after \emph{join}, or equivalently possible worlds $\possibleworldsdistribution_{1\times 2}=\possibleworldsdistribution_1\times\possibleworldsdistribution_2$ can also be translated into joint distribution $\possibleworldsdistribution_{1\times 2}=p(\ldots,Z_{i,j},\ldots)$ where $Z_{i,j}=1$ iff $X_i=1$ and $Y_j=1$.
+
+\tinysection{Join-derived summary}
+Consider pattern-based summaries $\encoding_1, \encoding_2$ for $\possibleworldsdistribution_1,\possibleworldsdistribution_2$ with corresponding maximum entropy distribution $\maximumentropydistribution_{\encoding_1},\maximumentropydistribution_{\encoding_2}$.
+The resulting summary $\encoding_{1\times2}$ can be obtained from \emph{joining} patterns from both summaries and multiplying their corresponding marginals.
+Denote the resulting maximum entropy distribution after \emph{join} as $\maximumentropydistribution_{\encoding_{1\times 2}}$.
+
+\tinysection{Upper-bound of \Errorname}
+By definition, the \Errorname $e(\encoding_{1\times 2})$ of summary $\encoding_{1\times 2}$ measures the entropy difference $\entropy(\maximumentropydistribution_{\encoding_{1\times 2}})-\entropy(\possibleworldsdistribution_{1\times 2})$.
+We would like to approximate the two entropies to avoid populating mappings in distributions $\maximumentropydistribution_{\encoding_{1\times 2}}$ and $\possibleworldsdistribution_{1\times 2}$.
+That is, we would like to provide an upper-bound $\tilde{e}(\encoding_{1\times 2})$ and such that $e(\encoding_{1\times 2})\leq \tilde{e}(\encoding_{1\times 2})$.
+
+Observe that there is a many-to-one mapping from valuations of jointly distributed variables $\possibleworldsdistribution_{1,2}=p(\ldots,X_i,\ldots,Y_j,\ldots)$ to $\possibleworldsdistribution_{1\times 2}$.
+That is, by fixing the valuation of all other variables except for some pair $X_i,Y_j$, all three cases where $X_i=0 \land Y_j=0$, $X_i=0 \land Y_j=1$ or $X_i=1 \land Y_j=0$ map to the same valuation of $\possibleworldsdistribution_{1\times 2}$ where $Z_{i,j}=0$.
+Hence, the entropy $\entropy(\possibleworldsdistribution_{1\times 2})\leq \entropy(\possibleworldsdistribution_{1,2})$.
+Trivially we also have $\entropy(\possibleworldsdistribution_{1\times 2})\geq \max(\entropy(\possibleworldsdistribution_1),\entropy(\possibleworldsdistribution_2))$.
+Since $X_i$ are independent of $Y_j$ in $\possibleworldsdistribution_{1,2}$, we have $\entropy(\possibleworldsdistribution_{1,2})=\entropy(\possibleworldsdistribution_1)+\entropy(\possibleworldsdistribution_2)$.
+We have similar observation for maximum entropy distributions: $\entropy(\maximumentropydistribution_{\encoding_{1\times 2}}) \leq \entropy(\maximumentropydistribution_{\encoding_1})+\entropy(\maximumentropydistribution_{\encoding_2})$.
+We thus compute the upper-bound $\tilde{e}(\encoding_{1\times 2})=\entropy(\maximumentropydistribution_{\encoding_1})+\entropy(\maximumentropydistribution_{\encoding_2})-\max(\entropy(\possibleworldsdistribution_1),\entropy(\possibleworldsdistribution_2))$ or a looser but simpler bound $\entropy(\maximumentropydistribution_{\encoding_1})+\entropy(\maximumentropydistribution_{\encoding_2})$.
+
+\subsubsection{Accuracy under selection predicate}
+Consider the case where only a subset of tuples in possible worlds $\possibleworldsdistribution=p(\ldots,X_i,\ldots)$ are chosen, according to some arbitrary \emph{selection} predicate $\sigma$. 
+For convenience, we abuse notation and also represent the indices of its chosen tuples as $\sigma$.
+The resulting possible worlds, or equivalently the joint distribution $\possibleworldsdistribution_{\sigma}$ is the marginal distribution $p(\ldots,X_{i\in\sigma},\ldots)$ by summing out variables $X_{i\not\in\sigma}$.
+
+\tinysection{Selection-derived summary}
+Consider a pattern-based summary $\encoding$ for $\possibleworldsdistribution$, the resulting summary $\encoding_{\sigma}$ for $\possibleworldsdistribution_{\sigma}$ can be constructed in three steps: (1) remove tuples that are not chosen by $\sigma$ for each pattern in $\encoding$, (2) merge patterns that are the same and add their marginals and (3) remove empty patterns.
+
+\tinysection{Upper-bound of \Errorname}
+Suppose we encode $\possibleworldsdistribution$ first by naive summary $\naiveencoding$ whose maximum entropy distribution $\maximumentropydistribution_{\naiveencoding}$ is equivalent to tuple-independent model.
+The resulting naive summary $\naiveencoding_{\sigma}\subseteq \naiveencoding$ after \emph{select} operation is a subset of single-tuple patterns filtered by the predicate $\sigma$. 
+\Errorname of the naive summary $\naiveencoding_{\sigma}$ is thus computed as $e(\naiveencoding_{\sigma})=\sum_{i\in\sigma} \entropy\big(p(X_i)\big)-\entropy(\possibleworldsdistribution_{\sigma})$.
+In cases when we do not want to populate mappings of distribution $\possibleworldsdistribution_{\sigma}$ for each given predicate, we can simply compute $\tilde{e}(\naiveencoding_{\sigma})=\sum_{i\in\sigma} \entropy\big(p(X_i)\big)$ which is the upper-bound of $e(\naiveencoding_{\sigma})$ for all possible $\sigma$.
+For any other summary $\encoding_{\sigma}$ that contains naive summary $\encoding_{\sigma}\supseteq \naiveencoding_{\sigma}$, it may improve naive summary by marginals that encode tuple-correlation.
+Hence the \Errorname $e(\encoding_{\sigma})$ is also upper-bounded by $\tilde{e}(\naiveencoding_{\sigma})$.
+Trivially, we also have $e(\encoding_{\sigma})\leq \entropy(\maximumentropydistribution_{\encoding})$.
+Hence the \Errorname of any summary $\encoding_{\sigma}\supseteq\naiveencoding_{\sigma}$ is upper-bounded by $\min\big(\tilde{e}(\naiveencoding_{\sigma}),\entropy(\maximumentropydistribution_{\encoding})\big)$.
+
+\subsubsection{Accuracy under project}
+Consider the case where tuples in uncertain table $\possibleworldsdistribution$ are \emph{projected} onto an arbitrary set of attributes $A$.
+We group tuples whose values are the same on projected attributes $A$ and create a new random variable $Z$ for each group, where $Z=0$ iff $X_i=0$ for all tuples $\tuplesymbol_i$ in the group, otherwise $Z=1$.
+The possible worlds distribution $\possibleworldsdistribution_{\pi_A}$ after \emph{project} operation, is thus the joint distribution $p(Z_1,\ldots,Z_k)$ where $k$ is the total number of tuple groups.
+
+\tinysection{Project-derived summary}
+Suppose we have summary $\encoding$ for $\possibleworldsdistribution$. 
+The resulting summary $\encoding_{\pi_A}$ for $\possibleworldsdistribution_{\pi_A}$ can be constructed by (1) applying \emph{project} on each pattern and (2) merge patterns that are the same after \emph{project} and add their marginals accordingly.
+
+\tinysection{Upper-bound of \Errorname}
+We fix the valuations for all $Z_i$ except for the $k$th group $Z_k$.
+Equivalently we fix all valuations of $X_i$ in $\possibleworldsdistribution$ except for those $X_j$ that belong to $k$th group.
+Then we notice that there is a many-to-one mapping from all valuations of $X_j$ in the group, where at least one $X_j=1$, to $Z_k=1$.
+In other words, we have $\entropy(\possibleworldsdistribution_{\pi_A})\leq \entropy(\possibleworldsdistribution)$.
+Similarly we also have $\entropy(\maximumentropydistribution_{\encoding_{\pi_A}})\leq \entropy(\maximumentropydistribution_{\encoding})$ for maximum entropy distributions of corresponding summaries.
+That is, the \Errorname of summary $\encoding_{\pi_A}$ for any \emph{project} operation $\pi_A$ is upper-bounded by $\entropy(\maximumentropydistribution_{\encoding})-\entropy(\possibleworldsdistribution_{\pi_A})$ or a looser but simpler bound $\entropy(\maximumentropydistribution_{\encoding})$.
+

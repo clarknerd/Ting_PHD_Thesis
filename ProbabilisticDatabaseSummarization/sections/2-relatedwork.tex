@@ -1,0 +1,39 @@
+% !TEX root = ../paper.tex
+\label{sec:relatedwork}
+In this section, we walk through related work on encoding tuple correlation in probabilistic databases using various kinds of auxiliary information.
+
+\tinysection{C-tables}
+The canonical representation of probabilistic databases is \emph{c-table}~\cite{suciu2009probabilistic}.
+A \emph{c-table} is a table with each tuple annotated with an additional attribute: a propositional formula over random variables. 
+Two tuples are correlated if random variables in their propositional formula depends on each other.
+Given a query over a c-table, the correlation among tuples in the query answer is encoded by the \emph{lineage} (or provenance~\cite{cui2003lineage}) of each tuple, which is also a propositional formula.
+
+Based on c-tables, Trio system~\cite{benjelloun2006uldbs} resolves tuple correlation by tracking lineage of tuples in query processing.
+By defining a probability space over the assignments of the random variables in lineage of tuples, a \emph{confidence value} can be computed for each tuple in the query answer.
+The probability of some answer to be chosen as the "correct" one is proportional to the product of confidence values of all of its tuples.
+Similar idea can be found in MayBMS~\cite{Huang:2009:MPD:1559845.1559984}.
+However, as ~\cite{re2007materialized} pointed out, there are cases where lineage is not obtainable.
+In our example application, tuples are correlated in a latent, complex way that populating propositional formula for tuples in the c-table is difficult.  
+
+\tinysection{Graphical models and Factors}
+Enlightened by Probablistic Relational Model (PRM)~\cite{friedman1999learning}, numerous works~~\cite{sen2007representing, sen2009prdb} use \emph{probabilistic graphical models} (PGM) to encode tuple correlation directly by probabilities of co-existing tuples.
+More specifically, considering any set of co-existing tuples, encoded as a binary vector $\vec v=(x_1,\ldots,x_n)$ with $x_i=1$ indicating the presence of the $i$th possible tuple in the co-existence relationship.
+A \emph{factor function} or simply \emph{factor} $f: \vec v\in\{0,1\}^n \to [0,1]$ maps any set of co-existing tuples $\vec v$ to its probability of being present in the probabilistic database. 
+Since there are exponentially large (i.e., $2^n$) number of mappings, instead of having a single factor that takes $n$ variables as input, we can have multiple factors, each takes only a small subset of variables that are correlated.
+If two factors do not share variables, the variables in one are considered independent of those in the other.
+By multiplying the outputs of the two factors, we can efficiently compute the probability of any combination of variables in two factors. 
+
+\tinysection{Markov Logic Networks}
+Jha and Suciu~\cite{jha2012probabilistic} shows how to automatically generate factors and populate their content mappings using prior knowledge on tuple-correlation, expressed by the language of First Order Logic.
+Similar technique is implemented in DeepDive system~\cite{shin2015incremental}.
+
+As authors of MCDB~\cite{jampani2008mcdb} pointed out, most previously discussed approaches augment data with attribute-level or tuple-level annotations, which are loaded into the database along with the data itself.
+The mixture of data and uncertainty annotation is inflexible when changes have to be made to the underlying uncertainty model (e.g., lineage), as all related annotations typically need to be recomputed outside of the database and then loaded back in.
+To facilitate maintenance, MCDB proposes to separate uncertainty model from the data.
+
+\tinysection{Monte Carlo approach}
+More specifically, MCDB allows a user to define arbitrary \emph{variable generation} (VG) functions that encodes the uncertainty model.
+That is, treating a VG function as a black box, MCDB use it to pseudo-randomly generate samples of possible instances on the fly and run queries over the samples.
+Interestingly, sample instances are sets of co-existing tuples.
+By assigning a probability to each sample, the probability of any co-existing tuples that are contained in any sample is estimated naturally by iterating through the samples. 
+

@@ -30,12 +30,6 @@ S.~Amer{-}Yahia and T.~Johnson.
   International Conference on Very Large Data Bases, September 10-14, 2000,
   Cairo, Egypt}, pages 329--338. Morgan Kaufmann, 2000.
 
-\bibitem{pharmadata}
-R.~Analytics.
-\newblock Prescription-based prediction.
-\newblock https://www.kaggle.com/roamresearch/prescriptionbasedprediction,
-  2017.
-
 \bibitem{Antoshenkov:1995:BBC:874051.874730}
 G.~Antoshenkov.
 \newblock Byte-aligned bitmap compression.
@@ -55,16 +49,6 @@ K.~Aouiche, P.~Jouve, and J.~Darmont.
   {ADBIS} 2006, Thessaloniki, Greece, September 3-7, 2006, Proceedings}, volume
   4152 of {\em Lecture Notes in Computer Science}, pages 81--95. Springer,
   2006.
-
-\bibitem{DBLP:conf/dbpl/BaaziziCGS17}
-M.~A. Baazizi, D.~Colazzo, G.~Ghelli, and C.~Sartiani.
-\newblock Counting types for massive {JSON} datasets.
-\newblock In {\em {DBPL}}, pages 9:1--9:12. {ACM}, 2017.
-
-\bibitem{DBLP:conf/edbt/BaaziziLCGS17}
-M.~A. Baazizi, H.~B. Lahmar, D.~Colazzo, G.~Ghelli, and C.~Sartiani.
-\newblock Schema inference for massive {JSON} datasets.
-\newblock In {\em {EDBT}}, pages 222--233. OpenProceedings.org, 2017.
 
 \bibitem{DBLP:journals/cacm/Blei12}
 D.~M. Blei.
@@ -90,11 +74,6 @@ N.~Bruno, S.~Chaudhuri, and L.~Gravano.
   2001 {ACM} {SIGMOD} international conference on Management of data, Santa
   Barbara, CA, USA, May 21-24, 2001}, pages 211--222. {ACM}, 2001.
 
-\bibitem{DBLP:conf/focs/Burgisser01}
-P.~B{\"{u}}rgisser.
-\newblock The complexity of factors of multivariate polynomials.
-\newblock In {\em {FOCS}}, pages 378--385. {IEEE} Computer Society, 2001.
-
 \bibitem{DBLP:journals/debu/ChatzopoulouEKMPV11}
 G.~Chatzopoulou, M.~Eirinaki, S.~Koshy, S.~Mittal, N.~Polyzotis, and J.~S.~V.
   Varman.
@@ -110,23 +89,6 @@ S.~Chaudhuri and V.~R. Narasayya.
   23rd International Conference on Very Large Data Bases, August 25-29, 1997,
   Athens, Greece}, pages 146--155. Morgan Kaufmann, 1997.
 
-\bibitem{Codd:1979:EDR:320107.320109}
-E.~F. Codd.
-\newblock Extending the database relational model to capture more meaning.
-\newblock {\em ACM Trans. Database Syst.}, 4(4):397--434, dec, 1979.
-
-\bibitem{Dalvi:2013:DPI:2395116.2395119}
-N.~Dalvi and D.~Suciu.
-\newblock The dichotomy of probabilistic inference for unions of conjunctive
-  queries.
-\newblock {\em J. ACM}, 59(6):30:1--30:87, jan, 2013.
-
-\bibitem{DBLP:conf/sigmod/DiScalaA16}
-M.~DiScala and D.~J. Abadi.
-\newblock Automatic generation of normalized relational schemas from nested
-  key-value data.
-\newblock In {\em {SIGMOD} Conference}, pages 295--310. ACM, 2016.
-
 \bibitem{DBLP:conf/icalp/Dwork06}
 C.~Dwork.
 \newblock Differential privacy.
@@ -134,11 +96,6 @@ C.~Dwork.
   Automata, Languages and Programming, 33rd International Colloquium, {ICALP}
   2006, Venice, Italy, July 10-14, 2006, Proceedings, Part {II}}, volume 4052
   of {\em Lecture Notes in Computer Science}, pages 1--12. Springer, 2006.
-
-\bibitem{DBLP:conf/gd/EllsonGKNW00}
-J.~Ellson, E.~R. Gansner, E.~Koutsofios, S.~C. North, and G.~Woodhull.
-\newblock Graphviz - open source graph drawing tools.
-\newblock In {\em Graph Drawing}, pages 483--484, 2001.
 
 \bibitem{DBLP:journals/tods/FinkelsteinST88}
 S.~J. Finkelstein, M.~Schkolnick, and P.~Tiberio.
@@ -155,12 +112,6 @@ A.~Giacometti, P.~Marcel, E.~Negre, and A.~Soulet.
 \newblock Query recommendations for {OLAP} discovery-driven analysis.
 \newblock {\em {IJDWM}}, 7(2):1--25, 2011.
 
-\bibitem{DBLP:conf/vldb/GoldmanW97}
-R.~Goldman and J.~Widom.
-\newblock Dataguides: Enabling query formulation and optimization in
-  semistructureddatabases.
-\newblock In {\em {VLDB}}, pages 436--445. Morgan Kaufmann, 1997.
-
 \bibitem{cvx}
 M.~Grant and S.~Boyd.
 \newblock {CVX}: Matlab software for disciplined convex programming, version
@@ -171,11 +122,6 @@ M.~Grant and S.~Boyd.
 J.~Han, H.~Cheng, D.~Xin, and X.~Yan.
 \newblock Frequent pattern mining: current status and future directions.
 \newblock {\em Data Min. Knowl. Discov.}, 15(1):55--86, 2007.
-
-\bibitem{DBLP:conf/sigmod/HanPY00}
-J.~Han, J.~Pei, and Y.~Yin.
-\newblock Mining frequent patterns without candidate generation.
-\newblock In {\em {SIGMOD} Conference}, pages 1--12. {ACM}, 2000.
 
 \bibitem{DBLP:journals/pvldb/HuRCLZ08}
 L.~Hu, K.~A. Ross, Y.~Chang, C.~A. Lang, and D.~Zhang.
@@ -198,11 +144,6 @@ E.~T. Jaynes.
 \newblock {\em {IEEE} Trans. Systems Science and Cybernetics}, 4(3):227--241,
   1968.
 
-\bibitem{Johnson1967}
-S.~C. Johnson.
-\newblock Hierarchical clustering schemes.
-\newblock {\em Psychometrika}, 32(3):241--254, Sep 1967.
-
 \bibitem{DBLP:reference/stat/Jolliffe11}
 I.~T. Jolliffe.
 \newblock Principal component analysis.
@@ -213,13 +154,6 @@ I.~T. Jolliffe.
 A.~Kamra, E.~Terzi, and E.~Bertino.
 \newblock Detecting anomalous access patterns in relational databases.
 \newblock {\em {VLDB} J.}, 17(5):1063--1077, 2008.
-
-\bibitem{DBLP:conf/chi/KandelPHH11}
-S.~Kandel, A.~Paepcke, J.~M. Hellerstein, and J.~Heer.
-\newblock Wrangler: interactive visual specification of data transformation
-  scripts.
-\newblock In D.~S. Tan, S.~Amershi, B.~Begole, W.~A. Kellogg, and M.~Tungare,
-  editors, {\em CHI}, pages 3363--3372, 2011.
 
 \bibitem{DBLP:journals/jacm/KannanVV04}
 R.~Kannan, S.~Vempala, and A.~Vetta.
@@ -272,17 +206,6 @@ D.~D. Lee and H.~S. Seung.
 \newblock Learning the parts of objects by non-negative matrix factorization.
 \newblock {\em Nature}, 401(6755):788, 1999.
 
-\bibitem{DBLP:conf/cidr/LiuG15}
-Z.~H. Liu and D.~Gawlick.
-\newblock Management of flexible schema data in rdbmss - opportunities and
-  limitations for nosql -.
-\newblock In {\em {CIDR}}. www.cidrdb.org, 2015.
-
-\bibitem{DBLP:conf/sigmod/LiuHMLC16}
-Z.~H. Liu, B.~C. Hammerschmidt, D.~McMahon, Y.~Liu, and H.~J. Chang.
-\newblock Closing the functional and performance gap between {SQL} and nosql.
-\newblock In {\em {SIGMOD} Conference}, pages 227--238. {ACM}, 2016.
-
 \bibitem{DBLP:conf/simbig/MakiyamaRS15}
 V.~H. Makiyama, J.~Raddick, and R.~D.~C. Santos.
 \newblock Text mining applied to {SQL} queries: {A} case study for the {SDSS}
@@ -319,12 +242,6 @@ B.~O'Donoghue, E.~Chu, N.~Parikh, and S.~P. Boyd.
 \newblock {\em J. Optimization Theory and Applications}, 169(3):1042--1068,
   2016.
 
-\bibitem{oracledataguide}
-Oracle.
-\newblock Database json developer's guide: Json data guide.
-\newblock https://docs.oracle.com/cloud/latest/db122/ADJSN/json-dataguide.htm,
-  2017.
-
 \bibitem{DBLP:conf/cidr/PavloAALLMMMPQS17}
 A.~Pavlo, G.~Angulo, J.~Arulraj, H.~Lin, J.~Lin, L.~Ma, P.~Menon, T.~C. Mowry,
   M.~Perron, I.~Quah, S.~Santurkar, A.~Tomasic, S.~Toor, D.~V. Aken, Z.~Wang,
@@ -346,24 +263,6 @@ P.~Skibinski and J.~Swacha.
   Communications of the Eleventh East-European Conference on Advances in
   Databases and Information Systems, Varna, Bulgaria, September 29 - October 3,
   2007}, volume 325 of {\em {CEUR} Workshop Proceedings}. CEUR-WS.org, 2007.
-
-\bibitem{Smith:2006:FSS:1187627.1187785}
-G.~Smith, M.~Czerwinski, B.~Meyers, D.~Robbins, G.~Robertson, and D.~S. Tan.
-\newblock Facetmap: A scalable search and browse visualization.
-\newblock {\em IEEE Transactions on Visualization and Computer Graphics},
-  12(5):797--804, Sept. 2006.
-
-\bibitem{spoth:2017:cidr:adaptive}
-W.~Spoth, B.~S. Arab, E.~S. Chan, D.~Gawlick, A.~Ghoneimy, B.~Glavic,
-  B.~Hammerschmidt, O.~Kennedy, S.~Lee, Z.~H. Liu, X.~Niu, and Y.~Yang.
-\newblock Adaptive schema databases.
-\newblock In {\em CIDR}, 2017.
-
-\bibitem{twitterdecahose}
-Twitter.
-\newblock Decahose stream.
-\newblock
-  https://developer.twitter.com/en/docs/tweets/sample-realtime/api-reference/decahose.
 
 \bibitem{DBLP:conf/acl/WangZLG09}
 D.~Wang, S.~Zhu, T.~Li, and Y.~Gong.
@@ -399,11 +298,6 @@ X.~Yang, C.~M. Procopiuc, and D.~Srivastava.
   Proceedings of the 25th International Conference on Data Engineering, {ICDE}
   2009, March 29 2009 - April 2 2009, Shanghai, China}, pages 964--975. {IEEE}
   Computer Society, 2009.
-
-\bibitem{yelpdata}
-I.~Yelp.
-\newblock Yelp open dataset: An all-purpose dataset for learning.
-\newblock https://www.yelp.com/dataset, 2018.
 
 \bibitem{DBLP:journals/tit/ZivL77}
 J.~Ziv and A.~Lempel.

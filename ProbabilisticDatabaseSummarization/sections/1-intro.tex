@@ -1,0 +1,58 @@
+% !TEX root = ../paper.tex
+Many tasks in machine learning, information extraction, etc, generate uncertain data.
+That is, output tuples generated from one probabilistic prediction differ from the other.
+Though it is a general practice to deterministically output the most probable prediction, it is beneficial to explore other possible predictions, especially when an application needs to compare predictions under different parameter tuning strategies~\cite{papadakis2016comparative}.
+However, as~\cite{Gupta:2006:CPD:1182635.1164210} pointed out, state-of-the-art statistical models of information extraction provide a sound probability distribution over extractions but are challenging to represent and query in relational framework.
+
+One naive strategy would be letting the application to iterate over all observed outputs, together with their probabilities of being observed.
+This strategy, on one extreme, defines a \emph{probabilistic database}~\cite{suciu2009probabilistic} and walks the application through the \emph{entire space} of possible worlds.
+This is a sufficient condition for the application to discover all information that may be useful: the probability that any set of tuples will be contained in the output.
+However, this naive strategy puts an unnecessary burden on the application side.
+That is, there are practically exponential number of possible outputs~\cite{Gupta:2006:CPD:1182635.1164210}.  
+Each observed output may contain duplicate tuples and it is possible to deliver the probability distribution over possible outputs in a more compact way.
+
+The other naive strategy would be letting the application view each \emph{individual} tuple together with the probability that the tuple is contained in an output.
+The probability of any \emph{set} of tuples can then be estimated by multiplying the probability of each content tuple. 
+This strategy, on the other extreme, defines a \emph{tuple-independent probabilistic database}~\cite{suciu2009probabilistic} that compactly represents the distribution of outputs by assuming each tuple independently exists in an output.
+However, for applications where tuples are predominantly correlated in the output, probabilities delivered by tuple-independent probabilistic database may greatly deviate from the truth~\cite{Gupta:2006:CPD:1182635.1164210}.
+Consider an example application where tuple-correlation is dominant by nature.
+\begin{example}
+Consider an \emph{Enitity Resolution (ER)} task where the input is a set of tuples where each tuple contains a set of attributes that may help to determine whether two tuples are different facets of the same entity.
+The output will be the same set of tuples but augmented with an additional attribute indicating its predicted entity ID.
+\end{example}
+Since the prediction is uncertain, the output data can be viewed as a space of possible sets of augmented tuples that a predictor may generate.
+Augmented tuples in the output are correlated by design, that is, given that a tuple $\tuplesymbol$ is assigned entity ID $eid$, other tuples having attributes similar to $\tuplesymbol$ being assigned the same $eid$ increases and are no longer independent events.
+This example can be generalized to classification or clustering related tasks where the output is a set of label-augmented tuples where the label assignments are uncertain.
+
+To encode tuple correlation, various kind of auxiliary information  (e.g., \emph{c-tables}~\cite{suciu2009probabilistic}, factors~\cite{friedman1999learning,sen2007representing, sen2009prdb}, Markov Logic~\cite{jha2012probabilistic}) are introduced for delivering more accurate probabilities. 
+Auxiliary information inevitably increases the model complexity, making the inference of the desired probabilities harder.
+It also puts a heavier burden on the application side for digesting the representation.
+
+To carefully introduce auxiliary information, we start by considering \emph{c-tables}~\cite{suciu2009probabilistic}.
+A c-tables compactly represents the distribution over outputs by presenting only individual tuples, annotated with a propositional formula.
+A tuple exists in the output iff its propositional formula evaluates to be true.
+By walking the application through a c-table as well as the corresponding probability distribution over variables in its formula, we equivalently delivers the distribution of possible outputs.
+However, linking the probability distribution with its c-table generally requires heavy weight inference.
+That is, to compute the probability of a set of tuples being co-existent, we need to enumerate all possible evaluations of their variables such that their propositional formula are true.
+This process is non-trivial especially when we need to repeated compute such probabilities for different sets of tuples.
+Moreover, in our example application, it is generally difficult to obtain such propositional formula, since tuple correlation is caused by the complex nature of some predictor.
+As a result, for our target applications, we only expect a tuple in the c-table to be annotated with a single distinct variable $X_i$ with $X_i=1$ meaning the presence of the $i$th tuple in the output.
+The probability of two tuples $\tuplesymbol_i,\tuplesymbol_j$ being co-existent is directly linked with the marginal probability $p(X_i=1,X_j=1)$.
+To deliver the distribution of outputs, we need to walk an application through the c-table and the joint distribution $\possibleworldsdistribution=p(\ldots,X_i,\ldots)$.
+Enumerating all valuations of the variables is not practical.
+Instead, we group correlated variables together and only enumerate valuation within each group.
+This essentially creates a \emph{factor} for each group. 
+Mappings in a factor is still exponential with respect to the number of correlated variables.
+In this paper, we study the problem of encoding the joint distribution $\possibleworldsdistribution$ by only a subset of mappings in factors.
+We show how desired probabilities of the distribution $\possibleworldsdistribution$ can be computed by the lossy encoding. 
+Due to incomplete mappings, the computed probabilities generally deviates from the truth.
+However, the encoding allows finer granularity in trading-off between conciseness and probability computation accuracy.
+That is, by gradually populating the mappings in a factor, an application can choose to obtain an encoding that incurs a high-fidelity in computing probabilities but is verbose, or obtain a more compact encoding that incurs a greater loss of accuracy. 
+To manage the loss-rate, we develop a framework for reasoning about the trade-off between verbosity and fidelity.   
+While the encoding does not admit closed-form solutions to classical information theoretical fidelity measures like information loss, we propose an efficiently computable fidelity measure called \Errorname.  
+
+\tinysection{Contributions}
+
+\tinysection{Roadmap}
+
+

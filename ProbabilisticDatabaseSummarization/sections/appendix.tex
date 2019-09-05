@@ -1,0 +1,346 @@
+\appendix
+\section{NOMENCLATURE}
+ \begin{tabular}{|c c|} 
+ \hline
+ \textbf{Symbol} & \textbf{Meaning}  \\ [0.5ex] 
+ \hline\hline
+ $f$ & Feature\\ 
+ \hline
+ $C$ & Feature Category\\
+ \hline
+  $\tuple{f,C}$ & Word\\
+ \hline
+ $\vec{b}$ & Bag of words/Pattern \\
+ \hline
+  $\vec{b'} \subseteq \vec{b}$ & $\vec{b'}$ is contained in $\vec{b}$\\
+ \hline  
+ $\vec{q}$ & Query\\
+ \hline
+ $L$ & Log, a bag of queries\\
+  \hline
+ $Q$ & Query randomly drawn from $L$\\
+ \hline 
+ $p(Q = \vec{q}\;|\;L)$ & Probability of $Q=\vec q$ \\
+ \hline 
+  $p(Q\;|\;L)$ & Query distribution of $L$\\
+ \hline
+ $p(Q\supseteq\vec{b}\;|\;L)$ & Marginal probability of $Q\supseteq\vec b$\\
+ \hline
+   $corr\_rank(\vec{b})$ & Word-correlation score\\ 
+ \hline 
+  $S_{max}$ & Mapping from all patterns to marginals\\
+ \hline 
+  $S$ & Summary, partial mapping $S\subseteq S_{max}$\\
+  \hline 
+    $S[\vec b]$ & Marginal mapped from $\vec b$\\
+  \hline 
+  $domain(\cdot)$ & Domain of mapping\\
+ \hline
+  $\rho$ & An arbitrary query distribution\\
+ \hline
+  $\Omega_S$ & Space of $\rho$ constrained by $S$\\
+ \hline
+   $S\leq_{\Omega}S'$ & $\Omega_{S}\subseteq\Omega_{S'}$\\ 
+   \hline
+   $\mathcal{P}_{S}$ & A random $\rho$ drawn from $\Omega_S$\\
+  \hline 
+  $\rho^*$ & Same as $p(Q\;|\;L)$, $\rho^*\in\Omega_S$\\
+ \hline 
+    $\mathcal{H}(\cdot)$ & Entropy of Distribution\\
+ \hline 
+  $\overline{\rho}_S$ & Representative distribution of $\Omega_S$\\
+ \hline 
+ $\text{d}(S)$ & Deviation\\
+ \hline 
+  $\text{I}(S)$ & Ambiguity\\
+ \hline 
+  $e(S)$ & Summary Error\\
+ \hline
+   $|S|$ & $|domain(S)|$, Verbosity\\
+   \hline
+  $\rho\ll\rho'$ & $\rho$ is absolutely continuous w.r.t $\rho'$\\
+ \hline 
+ $\mathcal{D}_{KL}(\rho||\rho')$ & K-L Divergence from $\rho'$ to $\rho$.\\
+ \hline
+\end{tabular}
+
+\section{Proof of Proposition~\ref{proposition:losslesssummary}}
+\label{appendix:losslesssummary}
+Denote by $\mathds{1}^n = \{0,1\}^n$ the space of possible 0-1 vectors of size $n$, and define a summary $\bar S_{\vec{q}}$ with patterns:
+$$domain(\overline{S}_{\vec{q}})=\comprehension{(x_1+b_1,\ldots,x_n+b_n)}{(b_1,\ldots,b_n)\in\mathds{1}^n}$$
+We will show that $\overline{S}_{\vec{q}}\subseteq S_{max}$ contains sufficient information to compute $p_0 = p(X_1=x_1,\ldots,X_n=x_n)$ through several steps.
+First, we define a new pair of marginal probabilities $p_1\tuple{b_1} = p(X_1 \geq x_1 + b_1,X_2=x_2,\ldots,X_n=x_n)$.
+$x_1$ is integral, so $p_0 = p_1\tuple{0} - p_1\tuple{1}$.
+Generalizing, we can define:
+\begin{multline*}
+p_k\tuple{b_1, \ldots, b_k} = p(X_1 \geq x_1 + b_1,\; \ldots,\; X_k \geq x_k + b_k, \\
+  X_{k+1} = x_{k+1},\; \ldots,\; X_n=x_n)
+\end{multline*}
+Again, $x_k$ being integral gives us that:
+\begin{multline*}
+p_{k-1}\tuple{b_1, \ldots, b_{k-1}} = p_{k}\tuple{b_1, \ldots, b_{k-1}, 0} \\
+  -p_{k}\tuple{b_1, \ldots, b_{k-1}, 1}
+\end{multline*}
+Finally, when $k = n$, the probability $p_n\tuple{b_1, \ldots, b_n}$ is the marginal probability $p(Q\supseteq\vec{b}\;|\;L)$ of a pattern $\vec{b}=(x_1+b_1, \ldots, x_n+b_n)$, which by definition is offered by $\overline{S}_{\vec{q}}$ for any $(b_1, \ldots, b_n) \in \mathds{1}^n$.
+The resulting summary $\overline{S}=\bigcup_{\vec{q}\in L}\overline{S}_{\vec{q}}$ identifies the distribution $p(Q\;|\;L)$, which we refer to as \emph{lossless} summary. Clearly any summary that extends $\overline{S}$ (including $S_{max}$) is lossless.
+
+\section{Marginal Selection}
+\label{appendix:marginalselectionforpatternbasedsummary}
+As discussed in Section~\ref{sec:lossysummaries}, a pattern $\vec b$ conveys a piece of information content of the log by constraining an arbitrary query distribution $\rho$ towards the true distribution $p(Q\;|\;L)$ by aligning its marginal of pattern $\vec b$ with the true marginal $p(Q\supseteq\vec{b}\;|\;L)$. 
+However, marginals based on relationship $Q\supseteq\vec b$ are not the only choice for carrying information content of the log. 
+In fact, the marginal probability that a query $\vec{q}$ uniformly drawn from the log \textit{exactly matches} (denoted as $\vec{q}\sqsupseteq\vec{b}$) the pattern $\vec{b}$ can be an alternative. Specifically, given query $\vec{q}=(x_1,\ldots,x_n)$ and pattern $\vec{b}=(x_1',\ldots,x_n')$, 
+$$\vec{q}\sqsupseteq\vec{b}\equiv\forall x_i'>0,\;x_i=x_i'$$
+We explain the rationale behind choosing $p(Q\supseteq\vec{b})$ over $p(Q\sqsupseteq\vec{b})$ in the following example.
+\begin{example}
+Objective: Conveying the piece of information content that $i$th and $j$th words never co-occur together in any query drawn from the log.
+Denote occurrences of $i$th word as variable $X_i$.
+
+Two Solutions: 
+\begin{enumerate}
+\item Marginal $p(Q\supseteq\vec{b})$: $p(X_i\geq 1,X_j\geq 1)=0$
+
+\item Marginal $p(Q\sqsupseteq\vec{b})$:
+$p(X_i=1,X_j=1)=0$,
+
+$p(X_i=1+1,X_j=1)=0$,
+
+$p(X_i=1,X_j=1+1)=0$,
+
+\ldots
+
+We are able to reach the objective using only one pattern with marginal $p(Q\supseteq\vec{b})$. 
+On the contrary, it requires infinitely more patterns with marginal $p(Q\sqsupseteq\vec{b})$.
+Marginal $p(Q\supseteq\vec{b})$ offers more descriptive power than $p(Q\sqsupseteq\vec{b})$.
+\end{enumerate}
+\end{example}
+
+\section{Sampling From Space of Distributions}
+\label{appendix:sampling}
+Here we describe how we sample from the space $\Omega_S$ of probability distributions.
+\subsection{Preliminary Sampling}
+To sample a random distribution $\rho : \mathbb{N}^n\to[0,1]$ without any constraint, the naive way is to treat $\rho$ as a multi-dimensional vector $(\rho(\vec{q}_1),\ldots,\rho(\vec{q}_{|\mathbb{N}^n|}))$ drawn from the vector space $\mathbb{R}^{|\mathbb{N}^n|}$. Note that it is actually a subspace of $\mathbb{R}^{|\mathbb{N}^n|}$ as the vector need to sum up to 1.
+\begin{algorithm}
+\caption{Sampling}
+\label{alg:sampling}
+\begin{algorithmic}[1]
+\Procedure{TwoStepSampling}{}
+\label{procedure:twostepsampling}
+\State Step 1:
+\For{each $\vec{v}\in \mathbb{B}^m\wedge\mathcal{C}_{\vec{v}}\neq\emptyset$}
+\State $V \gets V\; \bigcup \;\vec{v}$
+\EndFor
+\State $class\_p \gets $\Call{UniRandDistribProb}{V,$1$}
+\State Step 2:
+\For{each $\vec{v}\in V$}
+\State $\rho \gets \rho\; \bigcup \; $\Call{UniRandDistribProb}{$\mathcal{C}_{\vec{v}}$,$class\_p(\vec{v})$}
+\EndFor
+\State \Return $\rho$
+\EndProcedure
+
+\State
+
+\Procedure{UniRandDistribProb}{Set S, double prob}
+\For{each element $e \in S$}
+\State $p(e) \gets UniformRandNum(range=[0,1])$
+\EndFor
+\For{each element $e \in S$}
+\State $p(e) \gets prob\times p(e)\div\mysuml_{e}p(e)$
+\EndFor
+\State \Return $p$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+However, $|\mathbb{N}^n|$ is too large and we reduce the number of dimensions by grouping them (i.e., $\vec{q}_1\ldots,\vec{q}_{|\mathbb{N}^n|}$) into equivalence classes.
+
+\tinysection{Summary-equivalent Classes}
+The basic idea for grouping is based on containment relationship between query $\vec q_i$ and patterns $\vec{b}\in S$ in the summary $S$. 
+More precisely, if $\vec{q}_i\supseteq\vec{b}$, it indicates that the assignment $\rho(\vec{q}_i)$ on $i$th dimension is constrained by marginal $S[\vec{b}]$ (See Equation~\ref{equation:constraints} in Section~\ref{sec:lossysummaries}).
+As a result, if queries $\vec{q}_i,\vec{q}_j$ share the same containment relationship with pattern $\vec{b}$, assignments $\rho(\vec{q}_i),\rho(\vec{q}_j)$ on $i$th and $j$th dimension make no difference for satisfying the constraint of pattern $\vec{b}$.
+We thus define \textit{pattern-equivalence} as $$\vec{q}_i\equiv_{\vec{b}}\vec{q}_j\Leftrightarrow BI(\vec{q}_i,\vec{b})=BI(\vec{q}_j,\vec{b})$$ 
+$BI(\vec{q}_i,\vec{b})$ is the Binary Indicator function satisfying $BI(\vec{q}_i,\vec{b})=1\equiv\vec{q}_i\supseteq\vec{b}$. 
+Queries are \textit{summary-equivalent} $\vec{q}_i\equiv_S\vec{q}_j$ if they are pattern-equivalent for all patterns in the summary. 
+Numbering patterns in the summary as $\vec{b}_1,\ldots,\vec{b}_m$, any binary vector $\vec{v}\in\mathbb{B}^m$ maps to an equivalence class $\mathcal{C}_{\vec{v}}=\comprehension{\vec{q}}{(BI(\vec{q},\vec{b}_1),\ldots,BI(\vec{q},\vec{b}_m))=\vec{v}\wedge\vec{q}\in\mathbb{N}^n}$.
+Though the number of non-empty equivalent classes may grow as large as $\mathcal{O}(2^m)$, it is much smaller than $|\mathbb{N}^n|$ and sampling a random distribution $\rho$ can be divided into two steps as shown in line~\ref{procedure:twostepsampling} of algorithm~\ref{alg:sampling}. 
+Note that $class\_p$ in the algorithm, which is produced by the first step, is a randomly sampled distribution over all non-empty equivalence classes. The second step redistributes probabilities randomly assigned to each equivalence class to its class members in an unbiased way.
+
+\subsection{Incorporating Constraints}
+So far we are creating random samples from an unconstrained space of distributions. 
+To make sure $\rho$ produced by the two-step sampling fall within space $\Omega_S$, distribution $class\_p$ over equivalence classes must obey the linear equality constraints derived from the summary $S$.
+Denote the space of all possible $class\_p$ as $U$ and the subspace allowed by the summary as $U_S\subseteq U$, one naive solution is to reject $class\_p\notin U_S$. 
+However, the subspace $U_S$ constrained under linear equality constraints (See Equation~\ref{equation:constraints} in Section~\ref{sec:lossysummaries}) is equivalent to an intersection of \textit{hyperplanes} in the full space $U$. 
+The volume of $U_S$ is thus so small comparing to that of $U$, such that any random sample $class\_p\in U$ will \textit{almost never} fall within $U_S$.
+To make sampling feasible, we do not reject a sample $class\_p\in U$ but \textit{project} it onto $U_S$ by finding its \textit{closest} counterpart $class\_p'\in U_S$:
+$$proj(class\_p)=\argminl_{class\_p'\in U_S}d(class\_p',class\_p)$$
+Function $d(\cdot\; , \;\cdot)$ represents some distance measure, e.g., $d(class\_p,class\_p')=||class\_p'-class\_p||$. 
+In other words, given summary $S$, we assume we are sampling $class\_p'$ from allowed subspace $U_S$ given the following probability measure $$p(class\_p')\propto\setsize{\comprehension{class\_p}{class\_p\in U\;\wedge\;proj(class\_p)=class\_p'}}$$
+The projection can be achieved by solving an minimization problem under linear constraints.
+
+\section{Algorithm Configurations}
+\label{appendix:experimentsettingsforpatternbasedalgorithms}
+Here we give detailed description on our selected state-of-the-art pattern based summarization algorithms (i.e., \textit{Laserlight} and \textit{MTV}) and also specify how we configured them in experiments discussed in Section~\ref{sec:motivatepatternmixturesummaries}. 
+
+\tinysection{Common Configuration}
+We set up both algorithms to mine 12 patterns from target clusters.
+This is because, empirically we found that mining over $12$ patterns has high chance of getting duplicates for both \textit{MTV} and \textit{Laserlight}. 
+Since we are comparing them with naive mixture summaries based on running time, we try to avoid underestimating their computational efficiency by mining duplicate patterns.
+
+\subsection{Laserlight Algorithm}
+\tinysection{Description}
+\textit{Laserlight} algorithm is proposed in~\cite{ElGebaly:2014:IIE:2735461.2735467} for summarizing multi-dimension data (i.e., $D=(X_1,\ldots,X_n)$) augmented by a binary attribute $A$. 
+The goal is to search for patterns from the data $D$ (as the summary) that provide maximum information for predicting augmented attribute $A$, which is a sub-problem of summarizing the joint distribution $p(D,A)$. 
+Another algorithm \textit{Flashlight} is also proposed in the same paper but we omit it in our experiment due its inferior scalability.
+The implementation of \textit{Laserlight} has been incorporated into PostgreSQL 9.1 and the source code is only available upon request.
+
+\tinysection{Experiment Settings}
+Due to the restriction on the maximum number of data dimension by $Laserlight$, we project the distribution $p(Q\;|\;L)$ onto a limited set of 100 words.
+The selection criteria is based on entropy. 
+More precisely, regarding the occurrence of $i$th word as random variable $X_i$ with probability measure $p(X_i=x_i)$, words are ranked by entropy $\entropy(X_i)$. 
+The word with binary occurrence that has highest entropy $\entropy(X_i)$ is chosen as the augmented attribute $A$.
+The algorithm heuristically selects a limited set of samples from the space of candidate patterns, from which the pattern that is most informative (See the definition of informative in the paper) is selected to be added to the summary.
+When we applied $Laserlight$ in our experiments, we set the number of samples to be $16$, which is suggested in the paper.
+
+\subsection{MTV Algorithm}
+\tinysection{Description}
+\textit{MTV} algorithm is short for \textit{Maximally informaTiVe} summaries, proposed in~\cite{Mampaey:2012:SDS:2382577.2382580} for summarizing multi-dimensional data with binary attributes. 
+The goal is to mine a succinct set of patterns (as the summary) that convey the most important information (See the paper for definition). 
+The implementation of this algorithm can be obtained at \href{http://adrem.ua.ac.be/succinctsummary}{http://adrem.ua.ac.be/succinctsummary}.
+
+\tinysection{Experiment Settings}
+\textit{MTV} requires to set the minimum support threshold for patterns. That is, patterns with marginal less than the threshold will be ignored, in order to reduce the search space of candidate patterns.
+We set the minimum support threshold to be $0.05$ in our experiments such that any pattern that is contained in more than $5\%$ of queries will be considered as candidate.
+
+% \section{Visualize PocketData dataset}
+% \label{appendix:naivemixturesummaryvisualization}
+% We offer the visualization of PocketData using its naive mixture summary under $8$ clusters. 
+% The result is given in Figure~\ref{fig:visualizepocketdatabyitsnaivemixturesummary}.
+% There are 5 sub-figures with each representing a naive summary for one cluster. 
+% Note that we use shading to represent the magnitude of marginals and words with marginal too small will be invisible and omitted.
+% Question mark `$?$' is the placeholder for constants.
+% Three clusters from the eight are not shown in the figure: One cluster is too messy (i.e., further sub-clustering is needed) and two clusters gives similar visualization to Figure~\ref{fig:cluster1} and~\ref{fig:cluster5}.
+% The caption of each sub-figures expresses our understanding on the task that queries in the cluster are performing, by visualizing the corresponding naive summaries.
+% For simplicity, we will also omit features of \texttt{SELECT} category if they are neither participating in \texttt{WHERE} clause nor intuitively related to other features in \texttt{SELECT}. 
+\begin{figure}
+ \centering
+\begin{subfigure}{\columnwidth}
+  {\small
+    \begin{tabular}{r|p{60mm}}
+    \textbf{SELECT} & 
+            {\texttt{conversation\_id}}, {\texttt{participants\_type}},
+        {\texttt{first\_name}},
+        {\texttt{chat\_id}},
+        \texttt{blocked},
+        \texttt{active}\\ \hline
+    \textbf{FROM} &
+        \texttt{{\texttt{conversation\_participants\_view}}}\\ \hline
+    \textbf{WHERE} &
+        \texttt{(chat\_id!=?)} $\wedge$
+        {\texttt{(conversation\_id=?)}} $\wedge$
+        \texttt{(active=1)}   
+    \end{tabular}
+  }
+  \bfcaption{Check the person who is active in specific conversation and not participating in specified chat.}
+  \label{fig:cluster1}
+\end{subfigure}\\[2mm]
+
+\begin{subfigure}{\columnwidth}
+  {\small
+    \begin{tabular}{r|p{60mm}}
+    \textbf{SELECT} & 
+            {\texttt{status}}, 
+        {\texttt{timestamp}},
+        {\texttt{expiration\_timestamp}},
+        {\texttt{sms\_raw\_sender}},
+        \texttt{message\_id},
+        \texttt{text}\\ \hline
+    \textbf{FROM} &
+        \texttt{{\texttt{conversations}}},
+        \textcolor{mid-gray}{\texttt{{\texttt{message\_notifications\_view}}}},
+        \texttt{{\texttt{messages\_view}}}\\ \hline
+       \textbf{ORDER BY} &
+       \texttt{{\texttt{Descend on timestamp}}}
+       \\ \hline
+        \textbf{Limit} &
+       \texttt{{\texttt{500}}}
+       \\ \hline
+    \textbf{WHERE} &      
+        \textcolor{mid-gray}{\texttt{(expiration\_timestamp>?)}} $\wedge$
+        \texttt{(status!=5)} $\wedge$
+        {\texttt{(conversation\_id=?)}} $\wedge$        
+{\texttt{(conversations.conversation\_id=conversation\_id)}}   
+    \end{tabular}
+  }
+  \bfcaption{Check sender information for most recent SMS messages that participate in given conversation.}
+  \label{fig:cluster2}
+\end{subfigure}\\[2mm]
+
+\begin{subfigure}{\columnwidth}
+  {\small
+    \begin{tabular}{r|p{60mm}}
+    \textbf{SELECT} & 
+            {\texttt{status}}, 
+        {\texttt{timestamp}},
+        {\texttt{conversation\_id}},
+        {\texttt{chat\_watermark}},
+        \texttt{message\_id},
+        \texttt{sms\_type}\\ \hline
+    \textbf{FROM} &
+        \texttt{{\texttt{conversations}}},
+        \texttt{{\texttt{message\_notifications\_view}}}\\ \hline
+    \textbf{WHERE} &
+        \texttt{(conversation\_status!=1)} $\wedge$
+         \texttt{(conversation\_pending\_leave!=1)} $\wedge$
+         \texttt{(conversation\_notification\_level!=10)} $\wedge$
+         \texttt{(timestamp>1355...)} $\wedge$
+         \texttt{(timestamp>chat\_watermark)} $\wedge$
+        {\texttt{(conversation\_id=?)}} $\wedge$        
+{\texttt{(conversations.conversation\_id=conversation\_id)}}   
+    \end{tabular}
+  }
+  \bfcaption{Check recent messages in conversations of specific type.}
+  \label{fig:cluster3}
+\end{subfigure}\\[2mm]
+
+\begin{subfigure}{\columnwidth}
+  {\small
+    \begin{tabular}{r|p{60mm}}
+    \textbf{SELECT} & 
+            {\texttt{suggestion\_type}}, {\texttt{name}},
+        {\texttt{chat\_id}}\\ \hline
+    \textbf{FROM} &
+        \texttt{{\texttt{suggested\_contacts}}}\\ \hline
+       \textbf{Limit} &
+        \textcolor{light-gray}{\texttt{{\texttt{10}}}}\\ \hline
+        \textbf{Order By} &
+        \textcolor{light-gray}{\texttt{{\texttt{Ascend on upper(name)}}}}\\ \hline
+    \textbf{WHERE} &
+        \texttt{(chat\_id!=?)} $\wedge$
+        {\texttt{(name!=?)}}
+    \end{tabular}
+  }
+  \bfcaption{Suggest contacts that avoid certain names and chat.}
+  \label{fig:cluster4}
+\end{subfigure}\\[2mm]
+
+\begin{subfigure}{\columnwidth}
+  {\small
+    \begin{tabular}{r|p{60mm}}
+    \textbf{SELECT} & 
+            \textcolor{mid-gray}{{\texttt{sms\_type}}},  \textcolor{mid-gray}{{\texttt{timestamp}}},
+         \textcolor{mid-gray}{{\texttt{\_id}}}\\ \hline
+    \textbf{FROM} &
+        \texttt{{\texttt{messages}}}\\ \hline
+    \textbf{WHERE} &
+        \texttt{(sms\_type=1)} $\wedge$
+        {\texttt{(status=4)}} $\wedge$
+         {\texttt{(transport\_type=3)}} $\wedge$
+         \textcolor{mid-gray}{{\texttt{(timestamp>=?)}}}
+    \end{tabular}
+  }
+  \bfcaption{Check messages under type/status conditions}
+  \label{fig:cluster5}
+\end{subfigure}\\[2mm]
+
+\bfcaption{\textbf{Visualize PocketData by its naive mixture summary}}
+\label{fig:visualizepocketdatabyitsnaivemixturesummary}
+\trimfigurewhitespace
+\end{figure}
