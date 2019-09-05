@@ -1,0 +1,10 @@
+% -*- root: ../cnf-json.tex -*-
+Ad-hoc data models like \json make it easy to evolve schemas and to multiplex different data-types into a single stream.
+This flexibility makes \json great for generating data, but also makes it much harder to query, ingest into a database, and index.
+In this paper, we explore the first step of \json data loading: schema design.
+Specifically, we consider the challenge of designing schemas for existing \json datasets as an \emph{interactive} problem.  
+We present \systemnametwo, a roll-up/drill-down style interface for exploring collections of \json records.
+\systemnametwo helps users to visualize the collection, identify relevant fragments, and map it down into one or more flat, relational schemas.
+We describe and evaluate two key components of \systemnametwo: 
+(1) A summary schema representation that significantly reduces the complexity of JSON schemas without a meaningful reduction in information content, 
+and (2) A collection of schema visualizations that help users to qualitatively survey variability amongst different schemas in the collection.

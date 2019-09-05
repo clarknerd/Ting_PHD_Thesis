@@ -1,13 +1,20 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces \textbf {Example Encoding Visualizations}\relax }}{9}{figure.caption.3}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces \textbf {Clustering Schemes Comparison}\relax }}{19}{figure.caption.4}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces \textbf {Effectiveness of Naive Mixture Encoding}\relax }}{22}{figure.caption.5}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces \textbf {Validating Reproduction Error\xspace }\relax }}{25}{figure.caption.7}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces \textbf {Feature-correlation refinement (US bank)}\relax }}{30}{figure.caption.8}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces \textbf {Naive Mixture v. Laserlight/MTV Mixture}\relax }}{33}{figure.caption.10}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces \textbf {Example Encoding Visualizations}\relax }}{11}{figure.caption.3}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces \textbf {Clustering Schemes Comparison}\relax }}{21}{figure.caption.4}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces \textbf {Effectiveness of Naive Mixture Encoding}\relax }}{24}{figure.caption.5}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces \textbf {Validating Reproduction Error\xspace }\relax }}{27}{figure.caption.7}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces \textbf {Feature-correlation refinement (US bank)}\relax }}{32}{figure.caption.8}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces \textbf {Naive Mixture v. Laserlight/MTV Mixture}\relax }}{35}{figure.caption.10}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Prototype user interface for \textsc {SchemaDrill}\xspace .\relax }}{46}{figure.caption.11}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces FP-Tree based schema summaries\relax }}{51}{figure.caption.12}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces RCDC based schema summaries\relax }}{53}{figure.caption.13}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Segmentation breaks up schema representations into manageable chunks.\relax }}{54}{figure.caption.14}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Coveriance Cloud for the full Yelp dataset.\relax }}{55}{figure.caption.15}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces KNN-PCA cloud with K=6 on the Yelp dataset.\relax }}{56}{figure.caption.16}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Points containing user selected attributes are highlighted green.\relax }}{58}{figure.caption.17}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

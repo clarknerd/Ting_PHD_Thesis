@@ -1,0 +1,17 @@
+% !TEX root = ../cnf-json.tex
+
+
+One challenge that we will need to address in \systemnametwo is coping with nested collections.  
+At the moment, the user can manually merge collections of attributes that correspond to disjoint entites.
+However, we would like to automate this process.
+One observation is that a typical collection like an array has a schema with the general structure:
+$$(P_1 \vee P_1P_2 \vee P_1P_2P_3 \vee \ldots)\;=\;(P_1 \wedge (\emptyset \vee P_2 \wedge (\emptyset \vee P_3 \wedge (\ldots)) ))$$
+The version of this expression on the right hand side is notable as its closure over the semiring $\tuple{\big\{\{\mathbf P\}\big\}, \vee, \wedge, \emptyset, \big\{\{\}\big\}}$ would indicate that the semiring is ``quasiregular'' or ``closed'', an algebraic structure best associated with the Kleene star.
+Hence, we plan to explore the use of the Kleene star to encode nested collections in our algebra.
+A key challenge in doing so is detecting opportunities for incorporating it into a summary, a more challenging form of the factorization problem.
+
+A further step to increase the capabilities of \systemnametwo is to incorporate type information in the summarization. 
+This adds an extra layer of information an analyst can extract from our system, as well as the ability to identify and correct schema errors. 
+As a long term goal we will provide capabilities for linking views, for example by defining functional dependencies.
+The goal is to create full entity relationship diagrams. 
+In particular, one interesting way to identify potential relationships that exist between entities is by leveraging the overlap between segments.

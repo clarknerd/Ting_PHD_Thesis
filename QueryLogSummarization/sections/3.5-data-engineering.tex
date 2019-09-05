@@ -5,14 +5,14 @@ However in cases like logs of \textit{mixed} workloads, there are also many case
 For example, consider a log that includes queries drawn from a mixture of two workloads with disjoint feature sets.
 Pattern-based summaries can not convey such anti-correlations easily.
 As a result, patterns including features from both workloads never actually co-occur in the log, but a pattern-based summary of the log will suggest otherwise.
-Such false positives are especially problematic for use-cases of \systemname involving outlier detection (e.g., \cite{DBLP:conf/trustcom/KulUC18}).
+Such false positives are especially problematic for use-cases of \systemnameone involving outlier detection (e.g., \cite{DBLP:conf/trustcom/KulUC18}).
 Even in other settings, capturing correlations reduces data dimensionality and improves both runtime and effectiveness of state-of-the-art pattern mining algorithms (See Section~\ref{sec:evaluatingalternativeapplicationsexperiments}).
 %In addition, by detecting and separating groups of anti-correlated features, one can partition the data accordingly and reduce data dimensionality for each partition.
 %, which causes pattern based encoding schemes to break down in terms of computation efficiency.% (shown in Section~\ref{sec:refiningnaivemixtureencodings}). 
 
 In this section, we propose a generalization of pattern encodings where the log is modeled not as a single probability distribution, but rather as a mixture of several simpler distributions.
 The resulting encoding is likewise a mixture: Patterns for each component of the mixture are stored independently.
-Hence, we refer to it as a \emph{pattern mixture encoding}, and it forms the basis of \systemname compression.
+Hence, we refer to it as a \emph{pattern mixture encoding}, and it forms the basis of \systemnameone compression.
 We first focus on a simplified form of this problem, where we only mix \emph{naive} encodings (we explore more general mixtures in Section~\ref{sec:naivemixtureencodingrefinement}).
 We refer to the resulting scheme as \textit{naive mixture encodings}, and give examples of the encoding in Section~\ref{sec:naivemixtureencoding}.
 Then we generalize \errorname and Verbosity to pattern mixture encodings in Section~\ref{sec:generalizedinformationlossmeasures}.
@@ -21,6 +21,7 @@ Finally, with generalized encoding evaluation measures, we evaluate several clus
 \subsection{Example: Naive Mixture Encodings}
 \label{sec:naivemixtureencoding}
 \noindent Consider a toy query log with only 3 conjunctive queries. \\[-5mm]
+
 \begin{enumerate}
 \item \lstinline{SELECT id FROM Messages WHERE status = ?}\\[-6mm]
 \item \lstinline{SELECT id FROM Messages}\\[-6mm]
@@ -240,7 +241,7 @@ A process can infer the frequency of any query $p(Q=\vec q\;|\;L)$ drawn from th
 We generalize verbosity to pattern mixture encodings as the \textit{Total Verbosity} ($\sum_{i}|S_i|$), or the total size of the encoded representation.
 %As an alternative, we could express the complexity of the encoding by computing the \textit{Average Verbosity} ($\sum_{i}w_i \cdot |S_i|$), which measures the expected size of each cluster.
 %We will focus on \textit{Total Verbosity} in the paper. 
-%Note that \textit{Average Verbosity} is specifically useful in cases where \systemname encodings are presented for human consumption, as lower average verbosity encodings are simpler.
+%Note that \textit{Average Verbosity} is specifically useful in cases where \systemnameone encodings are presented for human consumption, as lower average verbosity encodings are simpler.
 % \begin{example}
 % Continuing the naive mixture encoding example in Section~\ref{sec:naivemixtureencoding}, the second feature does not appear in the first partition (i.e., $p(x_2\;|\;L_1) = 0$), and likewise the first and fourth features do not appear in the second partition.
 % The size of the resulting encodings will be $|S_1| = 3$ and $|S_2| = 2$ respectively.
@@ -290,17 +291,17 @@ Each point is the verbosity of one of ten trials.  The Y-axis' lower bound is th
 
 \section{Pattern Mixture Compression}
 \label{sec:constructingencodings}
-We are now ready to describe the \systemname compression scheme.
-Broadly, \systemname attempts to identify a pattern mixture encoding that optimizes for some target trade-off between Total Verbosity and Error.  
+We are now ready to describe the \systemnameone compression scheme.
+Broadly, \systemnameone attempts to identify a pattern mixture encoding that optimizes for some target trade-off between Total Verbosity and Error.  
 A naive --- though impractical --- approach to finding such an encoding would be to search the entire space of possible pattern mixture encodings.
-Instead, \systemname approximates the same outcome by first identifying the naive mixture encoding that is closest to optimal for the desired trade-off.
+Instead, \systemnameone approximates the same outcome by first identifying the naive mixture encoding that is closest to optimal for the desired trade-off.
 As we show experimentally, this naive mixture encoding is competitive with more complicated, slower techniques for summarizing query logs.
-We also explore a hypothetical second stage, where \systemname refines the naive mixture encoding to further reduce Error.
+We also explore a hypothetical second stage, where \systemnameone refines the naive mixture encoding to further reduce Error.
 The outcome of this hypothetical stage has a slightly lower Error and Verbosity, but does not admit efficient computation of database statistics. 
 
 \subsection{Constructing Naive Mixture Encodings}
 \label{sec:constructingnaivemixtureencodings}
-\systemname searches for a naive mixture encoding that best optimizes for a requested tradeoff between Total Verbosity and Error.  
+\systemnameone searches for a naive mixture encoding that best optimizes for a requested tradeoff between Total Verbosity and Error.  
 As a way to make this search efficient, we observe that a log (or log partition) uniquely determines its naive (or naive mixture) encoding. 
 Thus the problem of searching for a naive mixture encoding reduces to searching for the corresponding log partitioning.
 We further observe that the Error of a naive mixture encoding is proportional to the diversity of the queries in the log being encoded: 

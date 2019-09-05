@@ -1,4 +1,40 @@
 %%%%%% Standard Packages %%%%%%
+\usepackage{graphicx}
+\usepackage{amssymb}
+%\usepackage[noend]{algorithmic}
+\usepackage{algorithm}
+\usepackage{stackrel}
+\usepackage{algpseudocode}
+\usepackage{textcomp}
+\PassOptionsToPackage{table}{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{listings}
+\usepackage{subcaption}
+% \usepackage{caption}
+\usepackage{amsmath}
+\usepackage{mathtools,xparse}
+\usepackage{dsfont}
+\usepackage{stmaryrd}
+\usepackage[inline]{enumitem}
+
+%\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{lipsum}
+\usepackage[normalem]{ulem}
+\usepackage{array}
+\usepackage{multicol}
+\usepackage{etoolbox}
+\usepackage{varwidth}
+\usepackage{xspace}
+
+\usepackage{multirow}
+
+
+%%%%%% Package Configuration %%%%%%
+%%% Listings
+\lstset{language=sql,morekeywords={LENS,SCHEMA_MATCHING,string},basicstyle=\small\upshape\ttfamily,keywordstyle=\color{blue}}
+
 \usepackage{booktabs} % For formal tables
 \usepackage{balance}
 \usepackage{graphicx}
@@ -15,7 +51,6 @@
 \usepackage{textcomp}
 \PassOptionsToPackage{table}{xcolor}
 \usepackage[table]{xcolor}
-\usepackage{listings}
 \usepackage{subcaption}
 % \usepackage{caption}
 \usepackage{mathtools,xparse}
@@ -24,7 +59,6 @@
 % \usepackage[inline]{enumitem}
 
 %\usepackage{cite}
-\usepackage{paralist}
 \usepackage{hyperref}
 \hypersetup{hidelinks=true}
 \usepackage{cleveref}
@@ -32,7 +66,6 @@
 \usepackage[normalem]{ulem}
 \usepackage{array}
 \usepackage{multicol}
-\usepackage{enumitem}
 \usepackage{etoolbox}
 \usepackage{varwidth}
 \usepackage{xspace}
@@ -82,7 +115,7 @@
 \newcommand{\Intersection}{\bigcap}
 \newcommand{\E}{\mathrm{E}}
 \newcommand{\expect}{\mathbb{E}}
-
+\newcommand{\defineeq}{\overset{def}{=}}
 \newcommand{\entropy}{\mathcal{H}}
 
 \newcommand{\distinct}[1]{\lfloor{#1}\rfloor}
@@ -120,7 +153,7 @@
 \newcommand{\tinysection}[1]{\smallskip \noindent \textbf{#1.}~}
 %\newcommand{\keyword}[1]{\textcolor{blue}{\texttt{#1}}}
 
-\newcommand{\systemname}{\textsc{LogR}\xspace}
+\newcommand{\systemnameone}{\textsc{LogR}\xspace}
 \newcommand{\Errorname}{Reproduction Error\xspace}
 \newcommand{\errorname}{\Errorname}%reproduction error\xspace}
 \newcommand{\cqword}[2]{{\footnotesize $\tuple{\text{\lstinline{#2}}, \text{\lstinline{#1}}}$}}
@@ -140,3 +173,68 @@
 \newtheorem{example}{Example}
 \newtheorem{proposition}{Proposition}
 \newtheorem{lemma}{Lemma}
+
+%%% Listings - JSON language definition
+\colorlet{jsonpunct}{red!60!black}
+\definecolor{jsonbackground}{HTML}{EEEEEE}
+\definecolor{jsondelim}{RGB}{20,105,176}
+\colorlet{jsonnumb}{magenta!60!black}
+\definecolor{jsonkey}{RGB}{20,136,95}
+
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily\small,
+%    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{jsonbackground},
+    literate=
+     *{0}{{{\color{jsonnumb}0}}}{1}
+      {1}{{{\color{jsonnumb}1}}}{1}
+      {2}{{{\color{jsonnumb}2}}}{1}
+      {3}{{{\color{jsonnumb}3}}}{1}
+      {4}{{{\color{jsonnumb}4}}}{1}
+      {5}{{{\color{jsonnumb}5}}}{1}
+      {6}{{{\color{jsonnumb}6}}}{1}
+      {7}{{{\color{jsonnumb}7}}}{1}
+      {8}{{{\color{jsonnumb}8}}}{1}
+      {9}{{{\color{jsonnumb}9}}}{1}
+      {:}{{{\color{jsonpunct}{:}}}}{1}
+      {,}{{{\color{jsonpunct}{,}}}}{1}
+      {\{}{{{\color{jsondelim}{\{}}}}{1}
+      {\}}{{{\color{jsondelim}{\}}}}}{1}
+      {[}{{{\color{jsondelim}{[}}}}{1}
+      {]}{{{\color{jsondelim}{]}}}}{1}
+      {…}{{\normalfont \ldots}}{1},
+    morestring=[d]',
+    stringstyle=\color{jsonkey}
+}
+\newcommand{\inlinejson}[1]{\lstinline{#1}}
+\newcommand{\mathjson}[1]{\text{\lstinline{#1}}}
+
+%%% verbatim
+\makeatletter
+\preto{\@verbatim}{\topsep=5pt \parsep=0pt }
+\makeatother
+%%% Algorithmic
+\renewcommand{\algorithmicrequire}{\textbf{In:}}
+\renewcommand{\algorithmicensure}{\textbf{Out:}}
+%% Multicol
+\setlength\multicolsep{\topsep}
+
+
+%%%%%%% Table styling %%%%%%
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+%%%%%% TODOs %%%%%%
+%\newcommand{\todo}[1]{\textcolor{red}{[[ #1 ]]}}
+
+
+\newcommand{\sssd}{$\texttt{S}^3\texttt{D}$\xspace}
+\newcommand{\systemnametwo}{\textsc{SchemaDrill}\xspace}
+\newcommand{\json}{Json\xspace}

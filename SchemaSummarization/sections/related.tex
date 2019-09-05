@@ -1,0 +1,19 @@
+% -*- root: ../cnf-json.tex -*-
+ \tinysection{Schema Extraction}
+Schema extraction for \json, as well as for other self-describing data models like XML has seen active interest from a number of sources. 
+An early effort to summarize self-describing \emph{hierarchical} data can be found in the LORE system's DataGuides~\cite{DBLP:conf/vldb/GoldmanW97}.
+DataGuides view schemas begin with a forest of tree-shaped schemas and progressively merge schemas, deriving a compact encoding of the forest as a DAG.
+Although initially designed for XML data, similar ideas have been more recently applied for \json data as well~\cite{DBLP:conf/cidr/LiuG15,DBLP:conf/sigmod/LiuHMLC16}.
+Key challenges in this space involve simply extracting schemas from large, multi-terabyte collections of \json data~\cite{DBLP:conf/edbt/BaaziziLCGS17}, as well as managing ambiguity in the set of possible factorizations of a schema~\cite{DBLP:conf/dbpl/BaaziziCGS17,spoth:2017:cidr:adaptive}.
+The approach taken by Baazizi et. al.~\cite{DBLP:conf/edbt/BaaziziLCGS17} in particular adopts a type unification model similar to ours, but lacks the conjunctive operator of our type-system.
+For non-hierarchical data, interactive tools like Wrangler~\cite{DBLP:conf/chi/KandelPHH11} provide an interactive frameworks for regularizing schemas.
+
+\tinysection{Physical Layout}
+While schemas play a role in the interpretability of a \json data set, they can also help improve the performance of \json queries.  
+One approach relies on inverted indexes~\cite{DBLP:conf/cidr/LiuG15} to quickly identify records that make use of sparse paths in the schema.
+Another approach is to normalize schema elements~\cite{DBLP:conf/sigmod/DiScalaA16}.  Although the resulting schema may not always be interpretable, this approach can result in substantial space savings.
+
+\tinysection{Information Retrieval}
+From a more general perspective, the schema extraction problem which aims at making large datasets tractable for interactive exploration, is an instance of \textit{categorization} problem that has been repeatedly studied in the literature.
+More precisely, attributes (metadata) of the datasets can be grouped into a hierarchy of "facets" (i.e., categories)~\cite{Smith:2006:FSS:1187627.1187785} where the child-level facets are conditioned on the presence of the parent one.
+In our approach, we adopt the hierachical data visualization and focus more on the algorithmic essence of the problem: How to (1) balance between the preciseness and conciseness of the visualization and (2) respond to users' data exploration requests in a scalable way.

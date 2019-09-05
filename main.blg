@@ -4,53 +4,55 @@ The top-level auxiliary file: main.aux
 A level-1 auxiliary file: acknowlegements.aux
 A level-1 auxiliary file: abstract.aux
 A level-1 auxiliary file: Introduction.aux
-A level-1 auxiliary file: ProblemStatement.aux
+A level-1 auxiliary file: ProblemOverview.aux
 A level-1 auxiliary file: QueryLogSummarization/chapter3.aux
-A level-1 auxiliary file: ProbabilisticDatabaseSummarization/chapter4.aux
 A level-1 auxiliary file: SchemaSummarization/chapter5.aux
+A level-1 auxiliary file: ProbabilisticDatabaseSummarization/chapter4.aux
 A level-1 auxiliary file: Findings&Discussion/chapter6.aux
 A level-1 auxiliary file: conclusions.aux
 The style file: abbrv.bst
 A level-1 auxiliary file: appendix1.aux
 Database file #1: refs.bib
-You've used 49 entries,
+Warning--I didn't find a database entry for "facetmap"
+You've used 68 entries,
             2118 wiz_defined-function locations,
-            904 strings with 17329 characters,
-and the built_in function-call counts, 21213 in all, are:
-= -- 2057
-> -- 1196
-< -- 23
-+ -- 453
-- -- 400
-* -- 1650
-:= -- 3451
-add.period$ -- 165
-call.type$ -- 49
-change.case$ -- 317
+            1016 strings with 20829 characters,
+and the built_in function-call counts, 28948 in all, are:
+= -- 2833
+> -- 1558
+< -- 32
++ -- 597
+- -- 523
+* -- 2158
+:= -- 4644
+add.period$ -- 230
+call.type$ -- 68
+change.case$ -- 433
 chr.to.int$ -- 0
-cite$ -- 49
-duplicate$ -- 754
-empty$ -- 1541
-format.name$ -- 400
-if$ -- 4467
+cite$ -- 68
+duplicate$ -- 1059
+empty$ -- 2165
+format.name$ -- 523
+if$ -- 6166
 int.to.chr$ -- 0
-int.to.str$ -- 49
-missing$ -- 50
-newline$ -- 248
-num.names$ -- 128
-pop$ -- 316
+int.to.str$ -- 68
+missing$ -- 65
+newline$ -- 343
+num.names$ -- 168
+pop$ -- 467
 preamble$ -- 1
-purify$ -- 270
+purify$ -- 367
 quote$ -- 0
-skip$ -- 557
+skip$ -- 801
 stack$ -- 0
-substring$ -- 1352
-swap$ -- 229
-text.length$ -- 23
+substring$ -- 1844
+swap$ -- 338
+text.length$ -- 32
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 192
+type$ -- 268
 warning$ -- 0
-while$ -- 213
-width$ -- 51
-write$ -- 562
+while$ -- 287
+width$ -- 70
+write$ -- 772
+(There was 1 warning)
