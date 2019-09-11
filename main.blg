@@ -2,7 +2,6 @@ This is BibTeX, Version 0.99d (TeX Live 2018)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
 A level-1 auxiliary file: acknowlegements.aux
-A level-1 auxiliary file: abstract.aux
 A level-1 auxiliary file: Introduction.aux
 A level-1 auxiliary file: ProblemOverview.aux
 A level-1 auxiliary file: QueryLogSummarization/chapter3.aux
@@ -50,7 +49,7 @@ Warning--I didn't find a database entry for "shin2015incremental"
 Warning--I didn't find a database entry for "jampani2008mcdb"
 You've used 49 entries,
             2118 wiz_defined-function locations,
-            956 strings with 18505 characters,
+            955 strings with 18493 characters,
 and the built_in function-call counts, 21213 in all, are:
 = -- 2057
 > -- 1196
