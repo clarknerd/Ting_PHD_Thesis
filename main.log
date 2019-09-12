@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  12 SEP 2019 03:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  12 SEP 2019 05:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1671,49 +1671,11 @@ arity/graphics/module.pdf>] [74])
 
 (./SchemaSummarization/main.tex
 Chapter 4.
-(./SchemaSummarization/sections/introduction.tex
-
-LaTeX Warning: Citation `DBLP:conf/cidr/LiuG15' on page 80 undefined on input l
-ine 10.
-
-
-LaTeX Warning: Citation `DBLP:conf/edbt/BaaziziLCGS17' on page 80 undefined on 
-input line 10.
-
-
-LaTeX Warning: Citation `DBLP:conf/sigmod/DiScalaA16' on page 80 undefined on i
-nput line 10.
-
-
-LaTeX Warning: Citation `DBLP:conf/vldb/GoldmanW97' on page 80 undefined on inp
-ut line 10.
-
-
-LaTeX Warning: Citation `spoth:2017:cidr:adaptive' on page 80 undefined on inpu
-t line 10.
-
-[80
+(./SchemaSummarization/sections/introduction.tex [80
 
 
 
-]
-
-LaTeX Warning: Citation `DBLP:conf/sigmod/DiScalaA16' on page 81 undefined on i
-nput line 14.
-
-
-LaTeX Warning: Citation `DBLP:conf/vldb/GoldmanW97' on page 81 undefined on inp
-ut line 14.
-
-
-LaTeX Warning: Citation `Codd:1979:EDR:320107.320109' on page 81 undefined on i
-nput line 28.
-
-
-LaTeX Warning: Citation `DBLP:conf/sigmod/DiScalaA16' on page 81 undefined on i
-nput line 30.
-
-[81]
+] [81]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 47.
 
@@ -1730,7 +1692,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 47.
 
 [82]
-<SchemaSummarization/img/UI.pdf, id=1801, 563.25531pt x 329.23824pt>
+<SchemaSummarization/img/UI.pdf, id=1816, 563.25531pt x 329.23824pt>
 File: SchemaSummarization/img/UI.pdf Graphic file (type pdf)
 <use SchemaSummarization/img/UI.pdf>
 Package pdftex.def Info: SchemaSummarization/img/UI.pdf  used on input line 67.
@@ -1758,50 +1720,17 @@ Overfull \hbox (64.46352pt too wide) in paragraph at lines 70--78
 [][]\OT1/cmr/m/it/12 1.[]  []| [] []2.[]  []|[] []3.[]  []|[] []4.[]  []|
  []
 
-[86]
-
-LaTeX Warning: Citation `oracledataguide' on page 87 undefined on input line 88
-.
-
-
-LaTeX Warning: Citation `DBLP:conf/sigmod/LiuHMLC16' on page 87 undefined on in
-put line 88.
-
-
-LaTeX Warning: Citation `pharmadata' on page 87 undefined on input line 93.
-
-[87] [88]
-
-LaTeX Warning: Citation `Dalvi:2013:DPI:2395116.2395119' on page 89 undefined o
-n input line 195.
-
-
-LaTeX Warning: Citation `DBLP:conf/focs/Burgisser01' on page 89 undefined on in
-put line 195.
-
-
-LaTeX Warning: Citation `DBLP:conf/sigmod/HanPY00' on page 89 undefined on inpu
-t line 198.
-
-[89]
-<SchemaSummarization/img/collapse-FPTree.pdf, id=1903, 541.77351pt x 188.08517p
+[86] [87] [88] [89]
+<SchemaSummarization/img/collapse-FPTree.pdf, id=1928, 541.77351pt x 188.08517p
 t>
 File: SchemaSummarization/img/collapse-FPTree.pdf Graphic file (type pdf)
 <use SchemaSummarization/img/collapse-FPTree.pdf>
 Package pdftex.def Info: SchemaSummarization/img/collapse-FPTree.pdf  used on i
 nput line 203.
 (pdftex.def)             Requested size: 430.00462pt x 149.28879pt.
-
-
-LaTeX Warning: Citation `DBLP:conf/sigmod/HanPY00' on page 90 undefined on inpu
-t line 214.
-
-[90 <./SchemaSummarization/img/collapse-FPTree.pdf>]
-
-LaTeX Warning: Citation `Johnson1967' on page 91 undefined on input line 230.
-
+ [90 <./SchemaSummarization/img/collapse-FPTree.pdf>]
 [91]
-<SchemaSummarization/img/collapse-RCDC.pdf, id=1953, 402.0348pt x 81.19876pt>
+<SchemaSummarization/img/collapse-RCDC.pdf, id=1983, 402.0348pt x 81.19876pt>
 File: SchemaSummarization/img/collapse-RCDC.pdf Graphic file (type pdf)
 <use SchemaSummarization/img/collapse-RCDC.pdf>
 Package pdftex.def Info: SchemaSummarization/img/collapse-RCDC.pdf  used on inp
@@ -1809,14 +1738,14 @@ ut line 246.
 (pdftex.def)             Requested size: 344.005pt x 69.47891pt.
 ) (./SchemaSummarization/sections/visualization.tex [92 <./SchemaSummarization/
 img/collapse-RCDC.pdf>]
-<SchemaSummarization/img/twitterFullTree.png, id=1979, 649.67719pt x 1306.8825p
+<SchemaSummarization/img/twitterFullTree.png, id=2010, 649.67719pt x 1306.8825p
 t>
 File: SchemaSummarization/img/twitterFullTree.png Graphic file (type png)
 <use SchemaSummarization/img/twitterFullTree.png>
 Package pdftex.def Info: SchemaSummarization/img/twitterFullTree.png  used on i
 nput line 26.
 (pdftex.def)             Requested size: 98.0408pt x 197.20045pt.
-<SchemaSummarization/img/twitterSegment.png, id=1981, 1519.92844pt x 1179.65718
+<SchemaSummarization/img/twitterSegment.png, id=2012, 1519.92844pt x 1179.65718
 pt>
 File: SchemaSummarization/img/twitterSegment.png Graphic file (type png)
 <use SchemaSummarization/img/twitterSegment.png>
@@ -1825,36 +1754,21 @@ put line 32.
 (pdftex.def)             Requested size: 253.70114pt x 196.90305pt.
  [93 <./SchemaSummarization/img/twitterFullTree.png> <./SchemaSummarization/img
 /twitterSegment.png>]
-<SchemaSummarization/img/YelpCovMat.png, id=1991, 2141.75156pt x 1044.90375pt>
+<SchemaSummarization/img/YelpCovMat.png, id=2022, 2141.75156pt x 1044.90375pt>
 File: SchemaSummarization/img/YelpCovMat.png Graphic file (type png)
 <use SchemaSummarization/img/YelpCovMat.png>
 Package pdftex.def Info: SchemaSummarization/img/YelpCovMat.png  used on input 
 line 51.
 (pdftex.def)             Requested size: 430.00462pt x 209.79018pt.
-
-
-LaTeX Warning: Citation `DBLP:conf/gd/EllsonGKNW00' on page 94 undefined on inp
-ut line 60.
-
-[94 <./SchemaSummarization/img/YelpCovMat.png>]
-
-LaTeX Warning: Citation `twitterdecahose' on page 95 undefined on input line 67
-.
-
-
-LaTeX Warning: Citation `yelpdata' on page 95 undefined on input line 67.
-
-<SchemaSummarization/img/YelpUI.pdf, id=1998, 563.25531pt x 329.23824pt>
+ [94 <./SchemaSummarization/img/YelpCovMat.png>]
+<SchemaSummarization/img/YelpUI.pdf, id=2032, 563.25531pt x 329.23824pt>
 File: SchemaSummarization/img/YelpUI.pdf Graphic file (type pdf)
 <use SchemaSummarization/img/YelpUI.pdf>
 Package pdftex.def Info: SchemaSummarization/img/YelpUI.pdf  used on input line
  83.
 (pdftex.def)             Requested size: 430.00462pt x 242.77988pt.
-
-LaTeX Warning: Citation `facetmap' on page 95 undefined on input line 95.
-
-[95] [96 <./SchemaSummarization/img/YelpUI.pdf>]
-<SchemaSummarization/img/YelpUIH.pdf, id=2033, 563.25531pt x 329.23824pt>
+ [95] [96 <./SchemaSummarization/img/YelpUI.pdf>]
+<SchemaSummarization/img/YelpUIH.pdf, id=2071, 563.25531pt x 329.23824pt>
 File: SchemaSummarization/img/YelpUIH.pdf Graphic file (type pdf)
 <use SchemaSummarization/img/YelpUIH.pdf>
 Package pdftex.def Info: SchemaSummarization/img/YelpUIH.pdf  used on input lin
@@ -1862,130 +1776,37 @@ e 124.
 (pdftex.def)             Requested size: 430.00462pt x 251.34897pt.
  [97])
 (./SchemaSummarization/sections/related.tex
-
-LaTeX Warning: Citation `DBLP:conf/vldb/GoldmanW97' on page 98 undefined on inp
-ut line 4.
-
-
-LaTeX Warning: Citation `DBLP:conf/cidr/LiuG15' on page 98 undefined on input l
-ine 6.
-
-
-LaTeX Warning: Citation `DBLP:conf/sigmod/LiuHMLC16' on page 98 undefined on in
-put line 6.
-
-
-LaTeX Warning: Citation `DBLP:conf/edbt/BaaziziLCGS17' on page 98 undefined on 
-input line 7.
-
-
-LaTeX Warning: Citation `DBLP:conf/dbpl/BaaziziCGS17' on page 98 undefined on i
-nput line 7.
-
-
-LaTeX Warning: Citation `spoth:2017:cidr:adaptive' on page 98 undefined on inpu
-t line 7.
-
-
-LaTeX Warning: Citation `DBLP:conf/edbt/BaaziziLCGS17' on page 98 undefined on 
-input line 8.
-
-
-LaTeX Warning: Citation `DBLP:conf/chi/KandelPHH11' on page 98 undefined on inp
-ut line 9.
-
-
 Overfull \hbox (0.1597pt too wide) in paragraph at lines 2--10
 \OT1/cmr/bx/n/12 Schema Ex-trac-tion.  \OT1/cmr/m/n/12 Schema ex-trac-tion for 
 Json, as well as for other self-describing
  []
 
-[98 <./SchemaSummarization/img/YelpUIH.pdf>]
-
-LaTeX Warning: Citation `DBLP:conf/cidr/LiuG15' on page 99 undefined on input l
-ine 13.
-
-
-LaTeX Warning: Citation `DBLP:conf/sigmod/DiScalaA16' on page 99 undefined on i
-nput line 14.
-
-
-LaTeX Warning: Citation `Smith:2006:FSS:1187627.1187785' on page 99 undefined o
-n input line 18.
-
-) (./SchemaSummarization/sections/future.tex [99])) [100]
+[98 <./SchemaSummarization/img/YelpUIH.pdf>])
+(./SchemaSummarization/sections/future.tex [99])) [100]
 \openout2 = `ProbabilisticDatabaseSummarization/main.aux'.
 
 
 (./ProbabilisticDatabaseSummarization/main.tex
 Chapter 5.
-(./ProbabilisticDatabaseSummarization/sections/1-intro.tex
-
-LaTeX Warning: Citation `papadakis2016comparative' on page 101 undefined on inp
-ut line 4.
-
-
-LaTeX Warning: Citation `Gupta:2006:CPD:1182635.1164210' on page 101 undefined 
-on input line 5.
-
-
-LaTeX Warning: Citation `suciu2009probabilistic' on page 101 undefined on input
- line 8.
-
-
-LaTeX Warning: Citation `Gupta:2006:CPD:1182635.1164210' on page 101 undefined 
-on input line 11.
-
-[101
+(./ProbabilisticDatabaseSummarization/sections/1-intro.tex [101
 
 
 
-]
-
-LaTeX Warning: Citation `suciu2009probabilistic' on page 102 undefined on input
- line 16.
-
-
-LaTeX Warning: Citation `Gupta:2006:CPD:1182635.1164210' on page 102 undefined 
-on input line 17.
-
-[102]
-
-LaTeX Warning: Citation `suciu2009probabilistic' on page 103 undefined on input
- line 27.
-
-
-LaTeX Warning: Citation `friedman1999learning' on page 103 undefined on input l
-ine 27.
-
-
-LaTeX Warning: Citation `sen2007representing' on page 103 undefined on input li
-ne 27.
-
-
-LaTeX Warning: Citation `sen2009prdb' on page 103 undefined on input line 27.
-
-
-LaTeX Warning: Citation `jha2012probabilistic' on page 103 undefined on input l
-ine 27.
-
-
-Overfull \hbox (3.1431pt too wide) in paragraph at lines 27--30
+] [102]
+Overfull \hbox (14.39291pt too wide) in paragraph at lines 27--30
 []\OT1/cmr/m/n/12 To en-code tu-ple cor-re-la-tion, var-i-ous kind of aux-il-ia
 ry in-for-ma-tion (e.g., \OT1/cmr/m/it/12 c-tables \OT1/cmr/m/n/12 [[]],
  []
 
 
-LaTeX Warning: Citation `suciu2009probabilistic' on page 103 undefined on input
- line 31.
+Overfull \hbox (1.46805pt too wide) in paragraph at lines 31--53
+[]\OT1/cmr/m/n/12 To care-fully in-tro-duce aux-il-iary in-for-ma-tion, we star
+t by con-sid-er-ing \OT1/cmr/m/it/12 c-tables \OT1/cmr/m/n/12 [[]].
+ []
 
 [103]) (./ProbabilisticDatabaseSummarization/sections/3-problem-definition.tex
-
-LaTeX Warning: Citation `Dalvi:2009:PDD:1538788.1538810' on page 104 undefined 
-on input line 4.
-
 [104]
-<ProbabilisticDatabaseSummarization/graphics/Data_Flow_Diagram.pdf, id=2088, 88
+<ProbabilisticDatabaseSummarization/graphics/Data_Flow_Diagram.pdf, id=2161, 88
 5.3075pt x 313.17pt>
 File: ProbabilisticDatabaseSummarization/graphics/Data_Flow_Diagram.pdf Graphic
  file (type pdf)
@@ -1998,93 +1819,57 @@ Diagram.pdf  used on input line 23.
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./ProbabilisticDatabaseSumma
 rization/graphics/Data_Flow_Diagram.pdf): PDF inclusion: invalid other resource
  which is no dict (key 'ProcSets', type <array>); ignored.
->]
-
-LaTeX Warning: Citation `suciu2009probabilistic' on page 106 undefined on input
- line 36.
-
-
-LaTeX Warning: Citation `suciu2009probabilistic' on page 106 undefined on input
- line 39.
-
-[106]
-
-LaTeX Warning: Citation `suciu2009probabilistic' on page 107 undefined on input
- line 65.
-
-
-LaTeX Warning: Citation `friedman1999learning' on page 107 undefined on input l
-ine 69.
-
-[107] [108])
+>] [106] [107] [108])
 (./ProbabilisticDatabaseSummarization/sections/3.5-RepresentationDeliverable.te
 x [109])
 (./ProbabilisticDatabaseSummarization/sections/4-RepresentationAccuracy.tex
-[110]
-
-LaTeX Warning: Citation `xie2018query' on page 111 undefined on input line 19.
-
-[111]
-
-LaTeX Warning: Citation `xie2018query' on page 112 undefined on input line 39.
-
-[112] [113] [114] [115])
-(./ProbabilisticDatabaseSummarization/sections/2-relatedwork.tex
-
-LaTeX Warning: Citation `suciu2009probabilistic' on page 116 undefined on input
- line 6.
-
-
-LaTeX Warning: Citation `cui2003lineage' on page 116 undefined on input line 9.
-
-
-
-LaTeX Warning: Citation `benjelloun2006uldbs' on page 116 undefined on input li
-ne 11.
-
-
-LaTeX Warning: Citation `Huang:2009:MPD:1559845.1559984' on page 116 undefined 
-on input line 14.
-
-
-LaTeX Warning: Citation `re2007materialized' on page 116 undefined on input lin
-e 15.
-
-
-LaTeX Warning: Citation `friedman1999learning' on page 116 undefined on input l
-ine 19.
-
-
-LaTeX Warning: Citation `sen2007representing' on page 116 undefined on input li
-ne 19.
-
-
-LaTeX Warning: Citation `sen2009prdb' on page 116 undefined on input line 19.
-
-[116]
-
-LaTeX Warning: Citation `jha2012probabilistic' on page 117 undefined on input l
-ine 27.
-
-
-LaTeX Warning: Citation `shin2015incremental' on page 117 undefined on input li
-ne 28.
-
-
-LaTeX Warning: Citation `jampani2008mcdb' on page 117 undefined on input line 3
-0.
-
-[117])) [118] (./main.bbl [119
+[110] [111] [112] [113] [114] [115])
+(./ProbabilisticDatabaseSummarization/sections/2-relatedwork.tex [116] [117]))
+[118] (./main.bbl [119
 
 
 
 ] [120] [121] [122] [123] [124]
-Underfull \hbox (badness 1997) in paragraph at lines 450--454
+Underfull \hbox (badness 1168) in paragraph at lines 450--454
 []\OT1/cmr/m/n/12 Bikash Chan-dra, Mathew Joseph, Bharath Rad-hakr-ish-nan, Shr
 ee-v-id-hya
  []
 
-[125]) [126]
+[125]
+Underfull \hbox (badness 10000) in paragraph at lines 530--534
+[]\OT1/cmr/m/n/12 Oracle.  Database json de-vel-oper's guide: Json data guide.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 530--534
+\OT1/cmr/m/n/12 https://docs.oracle.com/cloud/latest/db122/ADJSN/json-dataguide
+.htm,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 542--546
+[]\OT1/cmr/m/n/12 Roam An-a-lyt-ics.  Prescription-based pre-dic-tion.
+ []
+
+[126]
+Underfull \hbox (badness 1033) in paragraph at lines 564--567
+[]\OT1/cmr/m/n/12 Stephen C. John-son.  Hi-er-ar-chi-cal clus-ter-ing schemes. 
+ \OT1/cmr/m/it/12 Psy-chome-trika\OT1/cmr/m/n/12 ,
+ []
+
+
+Overfull \hbox (18.30972pt too wide) in paragraph at lines 575--579
+[]\OT1/cmr/m/n/12 Twitter.  Dec-a-hose stream.  https://developer.twitter.com/e
+n/docs/tweets/sample-
+ []
+
+
+Underfull \hbox (badness 1783) in paragraph at lines 581--584
+[]\OT1/cmr/m/n/12 Inc. Yelp.  Yelp open dataset: An all-purpose dataset for lea
+rn-ing.
+ []
+
+[127]) [128]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 350.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 350.
  (./main.aux (./Introduction/main.aux)
@@ -2108,10 +1893,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 350.
  ) 
 Here is how much of TeX's memory you used:
- 25110 strings out of 492649
- 445203 string characters out of 6129622
- 659167 words of memory out of 5000000
- 28090 multiletter control sequences out of 15000+600000
+ 25180 strings out of 492649
+ 446911 string characters out of 6129622
+ 660690 words of memory out of 5000000
+ 28124 multiletter control sequences out of 15000+600000
  557799 words of font info for 119 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  44i,17n,44p,10391b,1620s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2143,10 +1928,10 @@ e1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type
 /public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/times/utmr8a.pfb>
-Output written on main.pdf (139 pages, 4631323 bytes).
+Output written on main.pdf (141 pages, 4641124 bytes).
 PDF statistics:
- 2456 PDF objects out of 2487 (max. 8388607)
- 2074 compressed objects within 21 object streams
- 422 named destinations out of 1000 (max. 500000)
+ 2569 PDF objects out of 2984 (max. 8388607)
+ 2184 compressed objects within 22 object streams
+ 458 named destinations out of 1000 (max. 500000)
  942 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -9,80 +9,44 @@ A level-1 auxiliary file: ProbabilisticDatabaseSummarization/main.aux
 A level-1 auxiliary file: Conclusion/main.aux
 The style file: unsrt.bst
 Database file #1: ref.bib
-Warning--I didn't find a database entry for "DBLP:conf/cidr/LiuG15"
-Warning--I didn't find a database entry for "DBLP:conf/edbt/BaaziziLCGS17"
-Warning--I didn't find a database entry for "DBLP:conf/sigmod/DiScalaA16"
-Warning--I didn't find a database entry for "DBLP:conf/vldb/GoldmanW97"
-Warning--I didn't find a database entry for "spoth:2017:cidr:adaptive"
-Warning--I didn't find a database entry for "Codd:1979:EDR:320107.320109"
-Warning--I didn't find a database entry for "oracledataguide"
-Warning--I didn't find a database entry for "DBLP:conf/sigmod/LiuHMLC16"
-Warning--I didn't find a database entry for "pharmadata"
-Warning--I didn't find a database entry for "Dalvi:2013:DPI:2395116.2395119"
-Warning--I didn't find a database entry for "DBLP:conf/focs/Burgisser01"
-Warning--I didn't find a database entry for "DBLP:conf/sigmod/HanPY00"
-Warning--I didn't find a database entry for "Johnson1967"
-Warning--I didn't find a database entry for "DBLP:conf/gd/EllsonGKNW00"
-Warning--I didn't find a database entry for "twitterdecahose"
-Warning--I didn't find a database entry for "yelpdata"
-Warning--I didn't find a database entry for "facetmap"
-Warning--I didn't find a database entry for "DBLP:conf/dbpl/BaaziziCGS17"
-Warning--I didn't find a database entry for "DBLP:conf/chi/KandelPHH11"
-Warning--I didn't find a database entry for "Smith:2006:FSS:1187627.1187785"
-Warning--I didn't find a database entry for "papadakis2016comparative"
-Warning--I didn't find a database entry for "Gupta:2006:CPD:1182635.1164210"
-Warning--I didn't find a database entry for "suciu2009probabilistic"
-Warning--I didn't find a database entry for "friedman1999learning"
-Warning--I didn't find a database entry for "sen2007representing"
-Warning--I didn't find a database entry for "sen2009prdb"
-Warning--I didn't find a database entry for "jha2012probabilistic"
-Warning--I didn't find a database entry for "Dalvi:2009:PDD:1538788.1538810"
-Warning--I didn't find a database entry for "xie2018query"
-Warning--I didn't find a database entry for "cui2003lineage"
-Warning--I didn't find a database entry for "benjelloun2006uldbs"
-Warning--I didn't find a database entry for "Huang:2009:MPD:1559845.1559984"
-Warning--I didn't find a database entry for "re2007materialized"
-Warning--I didn't find a database entry for "shin2015incremental"
-Warning--I didn't find a database entry for "jampani2008mcdb"
-You've used 79 entries,
+You've used 113 entries,
             1791 wiz_defined-function locations,
-            1021 strings with 22592 characters,
-and the built_in function-call counts, 21149 in all, are:
-= -- 1761
-> -- 1185
-< -- 23
-+ -- 415
-- -- 336
-* -- 1478
-:= -- 3327
-add.period$ -- 256
-call.type$ -- 79
-change.case$ -- 76
+            1161 strings with 27689 characters,
+and the built_in function-call counts, 31460 in all, are:
+= -- 2759
+> -- 1583
+< -- 40
++ -- 561
+- -- 448
+* -- 2131
+:= -- 4784
+add.period$ -- 372
+call.type$ -- 113
+change.case$ -- 109
 chr.to.int$ -- 0
-cite$ -- 79
-duplicate$ -- 972
-empty$ -- 2037
-format.name$ -- 336
-if$ -- 4764
+cite$ -- 113
+duplicate$ -- 1461
+empty$ -- 3056
+format.name$ -- 448
+if$ -- 7202
 int.to.chr$ -- 0
-int.to.str$ -- 79
-missing$ -- 81
-newline$ -- 398
-num.names$ -- 111
-pop$ -- 304
+int.to.str$ -- 113
+missing$ -- 112
+newline$ -- 568
+num.names$ -- 147
+pop$ -- 440
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 453
+skip$ -- 756
 stack$ -- 0
-substring$ -- 1153
-swap$ -- 277
-text.length$ -- 23
+substring$ -- 1961
+swap$ -- 473
+text.length$ -- 40
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 199
-width$ -- 81
-write$ -- 865
-(There were 35 warnings)
+while$ -- 304
+width$ -- 116
+write$ -- 1249

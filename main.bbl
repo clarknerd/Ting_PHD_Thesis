@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{100}
 
 \bibitem{chandra2015Data}
 Bikash Chandra, Bhupesh Chawda, B.~Kar, K.~V. Reddy, Shetal Shah, and
@@ -489,5 +489,206 @@ Jiawei Han, Jian Pei, Yiwen Yin, and Runying Mao.
 \newblock Mining frequent patterns without candidate generation: A
   frequent-pattern tree approach.
 \newblock {\em DMKD}, 2004.
+
+\bibitem{DBLP:conf/cidr/LiuG15}
+Zhen~Hua Liu and Dieter Gawlick.
+\newblock Management of flexible schema data in rdbmss - opportunities and
+  limitations for nosql -.
+\newblock In {\em {CIDR}}. www.cidrdb.org, 2015.
+
+\bibitem{DBLP:conf/edbt/BaaziziLCGS17}
+Mohamed~Amine Baazizi, Houssem~Ben Lahmar, Dario Colazzo, Giorgio Ghelli, and
+  Carlo Sartiani.
+\newblock Schema inference for massive {JSON} datasets.
+\newblock In {\em {EDBT}}, pages 222--233. OpenProceedings.org, 2017.
+
+\bibitem{DBLP:conf/sigmod/DiScalaA16}
+Michael DiScala and Daniel~J. Abadi.
+\newblock Automatic generation of normalized relational schemas from nested
+  key-value data.
+\newblock In {\em {SIGMOD} Conference}, pages 295--310. ACM, 2016.
+
+\bibitem{DBLP:conf/vldb/GoldmanW97}
+Roy Goldman and Jennifer Widom.
+\newblock Dataguides: Enabling query formulation and optimization in
+  semistructureddatabases.
+\newblock In {\em {VLDB}}, pages 436--445. Morgan Kaufmann, 1997.
+
+\bibitem{spoth:2017:cidr:adaptive}
+William Spoth, Bahareh~Sadat Arab, Eric~S. Chan, Dieter Gawlick, Adel Ghoneimy,
+  Boris Glavic, Beda Hammerschmidt, Oliver Kennedy, Seokki Lee, Zhen~Hua Liu,
+  Xing Niu, and Ying Yang.
+\newblock Adaptive schema databases.
+\newblock In {\em CIDR}, 2017.
+
+\bibitem{Codd:1979:EDR:320107.320109}
+E.~F. Codd.
+\newblock Extending the database relational model to capture more meaning.
+\newblock {\em ACM Trans. Database Syst.}, 4(4):397--434, dec, 1979.
+
+\bibitem{oracledataguide}
+Oracle.
+\newblock Database json developer's guide: Json data guide.
+\newblock https://docs.oracle.com/cloud/latest/db122/ADJSN/json-dataguide.htm,
+  2017.
+
+\bibitem{DBLP:conf/sigmod/LiuHMLC16}
+Zhen~Hua Liu, Beda~Christoph Hammerschmidt, Doug McMahon, Ying Liu, and Hui~Joe
+  Chang.
+\newblock Closing the functional and performance gap between {SQL} and nosql.
+\newblock In {\em {SIGMOD} Conference}, pages 227--238. {ACM}, 2016.
+
+\bibitem{pharmadata}
+Roam Analytics.
+\newblock Prescription-based prediction.
+\newblock https://www.kaggle.com/roamresearch/prescriptionbasedprediction,
+  2017.
+
+\bibitem{Dalvi:2013:DPI:2395116.2395119}
+Nilesh Dalvi and Dan Suciu.
+\newblock The dichotomy of probabilistic inference for unions of conjunctive
+  queries.
+\newblock {\em J. ACM}, 59(6):30:1--30:87, jan, 2013.
+
+\bibitem{DBLP:conf/focs/Burgisser01}
+Peter B{\"{u}}rgisser.
+\newblock The complexity of factors of multivariate polynomials.
+\newblock In {\em {FOCS}}, pages 378--385. {IEEE} Computer Society, 2001.
+
+\bibitem{DBLP:conf/sigmod/HanPY00}
+Jiawei Han, Jian Pei, and Yiwen Yin.
+\newblock Mining frequent patterns without candidate generation.
+\newblock In {\em {SIGMOD} Conference}, pages 1--12. {ACM}, 2000.
+
+\bibitem{Johnson1967}
+Stephen~C. Johnson.
+\newblock Hierarchical clustering schemes.
+\newblock {\em Psychometrika}, 32(3):241--254, Sep 1967.
+
+\bibitem{DBLP:conf/gd/EllsonGKNW00}
+John Ellson, Emden~R. Gansner, Eleftherios Koutsofios, Stephen~C. North, and
+  Gordon Woodhull.
+\newblock Graphviz - open source graph drawing tools.
+\newblock In {\em Graph Drawing}, pages 483--484, 2001.
+
+\bibitem{twitterdecahose}
+Twitter.
+\newblock Decahose stream.
+\newblock
+  https://developer.twitter.com/en/docs/tweets/sample-realtime/api-reference/decahose.
+
+\bibitem{yelpdata}
+Inc. Yelp.
+\newblock Yelp open dataset: An all-purpose dataset for learning.
+\newblock https://www.yelp.com/dataset, 2018.
+
+\bibitem{Smith:2006:FSS:1187627.1187785}
+Greg Smith, Mary Czerwinski, Brian Meyers, Daniel Robbins, George Robertson,
+  and Desney~S. Tan.
+\newblock Facetmap: A scalable search and browse visualization.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics},
+  12(5):797--804, September 2006.
+
+\bibitem{DBLP:conf/dbpl/BaaziziCGS17}
+Mohamed~Amine Baazizi, Dario Colazzo, Giorgio Ghelli, and Carlo Sartiani.
+\newblock Counting types for massive {JSON} datasets.
+\newblock In {\em {DBPL}}, pages 9:1--9:12. {ACM}, 2017.
+
+\bibitem{DBLP:conf/chi/KandelPHH11}
+Sean Kandel, Andreas Paepcke, Joseph~M. Hellerstein, and Jeffrey Heer.
+\newblock Wrangler: interactive visual specification of data transformation
+  scripts.
+\newblock In Desney~S. Tan, Saleema Amershi, Bo~Begole, Wendy~A. Kellogg, and
+  Manas Tungare, editors, {\em CHI}, pages 3363--3372, 2011.
+
+\bibitem{papadakis2016comparative}
+George Papadakis, Jonathan Svirsky, Avigdor Gal, and Themis Palpanas.
+\newblock Comparative analysis of approximate blocking techniques for entity
+  resolution.
+\newblock {\em Proceedings of the VLDB Endowment}, 9(9):684--695, 2016.
+
+\bibitem{Gupta:2006:CPD:1182635.1164210}
+Rahul Gupta and Sunita Sarawagi.
+\newblock Creating probabilistic databases from information extraction models.
+\newblock In {\em Proceedings of the 32Nd International Conference on Very
+  Large Data Bases}, VLDB '06, pages 965--976. VLDB Endowment, 2006.
+
+\bibitem{suciu2009probabilistic}
+Dan Suciu.
+\newblock {\em Probabilistic databases}.
+\newblock Springer, 2009.
+
+\bibitem{friedman1999learning}
+Nir Friedman, Lise Getoor, Daphne Koller, and Avi Pfeffer.
+\newblock Learning probabilistic relational models.
+\newblock In {\em IJCAI}, volume~99, pages 1300--1309, 1999.
+
+\bibitem{sen2007representing}
+Prithviraj Sen and Amol Deshpande.
+\newblock Representing and querying correlated tuples in probabilistic
+  databases.
+\newblock In {\em 2007 IEEE 23rd International Conference on Data Engineering},
+  pages 596--605. IEEE, 2007.
+
+\bibitem{sen2009prdb}
+Prithviraj Sen, Amol Deshpande, and Lise Getoor.
+\newblock Prdb: managing and exploiting rich correlations in probabilistic
+  databases.
+\newblock {\em The VLDB Journal—The International Journal on Very Large Data
+  Bases}, 18(5):1065--1090, 2009.
+
+\bibitem{jha2012probabilistic}
+Abhay Jha and Dan Suciu.
+\newblock Probabilistic databases with markoviews.
+\newblock {\em Proceedings of the VLDB Endowment}, 5(11):1160--1171, 2012.
+
+\bibitem{Dalvi:2009:PDD:1538788.1538810}
+Nilesh Dalvi, Christopher R{\'e}, and Dan Suciu.
+\newblock Probabilistic databases: Diamonds in the dirt.
+\newblock {\em Commun. ACM}, 52(7):86--94, July 2009.
+
+\bibitem{xie2018query}
+Ting Xie, Varun Chandola, and Oliver Kennedy.
+\newblock Query log compression for workload analytics.
+\newblock {\em Proceedings of the VLDB Endowment}, 12(3):183--196, 2018.
+
+\bibitem{cui2003lineage}
+Yingwei Cui and Jennifer Widom.
+\newblock Lineage tracing for general data warehouse transformations.
+\newblock {\em The VLDB Journal—The International Journal on Very Large Data
+  Bases}, 12(1):41--58, 2003.
+
+\bibitem{benjelloun2006uldbs}
+Omar Benjelloun, Anish~Das Sarma, Alon Halevy, and Jennifer Widom.
+\newblock Uldbs: Databases with uncertainty and lineage.
+\newblock In {\em Proceedings of the 32nd international conference on Very
+  large data bases}, pages 953--964. VLDB Endowment, 2006.
+
+\bibitem{Huang:2009:MPD:1559845.1559984}
+Jiewen Huang, Lyublena Antova, Christoph Koch, and Dan Olteanu.
+\newblock Maybms: A probabilistic database management system.
+\newblock In {\em Proceedings of the 2009 ACM SIGMOD International Conference
+  on Management of Data}, SIGMOD '09, pages 1071--1074, New York, NY, USA,
+  2009. ACM.
+
+\bibitem{re2007materialized}
+Christopher R{\'e} and Dan Suciu.
+\newblock Materialized views in probabilistic databases: for information
+  exchange and query optimization.
+\newblock In {\em Proceedings of the 33rd international conference on Very
+  large data bases}, pages 51--62. VLDB Endowment, 2007.
+
+\bibitem{shin2015incremental}
+Jaeho Shin, Sen Wu, Feiran Wang, Christopher De~Sa, Ce~Zhang, and Christopher
+  R{\'e}.
+\newblock Incremental knowledge base construction using deepdive.
+\newblock {\em Proceedings of the VLDB Endowment}, 8(11):1310--1321, 2015.
+
+\bibitem{jampani2008mcdb}
+Ravi Jampani, Fei Xu, Mingxi Wu, Luis~Leopoldo Perez, Christopher Jermaine, and
+  Peter~J Haas.
+\newblock Mcdb: a monte carlo approach to managing uncertain data.
+\newblock In {\em Proceedings of the 2008 ACM SIGMOD international conference
+  on Management of data}, pages 687--700. ACM, 2008.
 
 \end{thebibliography}
