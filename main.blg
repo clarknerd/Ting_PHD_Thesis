@@ -1,17 +1,14 @@
 This is BibTeX, Version 0.99d (TeX Live 2018)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
-A level-1 auxiliary file: acknowlegements.aux
-A level-1 auxiliary file: Introduction.aux
-A level-1 auxiliary file: ProblemOverview.aux
-A level-1 auxiliary file: QueryLogSummarization/chapter3.aux
-A level-1 auxiliary file: TKDE-QuerySimilarity/chapter6.aux
-A level-1 auxiliary file: SchemaSummarization/chapter5.aux
-A level-1 auxiliary file: ProbabilisticDatabaseSummarization/chapter4.aux
-A level-1 auxiliary file: conclusions.aux
-The style file: abbrv.bst
-A level-1 auxiliary file: appendix1.aux
-Database file #1: refs.bib
+A level-1 auxiliary file: Introduction/main.aux
+A level-1 auxiliary file: QueryLogSummarization/main.aux
+A level-1 auxiliary file: TKDE-QuerySimilarity/main.aux
+A level-1 auxiliary file: SchemaSummarization/main.aux
+A level-1 auxiliary file: ProbabilisticDatabaseSummarization/main.aux
+A level-1 auxiliary file: Conclusion/main.aux
+The style file: unsrt.bst
+Database file #1: ref.bib
 Warning--I didn't find a database entry for "DBLP:conf/cidr/LiuG15"
 Warning--I didn't find a database entry for "DBLP:conf/edbt/BaaziziLCGS17"
 Warning--I didn't find a database entry for "DBLP:conf/sigmod/DiScalaA16"
@@ -48,44 +45,44 @@ Warning--I didn't find a database entry for "re2007materialized"
 Warning--I didn't find a database entry for "shin2015incremental"
 Warning--I didn't find a database entry for "jampani2008mcdb"
 You've used 79 entries,
-            2118 wiz_defined-function locations,
-            1075 strings with 22841 characters,
-and the built_in function-call counts, 30622 in all, are:
-= -- 2860
-> -- 1816
+            1791 wiz_defined-function locations,
+            1021 strings with 22592 characters,
+and the built_in function-call counts, 21149 in all, are:
+= -- 1761
+> -- 1185
 < -- 23
-+ -- 699
-- -- 612
-* -- 2267
-:= -- 5103
++ -- 415
+- -- 336
+* -- 1478
+:= -- 3327
 add.period$ -- 256
 call.type$ -- 79
-change.case$ -- 510
+change.case$ -- 76
 chr.to.int$ -- 0
 cite$ -- 79
-duplicate$ -- 1130
-empty$ -- 2275
-format.name$ -- 612
-if$ -- 6378
+duplicate$ -- 972
+empty$ -- 2037
+format.name$ -- 336
+if$ -- 4764
 int.to.chr$ -- 0
 int.to.str$ -- 79
 missing$ -- 81
 newline$ -- 398
-num.names$ -- 190
-pop$ -- 581
+num.names$ -- 111
+pop$ -- 304
 preamble$ -- 1
-purify$ -- 434
+purify$ -- 0
 quote$ -- 0
-skip$ -- 769
+skip$ -- 453
 stack$ -- 0
-substring$ -- 1556
+substring$ -- 1153
 swap$ -- 277
 text.length$ -- 23
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 310
+type$ -- 0
 warning$ -- 0
-while$ -- 278
+while$ -- 199
 width$ -- 81
 write$ -- 865
 (There were 35 warnings)

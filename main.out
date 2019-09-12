@@ -1,93 +1,95 @@
-\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
-\BOOKMARK [0][-]{chapter.2}{Problem Overview}{}% 2
-\BOOKMARK [0][-]{chapter.3}{Application: Query Log Compression for Workload Analytics}{}% 3
-\BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}% 4
-\BOOKMARK [1][-]{section.3.2}{Problem Definition}{chapter.3}% 5
-\BOOKMARK [2][-]{subsection.3.2.1}{Preliminaries and Notation}{section.3.2}% 6
-\BOOKMARK [2][-]{subsection.3.2.2}{Coding Queries}{section.3.2}% 7
-\BOOKMARK [2][-]{subsection.3.2.3}{Log Compression}{section.3.2}% 8
-\BOOKMARK [3][-]{subsubsection.3.2.3.1}{Information Content of Logs}{subsection.3.2.3}% 9
-\BOOKMARK [3][-]{subsubsection.3.2.3.2}{Communicating Information Content}{subsection.3.2.3}% 10
-\BOOKMARK [1][-]{section.3.3}{Information Loss}{chapter.3}% 11
-\BOOKMARK [2][-]{subsection.3.3.1}{Lossless Summaries}{section.3.3}% 12
-\BOOKMARK [2][-]{subsection.3.3.2}{Lossy Summaries}{section.3.3}% 13
-\BOOKMARK [2][-]{subsection.3.3.3}{Idealized Information Loss Measures}{section.3.3}% 14
-\BOOKMARK [1][-]{section.3.4}{Practical Loss Measure}{chapter.3}% 15
-\BOOKMARK [2][-]{subsection.3.4.1}{Reproduction Error}{section.3.4}% 16
-\BOOKMARK [2][-]{subsection.3.4.2}{Practical vs Idealized Information Loss}{section.3.4}% 17
-\BOOKMARK [1][-]{section.3.5}{Pattern Mixture Encodings}{chapter.3}% 18
-\BOOKMARK [2][-]{subsection.3.5.1}{Example: Naive Mixture Encodings}{section.3.5}% 19
-\BOOKMARK [2][-]{subsection.3.5.2}{Generalized Encoding Fidelity}{section.3.5}% 20
-\BOOKMARK [1][-]{section.3.6}{Pattern Mixture Compression}{chapter.3}% 21
-\BOOKMARK [2][-]{subsection.3.6.1}{Constructing Naive Mixture Encodings}{section.3.6}% 22
-\BOOKMARK [3][-]{subsubsection.3.6.1.1}{Clustering}{subsection.3.6.1}% 23
-\BOOKMARK [2][-]{subsection.3.6.2}{Approximating Log Statistics}{section.3.6}% 24
-\BOOKMARK [2][-]{subsection.3.6.3}{Pattern Synthesis \046 Frequency Estimate}{section.3.6}% 25
-\BOOKMARK [2][-]{subsection.3.6.4}{Naive Encoding Refinement}{section.3.6}% 26
-\BOOKMARK [1][-]{section.3.7}{Experiments}{chapter.3}% 27
-\BOOKMARK [2][-]{subsection.3.7.1}{Validating Reproduction Error}{section.3.7}% 28
-\BOOKMARK [2][-]{subsection.3.7.2}{Feature-Correlation Refinement}{section.3.7}% 29
-\BOOKMARK [3][-]{subsubsection.3.7.2.1}{Pattern-based vs Naive Mixture Encodings}{subsection.3.7.2}% 30
-\BOOKMARK [3][-]{subsubsection.3.7.2.2}{Refining Naive Mixture Encodings}{subsection.3.7.2}% 31
-\BOOKMARK [1][-]{section.3.8}{Alternative Applications}{chapter.3}% 32
-\BOOKMARK [2][-]{subsection.3.8.1}{Experiments}{section.3.8}% 33
-\BOOKMARK [3][-]{subsubsection.3.8.1.1}{Error Measures}{subsection.3.8.1}% 34
-\BOOKMARK [3][-]{subsubsection.3.8.1.2}{Classical Laserlight and MTV}{subsection.3.8.1}% 35
-\BOOKMARK [3][-]{subsubsection.3.8.1.3}{Generalizing Laserlight and MTV}{subsection.3.8.1}% 36
-\BOOKMARK [3][-]{subsubsection.3.8.1.4}{Comparison with Naive Mixture Encoding}{subsection.3.8.1}% 37
-\BOOKMARK [1][-]{section.3.9}{Related Work}{chapter.3}% 38
-\BOOKMARK [2][-]{subsection.3.9.1}{Workload Analysis}{section.3.9}% 39
-\BOOKMARK [2][-]{subsection.3.9.2}{Workload Compression Schemes}{section.3.9}% 40
-\BOOKMARK [1][-]{section.3.10}{Conclusions}{chapter.3}% 41
-\BOOKMARK [1][-]{section.3.11}{Future Work}{chapter.3}% 42
-\BOOKMARK [1][-]{section.3.12}{Acknowledgements}{chapter.3}% 43
-\BOOKMARK [0][-]{chapter.4}{Similarity Metrics for SQL Query Clustering}{}% 44
-\BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 45
-\BOOKMARK [1][-]{section.4.2}{Background}{chapter.4}% 46
-\BOOKMARK [1][-]{section.4.3}{Feature Engineering}{chapter.4}% 47
-\BOOKMARK [2][-]{subsection.4.3.1}{Regularization Rules}{section.4.3}% 48
-\BOOKMARK [1][-]{section.4.4}{Quality Metrics}{chapter.4}% 49
-\BOOKMARK [2][-]{subsection.4.4.1}{Workloads}{section.4.4}% 50
-\BOOKMARK [2][-]{subsection.4.4.2}{Clustering validation measures}{section.4.4}% 51
-\BOOKMARK [1][-]{section.4.5}{Experiments}{chapter.4}% 52
-\BOOKMARK [2][-]{subsection.4.5.1}{Evaluation on SQL similarity metrics}{section.4.5}% 53
-\BOOKMARK [2][-]{subsection.4.5.2}{Evaluation of feature engineering}{section.4.5}% 54
-\BOOKMARK [3][-]{subsubsection.4.5.2.1}{Per-Query Similarity}{subsection.4.5.2}% 55
-\BOOKMARK [2][-]{subsection.4.5.3}{Case Study}{section.4.5}% 56
-\BOOKMARK [2][-]{subsection.4.5.4}{Analysis of regularization by module}{section.4.5}% 57
-\BOOKMARK [1][-]{section.4.6}{Discussion}{chapter.4}% 58
-\BOOKMARK [1][-]{section.4.7}{Application Scenarios}{chapter.4}% 59
-\BOOKMARK [1][-]{section.4.8}{Conclusion and Future Work}{chapter.4}% 60
-\BOOKMARK [0][-]{chapter.5}{Application: Interactive Semi-Structured Schema Design}{}% 61
-\BOOKMARK [1][-]{section.5.1}{Introduction}{chapter.5}% 62
-\BOOKMARK [2][-]{subsection.5.1.1}{Extracting Relational Entities}{section.5.1}% 63
-\BOOKMARK [2][-]{subsection.5.1.2}{Human-Scale S3D}{section.5.1}% 64
-\BOOKMARK [2][-]{subsection.5.1.3}{Overview}{section.5.1}% 65
-\BOOKMARK [1][-]{section.5.2}{Summarization}{chapter.5}% 66
-\BOOKMARK [2][-]{subsection.5.2.1}{Data Model}{section.5.2}% 67
-\BOOKMARK [2][-]{subsection.5.2.2}{Paths as Attributes}{section.5.2}% 68
-\BOOKMARK [2][-]{subsection.5.2.3}{Schema Collections}{section.5.2}% 69
-\BOOKMARK [2][-]{subsection.5.2.4}{Summarizing Schema Collections}{section.5.2}% 70
-\BOOKMARK [1][-]{section.5.3}{Visualization}{chapter.5}% 71
-\BOOKMARK [2][-]{subsection.5.3.1}{Schema Segmentation}{section.5.3}% 72
-\BOOKMARK [2][-]{subsection.5.3.2}{Schema Exploration}{section.5.3}% 73
-\BOOKMARK [2][-]{subsection.5.3.3}{An Iterative Approach}{section.5.3}% 74
-\BOOKMARK [1][-]{section.5.4}{Related Work}{chapter.5}% 75
-\BOOKMARK [1][-]{section.5.5}{Future Work}{chapter.5}% 76
-\BOOKMARK [0][-]{chapter.6}{Application: Summarizing Tuple Correlation in Probabilistic Databases}{}% 77
-\BOOKMARK [1][-]{section.6.1}{Introduction}{chapter.6}% 78
-\BOOKMARK [1][-]{section.6.2}{Problem Definition}{chapter.6}% 79
-\BOOKMARK [2][-]{subsection.6.2.1}{Practical Input Representation}{section.6.2}% 80
-\BOOKMARK [2][-]{subsection.6.2.2}{Summarizing Joint Distribution}{section.6.2}% 81
-\BOOKMARK [2][-]{subsection.6.2.3}{Pattern-based Summary}{section.6.2}% 82
-\BOOKMARK [1][-]{section.6.3}{Marginal Estimation}{chapter.6}% 83
-\BOOKMARK [1][-]{section.6.4}{Summary Accuracy}{chapter.6}% 84
-\BOOKMARK [2][-]{subsection.6.4.1}{Query Accuracy}{section.6.4}% 85
-\BOOKMARK [3][-]{subsubsection.6.4.1.1}{Accuracy under join}{subsection.6.4.1}% 86
-\BOOKMARK [3][-]{subsubsection.6.4.1.2}{Accuracy under selection predicate}{subsection.6.4.1}% 87
-\BOOKMARK [3][-]{subsubsection.6.4.1.3}{Accuracy under project}{subsection.6.4.1}% 88
-\BOOKMARK [1][-]{section.6.5}{Constructing Summaries}{chapter.6}% 89
-\BOOKMARK [1][-]{section.6.6}{Related Work}{chapter.6}% 90
-\BOOKMARK [0][-]{chapter.7}{Conclusions and Future Work}{}% 91
-\BOOKMARK [0][-]{chapter.7}{Bibliography}{}% 92
-\BOOKMARK [0][-]{appendix.A}{Appendix}{}% 93
+\BOOKMARK [0][-]{chapter*.1}{Acknowledgments}{}% 1
+\BOOKMARK [0][-]{chapter*.2}{List of Tables}{}% 2
+\BOOKMARK [0][-]{chapter*.3}{List of Figures}{}% 3
+\BOOKMARK [0][-]{chapter*.4}{Abstract}{}% 4
+\BOOKMARK [0][-]{chapter..1}{Introduction}{}% 5
+\BOOKMARK [1][-]{section..1.1}{Motivation}{chapter..1}% 6
+\BOOKMARK [0][-]{chapter..2}{Application: Query Log Compression for Workload Analytics}{}% 7
+\BOOKMARK [1][-]{section..2.1}{Introduction}{chapter..2}% 8
+\BOOKMARK [1][-]{section..2.2}{Problem Definition}{chapter..2}% 9
+\BOOKMARK [2][-]{subsection..2.2.1}{Preliminaries and Notation}{section..2.2}% 10
+\BOOKMARK [2][-]{subsection..2.2.2}{Coding Queries}{section..2.2}% 11
+\BOOKMARK [2][-]{subsection..2.2.3}{Log Compression}{section..2.2}% 12
+\BOOKMARK [3][-]{subsubsection..2.2.3.1}{Information Content of Logs}{subsection..2.2.3}% 13
+\BOOKMARK [3][-]{subsubsection..2.2.3.2}{Communicating Information Content}{subsection..2.2.3}% 14
+\BOOKMARK [1][-]{section..2.3}{Information Loss}{chapter..2}% 15
+\BOOKMARK [2][-]{subsection..2.3.1}{Lossless Summaries}{section..2.3}% 16
+\BOOKMARK [2][-]{subsection..2.3.2}{Lossy Summaries}{section..2.3}% 17
+\BOOKMARK [2][-]{subsection..2.3.3}{Idealized Information Loss Measures}{section..2.3}% 18
+\BOOKMARK [1][-]{section..2.4}{Practical Loss Measure}{chapter..2}% 19
+\BOOKMARK [2][-]{subsection..2.4.1}{Reproduction Error}{section..2.4}% 20
+\BOOKMARK [2][-]{subsection..2.4.2}{Practical vs Idealized Information Loss}{section..2.4}% 21
+\BOOKMARK [1][-]{section..2.5}{Pattern Mixture Encodings}{chapter..2}% 22
+\BOOKMARK [2][-]{subsection..2.5.1}{Example: Naive Mixture Encodings}{section..2.5}% 23
+\BOOKMARK [2][-]{subsection..2.5.2}{Generalized Encoding Fidelity}{section..2.5}% 24
+\BOOKMARK [1][-]{section..2.6}{Pattern Mixture Compression}{chapter..2}% 25
+\BOOKMARK [2][-]{subsection..2.6.1}{Constructing Naive Mixture Encodings}{section..2.6}% 26
+\BOOKMARK [3][-]{subsubsection..2.6.1.1}{Clustering}{subsection..2.6.1}% 27
+\BOOKMARK [2][-]{subsection..2.6.2}{Approximating Log Statistics}{section..2.6}% 28
+\BOOKMARK [2][-]{subsection..2.6.3}{Pattern Synthesis \046 Frequency Estimate}{section..2.6}% 29
+\BOOKMARK [2][-]{subsection..2.6.4}{Naive Encoding Refinement}{section..2.6}% 30
+\BOOKMARK [1][-]{section..2.7}{Experiments}{chapter..2}% 31
+\BOOKMARK [2][-]{subsection..2.7.1}{Validating Reproduction Error}{section..2.7}% 32
+\BOOKMARK [2][-]{subsection..2.7.2}{Feature-Correlation Refinement}{section..2.7}% 33
+\BOOKMARK [3][-]{subsubsection..2.7.2.1}{Pattern-based vs Naive Mixture Encodings}{subsection..2.7.2}% 34
+\BOOKMARK [3][-]{subsubsection..2.7.2.2}{Refining Naive Mixture Encodings}{subsection..2.7.2}% 35
+\BOOKMARK [1][-]{section..2.8}{Alternative Applications}{chapter..2}% 36
+\BOOKMARK [2][-]{subsection..2.8.1}{Experiments}{section..2.8}% 37
+\BOOKMARK [3][-]{subsubsection..2.8.1.1}{Error Measures}{subsection..2.8.1}% 38
+\BOOKMARK [3][-]{subsubsection..2.8.1.2}{Classical Laserlight and MTV}{subsection..2.8.1}% 39
+\BOOKMARK [3][-]{subsubsection..2.8.1.3}{Generalizing Laserlight and MTV}{subsection..2.8.1}% 40
+\BOOKMARK [3][-]{subsubsection..2.8.1.4}{Comparison with Naive Mixture Encoding}{subsection..2.8.1}% 41
+\BOOKMARK [1][-]{section..2.9}{Related Work}{chapter..2}% 42
+\BOOKMARK [2][-]{subsection..2.9.1}{Workload Analysis}{section..2.9}% 43
+\BOOKMARK [2][-]{subsection..2.9.2}{Workload Compression Schemes}{section..2.9}% 44
+\BOOKMARK [1][-]{section..2.10}{Conclusions}{chapter..2}% 45
+\BOOKMARK [1][-]{section..2.11}{Future Work}{chapter..2}% 46
+\BOOKMARK [1][-]{section..2.12}{Acknowledgements}{chapter..2}% 47
+\BOOKMARK [0][-]{chapter..3}{Similarity Metrics for SQL Query Clustering}{}% 48
+\BOOKMARK [1][-]{section..3.1}{Introduction}{chapter..3}% 49
+\BOOKMARK [1][-]{section..3.2}{Background}{chapter..3}% 50
+\BOOKMARK [1][-]{section..3.3}{Feature Engineering}{chapter..3}% 51
+\BOOKMARK [2][-]{subsection..3.3.1}{Regularization Rules}{section..3.3}% 52
+\BOOKMARK [1][-]{section..3.4}{Quality Metrics}{chapter..3}% 53
+\BOOKMARK [2][-]{subsection..3.4.1}{Workloads}{section..3.4}% 54
+\BOOKMARK [2][-]{subsection..3.4.2}{Clustering validation measures}{section..3.4}% 55
+\BOOKMARK [1][-]{section..3.5}{Experiments}{chapter..3}% 56
+\BOOKMARK [2][-]{subsection..3.5.1}{Evaluation on SQL similarity metrics}{section..3.5}% 57
+\BOOKMARK [2][-]{subsection..3.5.2}{Evaluation of feature engineering}{section..3.5}% 58
+\BOOKMARK [3][-]{subsubsection..3.5.2.1}{Per-Query Similarity}{subsection..3.5.2}% 59
+\BOOKMARK [2][-]{subsection..3.5.3}{Case Study}{section..3.5}% 60
+\BOOKMARK [2][-]{subsection..3.5.4}{Analysis of regularization by module}{section..3.5}% 61
+\BOOKMARK [1][-]{section..3.6}{Discussion}{chapter..3}% 62
+\BOOKMARK [1][-]{section..3.7}{Application Scenarios}{chapter..3}% 63
+\BOOKMARK [1][-]{section..3.8}{Conclusion and Future Work}{chapter..3}% 64
+\BOOKMARK [0][-]{chapter..4}{Application: Interactive Semi-Structured Schema Design}{}% 65
+\BOOKMARK [1][-]{section..4.1}{Introduction}{chapter..4}% 66
+\BOOKMARK [2][-]{subsection..4.1.1}{Extracting Relational Entities}{section..4.1}% 67
+\BOOKMARK [2][-]{subsection..4.1.2}{Human-Scale S3D}{section..4.1}% 68
+\BOOKMARK [2][-]{subsection..4.1.3}{Overview}{section..4.1}% 69
+\BOOKMARK [1][-]{section..4.2}{Summarization}{chapter..4}% 70
+\BOOKMARK [2][-]{subsection..4.2.1}{Data Model}{section..4.2}% 71
+\BOOKMARK [2][-]{subsection..4.2.2}{Paths as Attributes}{section..4.2}% 72
+\BOOKMARK [2][-]{subsection..4.2.3}{Schema Collections}{section..4.2}% 73
+\BOOKMARK [2][-]{subsection..4.2.4}{Summarizing Schema Collections}{section..4.2}% 74
+\BOOKMARK [1][-]{section..4.3}{Visualization}{chapter..4}% 75
+\BOOKMARK [2][-]{subsection..4.3.1}{Schema Segmentation}{section..4.3}% 76
+\BOOKMARK [2][-]{subsection..4.3.2}{Schema Exploration}{section..4.3}% 77
+\BOOKMARK [2][-]{subsection..4.3.3}{An Iterative Approach}{section..4.3}% 78
+\BOOKMARK [1][-]{section..4.4}{Related Work}{chapter..4}% 79
+\BOOKMARK [1][-]{section..4.5}{Future Work}{chapter..4}% 80
+\BOOKMARK [0][-]{chapter..5}{Application: Summarizing Probabilistic Databases}{}% 81
+\BOOKMARK [1][-]{section..5.1}{Introduction}{chapter..5}% 82
+\BOOKMARK [1][-]{section..5.2}{Problem Definition}{chapter..5}% 83
+\BOOKMARK [2][-]{subsection..5.2.1}{Practical Input Representation}{section..5.2}% 84
+\BOOKMARK [2][-]{subsection..5.2.2}{Summarizing Joint Distribution}{section..5.2}% 85
+\BOOKMARK [2][-]{subsection..5.2.3}{Pattern-based Summary}{section..5.2}% 86
+\BOOKMARK [1][-]{section..5.3}{Marginal Estimation}{chapter..5}% 87
+\BOOKMARK [1][-]{section..5.4}{Summary Accuracy}{chapter..5}% 88
+\BOOKMARK [2][-]{subsection..5.4.1}{Query Accuracy}{section..5.4}% 89
+\BOOKMARK [3][-]{subsubsection..5.4.1.1}{Accuracy under join}{subsection..5.4.1}% 90
+\BOOKMARK [3][-]{subsubsection..5.4.1.2}{Accuracy under selection predicate}{subsection..5.4.1}% 91
+\BOOKMARK [3][-]{subsubsection..5.4.1.3}{Accuracy under project}{subsection..5.4.1}% 92
+\BOOKMARK [1][-]{section..5.5}{Constructing Summaries}{chapter..5}% 93
+\BOOKMARK [1][-]{section..5.6}{Related Work}{chapter..5}% 94
+\BOOKMARK [0][-]{section*.33}{Bibliography}{}% 95
