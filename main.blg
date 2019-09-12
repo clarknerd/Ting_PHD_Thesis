@@ -5,9 +5,9 @@ A level-1 auxiliary file: acknowlegements.aux
 A level-1 auxiliary file: Introduction.aux
 A level-1 auxiliary file: ProblemOverview.aux
 A level-1 auxiliary file: QueryLogSummarization/chapter3.aux
+A level-1 auxiliary file: TKDE-QuerySimilarity/chapter6.aux
 A level-1 auxiliary file: SchemaSummarization/chapter5.aux
 A level-1 auxiliary file: ProbabilisticDatabaseSummarization/chapter4.aux
-A level-1 auxiliary file: Findings&Discussion/chapter6.aux
 A level-1 auxiliary file: conclusions.aux
 The style file: abbrv.bst
 A level-1 auxiliary file: appendix1.aux
@@ -47,45 +47,45 @@ Warning--I didn't find a database entry for "Huang:2009:MPD:1559845.1559984"
 Warning--I didn't find a database entry for "re2007materialized"
 Warning--I didn't find a database entry for "shin2015incremental"
 Warning--I didn't find a database entry for "jampani2008mcdb"
-You've used 49 entries,
+You've used 79 entries,
             2118 wiz_defined-function locations,
-            955 strings with 18493 characters,
-and the built_in function-call counts, 21213 in all, are:
-= -- 2057
-> -- 1196
+            1075 strings with 22841 characters,
+and the built_in function-call counts, 30622 in all, are:
+= -- 2860
+> -- 1816
 < -- 23
-+ -- 453
-- -- 400
-* -- 1650
-:= -- 3451
-add.period$ -- 165
-call.type$ -- 49
-change.case$ -- 317
++ -- 699
+- -- 612
+* -- 2267
+:= -- 5103
+add.period$ -- 256
+call.type$ -- 79
+change.case$ -- 510
 chr.to.int$ -- 0
-cite$ -- 49
-duplicate$ -- 754
-empty$ -- 1541
-format.name$ -- 400
-if$ -- 4467
+cite$ -- 79
+duplicate$ -- 1130
+empty$ -- 2275
+format.name$ -- 612
+if$ -- 6378
 int.to.chr$ -- 0
-int.to.str$ -- 49
-missing$ -- 50
-newline$ -- 248
-num.names$ -- 128
-pop$ -- 316
+int.to.str$ -- 79
+missing$ -- 81
+newline$ -- 398
+num.names$ -- 190
+pop$ -- 581
 preamble$ -- 1
-purify$ -- 270
+purify$ -- 434
 quote$ -- 0
-skip$ -- 557
+skip$ -- 769
 stack$ -- 0
-substring$ -- 1352
-swap$ -- 229
+substring$ -- 1556
+swap$ -- 277
 text.length$ -- 23
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 192
+type$ -- 310
 warning$ -- 0
-while$ -- 213
-width$ -- 51
-write$ -- 562
+while$ -- 278
+width$ -- 81
+write$ -- 865
 (There were 35 warnings)

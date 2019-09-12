@@ -1,0 +1,180 @@
+\tinysection{Reviewer 1}
+
+\begin{itemize}
+
+\item In this paper, the authors compare similarity metrics between SQL queries from a syntactic point of view (to free themselves from data access constraints) in order to cluster queries. Added to this are rules for rewriting SQL queries in order to standardize / standardize clustered queries as much as possible.
+This article is relevant for the journal TKDE. Indeed, the proposal of the authors makes it possible to improve the classification of SQL queries in a apparently significant way. In this, the article constitutes a contribution to the field of "data engineering".
+
+\reply{No action needed. -Gokhan}
+
+\item The organization of the article is clear / classic and does not constitute a barrier to reading or understanding.
+
+\reply{No action needed. -Gokhan}
+
+\item The state of the art lacks hindsight / interpretation compared to existing works. Therefore, the contribution of the authors of this paper is not sufficiently argued / justified and motivated.
+
+\reply{The information provided on the state of the art, and the motivations are strengthened by providing theoretical and practical examples. -Gokhan}
+
+\item For the "regularization" part, no mention is made of the works of Sapia (1999, 2000 - e.g. "Promise") which also sought, as it were, to regularize requests for "prefetching". In addition, are there no other methods than regularization?
+
+\reply{Carsten Sapia's ``PROMISE: Predicting Query Behavior to Enable Predictive Caching Strategies for OLAP Systems'' paper proposes learning query templates in order to prefetch data in OLAP systems based on the user's past activity. This is a work that can be regarded that as a preceding work in OLAP area to SnipSuggest in SQL area. We had previously cited SnipSuggest. We properly cited this paper with this information in the revision. Sapia's ``On Modeling and Predicting Query Behavior in OLAP Systems'', on the other hand, discusses standardizing queries based on selection and result dimensions with the aim of filtering out unrelated queries, and creating user profiles in OLAP domain. In the revision, we also briefly discussed this paper, and cited.  -Gokhan}
+
+\item The authors are often limited to stating their choices without really justifying them scientifically.
+
++ For example, section 3.1, "Canonicalize Names and Aliases", the authors indicate using an approach similar to that of [21] -now [22]- but why this one and not another?'
+
+\reply{``Canonicalizing Names and Aliases'' is a trivial task in SQL just as the other operations presented in Section 3.1. The selection of [21] is just pointing out a work that choose to perform the same operation. Our contribution is not the operations presented in Section 3.1, but using them together to achieve a regularized version of a SQL query that makes it easier to cluster them, and remove the impact of the query author's writing style. -Gokhan}
+
++ Similarly, for all the proposed rules. For example, "Nested Query De-correlation", why and how to choose the 2 safety constraints?
+
+\reply{As explained in the previous item, this rule is not a method we propose but a common practice found in the literature.
+This rule cannot guarantee query result equivalence when there are duplicated rows in the result of the target query. 
+Hence we introduce the second safety constraint to make sure we have exact query result equivalence.
+The first safety constraint which requires purely conjunctive \texttt{WHERE} clause is just a condition under which the process of nested query de-correlation can be greatly simplified, as shown in Section~\ref{sec:regularizationrules}.
+In cases that the \texttt{WHERE} clause is not conjunctive, we add a pre-processing step that rewrites the query into a conjunctive form. -Ting
+ }
+
++ Also section 4.2, how / why were the 3 measures of clustering validation chosen?
+
+%\reply{Clustering is about identifying different groups of observations. Therefore, we aim to test the quality of clustering by minimizing misclassification without providing a golden standard for each cluster, since hierarchical clustering is in essence classifies data based on their distance, not based on a provided cluster centroid.
+%(1) Regularization aims to separate queries with different interests as far as possible, and also it aims to create queries with similar interests more similar. We use BetaCV because smaller BetaCV ratio indicates that intra-cluster distances are on average smaller than inter-cluster distances. Hence, achieving a smaller BetaCV measure means regularization process is successful. The results for all datasets support regularization consistently reduces the BetaCV ratio (Except one case - Google+ Makiyama where the score doesn't change).
+%(2) Silhouette coefficient, without a doubt, the most widely used internal clustering quality measure. As we discuss in Section 4.2, Silhouette coefficient measures each data point based on how similar it is to its own cluster. -Gokhan}
+%\noteToSelf{Duc, can you explain why Dunn Index is important? -Gokhan}
+\reply{We have added a sentence in second paragraph of section 4.2 to further explain why we chose the 3 measures of clustering validation. -Duc}
+
++ Finally, Section 5.3 also suffers from lack of justification / motivation as to the choices made by the authors.
+
+\reply{Since we have 9 regularization rules in total, there will be $2^9=512$ combinations and we can only choose a sub-set for illustration purpose.
+Hence we group these rules into separate modules.
+One criterion for grouping is due to the observation that some rules are guaranteed to provide benefit in structure similarity comparison.
+These rules are thus included in all modules.
+The second criterion is due to the observation that there exist dependencies between rules. 
+For example, we should better apply Syntax Desugaring and then DNF Normalization to simplify the boolean expression in \texttt{WHERE} clause before OR-Union transformation.
+As another example, Exists Standardization should better be applied on nested sub-queries before we de-correlate them using Nested query de-correlation.
+These two criteria result in the 4 modules shown in the paper. -Ting}
+
+\item Section 3.1, "Nested Query Decorrelation", is there not an error in the rewriting? For the output, the authors propose "SELECT ... FROM R, (SELECT ... FROM S) WHERE q" or, in view of the input, I will tend to propose "SELECT ... FROM R, (SELECT ... FROM S WHERE q ) "(Closing parenthesis moved).
+
+\reply{This is not an error.
+We can rewrite the reviewer-proposed query by merging the \texttt{WHERE} clause of the nested sub-query into the parent and then we get the query in the paper.
+This rewrite is a common practice and guarantees query result equivalence. -Ting 
+}
+
+\item A consistent list of regularization rules is proposed but how to be sure that this list is sufficient or exhaustive?
+
+\reply{The focus of this paper is not on regularization rules.
+Query regularization/standardization is just a set of add-ons that can potentially help similarity comparison by simplifying query structure.
+Hence we do not aim at providing an exhaustive list of them and focus more on running experiments to empirically test whether certain set of regularization rules can be particularly beneficial to query similarity comparison. -Ting}
+
+\item Table 4, the column headings should be clearer. For example, "Total" $\to$ "Total number of ..."
+
+\reply{Column headings are replaced with more detailed titles. -Duc}
+
+\item Section 5.1, could the results have been foreseen? (predictable mathematically or algorithmically for example)
+
+\reply{In Section 5.1, we present the comparison of different SQL query similarity metrics by using three evaluation measures. As different SQL query similarity metric uses different set of features and the distances are calculated differently, the performance of each similarity metric depends on the characteristics of dataset (and also the set of relevant features). Therefore, in our point of view, the results are not obviously forseen. -Duc}
+
+\item Section 5.1.1, the authors "tagged each egregiously misclassified query with an explanation". However, these tags seem strongly linked / correlated to the data set, can they be generalized in the case of other datasets?
+
+\reply{We expanded Section 5.1.1, which is now Section 5.3. The aim of Section 5.3 is to identify the weaknesses of similarity metrics on raw queries, and to see the affect of regularization on the erroneous queries. This investigation is an empirical test, and must be performed individually for each dataset. Given a ground-truth labeling, we can apply these tags to any dataset. In our test, we selected queries that could not be classified correctly by any similarity metric tested in this article. UB dataset had only one such query, and Google+ dataset did not have any. -Gokhan}
+
+\item Figures 2 and 3, if the document is printed in Black and White, then the figures are illegible.
+
+\reply{We have changed figure 2 and 3 to grayscale so that the figures can be readable when printed in black and white.-Duc}
+
+\end{itemize}
+
+
+\tinysection{Reviewer 2}
+
+\begin{itemize}
+
+\item Section 1: First sentence (page 1, lines 24 to 28): I would add a remark on the fact that logs are used in many user-centric systems, such as recommender, personalization or preference systems. Besides, a part of the papers you cited are on these topics.
+
+\reply{We added a sentence emphasizing the query logs are used in user-centric systems to the first paragraph. -Gokhan}
+
+\item Section 1: Page 1, lines 28 to 32: You mention that a sequence of queries models the query behavior. I totally agree with these comments, but it is a bit disturbing since you do not consider the sequence aspect to cluster a log. I can understand you prefer to focus on the query structure (it is an essential part), but this choice should be better justify. Indeed, if your goal is to be able to group queries according to their analysis pattern, the problem arises. For example, why a database administrator could not be interested in a summary of logs composed of SQL query sequences?
+
+\reply{Although we also believe that the sequence of the queries will contribute to the summarization process, we regard this as a future work, and do not include it in the scope of this work. We added this information in the conclusions and future work section. -Gokhan}
+
+\item Section 1: Page 1 (second column), line 54: You mention exploring a query log using a hierarchical clustering. The idea is, obviously interesting, although one aspect is already treated in this paper : "A Holistic Approach to OLAP Sessions Composition: The Falseto Experience, Aligon et al., DOLAP'2014.", in an OLAP context. In order to avoid any confusion, I advise to clearly indicate that this work is not in the scope of the paper.
+
+\reply{We have added two sentences in 3rd paragraph of section 1 to discuss this paper and explain how it relates to our work as well as how our work is different from it.-Duc}
+
+\item Section 2: Well review of the state of the art.
+However, I advise formalizing in this paper the three similarity measures used. For example, the measure in [7] is in the OLAP context you adapt in an SQL context. This work does not seem trivial. Moreover, this measure has been proposed using weight scores for each query part. This aspect could significantly change your results. Otherwise, you should justify why.
+
+\reply{We added details on how Aligon et al. approached the query similarity, and how we adjusted the formulas. We also added the option to change the weight scores to the code, and conducted experiments on how different weights affect the results for UB dataset in Appendix~\ref{appendix:aligon}. -Gokhan}
+
+\item Section 3: Subsection 3.1: About your rule of OR-Union transformation, you should better explain why you do not guarantee the query result equivalence. Also I would add its consequence is very limited just considering query structure in a similarity measure.
+
+\reply{We note that regularization rules like OR-Union transformation and Nested query de-correlation do not guarantee result equivalence under certain cases.
+We then discuss these cases in the paper and only apply these rules when result equivalence can be guaranteed.
+Hence we actually guarantee query result equivalence. 
+\newline
+\newline
+For the second issue, we note that comparing queries from the perspective of query structure is computationally efficient as it does not require actually executing the query.
+Hence we start from and limit our scope to comparing query structure and empirically exploring the effectiveness of query structure comparison in this paper.
+We plan to combine query structure similarity with similarity from other perspectives and evaluate the potential improvement in our future work. -Ting
+}
+
+\item  Section 4: Subsection 4.1: You specify a grade over 50\% to consider an acceptable answer. I am wondering the impact of this grade: have you tried with a more demanding threshold?
+
+\reply{We conducted experiments in Appendix~\ref{appendix:examGrade} addressing this comment by changing the grade threshold to 20\%, 50 \% and 80\%. We reported that, as expected, average silhouette coefficient increases with higher grade thresholds. (Duc ran the experiments) -Gokhan }
+
+\item  Section 5: The experiments are very clear, well justify and evaluated with several quality measures giving different point of view.
+This part is the strength of this paper.
+I particularly appreciate the subsection 5.1.1 giving intuitions why queries can be misclassified, illustrated by examples.
+
+\reply{No action needed. -Gokhan}
+
+\item  Section 5: Subsection 5.2, page 9 (second column, lines 49 to 54):  Silhouette coefficient increases after the regularization step. I would reformulate this sentence: the fact to regularize the query implies they are fewer possibilities on query structure diversity. Thus, these queries are necessarily better separated.
+
+\reply{Agreed and addressed accordingly. -Gokhan}
+
+\item  Section 5: Subsection 5.3, page 10 (second column, lines 15 to 19): You mention it exists better solutions to replace occurrence by existence. I advise, at the minimum, to better discuss about that. What are these solutions?
+
+\reply{The previous version of the sentence was open to misinterpretation. We reformulated the sentence to indicate that replacing occurence by existence solves feature duplication problem with Makiyama metric while performing Expression standardization, but occurence is also important to measure the difference between queries. -Gokhan}
+
+\item Section 8: I totally disagree with the term 'summarize' you used in your conclusion. This term should be removed. To me, you do not apply any summarization techniques. Intuitively, a summarization implies a reduction of the number of queries in order to have a more concise representation of what it exists in a log (while guaranteeing a good quality of summarization). As you mention in your introduction, a hierarchical clustering can be a first step in this direction, but this work is only a perspective.
+
+\reply{Agreed and addressed accordingly. -Gokhan}
+
+\end{itemize}
+
+
+\tinysection{Reviewer 3}
+
+\begin{itemize}
+
+\item The paper presents 3 similarity measures that can be used for comparing queries expressed in SQL based on their structure. It evaluates these measures using 3 query logs, and exploits them towards grouping queries. 
+
+\reply{No action needed. -Gokhan}
+
+\item Overall, the paper is technically sound, and the rules presented in Section 3 are reasonable. 
+
+\reply{No action needed. -Gokhan}
+
+\item However, in my understanding, it is questionable why these measures were selected (and not others). In particular, the authors consider some related papers, i.e., papers focusing in the same or similar topics, and take into consideration the similarity measures that those papers use. Possibly, we need here a more general consideration, so as to study and select among the huge space of existing similarity measures, explain why the others are out of the picture, and ideally modify or propose new ones that satisfy the needs of the paper.
+
+\reply{In Section 2, we reported works in the literature that make use of query similarity to accomplish their aims. However, most of these works do not provide a way to directly measure the pairwise distance/similarity between two queries. The only works that directly define a pairwise distance/similarity metric between two queries are the works we selected for our evaluation. We modified Table 1, and expanded the explanation about how we selected the query similarity metrics to evaluate in Section 2. -Gokhan}
+
+\item Also, the datasets (namely, the query logs) used in the paper are very small. 
+The first two of them are really small. The third one appears to be of a reasonable size, but after some replacements, its size drops significantly. 
+So, I think that bigger datasets should be used in order to be able to have clear conclusions regarding the pros and cons of this study. 
+One more point regarding the third dataset: why you use predefined labels for grouping the query logs? 
+
+\reply{We agree that both IIT Bombay and UB Exam datasets are relatively small. For PocketData dataset, it is a typical machine-generated queries with large amounts of queries but the number can be reduced by replacing constants that are not being utilized by similarity metrics. This is also true for other real-world query workload as well (see Section 4 of citation [3] for another example of real large query workload but can be reduced significantly by some replacements). This is because machine-generated queries are mostly issued by computer programs in which there are only finite types of command to generate query with appropriate parameters. 
+\\
+In addition, performing experiments as presented in section 5 requires ground-truth data, but labeling queries in larger datasets is an unreasonably tedious tasks, which is in fact the heart of the motivation.-Duc}
+
+%\reply{We agree that the datasets are relatively small. However, labeling queries in larger datasets is an unreasonably tedious tasks, which is in fact the heart of the motivation. -Gokhan} 
+
+\end{itemize}
+
+
+\tinysection{To the editor}
+
+Reviewer 2 says the experiments are excellent while Reviewer 1 thinks they suffer from justification/motivation.
+
+

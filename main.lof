@@ -8,15 +8,18 @@
 \contentsline {figure}{\numberline {3.5}{\ignorespaces \textbf {Feature-correlation refinement (US bank)}\relax }}{32}{figure.caption.8}
 \contentsline {figure}{\numberline {3.6}{\ignorespaces \textbf {Naive Mixture v. Laserlight/MTV Mixture}\relax }}{35}{figure.caption.10}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Prototype user interface for \textsc {SchemaDrill}\xspace .\relax }}{46}{figure.caption.11}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces FP-Tree based schema summaries\relax }}{51}{figure.caption.12}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces RCDC based schema summaries\relax }}{53}{figure.caption.13}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Segmentation breaks up schema representations into manageable chunks.\relax }}{54}{figure.caption.14}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Coveriance Cloud for the full Yelp dataset.\relax }}{55}{figure.caption.15}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces KNN-PCA cloud with K=6 on the Yelp dataset.\relax }}{56}{figure.caption.16}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Points containing user selected attributes are highlighted green.\relax }}{58}{figure.caption.17}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Clustering validation measures for each metric with and without regularization step\relax }}{57}{figure.caption.19}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Distribution of silhouette coefficients when using Aligon's similarity without regularization (a,c,e), and when regularization is applied (b,d,f)\relax }}{59}{figure.caption.20}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Effect of each module in regularization\relax }}{66}{figure.caption.22}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces \textbf {Theoretical v.s. Practical Data-flows.}\relax }}{66}{figure.caption.18}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Prototype user interface for \textsc {SchemaDrill}\xspace .\relax }}{80}{figure.caption.23}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces FP-Tree based schema summaries\relax }}{85}{figure.caption.24}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces RCDC based schema summaries\relax }}{87}{figure.caption.25}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Segmentation breaks up schema representations into manageable chunks.\relax }}{88}{figure.caption.26}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Coveriance Cloud for the full Yelp dataset.\relax }}{89}{figure.caption.27}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces KNN-PCA cloud with K=6 on the Yelp dataset.\relax }}{90}{figure.caption.28}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Points containing user selected attributes are highlighted green.\relax }}{92}{figure.caption.29}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces \textbf {Theoretical v.s. Practical Data-flows.}\relax }}{100}{figure.caption.30}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

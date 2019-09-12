@@ -1,0 +1,18 @@
+%!TEX root = ./sections/1-intro.tex
+\subsection{Motivating Application: \sysname{}}
+\label{sec:motivation}
+It is increasingly important for organizations to be able to detect and respond to cyber attacks.
+An especially difficult class of cyber attack to detect is the so called \textit{insider attacks} that occur when employees misuse legitimate access to a resource like a database.
+The difficulty arises because apparently anomalous behavior from a legitimate actor might still have legitimate intent.  
+For example, a bank teller in Buffalo who withdraws a large sum for a client from California may be acting legitimately (e.g., if the client has just moved and is purchasing a house), or may be committing fraud.
+The ``U.S. State of Cybercrime Survey''~\cite{cybercrimeReport2014} states that 37\% of organizations have experienced an insider incident, while a 2015 study~\cite{ponemonReport2015} identified insider attacks as having the longest average response time of any attack type surveyed: 54.5 days.
+
+The challenge of addressing of insider attacks lies in the difficulty of precisely specifying access policies for shared resources such as databases. 
+Coarse, permissive access policies provide opportunities for exploitation. 
+Conversely, restrictive fine-grained policies are expensive to create and limit a legitimate actor's ability to adapt to new or unexpected tasks.
+In practice, enterprise database system administrators regularly eschew fine-grained database-level access control.  
+Instead, large companies commonly rely on reactive strategies that monitor external factors like network activity patterns and shared file transfers.
+In a corporate environment, monitoring user actions requires less preparation and gives users a greater degree of flexibility. 
+However, external factors do not always provide a strong attestation of the legitimacy of a database user's actions. 
+
+The \sysname{}\footnote{\sysname{} is derived from the last words of the Roman emperor Julius Caesar, ``\textit{Et tu, Brute?}'' in Latin, meaning ``\textit{You, too, Brutus?}'' in English to emphasize that this system is meant to detect the unexpected betrayals of trusted people} system, currently under development at the University at Buffalo~\cite{kul2016ettu}, seeks to help analysts to monitor query access patterns for signs of insider attack.  Database logging and monitoring is expensive, so \sysname{} needs to be able to identify normal, baseline database behaviors that can be easily flagged as ``safe'' and ignored from normal logging and post-mortem attack analysis.  In this paper, we focus on one concrete part of the overall \sysname{} system, responsible for summarizing and visualizing query logs.  In the complete system, this component serves to help analysts generate patterns of safe queries, and to quickly analyze large multi-day query logs to identify potential attack activity.

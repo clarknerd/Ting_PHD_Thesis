@@ -1,0 +1,39 @@
+%!TEX root = ../paper.tex
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{|c|c|}
+    \hline
+     & \textbf{Question} \\
+     1 & \parbox{2.8in}{Find course\_id and title of all the courses}\\ \hline
+     2 & \parbox{2.8in}{Find course\_id and title of all the courses offered by ``Comp. Sci." department.}\\ \hline
+     3 & \parbox{2.8in}{Find course\_id, title and instructor ID for all the courses offered in Spring 2010}\\ \hline
+     4 & \parbox{2.8in}{Find id and name of all the students who have taken the course ``CS-101"}\\ \hline
+     5 & \parbox{2.8in}{Find which all departments are offering courses in Spring 2010}\\ \hline
+     6 & \parbox{2.8in}{Find the course ID and titles of all courses that have more than 3 credits}\\ \hline
+     7 & \parbox{2.8in}{Find, for each course, the number of distinct students who have taken the course; in case the course has not been taken by any student, the value should be 0}\\ \hline
+     8 & \parbox{2.8in}{Find id and title of all the courses offered in Spring 2010, which have no pre-requisite}\\ \hline
+     9 & \parbox{2.8in}{Find the ID and names of all students who have (in any year/semester) taken two courses}\\ \hline
+     10 & \parbox{2.8in}{Find the departments (without duplicates) of courses that have the maximum credits}\\ \hline
+     11 & \parbox{2.8in}{Show a list of all instructors (ID and name) along with the course\_id of courses they have taught. If they have not taught any course  show the ID and name  with null value for course\_id}\\ \hline
+     12 & \parbox{2.8in}{Find IDs and names all students whose name contains the substring ``sr" ignoring case. (Hint Oracle supports the functions lower and upper)}\\ \hline
+     13 & \parbox{2.8in}{Using a combination of outer join and the is null predicate but WITHOUT USING "except/minus" and "not in" find IDs and names of all students who have not enrolled in any course in Spring 2010}\\ \hline
+     14 & \parbox{2.8in}{A course is included in your CPI calculation if you passed it, or you have failed it, and have not subsequently passed it (or in other words, a failed course is removed from CPI calculation if you have subsequently passed it). Write an SQL query that shows all tuples of the relation other than those eliminated by the above rule, and also eliminating tuples with a null value for grade}\\ 
+    \hline 
+\end{tabular}
+\caption{Questions given IIT Bombay Dataset~\cite{chandra2015Data}}
+\label{tab:question_bombay}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+Year & Question                                                                                                                                                                                                                                                                                                                                                                                                                         \\ \hline
+2014 & \parbox{2.8in}{How many distinct species of bird have ever been seen by the observer who saw the most birds on December 15, 2013?}                                                                                                                                                                                                                                                                                                               \\ \hline
+2015 &  \parbox{2.8in}{You are hired by a local birdwatching organization, who's database uses the Birdwatcher Schema on page 2. You are asked to design a leader board for each species of Bird. The leader board ranks Observers by the number of Sightings for Birds of the given species. Write a query that computes the set of names of all Observers who are highest ranked on at least one leader board. Assume that there is no tied rankings.} \\ \hline
+\end{tabular}
+\caption{Local exam dataset questions}
+\label{tab:local_questions}
+\end{table}

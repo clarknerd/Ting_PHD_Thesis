@@ -1,0 +1,19 @@
+%!TEX root = ../paper.tex
+The next step is to cluster query skeletons by their feature vectors. The result of this process is a set of clusters in which query skeletons with similar structures are grouped together. We considered two possible clustering approaches for use in \sysname{}: k-means and hierarchical clustering~\cite{xu2005survey}.
+K-means outputs a set of query skeletons for \textit{k} clusters. 
+On the other hand, hierarchical clustering outputs a dendrogram -- a tree structure which shows how each query can be grouped together. 
+For our specific use case where we aim to summarize groups of similar queries, the number of groups or clusters is not known in advance. For this reason, we eventually elected to use hierarchical clustering because it gives us the flexibility to choose the number of clusters after computing the dendrogram. 
+In addition, a dendrogram is a convenient way to visualize the relationship between queries and how each query is grouped in the clustering process. 
+
+Hierarchical clustering recursively selects the closest pair of data points and merges them into a single virtual data point.  This process requires an agglomerative rule, a formula for aggregating feature vectors together into the vector of each virtual data point.
+There are several often used possibilities, including complete--linkage, single--linkage and average--linkage.
+In our experiments, the choice of agglomerative rules does not significantly change the clustering result; all commonly used agglomerative rules produce equally reliable outputs.
+Consequently, we arbitrarily chose to use complete--linkage, in which the farthest distance from a data point in one cluster to a data point in another cluster is considered as the distance between two clusters. 
+
+Another aspect that we should consider when doing hierarchical clustering is is the distance metric to compare a pair of data points. 
+%Since every query skeleton is represented as a feature vector, we have to determine distance metric for computing distance between two feature vectors. 
+In our experiments, we use Euclidean distance as the distance metric, though other metrics such as the Manhattan distance gave similar clustering outputs.
+
+%These clusters are manually classified into three categories by the user: (1) Safe Clusters that correspond to normal activities, (2) Unsafe Clusters that could potentially be insider attacks, (3) Unknown Clusters that represent too broad a group of queries to classify as safe or unsafe. Clusters of this third type are subdivided further until a set of clusters is obtained that are purely safe or unsafe.  
+
+Dummy edit

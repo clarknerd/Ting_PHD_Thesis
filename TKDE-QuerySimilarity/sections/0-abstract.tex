@@ -1,0 +1,16 @@
+% !TEX root = ../paper.tex
+\begin{abstract}
+Database access logs are the starting point for many forms of database administration, from database performance tuning, to security auditing, to benchmark design, and many more. 
+Unfortunately, query logs are also large and unwieldy, and it can be difficult for an analyst to extract broad patterns from the set of queries found therein. Clustering is a natural first step towards understanding the massive query logs. However, many clustering methods rely on the notion of pairwise similarity, which is challenging to compute for SQL queries, especially when the underlying data and database schema is unavailable. We investigate the problem of computing similarity between queries, relying only on the query structure.  
+%The analyst might streamline her task by first clustering groups of \emph{similar} queries together, but this is challenging, particularly in scenarios where the underlying data and database schema are unavailable.  In this article we  
+%In this paper, we begin with a simple premise: If two query authors are trying to perform the same task, they should construct queries that are more similar than query authors trying to perform different tasks.
+%Based on this premise we propose \dcabench, a benchmark that evaluates how well query similarity heuristics capture the goals of query authors.
+%\dcabench uses answers to database course assignments that ask students to construct queries.  These student answers capture a wide range of distinct SQL queries, all attempting to accomplish the same underlying task.
+We conduct a rigorous evaluation of three query similarity heuristics proposed in the literature applied to query clustering on multiple query log datasets, representing different types of query workloads. To improve the accuracy of the three heuristics, we propose a generic feature engineering strategy, using classical query rewrites to standardize query structure. The proposed strategy results in a significant improvement in the performance of all three similarity heuristics.
+%by Aligon, Aouiche, and Makiyama, respectively.  
+%Each of these heuristics is based on an inter-query distance metric.
+%We use \dcabench to evaluate the accuracy of these three distance metrics at supporting query clustering.
+%Based on these results, we find that innocuous decisions on the part of query authors can have a substantial impact on clustering quality.
+%We empirically show that our strategy improves the accuracy of all three heuristics.
+%without adding significantly to the computational cost.
+\end{abstract}

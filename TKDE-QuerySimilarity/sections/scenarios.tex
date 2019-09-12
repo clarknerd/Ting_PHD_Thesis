@@ -1,0 +1,21 @@
+%!TEX root = ./sections/1-intro.tex
+In this section, we provide three scenarios where the clustering scheme coupled with the proposed regularization is applicable:
+
+The first one is, \textit{Jane the DBA} where she takes on the task of improving database performance.
+After performing the straightforward database indexing tasks, she would need to select candidate \textit{views}, which are virtual tables defined by a query.
+They allow querying just like tables by pre-fetching records from existing tables. 
+Constructing a view for a frequent complex join operation can increase querying performance of the database substantially.
+To find the ideal views, Jane first clusters similar queries together to see what kinds of queries are more frequent.
+Making the most frequent complex query types faster by creating views of them could improve database performance substantially~\cite{aouiche2006, aligon2014similarity}. 
+
+The second one is, \textit{Jane the security auditor} where she suspects that there is a person who leaks classified information from her organization.
+She can choose to investigate database access patterns along with other strategies which would involve query clustering~\cite{Sun2016}.
+After identifying the query clusters, she can partition the queries by the department or role to get the intuition about which departments and roles \textit{normally} utilize what part of the database.
+She can detect the \textit{outliers} from that behavior in order to determine the suspects for further investigation.
+
+Lastly, \textit{Jane the researcher} where needs to investigate the properties of the SQL query dataset that she is going to use for her research.
+One of the new graduate students in her team clusters the queries, and provides her with the clustering assignments of each query.
+She doubts the quality of the clustering performed, and wonders if the clustering operation could be performed better.
+
+Having a \textit{better} clustering of queries would potentially enhance the quality of her work in all of the examples given above.
+Also, works cited in this section~\cite{aouiche2006, aligon2014similarity, Sun2016}, along with many others can benefit from the framework described in this article.

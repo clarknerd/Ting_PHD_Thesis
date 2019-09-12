@@ -1,0 +1,124 @@
+% !TEX root = ../paper.tex
+Database access logs are used in a wide variety of settings, including evaluating database performance tuning~\cite{Bruno:2005:APD:1066157.1066184}, benchmark development~\cite{pocketdata}, database auditing~\cite{kul2016ettu}, and compliance validation~\cite{Dwork2006}.
+Also, many user-centric systems utilize query logs to help users by providing recommendations and personalizing the user experience~\cite{Sapia:2000:PPQ:646109.679288, giacometti2009, yang2009, stefanidis2009you, magda2010snipsuggest, chatzopoulou2011querie}. 
+As the basic unit of interaction between a database and its users, the sequence of SQL queries that a user issues effectively models the user's behavior.  Queries that are similar in structure imply that they might be issued to perform similar duties. Examining a history of the queries serviced by a database can help database administrators with tuning, or help security analysts to assess the possibility and/or extent of a security breach. However, logs from enterprise database systems are far too large to examine manually. As one example, a recent study of queries at a major US bank for a period of 19 hours found nearly 17 million SQL queries and over 60 million stored procedure execution events~\cite{kul2016ettu}. Even excluding stored procedures, it is unrealistic to expect any human to manually inspect all 17 million queries per day.
+
+Let us consider an analyst (call her Jane) faced with the task of analyzing such a query log.
+Jane might first attempt to identify some interesting query fragments and their aggregate properties.
+For example, she might count how many times each table is accessed or the frequency with which different classes of join predicates occur. 
+Unfortunately, such fine-grained properties lack the context to clearly communicate how the data is being used, combined, and/or manipulated. 
+To see the complete context, Jane must look at entire queries.
+Naively, she might look at all \textit{distinct query strings} in the log.
+Even comparatively small production databases typically log hundreds or thousands of distinct query strings, making direct inspection impractical.
+Furthermore, it is unclear that distinct query strings are the right level of granularity in the first place.  Consider the following example queries:
+
+{\footnotesize
+\begin{enumerate}
+%%%%
+\item \begin{verbatim}
+SELECT name FROM user
+WHERE rank IN ('adm','sup')
+\end{verbatim}
+%%%%
+\item \begin{verbatim}
+SELECT SUM(balance) FROM accounts
+\end{verbatim}
+%%%%
+\item \begin{verbatim}
+SELECT name FROM user WHERE rank = 'adm'
+   UNION SELECT name FROM user
+         WHERE rank = 'sup'
+\end{verbatim}
+%%%%
+\item \begin{verbatim}
+SELECT SUM(accounts.balance) FROM accounts 
+   NATURAL JOIN user WHERE user.rank = 'adm'
+\end{verbatim}
+\end{enumerate}
+
+}
+
+Queries 1 and 2 are clearly distinct: Their structures differ, they reference different datasets, and perform different computations. 
+The remaining queries however are less so.  
+Query 3 is logically equivalent to Query 1: Both compute identical results.
+Conversely, although Query 4 is distinct from Queries 1 and 2, it is conceptually similar to both and shares many structural features with each.
+
+The exact definition of similarity may depend on Jane's exact task, the content of the log, the database schema, database records, and numerous other details, some of which may not be available to Jane immediately when she first begins analyzing the log.
+It is also likely that some of this information, like the precise contents of the database or even the database schema may not even be available to Jane for reasons of privacy or security.
+As a result, this type of log analysis can quickly become a tedious, time-consuming process~\cite{gatterbauer2011databases}.
+An earlier work of Aligon et al.~\cite{aligon2014holistic} attempted to address this problem for OLAP operations by performing query log analysis and exploration. 
+Within the scope of this article, we focus on analysis of SQL queries instead of OLAP queries.
+%In this article, we lay the groundwork for a more automated approach to SQL query log exploration based on hierarchical clustering.  
+In particular, we lay the groundwork for a more automated approach to SQL query log exploration based on hierarchical clustering.  
+Given a hierarchical clustering of the SQL query log, Jane can manually adjust how aggressively the log is summarized.
+She can select an appropriate level of granularity without a \emph{priori} needing to specify exactly what constitutes a similar query.
+
+The primary focus of this article is to study the suitability of three existing query distance metrics~\cite{aouiche2006,aligon2014similarity,makiyama2015text} to be used with hierarchical algorithms for clustering query logs. All of these metrics operate on the query structure and do not rely on the availability of underlying data or schema, thus making them applicable in a wide variety of practical settings. 
+We evaluate the three metrics on two types of data: Human-authored and Machine-generated.
+Thus, using an appropriate similarity metric, one can cluster the queries to obtain a meaningful clustering of the query log. %We make this measure more concrete by proposing a benchmark workload based on \textbf{d}atabase \textbf{c}ourse \textbf{a}ssignments called \dcabench.
+%A common feature of many database courses is exam or homework questions where students are asked to translate english prose into SQL.  
+%\dcabench evaluates queries by comparing the heuristic's clustering with this ground truth.
+%For the special case of heuristics based on an inter-query distance or similarity metric, we can achieve an even more precise measure by evaluating the distance metric directly.
+%\dcabench uses three statistics for evaluating distance-based clustering schemes: Silhouette Coefficient, Beta CV, and The Dunn Index.
+
+For our evaluation, we use three evaluation data sets:
+\begin{enumerate}
+\item a large set of student authored queries released by IIT Bombay~\cite{chandra2015Data},
+\item a smaller set of student queries gathered at 
+the University at Buffalo,
+%our university
+and released as part of this publication, and
+\item SQL logs that capture all activities on 11 Android phones for a period of one month~\cite{pocketdata}.
+\end{enumerate}
+Student-written queries are appealing, as queries are already labeled by their ground-truth clusterings --- For each question, the student is attempting to accomplish one specific stated task.
+Conversely, machine-generated queries on smartphones present a conceptually easier challenge, as they produce more rigid, structured queries.
+The three similarity metrics are evaluated on these data sets using three standard clustering evaluation statistics: Silhouette Coefficient, Beta CV, and Dunn Index~\cite{zaki2014data}. 
+%The IIT Bombay dataset features a large number of distinct tasks that are individually simpler, and as a result have more overlap.
+%The local exam dataset features a smaller number of harder tasks, resulting in more complex queries that are implemented through a more diverse range of query structures.
+%
+%We use \dcabench to evaluate three existing query distance metrics that are able to provide a pairwise similarity score from the literature~\cite{aouiche2006,aligon2014similarity,makiyama2015text}.
+%Finally, we apply these similarity metrics to the bank query log that we previously mentioned, and a smartphone query log to evaluate the scalability of these metrics.
+%The last bank and smartphone query logs cannot be used to evaluate the accuracy of these query similarity metrics since we do not have ground-truth information to compare with for these datasets.
+
+None of the similarity metrics perform as well as desired, so we propose and evaluate a pre-processing step to create more regular, uniform query representations by leveraging query equivalence rules and data partitioning operations. These rules are commonly utilized by database management systems when parsing and evaluating SQL queries.
+This process significantly improves the quality of all three distance metrics.
+We also investigate and identify sources of errors in the clustering process. 
+Experimental results show that our \emph{regularization} pre-processing technique consistently improves clustering for different query comparison schemes from the literature.
+
+%Finally, we present a new approach to constructing distance metric based on the observation that, since SQL is a declarative language, query intent will be reflected in the query's structure and its abstract syntax tree (AST).
+%The AST of a query is a tree structure that captures hierarchical relationships between elements of the query.
+%For example, as seen in Figure~\ref{fig:exampleAST} the query AST's root node might have the query's Columns (i.e., Target, or SELECT), FROM, and WHERE clauses as children.  
+%Our approach, based on the Weisfeiler-Lehman subgraph isomorphism algorithm, defines features based on subtrees of the AST and uses the resulting feature space to cluster queries.
+%The resulting clusters are groups of queries with significantly overlapping ASTs.
+%Our experiments show that this distance metric is accurate, outperforms the Aligon metric in a few respects, and establishes a promising direction for future research on query intent similarity.
+
+%To further aid users in their understanding of query logs, we propose two techniques for summarizing and visualizing queries in a cluster: (1)  a text explanation that overviews common features of queries in the cluster, (2) a graph visualization that presents these features in the context of an actual query.
+
+%\input{motivation}
+
+%\subsection{Contributions}
+Concretely, the specific contributions of this article are:
+\begin{enumerate}
+\item A survey of existing SQL query similarity metrics,
+%\item An evaluation of these metrics on multiple query logs and a preprocessing technique for SQL queries called regularization that improves query clustering accuracy
+\item An evaluation of these metrics on multiple query logs, and 
+%  new benchmark and evaluation methodology for query similarity metrics,
+\item Applying query standardization techniques to improve 
+%our WL-based distance function, as well as functions from our survey,
+query clustering accuracy. %via query standardization techniques.
+%(4) A query similarity metric based on the Weisfeiler-Lehman (WL) approximate graph isomorphism algorithm~\cite{WL2011} as a promising direction. 
+\end{enumerate}
+%Experimental results show that our naive distance function not only mirrors intuitive notions of similarity as well as others, but has performance competitive with similar clustering techniques from the literature.
+
+This article is organized as follows.
+We start by performing a literature survey on log clustering and SQL query similarity in Section~\ref{sec:background}.
+We describe a feature engineering technique called regularization in Section~\ref{sec:system}.
+%In Section~\ref{sec:dcabench}, we evaluate the accuracy and performance of query similarity evaluation techniques.
+In Section~\ref{sec:dcabench}, we explain our query workloads and propose a strategy for evaluating the quality of query similarity metrics.
+The evaluation is presented in Section~\ref{sec:experiment}.
+%, and propose a new similarity metric in Section~\ref{sec:WL}.
+We discuss our experiment results, findings and ideas to further build upon the surveyed techniques in Section~\ref{sec:discussion}, and in Section~\ref{sec:scenarios}, we explain how this work can be beneficial by giving real life examples.
+%and~\ref{sec:summarization}, respectively. 
+Finally, we conclude by identifying the steps needed to deploy query log clustering into practice using the techniques evaluated in this article in Section~\ref{sec:conclusion}.
+
+%The focus of this paper is to model user intents via query monitoring. Provided that an accurate model can be created, it would lead not only to effective insider attack detection systems, but could have implications for other fields like database performance optimizers.

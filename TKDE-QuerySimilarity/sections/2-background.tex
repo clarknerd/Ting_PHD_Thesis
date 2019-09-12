@@ -1,0 +1,170 @@
+% !TEX root = ../paper.tex
+
+Analyzing query logs mostly relies on the structure of queries~\cite{Kamra2007SyntaxBased}, although their motivations are different; some methods prefer using the log as a resource to collect information to build user profiles, and the others utilize structural similarity to perform tasks like query recommendation~\cite{giacometti2009, yang2009, chatzopoulou2011querie}, performance optimization~\cite{aouiche2006},  session identification~\cite{aligon2014similarity} and workload analysis~\cite{makiyama2015text}.  A summary of these methods is given in Table~\ref{table:literaturereview}.
+
+There are also other possible approaches; like data-centric query comparison~\cite{Mathew2010Raid}, and utilizing the \textit{access areas} of user queries by inspecting the data partition the query is interested in~\cite{nguyen2015identifying} from the \texttt{WHERE} condition.
+However, these approaches are out of our scope
+since we are interested in comparing and improving methods based on structural similarity; we assume that
+%since we are inspecting and improving the methods on the structural similarity of SQL queries where
+we do not have access to the data or the statistical information about the database. 
+
+\begin{table*}[h]
+\centering
+\begin{tabular}{ C{3.8cm}  C{2.9cm}  C{3.9cm}  C{1.15cm}  C{2.65cm} C{1.35cm}}
+\toprule
+Paper title & Motivation & Features & Feature Structure & Distance Function & Similarity Ratio \\
+\midrule
+Agrawal \textit{et al.} (2006)~\cite{agrawal2006context} & Q. reply importance & {\footnotesize Schema, rules} & Vector & Cosine similarity & No \\
+Giacometti \textit{et al.} (2009)~\cite{giacometti2009} & Q. recommendation & {\footnotesize Difference pairs} & Set  & Difference query  & No \\[-1mm]
+Yang \textit{et al.} (2009)~\cite{yang2009} & Q. recommendation & {\footnotesize Selection/join, projection} & Graph & \parbox{2.6cm}{\footnotesize \center Jaccard coefficient\\[-0.5mm] on the graph edges} & No \\
+Stefanidis \textit{et al.} (2009)~\cite{stefanidis2009you} & Data Recommendation & {\footnotesize Inner product of two queries} & Vector & - &  No \\
+Khoussainova \textit{et al.} (2010)~\cite{magda2010snipsuggest} & Q. recommendation & {\footnotesize Popularity of each query object} & Graph & -  & No \\[-1mm]
+Chatzopoulou \textit{et al.} (2011)~\cite{chatzopoulou2011querie} & Q. recommendation & {\footnotesize Syntactic element frequency} & Vector & \parbox{2.65cm}{\footnotesize \center Jaccard coefficient\\[-0.5mm]and cosine similarity} & No  \\
+Aouiche \textit{et al.} (2006)~\cite{aouiche2006} & View selection & {\footnotesize Selection/join, group-by} & Vector & Hamming distance  & Yes \\
+Aligon \textit{et al.} (2014)~\cite{aligon2014similarity} & Session similarity & {\footnotesize Selection/join, projection, group-by} & 3 Sets & Jaccard coefficient   & Yes \\
+Makiyama \textit{et al.} (2016)~\cite{makiyama2015text} & Workload analysis & {\footnotesize Term frequency of projection, selection/join, from, group-by and order-by} & Vector & Cosine similarity  & Yes \\
+\bottomrule
+\end{tabular}
+\vspace*{-2mm}
+\caption{SQL query similarity literature review}
+\label{table:literaturereview}
+\end{table*}
+
+%Yao \textit{et al.}~\cite{yao2005} propose a method to identify sessions in a database by using SQL queries. Their method first omits the constants in the queries. The output query is called query template. They appoint ID numbers to each distinct query template and take a simple n--gram approach using the ID numbers to identify user sessions. Their aim is not measuring the distance of SQL queries, but they basically consider queries that have the same template are the same.
+
+Agrawal \textit{et al.}~\cite{agrawal2006context} aim to rank the tuples returned by the SQL query based on the context.
+They create a ruleset for contexts and evaluate the result of queries that belongs to the context according to the ruleset.
+They capture context and query as feature vectors and capture similarity through cosine distance between the vectors.
+
+Chatzopoulou \textit{et al.}~\cite{chatzopoulou2011querie} aim to assist non-expert users of scientific databases by tracking their querying behavior and generating personalized query recommendations.
+%They state that an SQL query cannot be intuitively translated as a bag of features; hence
+They deconstruct an SQL query into a bag of \textit{fragments}.
+Each distinct fragment is a feature, with a weight assigned to it indicating its importance.
+Each feature has two types of importance: (1) within the query and (2) for the overall workload.
+Similarity is defined upon common vector-based measures such as cosine similarity.
+A summarization/user profile for this approach is just a sum over all single query feature vectors that belong to their workload.
+
+Yang \textit{et al.}~\cite{yang2009}, on the other hand, build a graph following
+%the database schema from the start to the end tables of joins for each query and group queries based on these graphs using a basic similarity function like Jaccard coefficient.
+the query log by connecting associations of table attributes from the input and output of queries which are then used to compute the likelihood of an attribute appearing in a query with a similarity function like Jaccard coefficient.
+Their aim is again to assist users in writing SQL queries by analyzing query logs. Giacometti \textit{et al.}~\cite{giacometti2009}, similarly, aim to make recommendations on the discoveries made in the previous sessions for users to spend less time on investigating similar information.
+They introduce \textit{difference pairs} in order to measure the relevance of the previous discoveries.
+%Difference pairs are essentially the result columns that is not included in the other result columns that correspond to a return result; hence the method depends on having access to the data.
+Difference pairs are essentially the result columns that is not included in the other return results; hence the method depends on having access to the data.
+Stefanidis \textit{et al.}~\cite{stefanidis2009you} takes a different approach, and instead of recommending candidate queries, they recommend tuples that may be of interest to the user.
+By doing so, the users may decide to change the selection criteria of their queries in order to include these results.
+
+Sapia~\cite{Sapia:2000:PPQ:646109.679288} creates a model that learns query templates to prefetch data in OLAP systems based on the user's past activity. SnipSuggest~\cite{magda2010snipsuggest}, on the other hand, is a context-aware SQL-autocomplete system that helps database users to write SQL queries by suggesting SQL snippets.
+In particular, it assigns a probability score to each subtree of a query based on the subtree's frequency in a query log.
+These probabilities are used to discover the most likely subtree that a user is attempting to construct, at interactive speeds.
+
+Although these methods~\cite{agrawal2006context, chatzopoulou2011querie, yang2009, giacometti2009, stefanidis2009you, magda2010snipsuggest} utilize query similarity one way or other to achieve their purpose, they don't directly offer a way to compare query similarity. 
+We aim to summarize the log and the most practical way to describe a query log is to group similar queries together so that we can provide summaries of these groups to the users.
+For this purpose, we need to be able to measure pairwise similarity between each query, hence we need a metric that can do so. As shown in Table~\ref{table:literaturereview}, this condition is only satisfied by \cite{aouiche2006, aligon2014similarity, makiyama2015text}.
+%We define these metrics as end-to-end similarity metrics.
+
+Aouiche \textit{et al.}~\cite{aouiche2006} is the first work we encountered that proposes a pairwise similarity metric between two SQL queries although it is not the aim of their work.
+They aim to optimize view selection in warehouses by the queries posed to the system.
+They consider the \textit{selection}, \textit{joins} and \textit{group-by} items in the query to create vectors and use Hamming Distance to measure how similar two queries are.
+While creating the vector, it doesn't matter if an item appears more than once or where the item is.
+They cluster similar queries that creates a workload on the system and base their view creation strategy in the system on the clustering result. 
+
+Aligon \textit{et al.}~\cite{aligon2014similarity} study various approaches to defining a similarity function to compare OLAP sessions.
+They focus on comparing session similarity while also performing a survey on query similarity metrics.
+They identify \textit{selection} and \textit{join} items as the most relevant components in a query followed by the \textit{group by} set.
+Inspired by the findings, they propose their own query similarity metric which considers \textit{projection}, \textit{group-by}, \textit{selection-join} items for queries issued on OLAP datacubes. 
+OLAP datacubes are multidimensional models, and they have hierarchy levels for the same attributes. Aligon \textit{et al.}~\cite{aligon2014similarity} measure the distance between the attributes on different hierarchy levels, and compute the set similarity for \textit{projection}, \textit{group-by}, and \textit{selection-join} sets individually when comparing two queries.
+In our experiments, since we do not consider the hierarchy levels in an OLAP system but focus on databases, we consider all queries are on the same level in the schema to adjust the formulas presented in the paper. 
+Namely, we compute set similarity of \textit{projection}, \textit{group-by}, \textit{selection-join} sets of two queries with Jaccard coefficient. 
+Also, Aligon \textit{et al.}~\cite{aligon2014similarity} provide the flexibility to adjust weights of the three feature sets based on the domain needs. We explore how the clustering quality is affected with various weightings in Appendix~\ref{appendix:aligon}.
+
+%They create separate similarity attributes to compare two queries where they measure the similarity of each group separately and then unify all of them into a normaliz
+
+Makiyama \textit{et al.}~\cite{makiyama2015text} approach query log analysis with the goal of analyzing a system's workload, and they provide a set of experiments on Sloan Digital Sky Survey (SDSS) dataset.
+They extract the terms in \textit{selection}, \textit{joins}, \textit{projection}, \textit{from}, \textit{group-by} and \textit{order-by} items separately and record their appearance frequency.
+They create a feature vector using the frequency of these terms which they use to calculate the pairwise similarity of queries with cosine similarity.
+Instead of clustering, they perform the workload analysis with Self-Organizing Maps (SOM).
+
+To further illustrate how the three structural metrics~\cite{aouiche2006, aligon2014similarity, makiyama2015text} work, we show the feature representations for the following query for each method in Table~\ref{tab:features}.
+{\footnotesize
+\begin{verbatim}
+SELECT u.username, u.yearenrolled
+FROM user u, accounts a
+WHERE u.id = a.userid
+  AND a.balance > 1000
+  AND u.id > 20050001
+GROUP BY u.yearenrolled
+ORDER BY u.yearenrolled
+\end{verbatim}
+}
+
+\begin{table}[]
+\centering
+
+\begin{tabular}{C{2cm}  l}
+\toprule
+
+        Paper title & \multicolumn{1}{c}{Extracted Feature Vector}                                                                                                                                                                                                                                                                                                                                               \\ \midrule
+Aouiche \textit{et al.} (2006)~\cite{aouiche2006}  & \begin{tabular}[c]{@{}l@{}}\{`u.id', `a.userid', `a.balance',  `u.yearenrolled'\}\end{tabular}                                                                                                                                                                                                                                                                                                   \\ \midrule
+Aligon \textit{et al.} (2014)~\cite{aligon2014similarity}   & \begin{tabular}[c]{@{}l@{}}\{`u.username`, `u.yearenrolled'\}\\ \{`u.id', `a.userid', `a.balance'\}\\ \{`u.yearenrolled'\}\end{tabular}                                                                                                                                                                                                                                                                \\ \midrule
+Makiyama \textit{et al.} (2016)~\cite{makiyama2015text} & \begin{tabular}[c]{@{}l@{}}\{`SELECT\_u.username' \textrightarrow 1,\\  `SELECT\_u.yearenrolled' \textrightarrow 1,\\   `FROM\_user \textrightarrow 1', `FROM\_accounts' \textrightarrow 1,\\   `WHERE\_u.id' \textrightarrow 2, `WHERE\_a.userid' \textrightarrow 1,\\ `WHERE\_a.balance' \textrightarrow 1,\\   `GROUPBY\_u.yearenrolled' \textrightarrow 1,\\   `ORDERBY\_u.yearenrolled' \textrightarrow 1\}\end{tabular} \\ 
+\bottomrule
+\end{tabular}
+\vspace*{-2mm}
+\caption{Representation of three similarity metrics}
+\label{tab:features}
+\end{table}
+
+In the next section, we propose a generalized feature engineering scheme for query comparison methods to improve the clustering quality.
+Our work evaluates the performance of the three methods~\cite{aouiche2006, aligon2014similarity, makiyama2015text} that directly describe a pairwise similarity metric in Section~\ref{sec:dcabench} due to the lack of performance evaluation for the query similarity metrics in the given studies.
+We also show that our feature engineering scheme improves the clustering quality with both statistical and empirical methods.
+
+
+
+
+%As we will show in Section~\ref{sec:experiments}, these metrics do not correlate with user intuition.
+
+%Another method is to use a data--centric approach, which performs better in detecting anomalies \cite{Mathew2010Raid}.
+%In the paper, a set of techniques are used to detect anomalies on the results of SQL queries rather than the queries themselves.
+%In doing this, the authors are able to improve both where the syntax--based methods miss a potentially harmful query and when there is a false positive.
+%These errors can occur in the syntax--based system when two queries with seemingly similar structures have vastly different results, as well as when two queries appear unrelated but actually return the exact same set of data.
+%The results of the experiments against syntax--based methodologies show improvements.
+%With these improvements, there are issues discussed in which the authors reveal the requirement of the
+%The limitation of this approach is that the dataset should remain static for effective results but still the potential in the data--centric model is quite promising.
+%However, to evaluate the efficacy of such a system in a realistic way, access to data in a corporate database is required.
+%However, when the data contained in the database is not available to the detection system, it is impossible to use such an approach.
+
+%This brings us back to the problem that, many organizations do not allow third party softwares to access their sensitive data, let alone letting them to be used for research purposes~\cite{Kul2015Jowua}.
+%Hence, auditing SQL query logs of the databases and having a sense of what the query intends to do correctly gains a lot of importance.
+%Our eventual goal is extend our syntactic visualization strategy to support data--aware visualization and query auditing, in this work we focus on the core components of clustering queries and generating cluster visualizations.
+
+%\textbf{Query visualization:}
+%Generating query cluster visualizations is a complex task considering that even visualizing just one query accurately to help users understand the intent behind the query quickly is still a research challenge~\cite{gatterbauer2011databases}.
+
+%QueryViz~\cite{Danaparamita2011queryviz} addresses \textit{query interpretation} which is the problem of understanding the goal of the query by visualizing it. Query interpretation is usually as hard as writing a new query as the complexity of the query increases~\cite{gatterbauer2011databases}. It takes SQL query and the schema of the database; and parses the query, builds an AST and creates a graph for users to view it. The aim is to present queries as simple as possible for the users to understand them, as it is easier to understand the relationships and references in a query when it is graphically visualized.
+
+%Logos~\cite{Kokkalis:2012:LST:2213836.2213929}, on the other hand, is a system that has the ability to translate SQL queries into natural language equivalents. This technology works by creating graph representations of the query structure. These representations then use predefined relationships within the database schema to allow for construction of natural language expressions. Despite the high overhead of maintaining the relationships for the database, this technology shows promise in revealing the intent of user queries.
+
+%We take a similar approach as QueryViz~\cite{Danaparamita2011queryviz}, but we include the common features of all queries in the query representation, so that the users can see what features are unique to the query and what features are shared by all the queries in the query groups.
+
+%\textbf{Distinguishing queries:}
+%There are different approaches to understand the intents behind SQL queries and what a query returns.
+%Analyzing query intents can help in different research topics like creating indices, benchmark design, and masquerade detection in databases.
+
+%QueryScope~\cite{hu2008queryscope} starts with the hypothesis that visualization of queries would help identifying similar queries and distinguishing different ones from each other, hence it would help finding better tuning opportunities. The system provides a user interface to visualize SQL queries. This interface presents these queries as graphs in order to make the structure more understandable. To construct these graphs, the structure of the query is broken down into XML format prior to visualization. The proposed use of this interface is for tuning of database systems, although the breakdown of these queries proposes the potential for detecting similarity between different queries. Our approach is similar to the individual queries but we focus on describing query sets. While they directly focus on similarities of queries by finding the critical elements of the query using the table relationships and table cardinalities, we make use of the subtree similarities.
+
+%XData~\cite{chandra2015Data} is a system which uses a technique that allows SQL queries to be tested for mutations to the intended query. In doing this, queries that have slight differences and that look to return the same result as a correct query will be marked as incorrect if they produce different results. This technology is intended for use in grading student work, although other uses are possible.
+%In order to determine the correctness of a query, the correct query must have constraints created to represent possible mutations. The authors explain each aspect of a SQL query for which a mutation can occur, and for each they use tuples to store the possible mutations. By doing this, all possibly mutation combinations can be presented for comparison against questionable queries. In testing against student work, this technique was able to correctly identify over 95 percent of incorrect mutants presented.
+
+%A method for maintaining privacy in databases via auditing is presented in~\cite{Agrawal:2004:ACH:1316689.1316735} which discusses an auditing framework that allows for analysts to ensure compliance of certain privacy guarantees. Audit expressions are used in their paper to establish this notion of privacy in the database along with the concept of an indispensable tuple. This means that the removal of this tuple will affect the result of the query in question. By using this concept, the authors detail a methodology in which audit logs can be constructed that will reveal any privacy violations.
+
+%If we could access the data contained in the database that we collected queries for our experiment, using the concepts of indispensable tuple~\cite{} and result sets of different queries~\cite{} would help evaluating our system's capabilities if we expand our system with a data--centric approach.
+
+%If the data for the target database is available, our proposed framework can be augmented by using methods proposed in above discussed data--centric approaches~\cite{chandra2015Data, Agrawal:2004:ACH:1316689.1316735}.
+
+
+%This concept can be used for prevention of attacks in many database systems, although in a system with highly secure data such as the financial sector, access to data outside of privileged users is limited.
+
+
+%This technology is not only useful in academia for grading purposes, but in the study of intentions behind queries.
+%The banking domain differs from the others in the sense of information security. Most of the employees like tellers and customer representatives in a banking institution have the ability to access very sensitive information. Examining the chronology of events is not enough to understand if the intent is malicious. Insiders usually have authorized access to the information they target, and their behaviors are very difficult to distinguish from normal activities, which leads to false negatives. On the other hand, a benign intent can sometimes be observed as malicious behavior. Acting upon a false positive without evaluating the sequence of events and their details carefully can lead to a message of distrust between the employees and the administration in an organization. 

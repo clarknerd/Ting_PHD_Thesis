@@ -1,0 +1,54 @@
+% !TEX root = ../paper.tex
+%This paper presents the first steps for \sysname{}.
+%The focus of this article was to summarize large query logs by clustering queries.
+%The focus of this paper is to improve clustering quality of large query logs by the similarity of task.
+The focus of this work is to understand and improve similarity metrics for SQL queries relying on query structure to be used to cluster queries. 
+We described a quality evaluation scheme that captures the notion of query task using student answers to query-construction problems and a real-world smartphone query load.
+We used this scheme to evaluate three existing query similarity metrics.
+We also proposed a feature engineering technique for standardizing query representations.
+%we show that this technique improves all three query similarity metrics overall.
+Through further experiments, we showed that different workloads have different characteristics and no one similarity metric surveyed was always good. 
+The feature engineering steps provided an improvement across the board because they addressed the error reasons we identified. %, and in particular the Aligon metric.
+
+
+%We clearly demonstrate that the resulting query metric can be effective at clustering queries with similar tasks together.
+%We show that its base performance is comparable to the other methods, and that it scales well.}
+
+%Finally, we exploit FP Trees to create summaries of the clustered query sets. In our experiments, we show that
+%(1) the structural similarity of queries corresponds to the intent of the query by comparing the groupings performed by a human expert and our system, and
+%(2) even with a commodity laptop and single-threaded implementation, the process could be performed in under 15 minutes for a set of 1.35 million queries.
+% and the bottleneck can be implemented as a multi-threaded application which would reduce the time required noticeably.
+%Provided that an accurate model can be created, it would lead not only to effective insider attack detection systems, but could have implications for other fields like database performance optimizers.
+%Mention your main topic and its importance. Mention your main contribution. Overview future research possibilities.
+The approaches described in this article only represent the first steps towards tools for summarizing logs by tasks.
+Concretely, we plan to extend our work in several directions:
+%First, the dataset we used to perform our experiments included only 19 hours of data. 
+%We do not expect a big organization's dataset to change over time dramatically, 
+%We will explore ways to make the clustering process scalable, allowing \sysname{} to validate much larger query logs.
+% more resource efficient as we may still need to create our clusters with larger datasets. %for larger organizations.
+%This will be followed by improvements on the query validation for high query volumes.
+First, we will explore new feature extracting mechanisms like the Weisfeiler-Lehman framework~\cite{kul2016ettu}, feature weighting strategies and new labeling rules in order to capture the task behind logged queries better.
+%We believe that a technique based on the Weisfeiler--Lehman approximate graph isomorphism algorithm can be leveraged to improve the feature extraction mechanism compared to existing structural similarity metrics~\cite{kul2016ettu}.
+Second, we will introduce the temporal order of the log to increase the query clustering quality. In this article, we focused on query structures to improve clustering quality. Exploring the inter-query feature correlation based on query order can be used to summarize query logs in addition to clustering.
+Third, we will examine user interfaces that better present clusters of queries --- Different feature sorting strategies in Frequent Pattern Trees (FP Trees)~\cite{han2004mining} in order to help the user distinguish important and irrelevant features, for example.
+%\begin{scenario}
+%Jane inspects the query group summaries presented by \sysname{} and labels these groups as safe, unsafe, and unknown. \sysname{} repeats the auditing process to elaborate the groups on unknown clusters, so that they can be labeled as safe and unsafe, too.
+%\end{scenario}
+%Forth, further exploration on various kinds of statistics captured in FP Trees will help us in determining the quality of the cluster, weighting of features, and visualizing cluster summaries. %identifying suspicious paths.
+%various aspects:
+%(1) the compactness of FP Tree generated for certain cluster measures the quality of the cluster;
+%(2) the total frequency of an item offers an angle on information content to define the weight of the item's underlying feature; 
+%It is not surprising to observe that information content of a feature aligns with its power of distinguishing queries apart.
+%(3) Subtrees in FP Tree offer us a new perspective on sub-clustering queries; 
+%(4) The conditional probability that a query will pass a node in the tree given that it has already passed its parent helps detecting suspicious paths in FP Tree or suspicious set of queries in the log. When \sysname{} is walking through a path from the root, a plunge in the conditional probability on current visiting node indicates where and how this path becomes suspicious.
+Lastly, we will investigate the temporal effects on query clustering. 
+
+%Open questions:
+
+%\begin{itemize}
+%\item What substructures are interesting?
+%\item Can clustering be implemented efficiently for large query logs?
+%\item Can query validation be implemented efficiently for high query volumes?
+%\item How should clusters be presented to a user?
+%\item Temporality: Clustering sequences of queries
+%\end{itemize}
