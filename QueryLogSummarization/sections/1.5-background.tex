@@ -1,27 +1,3 @@
-% !TEX root = ../paper.tex
-%The focus of this paper is to model user intents via query monitoring. Provided that an accurate model can be created, it would lead not only to effective insider attack detection systems, but could have implications for other fields like database performance optimizers.
-
-%There are some upfront security policies used and enforced in organizations to protect the integrity and confidentiality of the resources.
-%For instance, as a multi-level security (MLS) policy, \textit{Bell-LaPadula}~\cite{bellLaPadula} has very rigid constraints, and does not tolerate normal changes in business needs over time. Policies like the \textit{Chinese Wall Security Model}~\cite{ChineseWall} focus on preventing conflicts of interest in a commercial domain rather than explicitly protecting resources. A more permissive approach is based on role-based access control (RBAC)~\cite{rolebased}, where predetermined user groups are permitted to perform specific tasks.  However, even here, the specific tasks performed by each group might evolve over time.%There are also security policies especially tailored for preventing insider attacks~\cite{pramanik2004security} and enforcing policies~\cite{enforceable2000}. 
-%Although useful, these policies cannot prevent insider attacks as there are often policy violations and exceptions in the implementation~\cite{bishop2010risk}. These exceptions can be explained with the \textit{Oracle Policy}, \textit{Feasible Policy} and \textit{Configuration Policy} concepts~\cite{bishop2010risk}. \textit{Oracle Policy} represents the ideal case which is what the policy maker actually intends with the policy. It can be non-deterministic but it supplies a correct answer for any question asked as it covers the intent and custom. \textit{Feasible Policy} substitutes the ideal case with an implementation of it on a computer system. Lastly, \textit{Configuration Policy} expresses the application of the \textit{Feasible Policy} on a particular system. This means that the ideal case expressed in the policy may not always be enforced on the computer system.
-
-%The basic idea behind \sysname{} is to profile normal user behavior, detect suspicious behavior using this information, and distinguish malicious behavior from benign intents~\cite{Kul2015Jowua}. 
-%Indeed, this idea is not new; there are many anomaly detection systems focusing on suspicious behavior of users.  
-%Specific examples include file access~\cite{wang2016fileaccess} and transfers~\cite{Arief2015Jowua}, online and social behavior~\cite{Gavai2015Jowua}, activities on a website~\cite{manavoglu2003network}, command-line statements~\cite{maxion2002masquerade} and SQL queries issued to a database~\cite{Mathew2010Raid}. 
-
-%\textbf{SQL queries as a resource:}
-%As the basic unit of interaction between a database and its users, the sequence of SQL queries that a user issues effectively models the user's behavior. Also, queries that are similar in nature imply that they might be issued to perform similar duties. Hence, auditing SQL query logs of the databases and having a sense of what the query intends to do correctly gains a lot of importance.
-
-%\textit{Query interpretation} is the problem of understanding the goal of the query and it is regarded as hard as writing a new query as the complexity of the query increases~\cite{gatterbauer2011databases}. QueryViz~\cite{Danaparamita2011queryviz} addresses this problem by visualizing the query. It takes SQL query and the schema of the database; and parses the query, builds an AST and creates a graph for users to view it. The aim is to present queries as simple as possible for the users to understand them, as it is easier to understand the relationships and references in a query when it is graphically visualized.
-
-%However, it is more practical to analyze large SQL query logs as a whole. Generating query cluster visualizations is still a complex task considering that even visualizing just one query accurately to help users understand the intent behind the query quickly is still a research challenge~\cite{gatterbauer2011databases}. 
-
-%The authors of~\cite{Kamra2007SyntaxBased} focus on detection of potential intrusions on database systems. In their paper, they introduce a mechanism which analyzes audit logs of databases with both defined user roles and undefined user roles. This system uses multiple techniques to attempt to detect the threats depending on the role distinction and builds user profiles.
-%For representing their data, the authors use a quiplet relation. This relation contains data bases on the command, the projection data, and the selection data. To further expand on this data representation, the authors use fine, medium, and coarse-quiplets, with less data represented in the respective relations. In a Role Based Access Control (RBAC) system, the authors use Naive Bayes Classifier to test profiles built from the quiplet information. In their testing using synthesized data against the profiles, the fine-quiplets performed best of the relations in both false positives and false negatives.
-%They use Naive Bayes Classifier and clustering techniques, k-centers and k-means, in their experiments to build user profiles.
-%The techniques were able to produce low false positives in experimental testing, but the false negative rates were high for both techniques.
-%Their work shows that building user profiles from database logs has potential for detecting intrusions, especially in a system with defined roles.
-
 We aim at compressing query logs for accurately and efficiently computing workload statistics.
 Before the discussion of compression, we first review usecases and related work for workload analysis.
 
@@ -64,9 +40,7 @@ There are many other similar schemes for compressing files represented as sequen
 \tinysection{Dictionary Encoding}
 \textit{Dictionary encoding} is a more general form of Lempel-Ziv.
 It has the advantage that patterns with frequencies stored in the dictionary can be interpreted as workloads statistics useful for analysis.
-%Practically it is not feasible to enumerate all patterns in a dictionary and only a subset of \textit{frequent patterns}~\cite{Han:2007:FPM:1275092.1275097} may be selected.
 In this paper, we extend dictionary encoding and focus on using a dictionary to infer frequencies of patterns not in it.
-%Hence it is critical to have a quality measure that is efficiently computatble and reflects the overall deviation on inferring workload statistics using existing patterns in the dictionary.
 Mampaey \textit{et al.} proposed \textit{MTV} algorithm~\cite{DBLP:journals/tkdd/MampaeyVT12} that finds the dictionary (of given size) having optimal \textit{Bayesian Information Criterion(BIC)} score.
 Gebaly \textit{et al.} proposed \textit{Laserlight} algorithm~\cite{DBLP:journals/pvldb/GebalyAGKS14} that builds a pattern dictionary for correctly inferring the truth-value of some augmented binary feature.
 
@@ -79,67 +53,4 @@ Generative models can infer pattern frequencies but they lack a model-independen
 Matrix decomposition methods including Principal Component Analysis (PCA)~\cite{DBLP:reference/stat/Jolliffe11} and Non-negative matrix factorization (NMF)~\cite{lee1999learning} offer lossy data compression.
 But the resulting matrices after decomposition are not suited for inferring workload statistics.
 
-%An extensively studied problem \textit{Text Summarization} is closely-related. 
-%Its objective is condensing the source text, which is a collection/sequence of sentences into a shorter version preserving its information content and overall meaning. 
-%Methods achieving such objective can be classified into two categories~\cite{article}: (1) abstractive and (2) extractive.
-%
-%An extractive summarization is simply ranking and extracting \textit{representative} or \textit{relevant} records from the source log.
-%Different extractive methods only differ in the measure of relevance.
-%The simplest measure would be \textit{Term frequency-inverse document frequency (TF-IDF)}~\cite{4782490}. More sophisticated measures include but not limited to \textit{Lexical Chain} based~\cite{Barzilay97usinglexical}, \textit{graph-based  lexical centrality}~\cite{Erkan:2004:LGL:1622487.1622501}, \textit{latent semantic analysis} based~\cite{Gong:2001:GTS:383952.383955}, \textit{machine learning} based~\cite{Neto:2002:ATS:645853.669480}, \textit{hidden markov model} based~\cite{Conroy:2001:TSV:383952.384042}, \textit{neural network} based~\cite{1344634}, \textit{query} based~\cite{Pembe2010AutomatedQA}, \textit{mathematical regression} based~\cite{fattah2008automatic} and \textit{fuzzy-logic} based~\cite{4529844}.
-%
-%A survey on extractive methods~\cite{article} pointed out two of their problems: (1) Not all text in extracted records are relevant, resulting in unnecessary verbosity and (2) Relevant information tends to either overlap or spread among records, resulting in unexpectedly large amount of records extracted to achieve reasonable coverage on information content.
-%These problems can be solved by extracting only \textit{patterns} or fragments commonly shared by records, e.g \textit{frequent pattern mining}~\cite{Han:2007:FPM:1275092.1275097}.
-%Frequency is not the only measure of relevance for patterns.
-%Mampaey \textit{et al.}~\cite{DBLP:journals/tkdd/MampaeyVT12} study the problem of summarizing multi-dimensional vectors where all attributes are binary. 
-%The summary is represented as a set of \textit{most informative} patterns which maximize the \textit{Bayesian Information Criterion} (BIC) score.
-%Gebaly \textit{et al.}~\cite{DBLP:journals/pvldb/GebalyAGKS14} aim at summarizing multi-dimensional categorical-valued vectors augmented by a binary attribute. 
-%The relevance of pattern depends on whether it can \textit{explains} the valuation of the augmented attribute.
-%
-%However, there is still controversy on summary evaluation for extractive methods.
-%Evaluation measures such as ROGUE~\cite{Lin04rouge:a} and BLEU~\cite{Papineni:2002:BMA:1073083.1073135} are human-involved.
-%Since human can only participate as reference summarizers in data sets limited in size and number, it is controversial that the performance of a summarizer evaluated on existing limited data sets will generalize to unseen real life data sets.
-%
-%An abstractive summarization attempts to go beyond extraction and builds up probabilistic generative models.
-%The goal is to search for relevant \textit{topics}~\cite{DBLP:journals/cacm/Blei12} or \textit{abstracts}~\cite{DBLP:journals/ai/KnightM02} represented by latent variables in the model inferred from the data in the log.
-%A probabilistic model is usually called generative as it is able produce a world of possible logs where the log representing the actual data has the maximum likelihood to be produced (i.e. Maximum Likelihood Estimate).
-%Typical models used for summarization are \textit{probabilistic topic models}~\cite{DBLP:journals/cacm/Blei12,DBLP:conf/acl/WangZLG09} and \textit{noisy-channel} model~\cite{DBLP:journals/ai/KnightM02}.
-%
-%Abstractive summarization using probabilistic models has its own problems.
-%Firstly, goodness of fit on data (i.e., likelihood) is model-dependent and cannot be used to compare different models.
-%As a result, the general practice of evaluating probabilistic models is also using human as reference summarizers (see~\cite{DBLP:journals/ai/KnightM02,DBLP:conf/acl/WangZLG09}).
-%Hence similar controversy in summary evaluation still exists.
-%In addition, as~\cite{article} pointed out, the world of logs that any model can produce (i.e., model capacity) is limited.
-%There may exist logs that exceeds model capacity.
-%Finally, unlike understanding extracted records or shared patterns, it may require a steep learning curve for an human observer to consume and utilize information conveyed by probabilistic models.
-
-
-
-% Existing approaches for log summarization are frequently aimed at specific tasks like query recommendation~\cite{chatzopoulou2011querie, giacometti2009,magda2010snipsuggest,yang2009}, performance optimization~\cite{aouiche2006,Bruno:2001:SMW:375663.375686},  session identification~\cite{Aligon2014}, outlier detection~\cite{Kamra2007SyntaxBased}, or workload analysis~\cite{DBLP:conf/simbig/MakiyamaRS15}. 
-
-% Chatzopoulou \textit{et al.}~\cite{chatzopoulou2011querie} aim to assist non-expert users of scientific databases by tracking their historical querying behavior and generating personalized query recommendations.
-% They flatten query \textit{abstract syntax tree} as a bag of \textit{fragments} and adopt \textit{feature vector} representation of queries.
-% User profiles are then built from the query log by summarizing feature vectors that belong to workloads of the same user. Similarly, Giacometti \textit{et al.}~\cite{giacometti2009} aim at making query recommendations by summarizing queries in historical sessions.
-% SnipSuggest~\cite{magda2010snipsuggest} is a context-aware SQL-autocomplete system that helps database users to write SQL queries piece by piece, by suggesting SQL \textit{snippets}. It computes the marginal probability that a query, uniformly drawn from the log, contains a snippet. Snippets and their marginals serve as the summary of the query log, which assists the prediction on the snippet that a user will most likely to append to existing snippets.
-% Yang \textit{et al.}~\cite{yang2009} also aim at assisting users in writing SQL queries. They build a graph for each query in the log using tables in \textit{join} operation and cluster queries into similarity groups based on these graphs.
-
-% Aouiche \textit{et al.}~\cite{aouiche2006} aim to help databases respond to users' queries faster through optimizing view selection in warehouses by summarizing query logs. They consider operations of \textit{selection}, \textit{join} and \textit{group-by} in the query to create feature vectors.
-% Bruno \textit{et al.}~\cite{Bruno:2001:SMW:375663.375686} aim at summarizing multi-dimensional data tuples stored in database relations for selectivity estimation during query optimization and approximate query processing. The summary is represented as \textit{multi-dimensional histograms}.
-
-% Aligon \textit{et al.}~\cite{Aligon2014} study various approaches on identifying similar OLAP sessions as summaries for the purpose of query recommendation and personalization.
-% They identify operations of \textit{selection}, \textit{join}, and \textit{group by} as the most relevant features in a query.
-
-% Kamra \textit{et al.}~\cite{Kamra2007SyntaxBased} aim at detecting anomalous behavior of queries in the log by summarizing query logs into profiles
-% of normal user behavior interacting with a database.
-
-% Makiyama \textit{et al.}~\cite{DBLP:conf/simbig/MakiyamaRS15} approach query log summarization with the goal of analyzing a system's workload. They provide a set of experiments on Sloan Digital Sky Survey (SDSS) dataset.
-% They extract features from queries by considering operations \textit{selection}, \textit{join}, \textit{projection}, etc., separately.
-
-% There are also works that aim at summarizing a more general data representation---multi-dimensional vectors where attributes are either categorical or binary. 
-% Gebaly \textit{et al.}~\cite{DBLP:journals/pvldb/GebalyAGKS14} aim at summarizing multi-dimensional vectors of categorical values augmented by a binary attribute. The summary is represented as a collection of \textit{patterns}.  
-% Mampaey \textit{et al.}~\cite{DBLP:journals/tkdd/MampaeyVT12} study the problem of summarizing multi-dimensional vectors where all attributes are binary. The summary is represented as a set of \textit{most informative} patterns which maximize the \textit{Bayesian Information Criterion} (BIC) score. 
-
-% There are numerous other works related to log summarization or more generally, multi-dimensional vector summarization. 
-% In addition, it is worth noting that there are works that focus on visualization/interpretability of queries in the log.
-
-% QueryViz~\cite{Danaparamita2011queryviz} addresses \textit{query interpretation} which is the problem of understanding the goal of the query by visualizing it graphically. QueryScope~\cite{hu2008queryscope} aims at finding better tuning opportunities by helping human experts to visualize and identify patterns shared among queries. Logos~\cite{Kokkalis:2012:LST:2213836.2213929}, on the other hand, is a system that has the ability to translate SQL queries into natural language equivalents.
 

@@ -6,199 +6,6 @@ Bikash Chandra, Bhupesh Chawda, B.~Kar, K.~V. Reddy, Shetal Shah, and
 \newblock Data generation for testing and grading {SQL} queries.
 \newblock {\em VLDBj}, 2015.
 
-\bibitem{DBLP:conf/sigmod/BrunoC05}
-Nicolas Bruno and Surajit Chaudhuri.
-\newblock Automatic physical database tuning: {A} relaxation-based approach.
-\newblock In Fatma {\"{O}}zcan, editor, {\em Proceedings of the {ACM} {SIGMOD}
-  International Conference on Management of Data, Baltimore, Maryland, USA,
-  June 14-16, 2005}, pages 227--238. {ACM}, 2005.
-
-\bibitem{DBLP:conf/icalp/Dwork06}
-Cynthia Dwork.
-\newblock Differential privacy.
-\newblock In Michele Bugliesi, Bart Preneel, Vladimiro Sassone, and Ingo
-  Wegener, editors, {\em Automata, Languages and Programming, 33rd
-  International Colloquium, {ICALP} 2006, Venice, Italy, July 10-14, 2006,
-  Proceedings, Part {II}}, volume 4052 of {\em Lecture Notes in Computer
-  Science}, pages 1--12. Springer, 2006.
-
-\bibitem{DBLP:journals/debu/ChatzopoulouEKMPV11}
-Gloria Chatzopoulou, Magdalini Eirinaki, Suju Koshy, Sarika Mittal, Neoklis
-  Polyzotis, and Jothi Swarubini~Vindhiya Varman.
-\newblock The querie system for personalized query recommendations.
-\newblock {\em {IEEE} Data Eng. Bull.}, 34(2):55--60, 2011.
-
-\bibitem{DBLP:conf/cidr/PavloAALLMMMPQS17}
-Andrew Pavlo, Gustavo Angulo, Joy Arulraj, Haibin Lin, Jiexi Lin, Lin Ma,
-  Prashanth Menon, Todd~C. Mowry, Matthew Perron, Ian Quah, Siddharth
-  Santurkar, Anthony Tomasic, Skye Toor, Dana~Van Aken, Ziqi Wang, Yingjun Wu,
-  Ran Xian, and Tieying Zhang.
-\newblock Self-driving database management systems.
-\newblock In {\em {CIDR}}, 2017.
-
-\bibitem{DBLP:conf/www/KulLXCCKU16}
-G{\"{o}}khan Kul, Duc Luong, Ting Xie, Patrick Coonan, Varun Chandola, Oliver
-  Kennedy, and Shambhu~J. Upadhyaya.
-\newblock Ettu: Analyzing query intents in corporate databases.
-\newblock In Jacqueline Bourdeau, Jim Hendler, Roger Nkambou, Ian Horrocks, and
-  Ben~Y. Zhao, editors, {\em Proceedings of the 25th International Conference
-  on World Wide Web, {WWW} 2016, Montreal, Canada, April 11-15, 2016, Companion
-  Volume}, pages 463--466. {ACM}, 2016.
-
-\bibitem{DBLP:journals/tit/ZivL77}
-Jacob Ziv and Abraham Lempel.
-\newblock A universal algorithm for sequential data compression.
-\newblock {\em {IEEE} Trans. Information Theory}, 23(3):337--343, 1977.
-
-\bibitem{DBLP:journals/tit/ZivL78}
-Jacob Ziv and Abraham Lempel.
-\newblock Compression of individual sequences via variable-rate coding.
-\newblock {\em {IEEE} Trans. Information Theory}, 24(5):530--536, 1978.
-
-\bibitem{4051119}
-D.~A. Huffman.
-\newblock A method for the construction of minimum-redundancy codes.
-\newblock {\em Proceedings of the IRE}, 40(9):1098--1101, Sept 1952.
-
-\bibitem{lee1999learning}
-Daniel~D Lee and H~Sebastian Seung.
-\newblock Learning the parts of objects by non-negative matrix factorization.
-\newblock {\em Nature}, 401(6755):788, 1999.
-
-\bibitem{DBLP:reference/stat/Jolliffe11}
-Ian~T. Jolliffe.
-\newblock Principal component analysis.
-\newblock In Miodrag Lovric, editor, {\em International Encyclopedia of
-  Statistical Science}, pages 1094--1096. Springer, 2011.
-
-\bibitem{DBLP:journals/cacm/Blei12}
-David~M. Blei.
-\newblock Probabilistic topic models.
-\newblock {\em Commun. {ACM}}, 55(4):77--84, 2012.
-
-\bibitem{DBLP:conf/acl/WangZLG09}
-Dingding Wang, Shenghuo Zhu, Tao Li, and Yihong Gong.
-\newblock Multi-document summarization using sentence-based topic models.
-\newblock In {\em {ACL} 2009, Proceedings of the 47th Annual Meeting of the
-  Association for Computational Linguistics and the 4th International Joint
-  Conference on Natural Language Processing of the AFNLP, 2-7 August 2009,
-  Singapore, Short Papers}, pages 297--300. The Association for Computer
-  Linguistics, 2009.
-
-\bibitem{DBLP:journals/ai/KnightM02}
-Kevin Knight and Daniel Marcu.
-\newblock Summarization beyond sentence extraction: {A} probabilistic approach
-  to sentence compression.
-\newblock {\em Artif. Intell.}, 139(1):91--107, 2002.
-
-\bibitem{DBLP:journals/tkdd/MampaeyVT12}
-Michael Mampaey, Jilles Vreeken, and Nikolaj Tatti.
-\newblock Summarizing data succinctly with the most informative itemsets.
-\newblock {\em {TKDD}}, 6(4):16:1--16:42, 2012.
-
-\bibitem{DBLP:journals/pvldb/GebalyAGKS14}
-Kareem~El Gebaly, Parag Agrawal, Lukasz Golab, Flip Korn, and Divesh
-  Srivastava.
-\newblock Interpretable and informative explanations of outcomes.
-\newblock {\em {PVLDB}}, 8(1):61--72, 2014.
-
-\bibitem{DBLP:journals/kais/AligonGMRT14}
-Julien Aligon, Matteo Golfarelli, Patrick Marcel, Stefano Rizzi, and Elisa
-  Turricchia.
-\newblock Similarity measures for {OLAP} sessions.
-\newblock {\em Knowl. Inf. Syst.}, 39(2):463--489, 2014.
-
-\bibitem{DBLP:conf/simbig/MakiyamaRS15}
-Vitor~Hirota Makiyama, Jordan Raddick, and Rafael D.~C. Santos.
-\newblock Text mining applied to {SQL} queries: {A} case study for the {SDSS}
-  skyserver.
-\newblock In Juan~Antonio Lossio{-}Ventura and Hugo Alatrista{-}Salas, editors,
-  {\em Proceedings of the 2nd Annual International Symposium on Information
-  Management and Big Data - SIMBig 2015, Cusco, Peru, September 2-4, 2015.},
-  volume 1478 of {\em {CEUR} Workshop Proceedings}, pages 66--72. CEUR-WS.org,
-  2015.
-
-\bibitem{DBLP:conf/adbis/AouicheJD06}
-Kamel Aouiche, Pierre{-}Emmanuel Jouve, and J{\'{e}}r{\^{o}}me Darmont.
-\newblock Clustering-based materialized view selection in data warehouses.
-\newblock In Yannis Manolopoulos, Jaroslav Pokorn{\'{y}}, and Timos~K. Sellis,
-  editors, {\em Advances in Databases and Information Systems, 10th East
-  European Conference, {ADBIS} 2006, Thessaloniki, Greece, September 3-7, 2006,
-  Proceedings}, volume 4152 of {\em Lecture Notes in Computer Science}, pages
-  81--95. Springer, 2006.
-
-\bibitem{DBLP:journals/corr/abs-1809-00405}
-Ting Xie, Oliver Kennedy, and Varun Chandola.
-\newblock Query log compression for workload analytics.
-\newblock {\em CoRR}, abs/1809.00405, 2018.
-
-\bibitem{DBLP:journals/tssc/Jaynes68}
-Edwin~T. Jaynes.
-\newblock Prior probabilities.
-\newblock {\em {IEEE} Trans. Systems Science and Cybernetics}, 4(3):227--241,
-  1968.
-
-\bibitem{Boyd:2004:CO:993483}
-Stephen Boyd and Lieven Vandenberghe.
-\newblock {\em Convex Optimization}.
-\newblock Cambridge University Press, New York, NY, USA, 2004.
-
-\bibitem{cvx}
-Michael Grant and Stephen Boyd.
-\newblock {CVX}: Matlab software for disciplined convex programming, version
-  2.1.
-\newblock \url{http://cvxr.com/cvx}, March 2014.
-
-\bibitem{DBLP:journals/jota/ODonoghueCPB16}
-Brendan O'Donoghue, Eric Chu, Neal Parikh, and Stephen~P. Boyd.
-\newblock Conic optimization via operator splitting and homogeneous self-dual
-  embedding.
-\newblock {\em J. Optimization Theory and Applications}, 169(3):1042--1068,
-  2016.
-
-\bibitem{DBLP:conf/trustcom/KulUC18}
-Gokhan Kul, Shambhu~J. Upadhyaya, and Varun Chandola.
-\newblock Detecting data leakage from databases on android apps with concept
-  drift.
-\newblock In {\em IEEE TrustCom}, pages 905--913, 2018.
-
-\bibitem{DBLP:journals/prl/Jain10}
-Anil~K. Jain.
-\newblock Data clustering: 50 years beyond k-means.
-\newblock {\em Pattern Recognition Letters}, 31(8):651--666, 2010.
-
-\bibitem{DBLP:journals/jacm/KannanVV04}
-Ravi Kannan, Santosh Vempala, and Adrian Vetta.
-\newblock On clusterings: Good, bad and spectral.
-\newblock {\em J. {ACM}}, 51(3):497--515, 2004.
-
-\bibitem{scikit-learn}
-F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
-  M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
-  D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay.
-\newblock Scikit-learn: Machine learning in {P}ython.
-\newblock {\em Journal of Machine Learning Research}, 12:2825--2830, 2011.
-
-\bibitem{DBLP:journals/datamine/HanCXY07}
-Jiawei Han, Hong Cheng, Dong Xin, and Xifeng Yan.
-\newblock Frequent pattern mining: current status and future directions.
-\newblock {\em Data Min. Knowl. Discov.}, 15(1):55--86, 2007.
-
-\bibitem{DBLP:conf/tpctc/KennedyACZ15}
-Oliver Kennedy, Jerry~Antony Ajay, Geoffrey Challen, and Lukasz Ziarek.
-\newblock Pocket data: The need for {TPC-MOBILE}.
-\newblock In Raghunath Nambiar and Meikel Poess, editors, {\em Performance
-  Evaluation and Benchmarking: Traditional to Big Data to Internet of Things -
-  7th {TPC} Technology Conference, {TPCTC} 2015, Kohala Coast, HI, USA, August
-  31 - September 4, 2015. Revised Selected Papers}, volume 9508 of {\em Lecture
-  Notes in Computer Science}, pages 8--25. Springer, 2015.
-
-\bibitem{8352666}
-G.~Kul, D.~T.~A. Luong, T.~Xie, V.~Chandola, O.~Kennedy, and S.~Upadhyaya.
-\newblock Similarity metrics for sql query clustering.
-\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
-  30(12):2408--2420, Dec 2018.
-
 \bibitem{DBLP:conf/icdm/MittalVCEP10}
 Sarika Mittal, Jothi Swarubini~Vindhiya Varman, Gloria Chatzopoulou, Magdalini
   Eirinaki, and Neoklis Polyzotis.
@@ -227,6 +34,21 @@ Xiaoyan Yang, Cecilia~M. Procopiuc, and Divesh Srivastava.
   2009, March 29 2009 - April 2 2009, Shanghai, China}, pages 964--975. {IEEE}
   Computer Society, 2009.
 
+\bibitem{DBLP:journals/kais/AligonGMRT14}
+Julien Aligon, Matteo Golfarelli, Patrick Marcel, Stefano Rizzi, and Elisa
+  Turricchia.
+\newblock Similarity measures for {OLAP} sessions.
+\newblock {\em Knowl. Inf. Syst.}, 39(2):463--489, 2014.
+
+\bibitem{DBLP:conf/adbis/AouicheJD06}
+Kamel Aouiche, Pierre{-}Emmanuel Jouve, and J{\'{e}}r{\^{o}}me Darmont.
+\newblock Clustering-based materialized view selection in data warehouses.
+\newblock In Yannis Manolopoulos, Jaroslav Pokorn{\'{y}}, and Timos~K. Sellis,
+  editors, {\em Advances in Databases and Information Systems, 10th East
+  European Conference, {ADBIS} 2006, Thessaloniki, Greece, September 3-7, 2006,
+  Proceedings}, volume 4152 of {\em Lecture Notes in Computer Science}, pages
+  81--95. Springer, 2006.
+
 \bibitem{DBLP:conf/sigmod/BrunoCG01}
 Nicolas Bruno, Surajit Chaudhuri, and Luis Gravano.
 \newblock Stholes: {A} multidimensional workload-aware histogram.
@@ -238,6 +60,16 @@ Nicolas Bruno, Surajit Chaudhuri, and Luis Gravano.
 Ashish Kamra, Evimaria Terzi, and Elisa Bertino.
 \newblock Detecting anomalous access patterns in relational databases.
 \newblock {\em {VLDB} J.}, 17(5):1063--1077, 2008.
+
+\bibitem{DBLP:conf/simbig/MakiyamaRS15}
+Vitor~Hirota Makiyama, Jordan Raddick, and Rafael D.~C. Santos.
+\newblock Text mining applied to {SQL} queries: {A} case study for the {SDSS}
+  skyserver.
+\newblock In Juan~Antonio Lossio{-}Ventura and Hugo Alatrista{-}Salas, editors,
+  {\em Proceedings of the 2nd Annual International Symposium on Information
+  Management and Big Data - SIMBig 2015, Cusco, Peru, September 2-4, 2015.},
+  volume 1478 of {\em {CEUR} Workshop Proceedings}, pages 66--72. CEUR-WS.org,
+  2015.
 
 \bibitem{DBLP:conf/vldb/ChaudhuriN97}
 Surajit Chaudhuri and Vivek~R. Narasayya.
@@ -322,6 +154,21 @@ G.~Antoshenkov.
 \newblock In {\em Proceedings of the Conference on Data Compression}, DCC '95,
   pages 476--, Washington, DC, USA, 1995. IEEE Computer Society.
 
+\bibitem{DBLP:journals/tit/ZivL77}
+Jacob Ziv and Abraham Lempel.
+\newblock A universal algorithm for sequential data compression.
+\newblock {\em {IEEE} Trans. Information Theory}, 23(3):337--343, 1977.
+
+\bibitem{DBLP:journals/tit/ZivL78}
+Jacob Ziv and Abraham Lempel.
+\newblock Compression of individual sequences via variable-rate coding.
+\newblock {\em {IEEE} Trans. Information Theory}, 24(5):530--536, 1978.
+
+\bibitem{4051119}
+D.~A. Huffman.
+\newblock A method for the construction of minimum-redundancy codes.
+\newblock {\em Proceedings of the IRE}, 40(9):1098--1101, Sept 1952.
+
 \bibitem{DBLP:conf/adbis/SkibinskiS07a}
 Przemyslaw Skibinski and Jakub Swacha.
 \newblock Fast and efficient log file compression.
@@ -329,6 +176,355 @@ Przemyslaw Skibinski and Jakub Swacha.
   {\em Communications of the Eleventh East-European Conference on Advances in
   Databases and Information Systems, Varna, Bulgaria, September 29 - October 3,
   2007}, volume 325 of {\em {CEUR} Workshop Proceedings}. CEUR-WS.org, 2007.
+
+\bibitem{DBLP:journals/tkdd/MampaeyVT12}
+Michael Mampaey, Jilles Vreeken, and Nikolaj Tatti.
+\newblock Summarizing data succinctly with the most informative itemsets.
+\newblock {\em {TKDD}}, 6(4):16:1--16:42, 2012.
+
+\bibitem{DBLP:journals/pvldb/GebalyAGKS14}
+Kareem~El Gebaly, Parag Agrawal, Lukasz Golab, Flip Korn, and Divesh
+  Srivastava.
+\newblock Interpretable and informative explanations of outcomes.
+\newblock {\em {PVLDB}}, 8(1):61--72, 2014.
+
+\bibitem{DBLP:journals/cacm/Blei12}
+David~M. Blei.
+\newblock Probabilistic topic models.
+\newblock {\em Commun. {ACM}}, 55(4):77--84, 2012.
+
+\bibitem{DBLP:conf/acl/WangZLG09}
+Dingding Wang, Shenghuo Zhu, Tao Li, and Yihong Gong.
+\newblock Multi-document summarization using sentence-based topic models.
+\newblock In {\em {ACL} 2009, Proceedings of the 47th Annual Meeting of the
+  Association for Computational Linguistics and the 4th International Joint
+  Conference on Natural Language Processing of the AFNLP, 2-7 August 2009,
+  Singapore, Short Papers}, pages 297--300. The Association for Computer
+  Linguistics, 2009.
+
+\bibitem{DBLP:journals/ai/KnightM02}
+Kevin Knight and Daniel Marcu.
+\newblock Summarization beyond sentence extraction: {A} probabilistic approach
+  to sentence compression.
+\newblock {\em Artif. Intell.}, 139(1):91--107, 2002.
+
+\bibitem{DBLP:reference/stat/Jolliffe11}
+Ian~T. Jolliffe.
+\newblock Principal component analysis.
+\newblock In Miodrag Lovric, editor, {\em International Encyclopedia of
+  Statistical Science}, pages 1094--1096. Springer, 2011.
+
+\bibitem{lee1999learning}
+Daniel~D Lee and H~Sebastian Seung.
+\newblock Learning the parts of objects by non-negative matrix factorization.
+\newblock {\em Nature}, 401(6755):788, 1999.
+
+\bibitem{Kamra2007SyntaxBased}
+Ashish Kamra, Evimaria Terzi, and Elisa Bertino.
+\newblock Detecting anomalous access patterns in relational databases.
+\newblock {\em VLDBJ}, 2007.
+
+\bibitem{giacometti2009}
+Arnaud Giacometti, Patrick Marcel, Elsa Negre, and Arnaud Soulet.
+\newblock Query recommendations for {OLAP} discovery driven analysis.
+\newblock In {\em ACM DOLAP}, 2009.
+
+\bibitem{yang2009}
+X.~Yang, C.~M. Procopiuc, and D.~Srivastava.
+\newblock Recommending join queries via query log analysis.
+\newblock In {\em IEEE ICDE}, 2009.
+
+\bibitem{chatzopoulou2011querie}
+Gloria Chatzopoulou, Magdalini Eirinaki, Suju Koshy, Sarika Mittal, Neoklis
+  Polyzotis, and Jothi Swarubini~Vindhiya Varman.
+\newblock The {QueRIE} system for personalized query recommendations.
+\newblock {\em IEEE Data Eng. Bull.}, 2011.
+
+\bibitem{aouiche2006}
+Kamel Aouiche, Pierre-Emmanuel Jouve, and J{\'e}r\^{o}me Darmont.
+\newblock Clustering-based materialized view selection in data warehouses.
+\newblock In {\em ADBIS}, 2006.
+
+\bibitem{aligon2014similarity}
+Julien Aligon, Matteo Golfarelli, Patrick Marcel, Stefano Rizzi, and Elisa
+  Turricchia.
+\newblock Similarity measures for {OLAP} sessions.
+\newblock {\em Knowledge and information systems}, 2014.
+
+\bibitem{makiyama2015text}
+Vitor~Hirota Makiyama, M~Jordan Raddick, and Rafael~DC Santos.
+\newblock Text mining applied to {SQL} queries: A case study for the {SDSS
+  SkyServer}.
+\newblock In {\em SIMBig}, 2015.
+
+\bibitem{Mathew2010Raid}
+Sunu Mathew, Michalis Petropoulos, Hung~Q. Ngo, and Shambhu Upadhyaya.
+\newblock A data-centric approach to insider attack detection in database
+  systems.
+\newblock In {\em RAID}, 2010.
+
+\bibitem{nguyen2015identifying}
+Hoang~Vu Nguyen, Klemens B{\"o}hm, Florian Becker, Bertrand Goldman, Georg
+  Hinkel, and Emmanuel M{\"u}ller.
+\newblock Identifying user interests within the data space-a case study with
+  skyserver.
+\newblock In {\em EDBT}, 2015.
+
+\bibitem{agrawal2006context}
+Rakesh Agrawal, Ralf Rantzau, and Evimaria Terzi.
+\newblock Context-sensitive ranking.
+\newblock In {\em ACM SIGMOD}, 2006.
+
+\bibitem{stefanidis2009you}
+Kostas Stefanidis, Marina Drosou, and Evaggelia Pitoura.
+\newblock "{You May Also Like}" results in relational databases.
+\newblock In {\em ACM DOLAP}, 2009.
+
+\bibitem{magda2010snipsuggest}
+Nodira Khoussainova, YongChul Kwon, Magdalena Balazinska, and Dan Suciu.
+\newblock {SnipSuggest}: context-aware autocompletion for {SQL}.
+\newblock {\em pVLDB}, 2010.
+
+\bibitem{Sapia:2000:PPQ:646109.679288}
+Carsten Sapia.
+\newblock Promise: Predicting query behavior to enable predictive caching
+  strategies for {OLAP} systems.
+\newblock In {\em DaWaK}, 2000.
+
+\bibitem{DBLP:conf/vldb/GoldmanW97}
+Roy Goldman and Jennifer Widom.
+\newblock Dataguides: Enabling query formulation and optimization in
+  semistructureddatabases.
+\newblock In {\em {VLDB}}, pages 436--445. Morgan Kaufmann, 1997.
+
+\bibitem{DBLP:conf/cidr/LiuG15}
+Zhen~Hua Liu and Dieter Gawlick.
+\newblock Management of flexible schema data in rdbmss - opportunities and
+  limitations for nosql -.
+\newblock In {\em {CIDR}}. www.cidrdb.org, 2015.
+
+\bibitem{DBLP:conf/sigmod/LiuHMLC16}
+Zhen~Hua Liu, Beda~Christoph Hammerschmidt, Doug McMahon, Ying Liu, and Hui~Joe
+  Chang.
+\newblock Closing the functional and performance gap between {SQL} and nosql.
+\newblock In {\em {SIGMOD} Conference}, pages 227--238. {ACM}, 2016.
+
+\bibitem{DBLP:conf/edbt/BaaziziLCGS17}
+Mohamed~Amine Baazizi, Houssem~Ben Lahmar, Dario Colazzo, Giorgio Ghelli, and
+  Carlo Sartiani.
+\newblock Schema inference for massive {JSON} datasets.
+\newblock In {\em {EDBT}}, pages 222--233. OpenProceedings.org, 2017.
+
+\bibitem{DBLP:conf/dbpl/BaaziziCGS17}
+Mohamed~Amine Baazizi, Dario Colazzo, Giorgio Ghelli, and Carlo Sartiani.
+\newblock Counting types for massive {JSON} datasets.
+\newblock In {\em {DBPL}}, pages 9:1--9:12. {ACM}, 2017.
+
+\bibitem{spoth:2017:cidr:adaptive}
+William Spoth, Bahareh~Sadat Arab, Eric~S. Chan, Dieter Gawlick, Adel Ghoneimy,
+  Boris Glavic, Beda Hammerschmidt, Oliver Kennedy, Seokki Lee, Zhen~Hua Liu,
+  Xing Niu, and Ying Yang.
+\newblock Adaptive schema databases.
+\newblock In {\em CIDR}, 2017.
+
+\bibitem{DBLP:conf/chi/KandelPHH11}
+Sean Kandel, Andreas Paepcke, Joseph~M. Hellerstein, and Jeffrey Heer.
+\newblock Wrangler: interactive visual specification of data transformation
+  scripts.
+\newblock In Desney~S. Tan, Saleema Amershi, Bo~Begole, Wendy~A. Kellogg, and
+  Manas Tungare, editors, {\em CHI}, pages 3363--3372, 2011.
+
+\bibitem{DBLP:conf/sigmod/DiScalaA16}
+Michael DiScala and Daniel~J. Abadi.
+\newblock Automatic generation of normalized relational schemas from nested
+  key-value data.
+\newblock In {\em {SIGMOD} Conference}, pages 295--310. ACM, 2016.
+
+\bibitem{Smith:2006:FSS:1187627.1187785}
+Greg Smith, Mary Czerwinski, Brian Meyers, Daniel Robbins, George Robertson,
+  and Desney~S. Tan.
+\newblock Facetmap: A scalable search and browse visualization.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics},
+  12(5):797--804, September 2006.
+
+\bibitem{suciu2009probabilistic}
+Dan Suciu.
+\newblock {\em Probabilistic databases}.
+\newblock Springer, 2009.
+
+\bibitem{cui2003lineage}
+Yingwei Cui and Jennifer Widom.
+\newblock Lineage tracing for general data warehouse transformations.
+\newblock {\em The VLDB Journal—The International Journal on Very Large Data
+  Bases}, 12(1):41--58, 2003.
+
+\bibitem{benjelloun2006uldbs}
+Omar Benjelloun, Anish~Das Sarma, Alon Halevy, and Jennifer Widom.
+\newblock Uldbs: Databases with uncertainty and lineage.
+\newblock In {\em Proceedings of the 32nd international conference on Very
+  large data bases}, pages 953--964. VLDB Endowment, 2006.
+
+\bibitem{Huang:2009:MPD:1559845.1559984}
+Jiewen Huang, Lyublena Antova, Christoph Koch, and Dan Olteanu.
+\newblock Maybms: A probabilistic database management system.
+\newblock In {\em Proceedings of the 2009 ACM SIGMOD International Conference
+  on Management of Data}, SIGMOD '09, pages 1071--1074, New York, NY, USA,
+  2009. ACM.
+
+\bibitem{re2007materialized}
+Christopher R{\'e} and Dan Suciu.
+\newblock Materialized views in probabilistic databases: for information
+  exchange and query optimization.
+\newblock In {\em Proceedings of the 33rd international conference on Very
+  large data bases}, pages 51--62. VLDB Endowment, 2007.
+
+\bibitem{friedman1999learning}
+Nir Friedman, Lise Getoor, Daphne Koller, and Avi Pfeffer.
+\newblock Learning probabilistic relational models.
+\newblock In {\em IJCAI}, volume~99, pages 1300--1309, 1999.
+
+\bibitem{sen2007representing}
+Prithviraj Sen and Amol Deshpande.
+\newblock Representing and querying correlated tuples in probabilistic
+  databases.
+\newblock In {\em 2007 IEEE 23rd International Conference on Data Engineering},
+  pages 596--605. IEEE, 2007.
+
+\bibitem{sen2009prdb}
+Prithviraj Sen, Amol Deshpande, and Lise Getoor.
+\newblock Prdb: managing and exploiting rich correlations in probabilistic
+  databases.
+\newblock {\em The VLDB Journal—The International Journal on Very Large Data
+  Bases}, 18(5):1065--1090, 2009.
+
+\bibitem{jha2012probabilistic}
+Abhay Jha and Dan Suciu.
+\newblock Probabilistic databases with markoviews.
+\newblock {\em Proceedings of the VLDB Endowment}, 5(11):1160--1171, 2012.
+
+\bibitem{shin2015incremental}
+Jaeho Shin, Sen Wu, Feiran Wang, Christopher De~Sa, Ce~Zhang, and Christopher
+  R{\'e}.
+\newblock Incremental knowledge base construction using deepdive.
+\newblock {\em Proceedings of the VLDB Endowment}, 8(11):1310--1321, 2015.
+
+\bibitem{jampani2008mcdb}
+Ravi Jampani, Fei Xu, Mingxi Wu, Luis~Leopoldo Perez, Christopher Jermaine, and
+  Peter~J Haas.
+\newblock Mcdb: a monte carlo approach to managing uncertain data.
+\newblock In {\em Proceedings of the 2008 ACM SIGMOD international conference
+  on Management of data}, pages 687--700. ACM, 2008.
+
+\bibitem{DBLP:conf/sigmod/BrunoC05}
+Nicolas Bruno and Surajit Chaudhuri.
+\newblock Automatic physical database tuning: {A} relaxation-based approach.
+\newblock In Fatma {\"{O}}zcan, editor, {\em Proceedings of the {ACM} {SIGMOD}
+  International Conference on Management of Data, Baltimore, Maryland, USA,
+  June 14-16, 2005}, pages 227--238. {ACM}, 2005.
+
+\bibitem{DBLP:conf/icalp/Dwork06}
+Cynthia Dwork.
+\newblock Differential privacy.
+\newblock In Michele Bugliesi, Bart Preneel, Vladimiro Sassone, and Ingo
+  Wegener, editors, {\em Automata, Languages and Programming, 33rd
+  International Colloquium, {ICALP} 2006, Venice, Italy, July 10-14, 2006,
+  Proceedings, Part {II}}, volume 4052 of {\em Lecture Notes in Computer
+  Science}, pages 1--12. Springer, 2006.
+
+\bibitem{DBLP:journals/debu/ChatzopoulouEKMPV11}
+Gloria Chatzopoulou, Magdalini Eirinaki, Suju Koshy, Sarika Mittal, Neoklis
+  Polyzotis, and Jothi Swarubini~Vindhiya Varman.
+\newblock The querie system for personalized query recommendations.
+\newblock {\em {IEEE} Data Eng. Bull.}, 34(2):55--60, 2011.
+
+\bibitem{DBLP:conf/cidr/PavloAALLMMMPQS17}
+Andrew Pavlo, Gustavo Angulo, Joy Arulraj, Haibin Lin, Jiexi Lin, Lin Ma,
+  Prashanth Menon, Todd~C. Mowry, Matthew Perron, Ian Quah, Siddharth
+  Santurkar, Anthony Tomasic, Skye Toor, Dana~Van Aken, Ziqi Wang, Yingjun Wu,
+  Ran Xian, and Tieying Zhang.
+\newblock Self-driving database management systems.
+\newblock In {\em {CIDR}}, 2017.
+
+\bibitem{DBLP:conf/www/KulLXCCKU16}
+G{\"{o}}khan Kul, Duc Luong, Ting Xie, Patrick Coonan, Varun Chandola, Oliver
+  Kennedy, and Shambhu~J. Upadhyaya.
+\newblock Ettu: Analyzing query intents in corporate databases.
+\newblock In Jacqueline Bourdeau, Jim Hendler, Roger Nkambou, Ian Horrocks, and
+  Ben~Y. Zhao, editors, {\em Proceedings of the 25th International Conference
+  on World Wide Web, {WWW} 2016, Montreal, Canada, April 11-15, 2016, Companion
+  Volume}, pages 463--466. {ACM}, 2016.
+
+\bibitem{DBLP:journals/corr/abs-1809-00405}
+Ting Xie, Oliver Kennedy, and Varun Chandola.
+\newblock Query log compression for workload analytics.
+\newblock {\em CoRR}, abs/1809.00405, 2018.
+
+\bibitem{DBLP:journals/tssc/Jaynes68}
+Edwin~T. Jaynes.
+\newblock Prior probabilities.
+\newblock {\em {IEEE} Trans. Systems Science and Cybernetics}, 4(3):227--241,
+  1968.
+
+\bibitem{Boyd:2004:CO:993483}
+Stephen Boyd and Lieven Vandenberghe.
+\newblock {\em Convex Optimization}.
+\newblock Cambridge University Press, New York, NY, USA, 2004.
+
+\bibitem{cvx}
+Michael Grant and Stephen Boyd.
+\newblock {CVX}: Matlab software for disciplined convex programming, version
+  2.1.
+\newblock \url{http://cvxr.com/cvx}, March 2014.
+
+\bibitem{DBLP:journals/jota/ODonoghueCPB16}
+Brendan O'Donoghue, Eric Chu, Neal Parikh, and Stephen~P. Boyd.
+\newblock Conic optimization via operator splitting and homogeneous self-dual
+  embedding.
+\newblock {\em J. Optimization Theory and Applications}, 169(3):1042--1068,
+  2016.
+
+\bibitem{DBLP:conf/trustcom/KulUC18}
+Gokhan Kul, Shambhu~J. Upadhyaya, and Varun Chandola.
+\newblock Detecting data leakage from databases on android apps with concept
+  drift.
+\newblock In {\em IEEE TrustCom}, pages 905--913, 2018.
+
+\bibitem{DBLP:journals/prl/Jain10}
+Anil~K. Jain.
+\newblock Data clustering: 50 years beyond k-means.
+\newblock {\em Pattern Recognition Letters}, 31(8):651--666, 2010.
+
+\bibitem{DBLP:journals/jacm/KannanVV04}
+Ravi Kannan, Santosh Vempala, and Adrian Vetta.
+\newblock On clusterings: Good, bad and spectral.
+\newblock {\em J. {ACM}}, 51(3):497--515, 2004.
+
+\bibitem{scikit-learn}
+F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
+  M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
+  D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay.
+\newblock Scikit-learn: Machine learning in {P}ython.
+\newblock {\em Journal of Machine Learning Research}, 12:2825--2830, 2011.
+
+\bibitem{DBLP:journals/datamine/HanCXY07}
+Jiawei Han, Hong Cheng, Dong Xin, and Xifeng Yan.
+\newblock Frequent pattern mining: current status and future directions.
+\newblock {\em Data Min. Knowl. Discov.}, 15(1):55--86, 2007.
+
+\bibitem{DBLP:conf/tpctc/KennedyACZ15}
+Oliver Kennedy, Jerry~Antony Ajay, Geoffrey Challen, and Lukasz Ziarek.
+\newblock Pocket data: The need for {TPC-MOBILE}.
+\newblock In Raghunath Nambiar and Meikel Poess, editors, {\em Performance
+  Evaluation and Benchmarking: Traditional to Big Data to Internet of Things -
+  7th {TPC} Technology Conference, {TPCTC} 2015, Kohala Coast, HI, USA, August
+  31 - September 4, 2015. Revised Selected Papers}, volume 9508 of {\em Lecture
+  Notes in Computer Science}, pages 8--25. Springer, 2015.
+
+\bibitem{8352666}
+G.~Kul, D.~T.~A. Luong, T.~Xie, V.~Chandola, O.~Kennedy, and S.~Upadhyaya.
+\newblock Similarity metrics for sql query clustering.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
+  30(12):2408--2420, Dec 2018.
 
 \bibitem{Bruno:2005:APD:1066157.1066184}
 Nicolas Bruno and Surajit Chaudhuri.
@@ -352,38 +548,6 @@ Cynthia Dwork.
 \newblock In Michele Bugliesi, Bart Preneel, Vladimiro Sassone, and Ingo
   Wegener, editors, {\em Automata, Languages and Programming}. Springer, 2006.
 
-\bibitem{Sapia:2000:PPQ:646109.679288}
-Carsten Sapia.
-\newblock Promise: Predicting query behavior to enable predictive caching
-  strategies for {OLAP} systems.
-\newblock In {\em DaWaK}, 2000.
-
-\bibitem{giacometti2009}
-Arnaud Giacometti, Patrick Marcel, Elsa Negre, and Arnaud Soulet.
-\newblock Query recommendations for {OLAP} discovery driven analysis.
-\newblock In {\em ACM DOLAP}, 2009.
-
-\bibitem{yang2009}
-X.~Yang, C.~M. Procopiuc, and D.~Srivastava.
-\newblock Recommending join queries via query log analysis.
-\newblock In {\em IEEE ICDE}, 2009.
-
-\bibitem{stefanidis2009you}
-Kostas Stefanidis, Marina Drosou, and Evaggelia Pitoura.
-\newblock "{You May Also Like}" results in relational databases.
-\newblock In {\em ACM DOLAP}, 2009.
-
-\bibitem{magda2010snipsuggest}
-Nodira Khoussainova, YongChul Kwon, Magdalena Balazinska, and Dan Suciu.
-\newblock {SnipSuggest}: context-aware autocompletion for {SQL}.
-\newblock {\em pVLDB}, 2010.
-
-\bibitem{chatzopoulou2011querie}
-Gloria Chatzopoulou, Magdalini Eirinaki, Suju Koshy, Sarika Mittal, Neoklis
-  Polyzotis, and Jothi Swarubini~Vindhiya Varman.
-\newblock The {QueRIE} system for personalized query recommendations.
-\newblock {\em IEEE Data Eng. Bull.}, 2011.
-
 \bibitem{gatterbauer2011databases}
 Wolfgang Gatterbauer.
 \newblock Databases will visualize queries too.
@@ -395,50 +559,10 @@ Julien Aligon, Kamal Boulil, Patrick Marcel, and Ver{\'o}nika Peralta.
   experience.
 \newblock In {\em ACM DOLAP}, 2014.
 
-\bibitem{aouiche2006}
-Kamel Aouiche, Pierre-Emmanuel Jouve, and J{\'e}r\^{o}me Darmont.
-\newblock Clustering-based materialized view selection in data warehouses.
-\newblock In {\em ADBIS}, 2006.
-
-\bibitem{aligon2014similarity}
-Julien Aligon, Matteo Golfarelli, Patrick Marcel, Stefano Rizzi, and Elisa
-  Turricchia.
-\newblock Similarity measures for {OLAP} sessions.
-\newblock {\em Knowledge and information systems}, 2014.
-
-\bibitem{makiyama2015text}
-Vitor~Hirota Makiyama, M~Jordan Raddick, and Rafael~DC Santos.
-\newblock Text mining applied to {SQL} queries: A case study for the {SDSS
-  SkyServer}.
-\newblock In {\em SIMBig}, 2015.
-
 \bibitem{zaki2014data}
 Mohammed~J Zaki and Wagner Meira~Jr.
 \newblock {\em Data mining and analysis: fundamental concepts and algorithms}.
 \newblock Cambridge University Press, 2014.
-
-\bibitem{Kamra2007SyntaxBased}
-Ashish Kamra, Evimaria Terzi, and Elisa Bertino.
-\newblock Detecting anomalous access patterns in relational databases.
-\newblock {\em VLDBJ}, 2007.
-
-\bibitem{Mathew2010Raid}
-Sunu Mathew, Michalis Petropoulos, Hung~Q. Ngo, and Shambhu Upadhyaya.
-\newblock A data-centric approach to insider attack detection in database
-  systems.
-\newblock In {\em RAID}, 2010.
-
-\bibitem{nguyen2015identifying}
-Hoang~Vu Nguyen, Klemens B{\"o}hm, Florian Becker, Bertrand Goldman, Georg
-  Hinkel, and Emmanuel M{\"u}ller.
-\newblock Identifying user interests within the data space-a case study with
-  skyserver.
-\newblock In {\em EDBT}, 2015.
-
-\bibitem{agrawal2006context}
-Rakesh Agrawal, Ralf Rantzau, and Evimaria Terzi.
-\newblock Context-sensitive ranking.
-\newblock In {\em ACM SIGMOD}, 2006.
 
 \bibitem{Chandra:1977:OIC:800105.803397}
 Ashok~K. Chandra and Philip~M. Merlin.
@@ -484,43 +608,6 @@ Yuqing Sun, Haoran Xu, Elisa Bertino, and Chao Sun.
 \newblock A data-driven evaluation for insider threats.
 \newblock {\em Data Science and Engineering}, 1(2):73--85, 2016.
 
-\bibitem{han2004mining}
-Jiawei Han, Jian Pei, Yiwen Yin, and Runying Mao.
-\newblock Mining frequent patterns without candidate generation: A
-  frequent-pattern tree approach.
-\newblock {\em DMKD}, 2004.
-
-\bibitem{DBLP:conf/cidr/LiuG15}
-Zhen~Hua Liu and Dieter Gawlick.
-\newblock Management of flexible schema data in rdbmss - opportunities and
-  limitations for nosql -.
-\newblock In {\em {CIDR}}. www.cidrdb.org, 2015.
-
-\bibitem{DBLP:conf/edbt/BaaziziLCGS17}
-Mohamed~Amine Baazizi, Houssem~Ben Lahmar, Dario Colazzo, Giorgio Ghelli, and
-  Carlo Sartiani.
-\newblock Schema inference for massive {JSON} datasets.
-\newblock In {\em {EDBT}}, pages 222--233. OpenProceedings.org, 2017.
-
-\bibitem{DBLP:conf/sigmod/DiScalaA16}
-Michael DiScala and Daniel~J. Abadi.
-\newblock Automatic generation of normalized relational schemas from nested
-  key-value data.
-\newblock In {\em {SIGMOD} Conference}, pages 295--310. ACM, 2016.
-
-\bibitem{DBLP:conf/vldb/GoldmanW97}
-Roy Goldman and Jennifer Widom.
-\newblock Dataguides: Enabling query formulation and optimization in
-  semistructureddatabases.
-\newblock In {\em {VLDB}}, pages 436--445. Morgan Kaufmann, 1997.
-
-\bibitem{spoth:2017:cidr:adaptive}
-William Spoth, Bahareh~Sadat Arab, Eric~S. Chan, Dieter Gawlick, Adel Ghoneimy,
-  Boris Glavic, Beda Hammerschmidt, Oliver Kennedy, Seokki Lee, Zhen~Hua Liu,
-  Xing Niu, and Ying Yang.
-\newblock Adaptive schema databases.
-\newblock In {\em CIDR}, 2017.
-
 \bibitem{Codd:1979:EDR:320107.320109}
 E.~F. Codd.
 \newblock Extending the database relational model to capture more meaning.
@@ -531,12 +618,6 @@ Oracle.
 \newblock Database json developer's guide: Json data guide.
 \newblock https://docs.oracle.com/cloud/latest/db122/ADJSN/json-dataguide.htm,
   2017.
-
-\bibitem{DBLP:conf/sigmod/LiuHMLC16}
-Zhen~Hua Liu, Beda~Christoph Hammerschmidt, Doug McMahon, Ying Liu, and Hui~Joe
-  Chang.
-\newblock Closing the functional and performance gap between {SQL} and nosql.
-\newblock In {\em {SIGMOD} Conference}, pages 227--238. {ACM}, 2016.
 
 \bibitem{pharmadata}
 Roam Analytics.
@@ -582,25 +663,6 @@ Inc. Yelp.
 \newblock Yelp open dataset: An all-purpose dataset for learning.
 \newblock https://www.yelp.com/dataset, 2018.
 
-\bibitem{Smith:2006:FSS:1187627.1187785}
-Greg Smith, Mary Czerwinski, Brian Meyers, Daniel Robbins, George Robertson,
-  and Desney~S. Tan.
-\newblock Facetmap: A scalable search and browse visualization.
-\newblock {\em IEEE Transactions on Visualization and Computer Graphics},
-  12(5):797--804, September 2006.
-
-\bibitem{DBLP:conf/dbpl/BaaziziCGS17}
-Mohamed~Amine Baazizi, Dario Colazzo, Giorgio Ghelli, and Carlo Sartiani.
-\newblock Counting types for massive {JSON} datasets.
-\newblock In {\em {DBPL}}, pages 9:1--9:12. {ACM}, 2017.
-
-\bibitem{DBLP:conf/chi/KandelPHH11}
-Sean Kandel, Andreas Paepcke, Joseph~M. Hellerstein, and Jeffrey Heer.
-\newblock Wrangler: interactive visual specification of data transformation
-  scripts.
-\newblock In Desney~S. Tan, Saleema Amershi, Bo~Begole, Wendy~A. Kellogg, and
-  Manas Tungare, editors, {\em CHI}, pages 3363--3372, 2011.
-
 \bibitem{papadakis2016comparative}
 George Papadakis, Jonathan Svirsky, Avigdor Gal, and Themis Palpanas.
 \newblock Comparative analysis of approximate blocking techniques for entity
@@ -613,35 +675,6 @@ Rahul Gupta and Sunita Sarawagi.
 \newblock In {\em Proceedings of the 32Nd International Conference on Very
   Large Data Bases}, VLDB '06, pages 965--976. VLDB Endowment, 2006.
 
-\bibitem{suciu2009probabilistic}
-Dan Suciu.
-\newblock {\em Probabilistic databases}.
-\newblock Springer, 2009.
-
-\bibitem{friedman1999learning}
-Nir Friedman, Lise Getoor, Daphne Koller, and Avi Pfeffer.
-\newblock Learning probabilistic relational models.
-\newblock In {\em IJCAI}, volume~99, pages 1300--1309, 1999.
-
-\bibitem{sen2007representing}
-Prithviraj Sen and Amol Deshpande.
-\newblock Representing and querying correlated tuples in probabilistic
-  databases.
-\newblock In {\em 2007 IEEE 23rd International Conference on Data Engineering},
-  pages 596--605. IEEE, 2007.
-
-\bibitem{sen2009prdb}
-Prithviraj Sen, Amol Deshpande, and Lise Getoor.
-\newblock Prdb: managing and exploiting rich correlations in probabilistic
-  databases.
-\newblock {\em The VLDB Journal—The International Journal on Very Large Data
-  Bases}, 18(5):1065--1090, 2009.
-
-\bibitem{jha2012probabilistic}
-Abhay Jha and Dan Suciu.
-\newblock Probabilistic databases with markoviews.
-\newblock {\em Proceedings of the VLDB Endowment}, 5(11):1160--1171, 2012.
-
 \bibitem{Dalvi:2009:PDD:1538788.1538810}
 Nilesh Dalvi, Christopher R{\'e}, and Dan Suciu.
 \newblock Probabilistic databases: Diamonds in the dirt.
@@ -652,43 +685,10 @@ Ting Xie, Varun Chandola, and Oliver Kennedy.
 \newblock Query log compression for workload analytics.
 \newblock {\em Proceedings of the VLDB Endowment}, 12(3):183--196, 2018.
 
-\bibitem{cui2003lineage}
-Yingwei Cui and Jennifer Widom.
-\newblock Lineage tracing for general data warehouse transformations.
-\newblock {\em The VLDB Journal—The International Journal on Very Large Data
-  Bases}, 12(1):41--58, 2003.
-
-\bibitem{benjelloun2006uldbs}
-Omar Benjelloun, Anish~Das Sarma, Alon Halevy, and Jennifer Widom.
-\newblock Uldbs: Databases with uncertainty and lineage.
-\newblock In {\em Proceedings of the 32nd international conference on Very
-  large data bases}, pages 953--964. VLDB Endowment, 2006.
-
-\bibitem{Huang:2009:MPD:1559845.1559984}
-Jiewen Huang, Lyublena Antova, Christoph Koch, and Dan Olteanu.
-\newblock Maybms: A probabilistic database management system.
-\newblock In {\em Proceedings of the 2009 ACM SIGMOD International Conference
-  on Management of Data}, SIGMOD '09, pages 1071--1074, New York, NY, USA,
-  2009. ACM.
-
-\bibitem{re2007materialized}
-Christopher R{\'e} and Dan Suciu.
-\newblock Materialized views in probabilistic databases: for information
-  exchange and query optimization.
-\newblock In {\em Proceedings of the 33rd international conference on Very
-  large data bases}, pages 51--62. VLDB Endowment, 2007.
-
-\bibitem{shin2015incremental}
-Jaeho Shin, Sen Wu, Feiran Wang, Christopher De~Sa, Ce~Zhang, and Christopher
-  R{\'e}.
-\newblock Incremental knowledge base construction using deepdive.
-\newblock {\em Proceedings of the VLDB Endowment}, 8(11):1310--1321, 2015.
-
-\bibitem{jampani2008mcdb}
-Ravi Jampani, Fei Xu, Mingxi Wu, Luis~Leopoldo Perez, Christopher Jermaine, and
-  Peter~J Haas.
-\newblock Mcdb: a monte carlo approach to managing uncertain data.
-\newblock In {\em Proceedings of the 2008 ACM SIGMOD international conference
-  on Management of data}, pages 687--700. ACM, 2008.
+\bibitem{han2004mining}
+Jiawei Han, Jian Pei, Yiwen Yin, and Runying Mao.
+\newblock Mining frequent patterns without candidate generation: A
+  frequent-pattern tree approach.
+\newblock {\em DMKD}, 2004.
 
 \end{thebibliography}

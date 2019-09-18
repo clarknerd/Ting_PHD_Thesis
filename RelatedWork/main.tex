@@ -1,0 +1,229 @@
+\chapter{Related Work}\label{chap:relatedwork}
+
+% \vspace{-5pt}
+\section{Query Log Compression}
+There are applications that aim at compressing query logs for accurately and efficiently computing workload statistics.
+Before the discussion of compression, we review usecases and related work for workload analysis.
+
+\subsection{Workload Analysis}
+Existing approaches related to workload analysis usually aim at specific tasks like query recommendation~\cite{DBLP:conf/icdm/MittalVCEP10,DBLP:journals/jdwm/GiacomettiMNS11,DBLP:journals/pvldb/KhoussainovaKBS11,DBLP:conf/icde/YangPS09,DBLP:journals/kais/AligonGMRT14}, performance optimization~\cite{DBLP:conf/adbis/AouicheJD06,DBLP:conf/sigmod/BrunoCG01}, outlier detection~\cite{DBLP:journals/vldb/KamraTB08} or visual analysis~\cite{DBLP:conf/simbig/MakiyamaRS15}. 
+
+\tinysection{Query Recommendation}
+This task aims at tracking historical querying behavior and generating query recommendations.
+Related approaches~\cite{DBLP:conf/icdm/MittalVCEP10,DBLP:journals/pvldb/KhoussainovaKBS11} flatten a query \textit{abstract syntax tree} as a set of \textit{fragments}~\cite{DBLP:conf/icdm/MittalVCEP10} or \textit{snippets}~\cite{DBLP:journals/pvldb/KhoussainovaKBS11}.
+User profiles are then built by grouping and summarizing queries of specific users in order to make personalized recommendation. 
+Under OLAP systems, profiles are also built for workloads of similar OLAP sessions~\cite{DBLP:journals/kais/AligonGMRT14}.
+
+\tinysection{Performance Optimization}
+Index selection~\cite{DBLP:conf/vldb/ChaudhuriN97,DBLP:journals/tods/FinkelsteinST88} and materialized view selection~\cite{DBLP:conf/vldb/AgrawalCN00,DBLP:conf/adbis/AouicheJD06,DBLP:conf/sigmod/BrunoCG01} are typical performance optimization tasks.
+The configuration search space is usually large, but can be reduced with appropriate summaries.
+
+\tinysection{Outlier Detection}
+Kamra \textit{et al.}~\cite{DBLP:journals/vldb/KamraTB08} aim at detecting anomalous behavior of queries in the log by summarizing query logs into profiles
+of normal user behavior.
+
+\tinysection{Visual Analysis}
+Makiyama \textit{et al.}~\cite{DBLP:conf/simbig/MakiyamaRS15} provide a set of visualizations that facilitate further workload analysis on Sloan Digital Sky Survey (SDSS) dataset.
+QueryScope~\cite{DBLP:journals/pvldb/HuRCLZ08} aims at finding better tuning opportunities by helping human experts to identify patterns shared among queries. 
+%
+
+In these approaches, queries are commonly encoded as feature vectors or bit-maps where a bit array is mapped to a list of features with $1$ in a position if the corresponding feature appears in the query and $0$ otherwise.
+Workloads under the bit-map encoding must then be compressed before they can be efficiently queried or visualized for analysis. 
+\subsection{Workload Compression Schemes}
+\tinysection{Run-length Encoding}
+\textit{Run-length encoding (RLE)} is a loss-less compression scheme commonly used in \textit{Inverted Index Compression}~\cite{DBLP:books/nostrand/WittenMT94,DBLP:journals/csur/ZobelM06} and \textit{Column-Oriented Compression}~\cite{DBLP:conf/sigmod/AbadiMF06}.
+RLE-based compression algorithms include but not limited to: Byte-aligned Bitmap Code (BBC) used in Oracle systems~\cite{DBLP:journals/vldb/AntoshenkovZ96}, Word-aligned Hybrid (WAH)~\cite{DBLP:conf/ssdbm/WuOS02} and many others~\cite{DBLP:journals/acj/MoffatZ94,DBLP:conf/vldb/JohnsonA00,Antoshenkov:1995:BBC:874051.874730}.
+In general, RLE-based methods focus on column-wise compression and requires additional heavyweight inference on frequencies of cross-column (i.e., row-wise) patterns used for workload analysis.
+
+\tinysection{Lempel-Ziv Encoding}
+Lempel-Ziv~\cite{DBLP:journals/tit/ZivL77,DBLP:journals/tit/ZivL78} is the loss-less compression algorithm used by gzip.
+It takes variable sized patterns (row-wise in our case) and replaces them with fixed length codes, in contrast to Huffman encoding~\cite{4051119}. 
+Lempel-Ziv encoding does not require knowledge about pattern frequencies in advance and builds the pattern dictionary dynamically. 
+There are many other similar schemes for compressing files represented as sequential bit-maps, e.g.~\cite{DBLP:conf/adbis/SkibinskiS07a}.
+
+\tinysection{Dictionary Encoding}
+\textit{Dictionary encoding} is a more general form of Lempel-Ziv.
+It has the advantage that patterns with frequencies stored in the dictionary can be interpreted as workloads statistics useful for analysis.
+Therefore, we consider extending dictionary encoding and focusing on using a dictionary to infer frequencies of patterns not in it.
+Mampaey \textit{et al.} proposed \textit{MTV} algorithm~\cite{DBLP:journals/tkdd/MampaeyVT12} that finds the dictionary (of given size) having optimal \textit{Bayesian Information Criterion(BIC)} score.
+Gebaly \textit{et al.} proposed \textit{Laserlight} algorithm~\cite{DBLP:journals/pvldb/GebalyAGKS14} that builds a pattern dictionary for correctly inferring the truth-value of some augmented binary feature.
+
+\tinysection{Generative Models}
+A generative model is a lossy compressed representation of the original log.
+Typical generative models are \textit{probabilistic topic models}~\cite{DBLP:journals/cacm/Blei12,DBLP:conf/acl/WangZLG09} and \textit{noisy-channel} model~\cite{DBLP:journals/ai/KnightM02}.
+Generative models can infer pattern frequencies but they lack a model-independent measure for efficiently evaluating overall inference accuracy.
+
+\tinysection{Matrix Decomposition}
+Matrix decomposition methods including Principal Component Analysis (PCA)~\cite{DBLP:reference/stat/Jolliffe11} and Non-negative matrix factorization (NMF)~\cite{lee1999learning} offer lossy data compression.
+But the resulting matrices after decomposition are not suited for inferring workload statistics.
+
+\section{Similarity Metrics for SQL Query Clustering}
+Analyzing query logs mostly relies on the structure of queries~\cite{Kamra2007SyntaxBased}, although their motivations are different; some methods prefer using the log as a resource to collect information to build user profiles, and the others utilize structural similarity to perform tasks like query recommendation~\cite{giacometti2009, yang2009, chatzopoulou2011querie}, performance optimization~\cite{aouiche2006},  session identification~\cite{aligon2014similarity} and workload analysis~\cite{makiyama2015text}.  A summary of these methods is given in Table~\ref{table:literaturereview}.
+
+There are also other possible approaches; like data-centric query comparison~\cite{Mathew2010Raid}, and utilizing the \textit{access areas} of user queries by inspecting the data partition the query is interested in~\cite{nguyen2015identifying} from the \texttt{WHERE} condition.
+However, these approaches are out of our scope
+since we are interested in comparing and improving methods based on structural similarity; we assume that
+we do not have access to the data or the statistical information about the database. 
+
+\begin{table*}[h]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{ C{3.8cm}  C{2.9cm}  C{3.9cm}  C{1.15cm}  C{2.65cm} C{1.35cm}}
+\toprule
+Paper title & Motivation & Features & Feature Structure & Distance Function & Similarity Ratio \\
+\midrule
+Agrawal \textit{et al.} (2006)~\cite{agrawal2006context} & Q. reply importance & {\footnotesize Schema, rules} & Vector & Cosine similarity & No \\
+Giacometti \textit{et al.} (2009)~\cite{giacometti2009} & Q. recommendation & {\footnotesize Difference pairs} & Set  & Difference query  & No \\[-1mm]
+Yang \textit{et al.} (2009)~\cite{yang2009} & Q. recommendation & {\footnotesize Selection/join, projection} & Graph & \parbox{2.6cm}{\footnotesize \center Jaccard coefficient\\[-0.5mm] on the graph edges} & No \\
+Stefanidis \textit{et al.} (2009)~\cite{stefanidis2009you} & Data Recommendation & {\footnotesize Inner product of two queries} & Vector & - &  No \\
+Khoussainova \textit{et al.} (2010)~\cite{magda2010snipsuggest} & Q. recommendation & {\footnotesize Popularity of each query object} & Graph & -  & No \\[-1mm]
+Chatzopoulou \textit{et al.} (2011)~\cite{chatzopoulou2011querie} & Q. recommendation & {\footnotesize Syntactic element frequency} & Vector & \parbox{2.65cm}{\footnotesize \center Jaccard coefficient\\[-0.5mm]and cosine similarity} & No  \\
+Aouiche \textit{et al.} (2006)~\cite{aouiche2006} & View selection & {\footnotesize Selection/join, group-by} & Vector & Hamming distance  & Yes \\
+Aligon \textit{et al.} (2014)~\cite{aligon2014similarity} & Session similarity & {\footnotesize Selection/join, projection, group-by} & 3 Sets & Jaccard coefficient   & Yes \\
+Makiyama \textit{et al.} (2016)~\cite{makiyama2015text} & Workload analysis & {\footnotesize Term frequency of projection, selection/join, from, group-by and order-by} & Vector & Cosine similarity  & Yes \\
+\bottomrule
+\end{tabular}
+}
+\vspace*{-2mm}
+\caption{SQL query similarity literature review}
+\label{table:literaturereview}
+\end{table*}
+
+Agrawal \textit{et al.}~\cite{agrawal2006context} aim to rank the tuples returned by the SQL query based on the context.
+They create a ruleset for contexts and evaluate the result of queries that belongs to the context according to the ruleset.
+They capture context and query as feature vectors and capture similarity through cosine distance between the vectors.
+
+Chatzopoulou \textit{et al.}~\cite{chatzopoulou2011querie} aim to assist non-expert users of scientific databases by tracking their querying behavior and generating personalized query recommendations.
+They deconstruct an SQL query into a bag of \textit{fragments}.
+Each distinct fragment is a feature, with a weight assigned to it indicating its importance.
+Each feature has two types of importance: (1) within the query and (2) for the overall workload.
+Similarity is defined upon common vector-based measures such as cosine similarity.
+A summary/user profile for this approach is just a sum over all single query feature vectors that belong to their workload.
+
+Yang \textit{et al.}~\cite{yang2009}, on the other hand, build a graph following
+the query log by connecting associations of table attributes from the input and output of queries which are then used to compute the likelihood of an attribute appearing in a query with a similarity function like Jaccard coefficient.
+Their aim is again to assist users in writing SQL queries by analyzing query logs. Giacometti \textit{et al.}~\cite{giacometti2009}, similarly, aim to make recommendations on the discoveries made in the previous sessions for users to spend less time on investigating similar information.
+They introduce \textit{difference pairs} in order to measure the relevance of the previous discoveries.
+Difference pairs are essentially the result columns that is not included in the other return results; hence the method depends on having access to the data.
+Stefanidis \textit{et al.}~\cite{stefanidis2009you} takes a different approach, and instead of recommending candidate queries, they recommend tuples that may be of interest to the user.
+By doing so, the users may decide to change the selection criteria of their queries in order to include these results.
+
+Sapia~\cite{Sapia:2000:PPQ:646109.679288} creates a model that learns query templates to prefetch data in OLAP systems based on the user's past activity. SnipSuggest~\cite{magda2010snipsuggest}, on the other hand, is a context-aware SQL-autocomplete system that helps database users to write SQL queries by suggesting SQL snippets.
+In particular, it assigns a probability score to each subtree of a query based on the subtree's frequency in a query log.
+These probabilities are used to discover the most likely subtree that a user is attempting to construct, at interactive speeds.
+
+Although these methods~\cite{agrawal2006context, chatzopoulou2011querie, yang2009, giacometti2009, stefanidis2009you, magda2010snipsuggest} utilize query similarity one way or other to achieve their purpose, they don't directly offer a way to compare query similarity. 
+We aim to summarize the log and the most practical way to describe a query log is to group similar queries together so that we can provide summaries of these groups to the users.
+For this purpose, we need to be able to measure pairwise similarity between each query, hence we need a metric that can do so. As shown in Table~\ref{table:literaturereview}, this condition is only satisfied by \cite{aouiche2006, aligon2014similarity, makiyama2015text}.
+
+Aouiche \textit{et al.}~\cite{aouiche2006} is the first work I encountered that proposes a pairwise similarity metric between two SQL queries although it is not the aim of their work.
+They aim to optimize view selection in warehouses by the queries posed to the system.
+They consider the \textit{selection}, \textit{joins} and \textit{group-by} items in the query to create vectors and use Hamming Distance to measure how similar two queries are.
+While creating the vector, it doesn't matter if an item appears more than once or where the item is.
+They cluster similar queries that creates a workload on the system and base their view creation strategy in the system on the clustering result. 
+
+Aligon \textit{et al.}~\cite{aligon2014similarity} study various approaches to defining a similarity function to compare OLAP sessions.
+They focus on comparing session similarity while also performing a survey on query similarity metrics.
+They identify \textit{selection} and \textit{join} items as the most relevant components in a query followed by the \textit{group by} set.
+Inspired by the findings, they propose their own query similarity metric which considers \textit{projection}, \textit{group-by}, \textit{selection-join} items for queries issued on OLAP datacubes. 
+OLAP datacubes are multidimensional models, and they have hierarchy levels for the same attributes. Aligon \textit{et al.}~\cite{aligon2014similarity} measure the distance between the attributes on different hierarchy levels, and compute the set similarity for \textit{projection}, \textit{group-by}, and \textit{selection-join} sets individually when comparing two queries.
+In my experiments, since I do not consider the hierarchy levels in an OLAP system but focus on databases, I consider all queries are on the same level in the schema to adjust the formulas presented in this work. 
+Namely, I compute set similarity of \textit{projection}, \textit{group-by}, \textit{selection-join} sets of two queries with Jaccard coefficient. 
+Also, Aligon \textit{et al.}~\cite{aligon2014similarity} provide the flexibility to adjust weights of the three feature sets based on the domain needs. We explore how the clustering quality is affected with various weightings in Appendix~\ref{appendix:aligon}.
+
+Makiyama \textit{et al.}~\cite{makiyama2015text} approach query log analysis with the goal of analyzing a system's workload, and they provide a set of experiments on Sloan Digital Sky Survey (SDSS) dataset.
+They extract the terms in \textit{selection}, \textit{joins}, \textit{projection}, \textit{from}, \textit{group-by} and \textit{order-by} items separately and record their appearance frequency.
+They create a feature vector using the frequency of these terms which they use to calculate the pairwise similarity of queries with cosine similarity.
+Instead of clustering, they perform the workload analysis with Self-Organizing Maps (SOM).
+
+To further illustrate how the three structural metrics~\cite{aouiche2006, aligon2014similarity, makiyama2015text} work, the feature representations for the following query for each method are shown in Table~\ref{tab:features}.
+{\footnotesize
+\begin{verbatim}
+SELECT u.username, u.yearenrolled
+FROM user u, accounts a
+WHERE u.id = a.userid
+  AND a.balance > 1000
+  AND u.id > 20050001
+GROUP BY u.yearenrolled
+ORDER BY u.yearenrolled
+\end{verbatim}
+}
+
+\begin{table}[]
+\centering
+
+\begin{tabular}{C{2cm}  l}
+\toprule
+
+        Paper title & \multicolumn{1}{c}{Extracted Feature Vector}                                                                                                                                                                                                                                                                                                                                               \\ \midrule
+Aouiche \textit{et al.} (2006)~\cite{aouiche2006}  & \begin{tabular}[c]{@{}l@{}}\{`u.id', `a.userid', `a.balance',  `u.yearenrolled'\}\end{tabular}                                                                                                                                                                                                                                                                                                   \\ \midrule
+Aligon \textit{et al.} (2014)~\cite{aligon2014similarity}   & \begin{tabular}[c]{@{}l@{}}\{`u.username`, `u.yearenrolled'\}\\ \{`u.id', `a.userid', `a.balance'\}\\ \{`u.yearenrolled'\}\end{tabular}                                                                                                                                                                                                                                                                \\ \midrule
+Makiyama \textit{et al.} (2016)~\cite{makiyama2015text} & \begin{tabular}[c]{@{}l@{}}\{`SELECT\_u.username' \textrightarrow 1,\\  `SELECT\_u.yearenrolled' \textrightarrow 1,\\   `FROM\_user \textrightarrow 1', `FROM\_accounts' \textrightarrow 1,\\   `WHERE\_u.id' \textrightarrow 2, `WHERE\_a.userid' \textrightarrow 1,\\ `WHERE\_a.balance' \textrightarrow 1,\\   `GROUPBY\_u.yearenrolled' \textrightarrow 1,\\   `ORDERBY\_u.yearenrolled' \textrightarrow 1\}\end{tabular} \\ 
+\bottomrule
+\end{tabular}
+\vspace*{-2mm}
+\caption{Representation of three similarity metrics}
+\label{tab:features}
+\end{table}
+
+In the chapter that discuss the problem in detail, I proposed a generalized feature engineering scheme for query comparison methods to improve the clustering quality.
+Our work evaluates the performance of the three methods~\cite{aouiche2006, aligon2014similarity, makiyama2015text} that directly describe a pairwise similarity metric in Section~\ref{sec:dcabench} due to the lack of performance evaluation for the query similarity metrics in the given studies.
+It has been shown that my feature engineering scheme improves the clustering quality with both statistical and empirical methods.
+
+\section{Interactive Semi-Structured Schema Design}
+\tinysection{Schema Extraction}
+Schema extraction for \json, as well as for other self-describing data models like XML has seen active interest from a number of sources. 
+An early effort to summarize self-describing \emph{hierarchical} data can be found in the LORE system's DataGuides~\cite{DBLP:conf/vldb/GoldmanW97}.
+DataGuides view schemas begin with a forest of tree-shaped schemas and progressively merge schemas, deriving a compact encoding of the forest as a DAG.
+Although initially designed for XML data, similar ideas have been more recently applied for \json data as well~\cite{DBLP:conf/cidr/LiuG15,DBLP:conf/sigmod/LiuHMLC16}.
+Key challenges in this space involve simply extracting schemas from large, multi-terabyte collections of \json data~\cite{DBLP:conf/edbt/BaaziziLCGS17}, as well as managing ambiguity in the set of possible factorizations of a schema~\cite{DBLP:conf/dbpl/BaaziziCGS17,spoth:2017:cidr:adaptive}.
+The approach taken by Baazizi et. al.~\cite{DBLP:conf/edbt/BaaziziLCGS17} in particular adopts a type unification model similar to ours, but lacks the conjunctive operator of our type-system.
+For non-hierarchical data, interactive tools like Wrangler~\cite{DBLP:conf/chi/KandelPHH11} provide an interactive frameworks for regularizing schemas.
+
+\tinysection{Physical Layout}
+While schemas play a role in the interpretability of a \json data set, they can also help improve the performance of \json queries.  
+One approach relies on inverted indexes~\cite{DBLP:conf/cidr/LiuG15} to quickly identify records that make use of sparse paths in the schema.
+Another approach is to normalize schema elements~\cite{DBLP:conf/sigmod/DiScalaA16}.  Although the resulting schema may not always be interpretable, this approach can result in substantial space savings.
+
+\tinysection{Information Retrieval}
+From a more general perspective, the schema extraction problem which aims at making large datasets tractable for interactive exploration, is an instance of \textit{categorization} problem that has been repeatedly studied in the literature.
+More precisely, attributes (metadata) of the datasets can be grouped into a hierarchy of "facets" (i.e., categories)~\cite{Smith:2006:FSS:1187627.1187785} where the child-level facets are conditioned on the presence of the parent one.
+In our approach, we adopt the hierachical data visualization and focus more on the algorithmic essence of the problem: How to (1) balance between the preciseness and conciseness of the visualization and (2) respond to users' data exploration requests in a scalable way.
+
+\section{Summarizing Probabilistic Databases}
+In this section, we walk through related work on encoding tuple correlation in probabilistic databases using various kinds of auxiliary information.
+
+\tinysection{C-tables}
+The canonical representation of probabilistic databases is \emph{c-table}~\cite{suciu2009probabilistic}.
+A \emph{c-table} is a table with each tuple annotated with an additional attribute: a propositional formula over random variables. 
+Two tuples are correlated if random variables in their propositional formula depends on each other.
+Given a query over a c-table, the correlation among tuples in the query answer is encoded by the \emph{lineage} (or provenance~\cite{cui2003lineage}) of each tuple, which is also a propositional formula.
+
+Based on c-tables, Trio system~\cite{benjelloun2006uldbs} resolves tuple correlation by tracking lineage of tuples in query processing.
+By defining a probability space over the assignments of the random variables in lineage of tuples, a \emph{confidence value} can be computed for each tuple in the query answer.
+The probability of some answer to be chosen as the "correct" one is proportional to the product of confidence values of all of its tuples.
+Similar idea can be found in MayBMS~\cite{Huang:2009:MPD:1559845.1559984}.
+However, as ~\cite{re2007materialized} pointed out, there are cases where lineage is not obtainable.
+In our example application, tuples are correlated in a latent, complex way that populating propositional formula for tuples in the c-table is difficult.  
+
+\tinysection{Graphical models and Factors}
+Enlightened by Probablistic Relational Model (PRM)~\cite{friedman1999learning}, numerous works~~\cite{sen2007representing, sen2009prdb} use \emph{probabilistic graphical models} (PGM) to encode tuple correlation directly by probabilities of co-existing tuples.
+More specifically, considering any set of co-existing tuples, encoded as a binary vector $\vec v=(x_1,\ldots,x_n)$ with $x_i=1$ indicating the presence of the $i$th possible tuple in the co-existence relationship.
+A \emph{factor function} or simply \emph{factor} $f: \vec v\in\{0,1\}^n \to [0,1]$ maps any set of co-existing tuples $\vec v$ to its probability of being present in the probabilistic database. 
+Since there are exponentially large (i.e., $2^n$) number of mappings, instead of having a single factor that takes $n$ variables as input, we can have multiple factors, each takes only a small subset of variables that are correlated.
+If two factors do not share variables, the variables in one are considered independent of those in the other.
+By multiplying the outputs of the two factors, we can efficiently compute the probability of any combination of variables in two factors. 
+
+\tinysection{Markov Logic Networks}
+Jha and Suciu~\cite{jha2012probabilistic} shows how to automatically generate factors and populate their content mappings using prior knowledge on tuple-correlation, expressed by the language of First Order Logic.
+Similar technique is implemented in DeepDive system~\cite{shin2015incremental}.
+
+As authors of MCDB~\cite{jampani2008mcdb} pointed out, most previously discussed approaches augment data with attribute-level or tuple-level annotations, which are loaded into the database along with the data itself.
+The mixture of data and uncertainty annotation is inflexible when changes have to be made to the underlying uncertainty model (e.g., lineage), as all related annotations typically need to be recomputed outside of the database and then loaded back in.
+To facilitate maintenance, MCDB proposes to separate uncertainty model from the data.
+
+\tinysection{Monte Carlo approach}
+More specifically, MCDB allows a user to define arbitrary \emph{variable generation} (VG) functions that encodes the uncertainty model.
+That is, treating a VG function as a black box, MCDB use it to pseudo-randomly generate samples of possible instances on the fly and run queries over the samples.
+Interestingly, sample instances are sets of co-existing tuples.
+By assigning a probability to each sample, the probability of any co-existing tuples that are contained in any sample is estimated naturally by iterating through the samples. 

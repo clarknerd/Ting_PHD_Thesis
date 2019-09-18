@@ -1,6 +1,67 @@
-\chapter{Conclusion}\label{chap:conclusion}
+\chapter{Conclusions and Future Work}\label{chap:conclusionsandfuturework}
 
-% \vspace{-5pt}
-% \section{Conclusion}\label{sec:concld}
+\section{Query Log Compression for Workload Analytics}
+\subsection{Conclusion}
+The problem of log compression is introduced and a family of pattern-based log encodings is defined. 
+The information content of logs is precisely characterized and three principled and one practical measures of encoding quality are offered: Verbosity, Ambiguity, Deviation and \errorname. 
+To reduce the search space of pattern-based encodings, the idea of log partitioning is introduced, which induces the family of pattern mixture as well as its simplified form: naive mixture encodings. 
+Finally, it has been experimentally shown that naive mixture encodings are more informative and can be constructed more efficiently than state-of-the-art pattern-based summarization techniques. 
+Making accurate and efficient inference on pattern frequencies is expected to enable a range of more powerful database tuning and intrusion detection systems.
 
+\subsection{Future Work}
+\tinysection{Multiplicity-aware clustering}
+As the number of feature vectors can be millions or more, practically only \textit{distinct} feature vectors are kept as input of clustering schemes.
+Feature vector frequencies can be stored in a separate column called \textit{multiplicities}.
+A multiplicity-ignorant clustering scheme assumes a uniform distribution of queries in the log.
+However, query distributions $p(Q)$ of production database logs are usually skewed.
+For example, routine queries repeat themselves overwhelmingly in the log but contribute to a minority of distinct queries.
+Naive mixture encodings can be improved by exploring \textit{multiplicity-aware} clustering schemes such that distinct feature vectors can be clustered \textit{as if they have been replicated}.
+The use of mixture models for summarization has potential implications for work on pattern mining; As experiments have shown, existing techniques can be substantially improved both in runtime and Error.
 
+\tinysection{Feature Clustering}
+For the usecase of materialized view selection, computing pattern frequencies may not be enough.
+We may need to summarize a query log as a limited set of \textit{basis} views such that queries in the log can be represented by a simple join of a subset of basis views.
+Capturing basis views is not only relevant to data tuning tasks, but also facilitates human inspection of workloads in the log.
+To achieve the goal, in addition to partitioning queries into separate workload clusters, for each cluster we need to further partition its features into separate clusters where each cluster is equivalent to a \textit{basis view}.
+
+\section{Similarity Metrics for SQL Query Clustering}
+
+\subsection{Conclusion}
+The focus of this work is to understand and improve similarity metrics for SQL queries relying on query structure to be used to cluster queries. 
+A quality evaluation scheme has been described that captures the notion of query task using student answers to query-construction problems and a real-world smartphone query load.
+This scheme is used to evaluate three existing query similarity metrics.
+A feature engineering technique is also proposed for standardizing query representations.
+Through further experiments, it has been shown that different workloads have different characteristics and no one similarity metric surveyed was always good. 
+The feature engineering steps provided an improvement across the board because they addressed the error reasons we identified. 
+
+\subsection{Future Work}
+The approaches described in this work only represent the first steps towards tools for summarizing logs by tasks.
+Concretely, this work can be extended in several directions:
+First, new feature extracting mechanisms can be explored (e.g., the Weisfeiler-Lehman framework~\cite{kul2016ettu}, feature weighting strategies and new labeling rules) in order to capture the task behind logged queries better.
+Second, the temporal order of the log can be introduced to increase the query clustering quality. 
+In this work, we focused on query structures to improve clustering quality. Exploring the inter-query feature correlation based on query order can be used to summarize query logs in addition to clustering.
+Third, user interfaces can be examined that better present clusters of queries --- Different feature sorting strategies in Frequent Pattern Trees (FP Trees)~\cite{han2004mining} in order to help the user distinguish important and irrelevant features, for example.
+Lastly, the temporal effects on query clustering can be investigated. 
+
+\section{Interactive Semi-Structured Schema Design}
+\subsection{Conclusion}
+todo
+\subsection{Future Work}
+One challenge that we will need to address in \systemnametwo is coping with nested collections.  
+At the moment, the user can manually merge collections of attributes that correspond to disjoint entites.
+However, we would like to automate this process.
+One observation is that a typical collection like an array has a schema with the general structure:
+$$(P_1 \vee P_1P_2 \vee P_1P_2P_3 \vee \ldots)\;=\;(P_1 \wedge (\emptyset \vee P_2 \wedge (\emptyset \vee P_3 \wedge (\ldots)) ))$$
+The version of this expression on the right hand side is notable as its closure over the semiring $\tuple{\big\{\{\mathbf P\}\big\}, \vee, \wedge, \emptyset, \big\{\{\}\big\}}$ would indicate that the semiring is ``quasiregular'' or ``closed'', an algebraic structure best associated with the Kleene star.
+Hence, we plan to explore the use of the Kleene star to encode nested collections in our algebra.
+A key challenge in doing so is detecting opportunities for incorporating it into a summary, a more challenging form of the factorization problem.
+
+A further step to increase the capabilities of \systemnametwo is to incorporate type information in the summarization. 
+This adds an extra layer of information an analyst can extract from our system, as well as the ability to identify and correct schema errors. 
+As a long term goal we will provide capabilities for linking views, for example by defining functional dependencies.
+The goal is to create full entity relationship diagrams. 
+In particular, one interesting way to identify potential relationships that exist between entities is by leveraging the overlap between segments.
+
+\section{Summarizing Probabilistic Databases}
+\subsection{Conclusion}
+\subsection{Related Work}

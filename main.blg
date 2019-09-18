@@ -1,52 +1,14 @@
-This is BibTeX, Version 0.99d (TeX Live 2018)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
-The top-level auxiliary file: main.aux
+This is BibTeX, Version 0.99dThe top-level auxiliary file: main.aux
 A level-1 auxiliary file: Introduction/main.aux
+A level-1 auxiliary file: RelatedWork/main.aux
 A level-1 auxiliary file: QueryLogSummarization/main.aux
 A level-1 auxiliary file: TKDE-QuerySimilarity/main.aux
 A level-1 auxiliary file: SchemaSummarization/main.aux
 A level-1 auxiliary file: ProbabilisticDatabaseSummarization/main.aux
 A level-1 auxiliary file: Conclusion/main.aux
+A level-1 auxiliary file: Appendix/main.aux
 The style file: unsrt.bst
 Database file #1: ref.bib
-You've used 113 entries,
-            1791 wiz_defined-function locations,
-            1161 strings with 27689 characters,
-and the built_in function-call counts, 31460 in all, are:
-= -- 2759
-> -- 1583
-< -- 40
-+ -- 561
-- -- 448
-* -- 2131
-:= -- 4784
-add.period$ -- 372
-call.type$ -- 113
-change.case$ -- 109
-chr.to.int$ -- 0
-cite$ -- 113
-duplicate$ -- 1461
-empty$ -- 3056
-format.name$ -- 448
-if$ -- 7202
-int.to.chr$ -- 0
-int.to.str$ -- 113
-missing$ -- 112
-newline$ -- 568
-num.names$ -- 147
-pop$ -- 440
-preamble$ -- 1
-purify$ -- 0
-quote$ -- 0
-skip$ -- 756
-stack$ -- 0
-substring$ -- 1961
-swap$ -- 473
-text.length$ -- 40
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 304
-width$ -- 116
-write$ -- 1249
+Warning--I didn't find a database entry for "ElGebaly:2014:IIE:2735461.2735467"
+Warning--I didn't find a database entry for "Mampaey:2012:SDS:2382577.2382580"
+(There were 2 warnings)

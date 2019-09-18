@@ -100,6 +100,7 @@
 \usepackage{bm}
 \usepackage{eqlist} % Makes for a nice list of symbols.
 \usepackage{graphicx}
+\usepackage[toc,page]{appendix}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 % Setting for fncychap %
@@ -197,12 +198,13 @@
 % and appendices as you like.
 \includeonly{%
 Introduction/main,%
+RelatedWork/main,%
 QueryLogSummarization/main,%
 TKDE-QuerySimilarity/main,%
 SchemaSummarization/main,%
 ProbabilisticDatabaseSummarization/main,%
-Appendix-A/main,%
-Appendix-B/main%
+Conclusion/main,%
+Appendix/main,%
 }
 
 %%%%%%%%%%%%%%%%%
@@ -291,6 +293,7 @@ Appendix-B/main%
 %%%%%%%%%%%%%%%%%%%%%%
 % Chapters
 \include{Introduction/main}
+\include{RelatedWork/main}
 \include{QueryLogSummarization/main}
 \include{TKDE-QuerySimilarity/main}
 \include{SchemaSummarization/main}
@@ -304,8 +307,7 @@ Appendix-B/main%
 % \addtocontents if you want things to appear the proper
 % sequence. Since the PSU Grad School requires
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\appendix
-% \include{Appendix-A/main}
+\include{Appendix/main}
 % \include{Appendix-B/main}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ESM students need to include a Nontechnical Abstract as the %
