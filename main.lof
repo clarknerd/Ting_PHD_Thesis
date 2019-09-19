@@ -5,26 +5,26 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces \textbf {Example Encoding Visualizations}\relax }}{20}{figure.caption.7}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces \textbf {Clustering Schemes Comparison}\relax }}{31}{figure.caption.8}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces \textbf {Effectiveness of Naive Mixture Encoding}\relax }}{35}{figure.caption.9}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces \textbf {Validating Reproduction Error\xspace }\relax }}{39}{figure.caption.11}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces \textbf {Feature-correlation refinement (US bank)}\relax }}{44}{figure.caption.12}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces \textbf {Naive Mixture v. Laserlight/MTV Mixture}\relax }}{48}{figure.caption.14}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces \textbf {Example Encoding Visualizations}\relax }}{22}{figure.caption.7}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces \textbf {Clustering Schemes Comparison}\relax }}{33}{figure.caption.8}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces \textbf {Effectiveness of Naive Mixture Encoding}\relax }}{37}{figure.caption.9}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces \textbf {Validating Reproduction Error\xspace }\relax }}{41}{figure.caption.11}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces \textbf {Feature-correlation refinement (US bank)}\relax }}{46}{figure.caption.12}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces \textbf {Naive Mixture v. Laserlight/MTV Mixture}\relax }}{50}{figure.caption.14}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Clustering validation measures for each metric with and without regularization step\relax }}{65}{figure.caption.21}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Distribution of silhouette coefficients when using Aligon's similarity without regularization (a,c,e), and when regularization is applied (b,d,f)\relax }}{66}{figure.caption.22}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Effect of each module in regularization\relax }}{74}{figure.caption.24}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Clustering validation measures for each metric with and without regularization step\relax }}{67}{figure.caption.21}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Distribution of silhouette coefficients when using Aligon's similarity without regularization (a,c,e), and when regularization is applied (b,d,f)\relax }}{68}{figure.caption.22}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Effect of each module in regularization\relax }}{76}{figure.caption.24}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Prototype user interface for \textsc {SchemaDrill}\xspace .\relax }}{84}{figure.caption.25}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces FP-Tree based schema summaries\relax }}{91}{figure.caption.26}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces RCDC based schema summaries\relax }}{93}{figure.caption.27}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Segmentation breaks up schema representations into manageable chunks.\relax }}{94}{figure.caption.28}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Coveriance Cloud for the full Yelp dataset.\relax }}{95}{figure.caption.29}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces KNN-PCA cloud with K=6 on the Yelp dataset.\relax }}{97}{figure.caption.30}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Points containing user selected attributes are highlighted green.\relax }}{99}{figure.caption.31}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Prototype user interface for \textsc {SchemaDrill}\xspace .\relax }}{86}{figure.caption.25}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces FP-Tree based schema summaries\relax }}{93}{figure.caption.26}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces RCDC based schema summaries\relax }}{95}{figure.caption.27}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Segmentation breaks up schema representations into manageable chunks.\relax }}{96}{figure.caption.28}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Coveriance Cloud for the full Yelp dataset.\relax }}{97}{figure.caption.29}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces KNN-PCA cloud with K=6 on the Yelp dataset.\relax }}{99}{figure.caption.30}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Points containing user selected attributes are highlighted green.\relax }}{101}{figure.caption.31}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces \textbf {Theoretical v.s. Practical Data-flows.}\relax }}{104}{figure.caption.32}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces \textbf {Theoretical v.s. Practical Data-flows.}\relax }}{106}{figure.caption.32}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces \textbf {\textbf {Visualize PocketData by its naive mixture encoding}}\relax }}{132}{figure.caption.34}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces \textbf {\textbf {Visualize PocketData by its naive mixture encoding}}\relax }}{134}{figure.caption.34}

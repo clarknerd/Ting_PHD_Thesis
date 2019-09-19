@@ -6,6 +6,15 @@ Bikash Chandra, Bhupesh Chawda, B.~Kar, K.~V. Reddy, Shetal Shah, and
 \newblock Data generation for testing and grading {SQL} queries.
 \newblock {\em VLDBj}, 2015.
 
+\bibitem{DBLP:conf/www/KulLXCCKU16}
+G{\"{o}}khan Kul, Duc Luong, Ting Xie, Patrick Coonan, Varun Chandola, Oliver
+  Kennedy, and Shambhu~J. Upadhyaya.
+\newblock Ettu: Analyzing query intents in corporate databases.
+\newblock In Jacqueline Bourdeau, Jim Hendler, Roger Nkambou, Ian Horrocks, and
+  Ben~Y. Zhao, editors, {\em Proceedings of the 25th International Conference
+  on World Wide Web, {WWW} 2016, Montreal, Canada, April 11-15, 2016, Companion
+  Volume}, pages 463--466. {ACM}, 2016.
+
 \bibitem{DBLP:conf/icdm/MittalVCEP10}
 Sarika Mittal, Jothi Swarubini~Vindhiya Varman, Gloria Chatzopoulou, Magdalini
   Eirinaki, and Neoklis Polyzotis.
@@ -444,15 +453,6 @@ Andrew Pavlo, Gustavo Angulo, Joy Arulraj, Haibin Lin, Jiexi Lin, Lin Ma,
   Ran Xian, and Tieying Zhang.
 \newblock Self-driving database management systems.
 \newblock In {\em {CIDR}}, 2017.
-
-\bibitem{DBLP:conf/www/KulLXCCKU16}
-G{\"{o}}khan Kul, Duc Luong, Ting Xie, Patrick Coonan, Varun Chandola, Oliver
-  Kennedy, and Shambhu~J. Upadhyaya.
-\newblock Ettu: Analyzing query intents in corporate databases.
-\newblock In Jacqueline Bourdeau, Jim Hendler, Roger Nkambou, Ian Horrocks, and
-  Ben~Y. Zhao, editors, {\em Proceedings of the 25th International Conference
-  on World Wide Web, {WWW} 2016, Montreal, Canada, April 11-15, 2016, Companion
-  Volume}, pages 463--466. {ACM}, 2016.
 
 \bibitem{DBLP:journals/corr/abs-1809-00405}
 Ting Xie, Oliver Kennedy, and Varun Chandola.

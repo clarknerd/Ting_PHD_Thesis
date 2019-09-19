@@ -1,4 +1,28 @@
 \chapter{Introduction}\label{chap:intro}
-todo
+Nowadays data is accumulating at a tremendous speed, e.g., a recent study~\cite{DBLP:conf/www/KulLXCCKU16} reported that nearly 73 million database operations, which occupies over , were accumulated in a 19-hour query log at a major US bank. 
+Analyzing the huge amount of data can be valuable to various kinds of applications.
+For example, automated analysis of database access logs is critical for performance tuning~\cite{}, compliance validation~\cite{} and query recommendation~\cite{}.
+A second example might be analyzing data in semi-structured formats like Json. 
+The analysis allows users (e.g., Facebook, Twitter) to design schemas on-the-fly as data is generated.
+As the last example, many tasks in machine learning generates large amounts of uncertain data.
+That is, output generated from one probabilistic prediction differ from the other.
+Analyzing the difference between various possible predictions allows applications to compare predictions under different parameter tuning strategies and also sheds light on the ground-truth prediction.
 
+However, the data can grow extremely large, e.g., a query log that contains queries within one year at a major US bank can occupy as large as 10 TB of space. 
+Hence the potentially huge amount of data must be summarized before they can be used for analytic purposes. 
+Designing an appropriate summary encoding usually requires trading off between conciseness and fidelity.
+That is, the size of the encoding is inversely related with its fidelity: The more detailed the encoding, the more faithfully it represents the original data.
+For example, simple sampling of queries in the log may miss rare, but high impact queries.
+Increasing the number of samples may cover these rare queries, but will inevitably increase the size of samples and put heavier burden on analysis.
+In most cases, the \emph{optimal} trade off point is unknown and it is critical for a data-summarizer to provide a tunable parameter, allowing a user to choose to obtain a summary that incurs high-fidelity but is verbose, or obtain a more compact summary that incurs a greater loss of information (low-fidelity).
+To manage the loss-rate, it is also important to develop a framework for reasoning about the trade off between space and fidelity.
+Having efficiently-computable measures of summary conciseness and fidelity is crucial as they allow users to incrementally sacrificing conciseness for better fidelity.
 
+As no summary encoding can work for all types of data, one must first choose the specific data to work on. 
+In this thesis, we focus on one family of data that can be represented by a joint probability distribution.
+That is, if one observes any data point from the data, the data point can be represented equivalently as an observation of a joint probability distribution, where each variable indicates certain features of the data that an analyzer would care about.
+Concretely, in this thesis I present three applications of the summary encoding where the data is first represented as a joint probability distribution before summarized. 
+ 
+\section{Summarizing Query Logs}
+\section{Summarizing schemas of semi-structured data}
+\section{Summarizing Probabilistic Databases}
