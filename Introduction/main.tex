@@ -1,28 +1,37 @@
 \chapter{Introduction}\label{chap:intro}
-Nowadays data is accumulating at a tremendous speed, e.g., a recent study~\cite{DBLP:conf/www/KulLXCCKU16} reported that nearly 73 million database operations, which occupies over , were accumulated in a 19-hour query log at a major US bank. 
-Analyzing the huge amount of data can be valuable to various kinds of applications.
-For example, automated analysis of database access logs is critical for performance tuning~\cite{}, compliance validation~\cite{} and query recommendation~\cite{}.
+Nowadays data is accumulating at a tremendous speed, e.g., a recent study~\cite{DBLP:conf/www/KulLXCCKU16} reported that nearly 73 million database operations, which occupies over 20 GB space, were accumulated in a 19-hour query log at a major US bank. 
+Data analysis and knowledge discovery can be valuable to various kinds of applications.
+For example, automated analysis of database access logs is critical for performance tuning~\cite{DBLP:conf/sigmod/BrunoC05}, compliance validation~\cite{DBLP:conf/icalp/Dwork06} and query recommendation~\cite{DBLP:journals/debu/ChatzopoulouEKMPV11}.
 A second example might be analyzing data in semi-structured formats like Json. 
 The analysis allows users (e.g., Facebook, Twitter) to design schemas on-the-fly as data is generated.
 As the last example, many tasks in machine learning generates large amounts of uncertain data.
 That is, output generated from one probabilistic prediction differ from the other.
 Analyzing the difference between various possible predictions allows applications to compare predictions under different parameter tuning strategies and also sheds light on the ground-truth prediction.
 
-However, the data can grow extremely large, e.g., a query log that contains queries within one year at a major US bank can occupy as large as 10 TB of space. 
-Hence the potentially huge amount of data must be summarized before they can be used for analytic purposes. 
+However, data can grow extremely large, e.g., according to numbers reported from~\cite{DBLP:conf/www/KulLXCCKU16}, a query log that contains queries within one year at a major US bank can occupy as large as 10 TB of space. 
+The potentially huge amount of data can be unwieldy in the sense of space and time efficiency and must be summarized before they can be used for analytic purposes. 
 Designing an appropriate summary encoding usually requires trading off between conciseness and fidelity.
 That is, the size of the encoding is inversely related with its fidelity: The more detailed the encoding, the more faithfully it represents the original data.
 For example, simple sampling of queries in the log may miss rare, but high impact queries.
-Increasing the number of samples may cover these rare queries, but will inevitably increase the size of samples and put heavier burden on analysis.
+Increasing the number of samples may cover the rare queries, but will inevitably increase the size of samples and put heavier burden on analysis.
 In most cases, the \emph{optimal} trade off point is unknown and it is critical for a data-summarizer to provide a tunable parameter, allowing a user to choose to obtain a summary that incurs high-fidelity but is verbose, or obtain a more compact summary that incurs a greater loss of information (low-fidelity).
-To manage the loss-rate, it is also important to develop a framework for reasoning about the trade off between space and fidelity.
-Having efficiently-computable measures of summary conciseness and fidelity is crucial as they allow users to incrementally sacrificing conciseness for better fidelity.
+Instead of offering users an one-stop "best effort" solution, it can be more beneficial to enable users to flexibly sacrifice summary conciseness for better fidelity until they reach some satisfactory level of fidelity. 
+To manage the loss-rate, in this thesis I developed a framework for reasoning about the trade off between space and fidelity.
+While the summarizers described in this thesis does not admit a closed-form solutions to classical information theoretical fidelity measures like information loss, I proposed efficiently-computable measures of summary fidelity.
+I show through a combination of analytically and experimental evidence that the proposed fidelity measure is a meaningful measure of the summary quality.
+To efficiently construct a high-fidelity summary encoding given limitation on its verboseness, I identified simple \emph{clustering-based} approaches and show experimentally that they produces results orders of magnitude faster and competitive with more powerful techniques for compression and summarization.
 
 As no summary encoding can work for all types of data, one must first choose the specific data to work on. 
 In this thesis, we focus on one family of data that can be represented by a joint probability distribution.
 That is, if one observes any data point from the data, the data point can be represented equivalently as an observation of a joint probability distribution, where each variable indicates certain features of the data that an analyzer would care about.
-Concretely, in this thesis I present three applications of the summary encoding where the data is first represented as a joint probability distribution before summarized. 
- 
-\section{Summarizing Query Logs}
-\section{Summarizing schemas of semi-structured data}
-\section{Summarizing Probabilistic Databases}
+In this thesis I present three example applications: (1) query log summarization; (2) semi-structured data schema summarization and (3) probabilistic database summarization.
+In the three applications, the data can be first represented as a joint probability distribution before summarized.
+
+\tinysection{Roadmap}
+The rest of the thesis is organized as follows.
+In Chapter~\ref{chapter:relatedwork} we review related work on the three applications.
+In Chapter~\ref{chapter:querylogsummarization} we describe how query logs can be summarized using clustering-based approach in detail.
+In query log summarization, we found that query similarity plays a significant role in clustering.
+Hence we study in depth the similarity metrics for SQL query clustering in Chapter~\ref{chapter:similaritymetrics}.
+In Chapter~\ref{chapter:schemasummarization} and Chapter~\ref{chapter:summarizeprobabilisticdatabases}, we dig into semi-structured data summarization and probabilistic database summarization respectively.
+Chapter~\ref{chapter:conclusionsandfuturework} concludes the thesis from the perspective of three applications and also describes the future work that can be done to improve proposed solutions.

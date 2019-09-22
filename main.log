@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.3)  19 SEP 2019 00:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.3)  22 SEP 2019 13:09
 entering extended mode
 **./main.tex
 (main.tex
@@ -1150,7 +1150,7 @@ LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
 [10]
 
 LaTeX Warning: Reference `proposition:losslesssummary' on page xi undefined on 
-input line 110.
+input line 107.
 
 )
 \tf@toc=\write4
@@ -1196,7 +1196,7 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 
 
 
-]) [2] [3]
+] [2]) [3]
 \openout2 = `RelatedWork/main.aux'.
 
 
@@ -1207,7 +1207,7 @@ Chapter 2.
 
 
 ]
-Overfull \hbox (10.371pt too wide) in paragraph at lines 25--29
+Overfull \hbox (10.371pt too wide) in paragraph at lines 26--30
 \OT1/cmr/m/n/12 fur-ther work-load anal-y-sis on Sloan Dig-i-tal Sky Sur-vey (S
 DSS) dataset. QueryScope [[]]
  []
@@ -1215,22 +1215,22 @@ DSS) dataset. QueryScope [[]]
 [5] [6] [7] [8]
 
 LaTeX Warning: Reference `appendix:aligon' on page 9 undefined on input line 13
-2.
+3.
 
 [9] [10]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 152.
+               Default added (so using `tbp') on input line 153.
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 159.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 160.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 159.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 160.
 
-Overfull \hbox (0.1597pt too wide) in paragraph at lines 174--182
+Overfull \hbox (0.1597pt too wide) in paragraph at lines 175--183
 \OT1/cmr/bx/n/12 Schema Ex-trac-tion.  \OT1/cmr/m/n/12 Schema ex-trac-tion for 
 Json, as well as for other self-describing
  []
@@ -1313,7 +1313,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--29
  []
 
 [30] [31] [32]
-<QueryLogSummarization/graphics/ErrorVNumCluster.pdf, id=1165, pagebox=cropbox,
+<QueryLogSummarization/graphics/ErrorVNumCluster.pdf, id=1160, pagebox=cropbox,
  1177.53316pt x 263.51807pt>
 File: QueryLogSummarization/graphics/ErrorVNumCluster.pdf Graphic file (type pd
 f)
@@ -1322,7 +1322,7 @@ Package pdftex.def Info: QueryLogSummarization/graphics/ErrorVNumCluster.pdf  u
 sed on input line 257. on input line 257.
 Package pdftex.def Info: Requested size: 423.55481pt x 94.78601pt on input line
  257.
-<QueryLogSummarization/graphics/TotalVerbosityVNumCluster.pdf, id=1166, pagebox
+<QueryLogSummarization/graphics/TotalVerbosityVNumCluster.pdf, id=1161, pagebox
 =cropbox, 1175.3219pt x 204.21097pt>
 File: QueryLogSummarization/graphics/TotalVerbosityVNumCluster.pdf Graphic file
  (type pdf)
@@ -1331,7 +1331,7 @@ Package pdftex.def Info: QueryLogSummarization/graphics/TotalVerbosityVNumClust
 er.pdf  used on input line 271. on input line 271.
 Package pdftex.def Info: Requested size: 421.40268pt x 73.21675pt on input line
  271.
-<QueryLogSummarization/graphics/RunningTimeVNumCluster.pdf, id=1167, pagebox=cr
+<QueryLogSummarization/graphics/RunningTimeVNumCluster.pdf, id=1162, pagebox=cr
 opbox, 1195.69489pt x 203.28403pt>
 File: QueryLogSummarization/graphics/RunningTimeVNumCluster.pdf Graphic file (t
 ype pdf)
@@ -1343,7 +1343,7 @@ Package pdftex.def Info: Requested size: 425.70692pt x 72.3757pt on input line
  [33 <./QueryLogSummarization/graphics/ErrorVNumCluster.pdf> <./QueryLogSummari
 zation/graphics/TotalVerbosityVNumCluster.pdf> <./QueryLogSummarization/graphic
 s/RunningTimeVNumCluster.pdf>] [34] [35] [36]
-<QueryLogSummarization/graphics/synthesis_error.pdf, id=1270, pagebox=cropbox, 
+<QueryLogSummarization/graphics/synthesis_error.pdf, id=1265, pagebox=cropbox, 
 740.69208pt x 217.53586pt>
 File: QueryLogSummarization/graphics/synthesis_error.pdf Graphic file (type pdf
 )
@@ -1352,7 +1352,7 @@ Package pdftex.def Info: QueryLogSummarization/graphics/synthesis_error.pdf  us
 ed on input line 504. on input line 504.
 Package pdftex.def Info: Requested size: 210.70462pt x 61.88217pt on input line
  504.
-<QueryLogSummarization/graphics/marginal_deviation.pdf, id=1271, pagebox=cropbo
+<QueryLogSummarization/graphics/marginal_deviation.pdf, id=1266, pagebox=cropbo
 x, 753.54375pt x 226.01935pt>
 File: QueryLogSummarization/graphics/marginal_deviation.pdf Graphic file (type 
 pdf)
@@ -1365,7 +1365,7 @@ Package pdftex.def Info: Requested size: 210.70462pt x 63.19876pt on input line
 ation/graphics/marginal_deviation.pdf>] [38] [39])
 (QueryLogSummarization/sections/6-experiments.tex
 <QueryLogSummarization/graphics/ContainmentCapturesDeviation_BankData.pdf, id=1
-326, pagebox=cropbox, 756.23085pt x 206.44896pt>
+321, pagebox=cropbox, 756.23085pt x 206.44896pt>
 File: QueryLogSummarization/graphics/ContainmentCapturesDeviation_BankData.pdf 
 Graphic file (type pdf)
 <use QueryLogSummarization/graphics/ContainmentCapturesDeviation_BankData.pdf>
@@ -1374,7 +1374,7 @@ ation_BankData.pdf  used on input line 44. on input line 44.
 Package pdftex.def Info: Requested size: 206.40038pt x 56.34679pt on input line
  44.
 <QueryLogSummarization/graphics/ContainmentCapturesDeviation_PocketData.pdf, id
-=1327, pagebox=cropbox, 756.85593pt x 214.4162pt>
+=1322, pagebox=cropbox, 756.85593pt x 214.4162pt>
 File: QueryLogSummarization/graphics/ContainmentCapturesDeviation_PocketData.pd
 f Graphic file (type pdf)
 <use QueryLogSummarization/graphics/ContainmentCapturesDeviation_PocketData.pdf
@@ -1383,7 +1383,7 @@ Package pdftex.def Info: QueryLogSummarization/graphics/ContainmentCapturesDevi
 ation_PocketData.pdf  used on input line 51. on input line 51.
 Package pdftex.def Info: Requested size: 206.40038pt x 58.47223pt on input line
  51.
-<QueryLogSummarization/graphics/ErrorCapturesDeviation_BankData.pdf, id=1328, p
+<QueryLogSummarization/graphics/ErrorCapturesDeviation_BankData.pdf, id=1323, p
 agebox=cropbox, 771.65561pt x 202.7409pt>
 File: QueryLogSummarization/graphics/ErrorCapturesDeviation_BankData.pdf Graphi
 c file (type pdf)
@@ -1392,7 +1392,7 @@ Package pdftex.def Info: QueryLogSummarization/graphics/ErrorCapturesDeviation_
 BankData.pdf  used on input line 58. on input line 58.
 Package pdftex.def Info: Requested size: 208.55249pt x 54.79337pt on input line
  58.
-<QueryLogSummarization/graphics/ErrorCapturesDeviation_PocketData.pdf, id=1329,
+<QueryLogSummarization/graphics/ErrorCapturesDeviation_PocketData.pdf, id=1324,
  pagebox=cropbox, 757.46207pt x 203.28566pt>
 File: QueryLogSummarization/graphics/ErrorCapturesDeviation_PocketData.pdf Grap
 hic file (type pdf)
@@ -1401,7 +1401,7 @@ Package pdftex.def Info: QueryLogSummarization/graphics/ErrorCapturesDeviation_
 PocketData.pdf  used on input line 65. on input line 65.
 Package pdftex.def Info: Requested size: 208.55249pt x 55.97041pt on input line
  65.
-<QueryLogSummarization/graphics/ErrorCapturesCorrelation_BankData.pdf, id=1330,
+<QueryLogSummarization/graphics/ErrorCapturesCorrelation_BankData.pdf, id=1325,
  pagebox=cropbox, 753.61972pt x 203.52228pt>
 File: QueryLogSummarization/graphics/ErrorCapturesCorrelation_BankData.pdf Grap
 hic file (type pdf)
@@ -1410,8 +1410,8 @@ Package pdftex.def Info: QueryLogSummarization/graphics/ErrorCapturesCorrelatio
 n_BankData.pdf  used on input line 85. on input line 85.
 Package pdftex.def Info: Requested size: 206.40038pt x 55.74054pt on input line
  85.
-<QueryLogSummarization/graphics/ErrorCapturesCorrelation_PocketData.pdf, id=133
-1, pagebox=cropbox, 762.31094pt x 204.0798pt>
+<QueryLogSummarization/graphics/ErrorCapturesCorrelation_PocketData.pdf, id=132
+6, pagebox=cropbox, 762.31094pt x 204.0798pt>
 File: QueryLogSummarization/graphics/ErrorCapturesCorrelation_PocketData.pdf Gr
 aphic file (type pdf)
 <use QueryLogSummarization/graphics/ErrorCapturesCorrelation_PocketData.pdf>
@@ -1431,7 +1431,7 @@ yLogSummarization/graphics/ErrorCapturesCorrelation_BankData.pdf> <./QueryLogSu
 mmarization/graphics/ErrorCapturesCorrelation_PocketData.pdf>] [42] [43]
 [44]
 <QueryLogSummarization/graphics/PatternMixtureSummaryErrorComparisonAlone_bankd
-ata.pdf, id=1482, pagebox=cropbox, 742.31784pt x 278.55287pt>
+ata.pdf, id=1477, pagebox=cropbox, 742.31784pt x 278.55287pt>
 File: QueryLogSummarization/graphics/PatternMixtureSummaryErrorComparisonAlone_
 bankdata.pdf Graphic file (type pdf)
 <use QueryLogSummarization/graphics/PatternMixtureSummaryErrorComparisonAlone_b
@@ -1441,7 +1441,7 @@ rorComparisonAlone_bankdata.pdf  used on input line 217. on input line 217.
 Package pdftex.def Info: Requested size: 202.10269pt x 75.83508pt on input line
  217.
 <QueryLogSummarization/graphics/PatternMixtureSummaryErrorComparisonPiggybackin
-g_bankdata.pdf, id=1483, pagebox=cropbox, 735.07013pt x 274.87067pt>
+g_bankdata.pdf, id=1478, pagebox=cropbox, 735.07013pt x 274.87067pt>
 File: QueryLogSummarization/graphics/PatternMixtureSummaryErrorComparisonPiggyb
 acking_bankdata.pdf Graphic file (type pdf)
 <use QueryLogSummarization/graphics/PatternMixtureSummaryErrorComparisonPiggyba
@@ -1452,7 +1452,7 @@ rorComparisonPiggybacking_bankdata.pdf  used on input line 223. on input line 2
 Package pdftex.def Info: Requested size: 202.10269pt x 75.57079pt on input line
  223.
 <QueryLogSummarization/graphics/PatternMixtureSummaryRunningTime_bankdata.pdf, 
-id=1484, pagebox=cropbox, 753.9196pt x 277.95674pt>
+id=1479, pagebox=cropbox, 753.9196pt x 277.95674pt>
 File: QueryLogSummarization/graphics/PatternMixtureSummaryRunningTime_bankdata.
 pdf Graphic file (type pdf)
 <use QueryLogSummarization/graphics/PatternMixtureSummaryRunningTime_bankdata.p
@@ -1467,7 +1467,7 @@ Package pdftex.def Info: Requested size: 202.10269pt x 74.51067pt on input line
 _bankdata.pdf> <./QueryLogSummarization/graphics/PatternMixtureSummaryErrorComp
 arisonPiggybacking_bankdata.pdf> <./QueryLogSummarization/graphics/PatternMixtu
 reSummaryRunningTime_bankdata.pdf>] [47] [48] [49]
-<QueryLogSummarization/graphics/Laserlight_Errors_vs_NumOfClusters.pdf, id=1570
+<QueryLogSummarization/graphics/Laserlight_Errors_vs_NumOfClusters.pdf, id=1565
 , pagebox=cropbox, 726.42528pt x 286.79991pt>
 File: QueryLogSummarization/graphics/Laserlight_Errors_vs_NumOfClusters.pdf Gra
 phic file (type pdf)
@@ -1476,7 +1476,7 @@ Package pdftex.def Info: QueryLogSummarization/graphics/Laserlight_Errors_vs_Nu
 mOfClusters.pdf  used on input line 198. on input line 198.
 Package pdftex.def Info: Requested size: 202.10269pt x 79.7914pt on input line 
 198.
-<QueryLogSummarization/graphics/MTV_Error_vs_NumOfClusters.pdf, id=1571, pagebo
+<QueryLogSummarization/graphics/MTV_Error_vs_NumOfClusters.pdf, id=1566, pagebo
 x=cropbox, 741.427pt x 287.09392pt>
 File: QueryLogSummarization/graphics/MTV_Error_vs_NumOfClusters.pdf Graphic fil
 e (type pdf)
@@ -1535,7 +1535,7 @@ LaTeX Warning: Reference `sec:background' on page 65 undefined on input line 2.
 LaTeX Warning: Reference `sec:background' on page 66 undefined on input line 14
 .
 
-<TKDE-QuerySimilarity/graphics/compare_silhouette.pdf, id=1774, pagebox=cropbox
+<TKDE-QuerySimilarity/graphics/compare_silhouette.pdf, id=1769, pagebox=cropbox
 , 648.4225pt x 361.35pt>
 File: TKDE-QuerySimilarity/graphics/compare_silhouette.pdf Graphic file (type p
 df)
@@ -1544,7 +1544,7 @@ Package pdftex.def Info: TKDE-QuerySimilarity/graphics/compare_silhouette.pdf
 used on input line 23. on input line 23.
 Package pdftex.def Info: Requested size: 206.40038pt x 115.02234pt on input lin
 e 23.
-<TKDE-QuerySimilarity/graphics/compare_betacv.pdf, id=1775, pagebox=cropbox, 64
+<TKDE-QuerySimilarity/graphics/compare_betacv.pdf, id=1770, pagebox=cropbox, 64
 8.4225pt x 361.35pt>
 File: TKDE-QuerySimilarity/graphics/compare_betacv.pdf Graphic file (type pdf)
 <use TKDE-QuerySimilarity/graphics/compare_betacv.pdf>
@@ -1552,7 +1552,7 @@ Package pdftex.def Info: TKDE-QuerySimilarity/graphics/compare_betacv.pdf  used
  on input line 29. on input line 29.
 Package pdftex.def Info: Requested size: 206.40038pt x 115.02234pt on input lin
 e 29.
-<TKDE-QuerySimilarity/graphics/compare_dunn.pdf, id=1776, pagebox=cropbox, 648.
+<TKDE-QuerySimilarity/graphics/compare_dunn.pdf, id=1771, pagebox=cropbox, 648.
 4225pt x 361.35pt>
 File: TKDE-QuerySimilarity/graphics/compare_dunn.pdf Graphic file (type pdf)
 <use TKDE-QuerySimilarity/graphics/compare_dunn.pdf>
@@ -1564,7 +1564,7 @@ e 35.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [66]
-<TKDE-QuerySimilarity/graphics/sil_bombay_Aligon.pdf, id=1783, pagebox=cropbox,
+<TKDE-QuerySimilarity/graphics/sil_bombay_Aligon.pdf, id=1778, pagebox=cropbox,
  648.4225pt x 397.485pt>
 File: TKDE-QuerySimilarity/graphics/sil_bombay_Aligon.pdf Graphic file (type pd
 f)
@@ -1573,7 +1573,7 @@ Package pdftex.def Info: TKDE-QuerySimilarity/graphics/sil_bombay_Aligon.pdf  u
 sed on input line 57. on input line 57.
 Package pdftex.def Info: Requested size: 193.50076pt x 118.61565pt on input lin
 e 57.
-<TKDE-QuerySimilarity/graphics/sil_bombay_Aligon_regularization.pdf, id=1784, p
+<TKDE-QuerySimilarity/graphics/sil_bombay_Aligon_regularization.pdf, id=1779, p
 agebox=cropbox, 648.4225pt x 397.485pt>
 File: TKDE-QuerySimilarity/graphics/sil_bombay_Aligon_regularization.pdf Graphi
 c file (type pdf)
@@ -1582,7 +1582,7 @@ Package pdftex.def Info: TKDE-QuerySimilarity/graphics/sil_bombay_Aligon_regula
 rization.pdf  used on input line 64. on input line 64.
 Package pdftex.def Info: Requested size: 193.50076pt x 118.61565pt on input lin
 e 64.
-<TKDE-QuerySimilarity/graphics/sil_ub_Aligon.pdf, id=1785, pagebox=cropbox, 648
+<TKDE-QuerySimilarity/graphics/sil_ub_Aligon.pdf, id=1780, pagebox=cropbox, 648
 .4225pt x 397.485pt>
 File: TKDE-QuerySimilarity/graphics/sil_ub_Aligon.pdf Graphic file (type pdf)
 <use TKDE-QuerySimilarity/graphics/sil_ub_Aligon.pdf>
@@ -1590,7 +1590,7 @@ Package pdftex.def Info: TKDE-QuerySimilarity/graphics/sil_ub_Aligon.pdf  used
 on input line 71. on input line 71.
 Package pdftex.def Info: Requested size: 193.50076pt x 118.61565pt on input lin
 e 71.
-<TKDE-QuerySimilarity/graphics/sil_ub_Aligon_regularization.pdf, id=1786, pageb
+<TKDE-QuerySimilarity/graphics/sil_ub_Aligon_regularization.pdf, id=1781, pageb
 ox=cropbox, 648.4225pt x 397.485pt>
 File: TKDE-QuerySimilarity/graphics/sil_ub_Aligon_regularization.pdf Graphic fi
 le (type pdf)
@@ -1599,7 +1599,7 @@ Package pdftex.def Info: TKDE-QuerySimilarity/graphics/sil_ub_Aligon_regulariza
 tion.pdf  used on input line 78. on input line 78.
 Package pdftex.def Info: Requested size: 193.50076pt x 118.61565pt on input lin
 e 78.
-<TKDE-QuerySimilarity/graphics/sil_googleplus_Aligon.pdf, id=1787, pagebox=crop
+<TKDE-QuerySimilarity/graphics/sil_googleplus_Aligon.pdf, id=1782, pagebox=crop
 box, 648.4225pt x 397.485pt>
 File: TKDE-QuerySimilarity/graphics/sil_googleplus_Aligon.pdf Graphic file (typ
 e pdf)
@@ -1609,7 +1609,7 @@ f  used on input line 85. on input line 85.
 Package pdftex.def Info: Requested size: 193.50076pt x 118.61565pt on input lin
 e 85.
 <TKDE-QuerySimilarity/graphics/sil_googleplus_Aligon_regularization.pdf, id=178
-8, pagebox=cropbox, 648.4225pt x 397.485pt>
+3, pagebox=cropbox, 648.4225pt x 397.485pt>
 File: TKDE-QuerySimilarity/graphics/sil_googleplus_Aligon_regularization.pdf Gr
 aphic file (type pdf)
 <use TKDE-QuerySimilarity/graphics/sil_googleplus_Aligon_regularization.pdf>
@@ -1638,7 +1638,7 @@ E-QuerySimilarity/graphics/sil_googleplus_Aligon_regularization.pdf>] [69]
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [73] [74] [75]
-<TKDE-QuerySimilarity/graphics/module.pdf, id=1898, pagebox=cropbox, 648.4225pt
+<TKDE-QuerySimilarity/graphics/module.pdf, id=1893, pagebox=cropbox, 648.4225pt
  x 397.485pt>
 File: TKDE-QuerySimilarity/graphics/module.pdf Graphic file (type pdf)
 <use TKDE-QuerySimilarity/graphics/module.pdf>
@@ -1675,7 +1675,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 47.
 
 [85]
-<SchemaSummarization/img/UI.pdf, id=1978, pagebox=cropbox, 563.25531pt x 329.23
+<SchemaSummarization/img/UI.pdf, id=1973, pagebox=cropbox, 563.25531pt x 329.23
 824pt>
 File: SchemaSummarization/img/UI.pdf Graphic file (type pdf)
 <use SchemaSummarization/img/UI.pdf>
@@ -1706,7 +1706,7 @@ Overfull \hbox (64.46352pt too wide) in paragraph at lines 70--78
  []
 
 [89] [90] [91] [92]
-<SchemaSummarization/img/collapse-FPTree.pdf, id=2087, pagebox=cropbox, 541.773
+<SchemaSummarization/img/collapse-FPTree.pdf, id=2082, pagebox=cropbox, 541.773
 51pt x 188.08517pt>
 File: SchemaSummarization/img/collapse-FPTree.pdf Graphic file (type pdf)
 <use SchemaSummarization/img/collapse-FPTree.pdf>
@@ -1716,7 +1716,7 @@ Package pdftex.def Info: Requested size: 430.00462pt x 149.28879pt on input lin
 e 203.
  [93 <./SchemaSummarization/img/collapse-FPTree.pdf>]
 [94]
-<SchemaSummarization/img/collapse-RCDC.pdf, id=2143, pagebox=cropbox, 402.0348p
+<SchemaSummarization/img/collapse-RCDC.pdf, id=2138, pagebox=cropbox, 402.0348p
 t x 81.19876pt>
 File: SchemaSummarization/img/collapse-RCDC.pdf Graphic file (type pdf)
 <use SchemaSummarization/img/collapse-RCDC.pdf>
@@ -1726,7 +1726,7 @@ Package pdftex.def Info: Requested size: 344.005pt x 69.47891pt on input line 2
 46.
 ) (SchemaSummarization/sections/visualization.tex [95 <./SchemaSummarization/im
 g/collapse-RCDC.pdf>]
-<SchemaSummarization/img/twitterFullTree.png, id=2169, 649.67719pt x 1306.8825p
+<SchemaSummarization/img/twitterFullTree.png, id=2164, 649.67719pt x 1306.8825p
 t>
 File: SchemaSummarization/img/twitterFullTree.png Graphic file (type png)
 <use SchemaSummarization/img/twitterFullTree.png>
@@ -1734,7 +1734,7 @@ Package pdftex.def Info: SchemaSummarization/img/twitterFullTree.png  used on i
 nput line 26. on input line 26.
 Package pdftex.def Info: Requested size: 98.0408pt x 197.20045pt on input line 
 26.
-<SchemaSummarization/img/twitterSegment.png, id=2171, 1519.92844pt x 1179.65718
+<SchemaSummarization/img/twitterSegment.png, id=2166, 1519.92844pt x 1179.65718
 pt>
 File: SchemaSummarization/img/twitterSegment.png Graphic file (type png)
 <use SchemaSummarization/img/twitterSegment.png>
@@ -1744,7 +1744,7 @@ Package pdftex.def Info: Requested size: 253.70114pt x 196.90305pt on input lin
 e 32.
  [96 <./SchemaSummarization/img/twitterFullTree.png> <./SchemaSummarization/img
 /twitterSegment.png>]
-<SchemaSummarization/img/YelpCovMat.png, id=2181, 2141.75156pt x 1044.90375pt>
+<SchemaSummarization/img/YelpCovMat.png, id=2176, 2141.75156pt x 1044.90375pt>
 File: SchemaSummarization/img/YelpCovMat.png Graphic file (type png)
 <use SchemaSummarization/img/YelpCovMat.png>
 Package pdftex.def Info: SchemaSummarization/img/YelpCovMat.png  used on input 
@@ -1752,7 +1752,7 @@ line 51. on input line 51.
 Package pdftex.def Info: Requested size: 430.00462pt x 209.79018pt on input lin
 e 51.
  [97 <./SchemaSummarization/img/YelpCovMat.png>]
-<SchemaSummarization/img/YelpUI.pdf, id=2191, pagebox=cropbox, 563.25531pt x 32
+<SchemaSummarization/img/YelpUI.pdf, id=2186, pagebox=cropbox, 563.25531pt x 32
 9.23824pt>
 File: SchemaSummarization/img/YelpUI.pdf Graphic file (type pdf)
 <use SchemaSummarization/img/YelpUI.pdf>
@@ -1765,7 +1765,7 @@ Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
  [99 <./SchemaSummarization/img/YelpUI.pdf>]
-<SchemaSummarization/img/YelpUIH.pdf, id=2228, pagebox=cropbox, 563.25531pt x 3
+<SchemaSummarization/img/YelpUIH.pdf, id=2223, pagebox=cropbox, 563.25531pt x 3
 29.23824pt>
 File: SchemaSummarization/img/YelpUIH.pdf Graphic file (type pdf)
 <use SchemaSummarization/img/YelpUIH.pdf>
@@ -1792,7 +1792,7 @@ ry in-for-ma-tion (e.g., \OT1/cmr/m/it/12 c-tables \OT1/cmr/m/n/12 [[]],
 
 [104]) (ProbabilisticDatabaseSummarization/sections/3-problem-definition.tex
 [105]
-<ProbabilisticDatabaseSummarization/graphics/Data_Flow_Diagram.pdf, id=2291, pa
+<ProbabilisticDatabaseSummarization/graphics/Data_Flow_Diagram.pdf, id=2286, pa
 gebox=cropbox, 885.3075pt x 313.17pt>
 File: ProbabilisticDatabaseSummarization/graphics/Data_Flow_Diagram.pdf Graphic
  file (type pdf)
@@ -2032,7 +2032,7 @@ Underfull \hbox (badness 1168) in paragraph at lines 574--578
 ee-v-id-hya
  []
 
-
+[143]
 Underfull \hbox (badness 10000) in paragraph at lines 617--621
 []\OT1/cmr/m/n/12 Oracle.  Database json de-vel-oper's guide: Json data guide.
  []
@@ -2043,7 +2043,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 617--621
 .htm,
  []
 
-[143]
+
 Underfull \hbox (badness 10000) in paragraph at lines 623--627
 []\OT1/cmr/m/n/12 Roam An-a-lyt-ics.  Prescription-based pre-dic-tion.
  []
@@ -2066,7 +2066,7 @@ Underfull \hbox (badness 1783) in paragraph at lines 662--665
 rn-ing.
  []
 
-) [144]
+[144]) [145]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 352.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 352.
  (main.aux (Introduction/main.aux) (RelatedWork/main.aux)
@@ -2076,7 +2076,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 352.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 352.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 352.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 337C7DB1669CEABF35CF98D0D2B74C63;9285.
+(rerunfilecheck)             Checksum: 05AF7709B9A17070288FC29ED7C3291A;9031.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -2090,10 +2090,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 352.
  ) 
 Here is how much of TeX's memory you used:
- 24914 strings out of 493312
- 447404 string characters out of 3138900
- 659097 words of memory out of 3000000
- 27440 multiletter control sequences out of 15000+200000
+ 24917 strings out of 493312
+ 447622 string characters out of 3138900
+ 659505 words of memory out of 3000000
+ 27445 multiletter control sequences out of 15000+200000
  558778 words of font info for 127 fonts, out of 3000000 for 9000
  1142 hyphenation exceptions out of 8191
  44i,17n,44p,10393b,1505s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2123,9 +2123,9 @@ amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
 om12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm1
 0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Prog
 ram Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (159 pages, 5048476 bytes).
+Output written on main.pdf (160 pages, 5050275 bytes).
 PDF statistics:
- 2799 PDF objects out of 2984 (max. 8388607)
- 529 named destinations out of 1000 (max. 500000)
- 1142 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2797 PDF objects out of 2984 (max. 8388607)
+ 527 named destinations out of 1000 (max. 500000)
+ 1118 words of extra memory for PDF output out of 10000 (max. 10000000)
 

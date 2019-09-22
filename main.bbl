@@ -15,6 +15,28 @@ G{\"{o}}khan Kul, Duc Luong, Ting Xie, Patrick Coonan, Varun Chandola, Oliver
   on World Wide Web, {WWW} 2016, Montreal, Canada, April 11-15, 2016, Companion
   Volume}, pages 463--466. {ACM}, 2016.
 
+\bibitem{DBLP:conf/sigmod/BrunoC05}
+Nicolas Bruno and Surajit Chaudhuri.
+\newblock Automatic physical database tuning: {A} relaxation-based approach.
+\newblock In Fatma {\"{O}}zcan, editor, {\em Proceedings of the {ACM} {SIGMOD}
+  International Conference on Management of Data, Baltimore, Maryland, USA,
+  June 14-16, 2005}, pages 227--238. {ACM}, 2005.
+
+\bibitem{DBLP:conf/icalp/Dwork06}
+Cynthia Dwork.
+\newblock Differential privacy.
+\newblock In Michele Bugliesi, Bart Preneel, Vladimiro Sassone, and Ingo
+  Wegener, editors, {\em Automata, Languages and Programming, 33rd
+  International Colloquium, {ICALP} 2006, Venice, Italy, July 10-14, 2006,
+  Proceedings, Part {II}}, volume 4052 of {\em Lecture Notes in Computer
+  Science}, pages 1--12. Springer, 2006.
+
+\bibitem{DBLP:journals/debu/ChatzopoulouEKMPV11}
+Gloria Chatzopoulou, Magdalini Eirinaki, Suju Koshy, Sarika Mittal, Neoklis
+  Polyzotis, and Jothi Swarubini~Vindhiya Varman.
+\newblock The querie system for personalized query recommendations.
+\newblock {\em {IEEE} Data Eng. Bull.}, 34(2):55--60, 2011.
+
 \bibitem{DBLP:conf/icdm/MittalVCEP10}
 Sarika Mittal, Jothi Swarubini~Vindhiya Varman, Gloria Chatzopoulou, Magdalini
   Eirinaki, and Neoklis Polyzotis.
@@ -423,28 +445,6 @@ Ravi Jampani, Fei Xu, Mingxi Wu, Luis~Leopoldo Perez, Christopher Jermaine, and
 \newblock Mcdb: a monte carlo approach to managing uncertain data.
 \newblock In {\em Proceedings of the 2008 ACM SIGMOD international conference
   on Management of data}, pages 687--700. ACM, 2008.
-
-\bibitem{DBLP:conf/sigmod/BrunoC05}
-Nicolas Bruno and Surajit Chaudhuri.
-\newblock Automatic physical database tuning: {A} relaxation-based approach.
-\newblock In Fatma {\"{O}}zcan, editor, {\em Proceedings of the {ACM} {SIGMOD}
-  International Conference on Management of Data, Baltimore, Maryland, USA,
-  June 14-16, 2005}, pages 227--238. {ACM}, 2005.
-
-\bibitem{DBLP:conf/icalp/Dwork06}
-Cynthia Dwork.
-\newblock Differential privacy.
-\newblock In Michele Bugliesi, Bart Preneel, Vladimiro Sassone, and Ingo
-  Wegener, editors, {\em Automata, Languages and Programming, 33rd
-  International Colloquium, {ICALP} 2006, Venice, Italy, July 10-14, 2006,
-  Proceedings, Part {II}}, volume 4052 of {\em Lecture Notes in Computer
-  Science}, pages 1--12. Springer, 2006.
-
-\bibitem{DBLP:journals/debu/ChatzopoulouEKMPV11}
-Gloria Chatzopoulou, Magdalini Eirinaki, Suju Koshy, Sarika Mittal, Neoklis
-  Polyzotis, and Jothi Swarubini~Vindhiya Varman.
-\newblock The querie system for personalized query recommendations.
-\newblock {\em {IEEE} Data Eng. Bull.}, 34(2):55--60, 2011.
 
 \bibitem{DBLP:conf/cidr/PavloAALLMMMPQS17}
 Andrew Pavlo, Gustavo Angulo, Joy Arulraj, Haibin Lin, Jiexi Lin, Lin Ma,
