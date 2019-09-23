@@ -1,10 +1,4 @@
 % !TEX root = ../paper.tex
-
-% Notes on things that need to be / can be added later
-%   - Sub-patterns (i.e., skeletons)
-%   - Restricted fragments of pattern based summaries.
-%   - Task-specific options (non-uniform priors)
-
 Our goal is to encode the distribution $p(Q)$ as a set of patterns: obtaining a less verbose encoding (i.e., with fewer patterns), while also ensuring that the encoding captures $p(Q)$ with minimal information loss.
 In this section, we define information loss for pattern-based encodings.
 
@@ -67,17 +61,7 @@ p(\mathcal P_\encoding = \rho) =
 One specific family of lossy encodings that treat each feature as being independent (e.g., as in Figure~\ref{fig:screenshots:nocorrelation}) is of particular interest to us.  
 We call this family \emph{naive encodings}, and return to it throughout the rest of the paper.
 A naive encoding $\naiveencoding$ is composed of all patterns that have exactly one feature with non-zero frequency.
-$$domain(\naiveencoding)=\comprehension{(0, \ldots, 0, x_i, 0, \ldots, 0)}{i \in [1,n],\; x_i = 1}$$
-% where $K_i$ is the lowest integer such that $p(X_i \geq K_i) = 0$.
-% In other words, a naive encoding encodes the log as a sequence of independent categorical distributions:
-% $$X_i \sim \operatorname{\mathit{Bernoulli(\theta_i)}}$$ 
-% where $\theta_{i} \in [0,1]$ is the probability of a query drawn uniformly at random from the log having feature $i$.
-
-% Naive encoding is an instance of a more general probabilistic generative model (see Section~\ref{sec:backgroundandrelatedwork}).
-% More precisely, under specific valuation of its parameters $\Theta$ (i.e., single-feature marginals), log $L$ or equivalently distribution $p(Q)$ can be re-produced with some likelihood $p(L\;|\tuple{M,\Theta})$.
-% Interpreting parameters of a naive encoding is straightforward, while the interpretability is not guaranteed for more sophisticated models.
-
-%------------------------------------------
+$$domain(\naiveencoding)=\comprehension{(0, \ldots, 0, x_i, 0, \ldots, 0)}{i \in [1,n],\; x_i = 1}$$ 
 
 
 \subsection{Idealized Information Loss Measures}
@@ -97,15 +81,9 @@ The deviation from any permitted distribution $\rho$ to the true distribution $\
 We define the Deviation $\text{d}(\encoding)$ of a encoding as the expectation of the K-L divergence over all permitted $\rho \in \Omega_\encoding$:
 $$\text{d}(\encoding)=\expect_{\mathcal{P}_\encoding}\left[\mathcal{D}_{KL}(\rho^*||\mathcal{P}_\encoding)\right] = \sum_{\rho \in \Omega_\encoding} p(\mathcal P_\encoding = \rho) \cdot \mathcal{D}_{KL}(\rho^*||\rho)$$
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \subsection{Information Loss for Probabilistic Models}
-% Ambiguity and Deviation, which are based on the world of possible logs $\mathcal{P}_\encoding$, or equivalently the space $\Omega_\encoding$ can be generalized to probabilistic models. 
-% A probabilistic model $M$ with parameters $\Theta$ is also known as \textit{generative} as it can also produce a world of possible logs $\mathcal{P}_{\tuple{M,\Theta}}$ or equivalently a space $\Omega_{\tuple{M,\Theta}}$ of possible distributions $\rho$ with $p(\mathcal{P}_{M,\Theta}=\rho)=p(\rho\;|\tuple{M,\Theta})$.
-
 \tinysection{Limitations}
 There are two limitations to these idealized measures in practice.
 First, K-L divergence is not defined on any permitted distribution $\rho$ where the true distribution $\rho^*$ is not \emph{absolutely continuous} (denoted $\rho^*\ll\rho$). 
-%In other words, Deviation is only defined on variable $\hat{\mathcal{P}}$ with regulated probability measure $\neg(\rho^*\ll\rho)\to P(\hat{\mathcal{P}}=\rho)=0$.
+
 Second, neither Deviation nor Ambiguity has a closed-form formula. 
-% We introduce a practical form of information loss in next section that subsumes both idealized measures.
+

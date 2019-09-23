@@ -1,6 +1,6 @@
 % !TEX root = ../paper.tex
-In this section, we introduce and formally define the log compression problem.
-We begin by exploring several applications that need to repeatedly analyze query logs.
+In this section, I introduce and formally define the log compression problem.
+Let us begin by exploring several applications that need to repeatedly analyze query logs.
 
 \tinysection{Index Selection}
 Selecting an appropriate set of indexes requires trading off between update costs, access costs, and limitations on available storage space.
@@ -25,7 +25,7 @@ In each case, the application's interactions with the log amount to counting que
 Let $L$ be a log, or a finite collection of queries $\vec q \in L$.
 We write $f \in \vec q$ to indicate that $\vec q$ has some \emph{feature} $f$, such as a specific predicate or table in its \lstinline{FROM} clause.
 We assume (1) that the universe of features in both a log and a query is enumerable and finite, (2) that the features are selected to suit specific applications and (3) optionally that a query is isomorphic to its feature set (motivated in Section~\ref{sec:communicatinginformationcontent}).  
-We outline one approach to extracting features that satisfies all three assumptions below.
+One approach is outlined to extracting features that satisfies all three assumptions below.
 We abuse syntax and write $\vec q$ to denote both the query itself, as well as the set of its features.  
 
 Let $\pattern$ denote some set of features $f \in \pattern$.
@@ -39,7 +39,7 @@ For any two patterns $\pattern$, $\pattern'$, we say that $\pattern'$ \emph{is c
 
 \subsection{Coding Queries}
 
-For this paper, we specifically adopt the feature extraction conventions of a query summarization scheme by Aligon et al.~\cite{DBLP:journals/kais/AligonGMRT14}.
+For this chapter, we specifically adopt the feature extraction conventions of a query summarization scheme by Aligon et al.~\cite{DBLP:journals/kais/AligonGMRT14}.
 In this scheme, each feature is one of the following three query elements:
 (1) a table or sub-query in the \texttt{FROM} clause,
 (2) a column in the \texttt{SELECT} clause, and 
@@ -63,14 +63,8 @@ and \cqword{WHERE}{transport\_type=?}
 Although this scheme is simple and limited to conjunctive queries, it fulfills all three assumptions we make on feature extraction schemes.  
 The features of a query (and consequently a log) are enumerable and finite, and the feature set of the query is isomorphic to the original query.
 Furthermore, even if a query is not itself conjunctive, it may be rewritable into a conjunctive equivalent.
-% We quantify this statement with Table~\ref{table:datasummary}, which provides two relevant data points from production query logs; A majority of both datasets' queries can be rewritten into equivalent queries compatible with the Aligon scheme.
-%Second, the scheme is bi-directional: Given a set of features we can recover (modulo commutativity) the original query.  
-%We exploit this feature to provide interpretable summaries of compressed logs.
 
-% v---- what does this mean?
-%\footnote{Feature engineering process is decoupled from summarization process. In general, we only require that SQL syntax is preserved after being transformed into bags of features.}.
-
-Although we do not explore more advanced feature encoding schemes in detail here, we direct the interested reader to work on query summarization~\cite{DBLP:conf/simbig/MakiyamaRS15,DBLP:conf/adbis/AouicheJD06,DBLP:conf/www/KulLXCCKU16}.
+Although we do not explore more advanced feature encoding schemes in detail here, I direct the interested reader to work on query summarization~\cite{DBLP:conf/simbig/MakiyamaRS15,DBLP:conf/adbis/AouicheJD06,DBLP:conf/www/KulLXCCKU16}.
 For example, a scheme by Makiyama et. al.~\cite{DBLP:conf/simbig/MakiyamaRS15} also captures aggregation-related features like group-by columns, while an approach by Kul et. al.~\cite{DBLP:conf/www/KulLXCCKU16} encodes partial tree-structures in the query. 
 
 \pagebreak
@@ -79,7 +73,7 @@ For example, a scheme by Makiyama et. al.~\cite{DBLP:conf/simbig/MakiyamaRS15} a
 \label{queryrepresentation}
 
 As a lossy form of compression, \systemnameone only approximates the information content of a query log.
-We next develop a simplified form of \systemnameone that we call pattern-based encoding, and develop a framework for reasoning about the fidelity of a \systemnameone-compressed log.
+I next develop a simplified form of \systemnameone that we call pattern-based encoding, and develop a framework for reasoning about the fidelity of a \systemnameone-compressed log.
 As a basis for this framework, we first formulate the information content of a query log to allow us to adapt classical measures of information content.
 
 \subsubsection{Information Content of Logs}
@@ -196,7 +190,5 @@ The approach illustrated in Figure~\ref{fig:screenshots:nocorrelation} uses shad
 This approach might, for example, help a human to manually select indexes.
 A second approach illustrated in Figure~\ref{fig:screenshots:correlation} conveys correlations, showing the frequency of entire patterns.
 The accompanying technical report~\cite{DBLP:journals/corr/abs-1809-00405} explores visualizations of pattern-based summaries in greater depth.
-% Both visual encodings in Figure~\ref{fig:screenshots} are pattern based summaries: (a) the correlation-ignorant summary  consists of 10 patterns, one for each word and (b) the correlation-aware summary consists of two patterns (left and right).
-% Henceforth, we will assume that we already have an user-interface for visualizing patterns and focus on selecting which specific set of patterns to present. 
 
 

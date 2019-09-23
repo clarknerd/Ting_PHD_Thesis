@@ -1,17 +1,14 @@
 %!TEX root = ../paper.tex
-In this section, we perform experiments to evaluate the performance of three similarity metrics previously discussed in Section~\ref{sec:background}: Makiyama's similarity~\cite{makiyama2015text}, Aligon's similarity~\cite{aligon2014similarity} and Aouiche's similarity~\cite{aouiche2006}. 
-We implemented each of these similarity metrics in Java and evaluated them using the three clustering validation measures discussed in subsection~\ref{subsec:validation}.
-%In particular, we apply \dcabench to these three similarity metrics to evaluate the ability of each metric to capture the tasks performed by queries.
-In particular, we evaluate these three similarity metrics on their ability to capture the tasks performed by SQL queries.
-%In addition, we also use \dcabench to evaluate the effectiveness of regularization step introduced in Section~\ref{sec:system} and understand how query similarity can be improved by applying regularization on the SQL query.
-In addition, we also evaluate the effectiveness of the feature engineering step introduced in Section~\ref{sec:system} and understand how query similarity can be improved by applying this step on the SQL query.
-We also look closer at feature engineering by breaking it down to different modules and analyze the effect of each module on capturing the tasks performed by queries.
-%Finally, we perform an experiment to test the scalability of similarity metrics by applying them on large SQL logs obtained from real-world applications.
+In this section, experiments are performed to evaluate the performance of three similarity metrics previously discussed in Section~\ref{sec:tkdebackground}: Makiyama's similarity~\cite{makiyama2015text}, Aligon's similarity~\cite{aligon2014similarity} and Aouiche's similarity~\cite{aouiche2006}. 
+Each of these similarity metrics is implemented in Java and evaluated using the three clustering validation measures discussed in subsection~\ref{subsec:validation}.
+In particular, these three similarity metrics are evaluated on their ability to capture the tasks performed by SQL queries.
+In addition, the effectiveness of the feature engineering step introduced in Section~\ref{sec:system} is also introduced which helps to understand how query similarity can be improved by applying this step on the SQL query.
+Feature engineering is examined closer by breaking it down to different modules and analyze the effect of each module on capturing the tasks performed by queries.
 
 \subsection{Evaluation on SQL similarity metrics}
 \label{subsec:experiments}
 
-In the first experiment, we evaluate three similarity metrics mentioned in Section~\ref{sec:background}.
+In the first experiment, three similarity metrics mentioned in Section~\ref{sec:tkdebackground} are evaluated.
 The aim of the experiment is to evaluate which similarity metric can best capture the task performed by each query.
 
 \begin{figure*}[h!]
@@ -40,13 +37,10 @@ The aim of the experiment is to evaluate which similarity metric can best captur
 \end{figure*}
 
 The black columns in Figure~\ref{fig:comparison2} show a comparison of three similarity metrics using each of the three quality measures (Average Silhouette Coefficient, BetaCV and Dunn Index).  
-%As can be seen in Figure~\ref{fig:comparison2}, Aligon seems to work the best for both datasets under the Average Silhouette Coefficient and BetaCV measures.
 As can be seen in Figure~\ref{fig:comparison2}, Aligon seems to work the best for both IIT Bombay and UB Exam dataset while achieving second-best for PocketData-Google+ dataset under the Average Silhouette Coefficient measure. 
 When considering BetaCV measure, Aligon also attains the best result for both IIT Bombay and UB Exam dataset while having comparable result for PocketData-Google+ dataset.
 Aligon also performs well on the Dunn Index, coming in first on UB Exam dataset, and second-best for IIT Bombay and PocketData-Google+ dataset.
-%Especially given that the Dunn Index measures only worst-case performance, Aligon's metric seems to be ideal for the \dcabench workloads.
 Especially given that the Dunn Index measures only worst-case performance, Aligon's metric seems to be ideal for our workloads.
-%As a reminder, in Aligon's similarity metric, similarity between two SQL queries is computed using a weighted combination of similarity in group-by expressions, selection expressions, and measure expressions.
 This shows that even a fairly simple approach can capture task similarity well. 
 
 \begin{figure*}[h!]
@@ -103,49 +97,38 @@ Recall that the silhouette coefficient below 0 effectively indicates a query clo
 For the UB Exam dataset (Figure~\ref{fig:sil_aligon:local}), the majority of queries would have been successfully classified, and only a small fraction exhibit minor errors.
 For the PocketData-Google+ dataset (Figure~\ref{fig:sil_aligon:googleplus}), there are some erroneous queries in cluster 4, 5 and 6 while cluster 1, 2, 3, 7 and 8 have very few errors.
 For the Bombay dataset (Figure~\ref{fig:sil_aligon:bombay}), the distribution of errors varies.  
-%Question 1, 6, 3, 12, 13, and 14 exhibit virtually no error, while question 7, 8, and 9 exhibit particularly egregious errors.
 Cluster 1, 2, 4, 6, 12 and 14 exhibit virtually no error, while cluster 7, 8, and 9 exhibit particularly egregious errors.
-
-
-%One notable fact from Figure~\ref{fig:sil_aligon_ub} is that when ignoring queries with low score, silhouette coefficients for queries using Aligon's similarity are slightly increased. 
-%As an observation from Figure~\ref{fig:sil_aligon}, there are still quite a few queries that seems to be put into incorrect clusters in both local exam dataset and IIT Bombay dataset. 
 
 \subsection{Evaluation of feature engineering}
 \label{subsec:evaluation}
-We next evaluate the effectiveness of regularization by applying it to each of the three metrics described in Section~\ref{sec:background}.
-We use our quality evaluation scheme to compare the quality of each measure both with and without feature engineering.
-%Note that questions in local exam dataset require student to write queries fulfilling textually similar but semantically distant tasks in order to test whether students comprehend the subject. Hence we expect regularization helps all these three algorithms correctly distinguishing answers written under different questions. However, as student answers are noisy and some do not conform with the task required, we minimize noise in the clustering results by considering only student answers in the local exam dataset that received a grade of over 50\%.   
+The effectiveness of regularization is evaluated by applying it to each of the three metrics described in Section~\ref{sec:background}.
+The quality evaluation scheme is used to compare the quality of each measure both with and without feature engineering.
 
 Figure~\ref{fig:comparison2} shows the values of three validation measures for each of the three similarity metrics, both with and without regularization.
 As shown in Figure~\ref{fig:comparison2}, regularization significantly improves the Average Silhouette Coefficient and BetaCV measures for all similarity metrics except for the case of Makiyama similarity metric with PocketData-Google+ dataset.
-The Dunn index is relatively unchanged or little improved for the IIT Bombay and PocketData-Google+ dataset and shows slight signs of worsening with regularization on the UB Exam dataset. To understand the reason of worse Dunn Index, we compare Figure~\ref{fig:sil_aligon:local} (original) with Figure~\ref{fig:sil_aligon:local_preprocess} (with regularization). 
+The Dunn index is relatively unchanged or little improved for the IIT Bombay and PocketData-Google+ dataset and shows slight signs of worsening with regularization on the UB Exam dataset. To understand the reason of worse Dunn Index, Figure~\ref{fig:sil_aligon:local} (original) is compared with Figure~\ref{fig:sil_aligon:local_preprocess} (with regularization). 
 The Silhouette Coefficient for answers that are originally positive in each question are considerably increased, and for answers that are originally negative (regarded erroneous) are even more decreased as a result of regularization, since it reduces the query structure diversity which leads to separating queries better.
-%The Silhouette Coefficient for answers that are originally positive in each question are considerably increased after regularization while the Silhouette Coefficient for answers that are originally negative (regarded erroneous) are even more negative.
-In other words, for erroneous answers with negative Silhouette Coefficients, distance metrics like Aligon distinguish them further apart from answers with positive Silhouette Coefficients after regularization. Since erroneous answers are treated as the `worst cases' for each question, the Dunn Index which measures worst case performance naturally gets worse.
-%This is not unexpected: regularization simplifies queries and as a result the similarity between queries are easier to be detected by any of these algorithms. 
-
-%Note that for (a) and (b) in Figure~\ref{fig:comparison2} on Local Exam dataset, regularization boosts the performance all three metrics to a similar level. It implies that, though Aouiche and Makiyama is relatively simpler than Aligon, regularization can help them reach commensurate performance with Aligon. 
+In other words, for erroneous answers with negative Silhouette Coefficients, distance metrics like Aligon distinguish them further apart from answers with positive Silhouette Coefficients after regularization. 
+Since erroneous answers are treated as the `worst cases' for each question, the Dunn Index which measures worst case performance naturally gets worse.
 
 \subsubsection{Per-Query Similarity}
-
 Figure~\ref{fig:sil_aligon_preprocessed}(b,d,f) shows the distributions of silhouette coefficients for the Aligon similarity metric after regularization is applied.  
-%Comparing against Figure~\ref{fig:sil_aligon:bombay} there is a slight improvement at the tail end of queries 2, 3, 11, 12, 13, and 14 --- several of the negative coefficients have been removed.
 For IIT Bombay dataset, comparing against Figure~\ref{fig:sil_aligon:bombay} there is a slight improvement at the tail end of clusters 9, 11, 12, 13 and 14 --- several of the negative coefficients have been removed.  
 Furthermore, positive matches have been improved, particularly for cluster 7, 9, 10, 12 and 13.  
-Finally, there has been a significant reduction in the degree of error in cluster 10.  Cluster 10 is a particularly egregious case of aliasing, as the correct answer involves two self-joins in the same query.  As a result, aliasing is a fundamental part of the correct query answer, and our rewrites could not reliably create a uniform set of alias names.
+Finally, there has been a significant reduction in the degree of error in cluster 10.  
+Cluster 10 is a particularly egregious case of aliasing, as the correct answer involves two self-joins in the same query.
+As a result, aliasing is a fundamental part of the correct query answer, and our rewrites could not reliably create a uniform set of alias names.
 In the UB Exam and PocketData-Google+ datasets, the improvement provided by regularization can be seen for queries with both positive and with negative values of $s(i)$.
 
 
 \subsection{Case Study}
+As part of the analysis, empirical explanations for query errors are provided by manual work, in particular for queries where $s(i) < 0$ for all three similarity metrics. 
+Namely, queries that are too far apart from the clusters they belong are manually examined, and the reasons for mis-classification are categorized. 
+We then investigate how the regularization process particularly affect these queries. 
 
-%Many of queries with low silhouette coefficients are identified as incorrect answers for the task given in homework assignment. Another reason for erroneous queries with low silhouette coefficients is because of aliasing. Alias is the name that is used to replace a sub-query or a select item in a query. Although it is convenient for user to use alias in the query to refer to a particular item, it is difficult for machine to distinguish the task the query  is trying to accomplish because different query authors have different ways to name particular items in the query. This problem is particular prevalent in question 9 of IIT Bombay dataset where there are many queries with low silhouette coefficients because of this reason. 
-%In the next section, we present a query regularization step which improves the effectiveness of these three similarity metrics at measuring similarity of tasks.
-
-As part of our analysis, we attempted to provide empirical explanations for query errors, in particular for queries where $s(i) < 0$ for all three similarity metrics. Namely, we looked into the queries that are too far apart from the clusters they belong, and we categorized the reasons for misclassification based on these queries. We then investigated how the regularization process particularly affect these queries. 
-
-Almost all of these egregiously misclassified queries appear in the IIT Bombay dataset, the distribution of which is summarized in Table~\ref{tab:errorsources}.
-The PocketData-Google+ dataset includes no egregiously misclassified queries, while the UB Exam dataset includes only one such query (which we tagged as a case of \textbf{Contextual equivalence}).
-We tagged each egregiously misclassified query with an explanation that justifies why the query has a low s(i). 
+Almost all of these egregiously mis-classified queries appear in the IIT Bombay dataset, the distribution of which is summarized in Table~\ref{tab:errorsources}.
+The PocketData-Google+ dataset includes no egregiously mis-classified queries, while the UB Exam dataset includes only one such query (which tagged as a case of \textbf{Contextual equivalence}).
+Each egregiously mis-classified query is tagged with an explanation that justifies why the query has a low s(i). 
 Tags were drawn from the following list:
 
 \smallskip
@@ -247,20 +230,7 @@ WHERE student.id
 \end{verbatim}
 }
 
-%but similar enough to an answer for another question that the heuristic distance metrics are too coarse to distinguish.
-%
-%
-%: Structurally correct but needs a few extra conditions to achieve the task specified
-%	\item Structural complexity
-%	\begin{itemize}
-%		\item : The structuring of the subquery varies too much to approximate the query with the other queries in the cluster it actually belongs to 
-%		
-%		
-%		\item : 
-%	\end{itemize}
-%\end{itemize}
-
-\begin{table}[h]
+\begin{table}[h!]
 %\vspace{-3mm}
 \centering
 \begin{tabular}{ccccccc}
@@ -283,34 +253,30 @@ WHERE student.id
 %\vspace{-3mm}
 \end{table}
 
-Table~\ref{tab:errorsources} shows the primary reasons why these queries could not be classified correctly. Note that there may be more than one reason for a query to be placed in a different cluster, but in Table~\ref{tab:errorsources}, we only give the empirically determined primary reason.
+Table~\ref{tab:errorsources} shows the primary reasons why these queries could not be classified correctly. 
+Note that there may be more than one reason for a query to be placed in a different cluster, but in Table~\ref{tab:errorsources}, only the empirically determined primary reason is given.
 
-Many of the queries with low silhouette coefficients are identified as incorrect answers for the task given. These answers directly affect the ground-truth quality, therefore reduce the average silhouette coefficient. Another reason for erroneous queries with low silhouette coefficients is because of aliasing. Although it is convenient for user to use aliases in the query to refer to a particular item, it is difficult for a machine to approximate the tasks the query authors are trying to accomplish since different query authors have different ways to name particular items in the query. This problem is particularly prevalent in question 9 of the IIT Bombay dataset.
+Many of the queries with low silhouette coefficients are identified as incorrect answers for the task given. 
+These answers directly affect the ground-truth quality, therefore reduce the average silhouette coefficient. 
+Another reason for erroneous queries with low silhouette coefficients is because of aliasing. 
+Although it is convenient for user to use aliases in the query to refer to a particular item, it is difficult for a machine to approximate the tasks the query authors are trying to accomplish since different query authors have different ways to name particular items in the query. 
+This problem is particularly prevalent in question 9 of the IIT Bombay dataset.
 
-Although the distribution of the error reasons are expected to change, all the tags provided in this section can generically be applied to other query logs given a ground-truth. The regularization method cannot be expected to fix errors originating from misclassifications in ground-truth since they do not actually share any similarities with the cluster. 
+Although the distribution of the error reasons are expected to change, all the tags provided in this section can generically be applied to other query logs given a ground-truth. 
+The regularization method cannot be expected to fix errors originating from mis-classifications in ground-truth since they do not actually share any similarities with the cluster. 
 
 After the regularization process, the silhouette coefficient under all three similarity metrics for each query is computed again and the result yields an 18\% overall reduction in number of erroneous queries ($s(i) < 0$)  in the IIT Bombay dataset. 
-%The only query satisfying $s(i) < 0$ condition in the UB exam dataset still could not be placed in the correct cluster, but we still observe a marginal improvement on the silhouette coefficients for this query after regularization.
-
-
-
-
 
 \subsection{Analysis of regularization by module}
 \label{subsec:modules}
-
-In Subsection~\ref{subsec:evaluation}, we analyzed the overall effect of regularization on query similarity.  However, as described in Section~\ref{sec:system}, regularization is composed of many different transformation rules.  
-%Since we have 9 regularization rules in total, there will be $2^9=512$ combinations and we can only choose a sub-set for illustration purpose.
-In this experiment, we group these rules into four separate modules and inspect their impact on the clustering quality. 
-One may observe that Commutative Operator Ordering is guaranteed to provide benefit in structure similarity comparison, hence we include it in all four modules. 
-%These rules are thus included in all modules. 
-%Another criterion is due to the observation that there are dependencies between rules . 
+In subsection~\ref{subsec:evaluation}, the overall effect of regularization on query similarity is analyzed.  
+However, as described in Section~\ref{sec:system}, regularization is composed of many different transformation rules.  
+In this experiment, these rules are grouped into four separate modules before their impact on the clustering quality is inspected. 
+One may observe that Commutative Operator Ordering is guaranteed to provide benefit in structure similarity comparison, hence it is included in all four modules. 
 In addition, there are dependencies between rules that require them to operate one before another. 
-For example, we should better apply Syntax Desugaring and then DNF Normalization to simplify the boolean expression in WHERE clause before OR-Union Transformation.
+For example, one should better apply Syntax Desugaring and then DNF Normalization to simplify the boolean expression in WHERE clause before OR-Union Transformation.
 As another example, Exists Standardization should better be applied on nested sub-queries before we de-correlate them using Nested Query De-correlation.
-%These two criteria result in four modules that we will investigate in this experiment:
-%Because of these reasons, regularization rules are arranged into four modules that we will investigate in this experiment:
-As a result, we group the rules from Section~\ref{sec:system} into four modules:
+As a result, the rules are grouped from Section~\ref{sec:system} into four modules:
 \begin{enumerate}
 \item \textit{Naming}: \textbf{Canonicalize Names and Aliases}
 \item \textit{Expression Standardization}: \textbf{Syntax Desugaring}, \\\textbf{Exists~Standardization}, \textbf{DNF~Normalization}, \\\textbf{Nested~Query~Decorrelation}, \textbf{OR-Union~Transform}
@@ -319,9 +285,15 @@ As a result, we group the rules from Section~\ref{sec:system} into four modules:
 \end{enumerate}
 \textbf{Commutative Operator Ordering} is included in all modules.
 
-Figure~\ref{fig:module} provides a comparison of each module in regularization. From this figure, one can observe that, since students use different names/aliases for their convenience when constructing queries, the \textit{Naming} module is the most effective one in terms of improving clustering quality for IIT Bombay and UB Exam datasets. On the other hand, for PocketData-Google+ dataset, names are already canonicalized as they are machine-generated. In this case, \textit{Expression Standardization} seems to be the most effective module, especially when using Aligon or Aouiche as similarity metric. In PocketData-Google+ dataset, referred tables and boolean expressions in the queries are both informative in distinguishing between different query categories or clusters. For this reason, Makiyama similarity metric which considers both works well even without regularization while Aligon and Aouiche can get commensurate performance only after applying \textit{Expression Standardization} module. 
+Figure~\ref{fig:module} provides a comparison of each module in regularization. 
+From this figure, one can observe that, since students use different names/aliases for their convenience when constructing queries, the \textit{Naming} module is the most effective one in terms of improving clustering quality for IIT Bombay and UB Exam datasets. 
+On the other hand, for PocketData-Google+ dataset, names are already canonicalized as they are machine-generated. 
+In this case, \textit{Expression Standardization} seems to be the most effective module, especially when using Aligon or Aouiche as similarity metric. 
+In PocketData-Google+ dataset, referred tables and boolean expressions in the queries are both informative in distinguishing between different query categories or clusters. For this reason, Makiyama similarity metric which considers both works well even without regularization while Aligon and Aouiche can get commensurate performance only after applying \textit{Expression Standardization} module. 
 
-Note that in Figure~\ref{fig:module}, \textit{Expression Standardization} makes Average Silhouette Coefficient worse in some cases for IIT Bombay and UB Exam data sets. The performance degradation is majorly due to \textit{feature duplication}. More specifically, consider the example query with \textit{Expression Standardization}.
+Note that in Figure~\ref{fig:module}, \textit{Expression Standardization} makes Average Silhouette Coefficient worse in some cases for IIT Bombay and UB Exam data sets. 
+The performance degradation is majorly due to \textit{feature duplication}. 
+More specifically, consider the example query with \textit{Expression Standardization}.
 \begin{example}
 Syntax Desugaring with OR-UNION transform
 {\footnotesize
@@ -344,11 +316,12 @@ WHERE rank = 'normal'
 \end{enumerate}
 }
 \end{example}
-Query (1) is transformed into (2) by syntax~desugaring and then into (3) by OR-UNION~Transform. From (1) to (2), feature \texttt{WHERE rank} has been replicated; From (2) to (3), features \texttt{SELECT name} and \texttt{FROM usr} have been duplicated. For expressions of the form: \texttt{X IN} $\{x_1,x_2,\dots,x_n\}$, feature duplication becomes dominant when $n$ grows large. In Figure~\ref{fig:module}, Aligon and Makiyama suffer from feature duplication brought by~\textit{Expression Standardization} in some cases while Aouiche does not. Because Aouiche records feature existence instead of occurrence in its vector. Although in some cases such as this, simply replacing feature occurence with existence solves the problem of feature duplication, feature occurence can also be a good indicator for the interests of the query. We believe this problem can be addressed with exploration of feature weighting strategies. Therefore, the problem of feature duplication will be further explored as a part of feature weighting strategies in our future work.
-%There are better solutions than simply replacing feature occurrence with existence and the problem of feature duplication will be further explored as part of feature weighting strategies in our future work. 
-
-%Since IIT Bombay and UB Exam datasets are both obtained from students' answers in homework/exam, the queries are structurally similar and by canonicalizing names and alias, we can effectively cluster similar queries. 
-%However, as the queries of PocketData-Google+ dataset were collected in a real-world environment where the task performed by the query is not as closely related to its syntax, \textit{Expression Standardization} yields the best result.
+Query (1) is transformed into (2) by syntax~desugaring and then into (3) by OR-UNION~Transform. From (1) to (2), feature \texttt{WHERE rank} has been replicated; From (2) to (3), features \texttt{SELECT name} and \texttt{FROM usr} have been duplicated. For expressions of the form: \texttt{X IN} $\{x_1,x_2,\dots,x_n\}$, feature duplication becomes dominant when $n$ grows large. 
+In Figure~\ref{fig:module}, Aligon and Makiyama suffer from feature duplication brought by~\textit{Expression Standardization} in some cases while Aouiche does not. 
+Because Aouiche records feature existence instead of occurrence in its vector. 
+Although in some cases such as this, simply replacing feature occurence with existence solves the problem of feature duplication, feature occurence can also be a good indicator for the interests of the query. 
+It is believed that this problem can be addressed with exploration of feature weighting strategies. 
+Therefore, the problem of feature duplication will be further explored as a part of feature weighting strategies in our future work.
 
 \begin{figure*}[h!]
     \vspace*{-2mm}

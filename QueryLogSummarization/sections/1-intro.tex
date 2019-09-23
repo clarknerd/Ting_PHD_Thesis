@@ -9,47 +9,45 @@ Rather, we need a compressed \emph{summary} of the log on which we can compute a
 The problems of compression and summarization have been studied extensively (e.g.,~\cite{DBLP:journals/tit/ZivL77,DBLP:journals/tit/ZivL78,4051119,lee1999learning,DBLP:reference/stat/Jolliffe11,DBLP:journals/cacm/Blei12,DBLP:conf/acl/WangZLG09,DBLP:journals/ai/KnightM02}). 
 However, these schemes either require the use of heavyweight inference to desired statistical measures, or produce unnecessarily large encodings.
 
-In this paper, we adapt ideas from pattern mining and summarization~\cite{DBLP:journals/tkdd/MampaeyVT12,DBLP:journals/pvldb/GebalyAGKS14} to propose a middle-ground: \systemnameone, a summarization scheme that facilitates efficient (both in terms of storage and time) approximation of workload statistics.
+In this chapter, we adapt ideas from pattern mining and summarization~\cite{DBLP:journals/tkdd/MampaeyVT12,DBLP:journals/pvldb/GebalyAGKS14} to propose a middle-ground: \systemnameone, a summarization scheme that facilitates efficient (both in terms of storage and time) approximation of workload statistics.
 By adjusting a tunable parameter in \systemnameone, users can choose to obtain a high-fidelity, albeit large summary, or obtain a more compact summary with lower fidelity.
 Constructing the summary that best balances compactness and fidelity is challenging, as the search space of candidate summaries is combinatorially large~\cite{DBLP:journals/tkdd/MampaeyVT12,DBLP:journals/pvldb/GebalyAGKS14}.
 \systemnameone offers a new approach to summary construction that avoids searching this space, making inexpensive, accurate computation of aggregate workload statistics possible.
 As a secondary benefit, the resulting summaries are also human-interpretable.
 
-\systemnameone does not admit closed-form solutions to classical fidelity measures like information loss, so we propose an alternative called \emph{\errorname}.
-We show through a combination of analytical and experimental evidence that \errorname is highly correlated with several classical measures of encoding fidelity.
+\systemnameone does not admit closed-form solutions to classical fidelity measures like information loss, so an alternative called \emph{\errorname} is proposed.
+A combination of analytical and experimental evidence will be shown that \errorname is highly correlated with several classical measures of encoding fidelity.
 
 \systemnameone-compressed data relies on a codebook of structural elements like \texttt{SELECT} items, \texttt{FROM} tables, or conjunctive \texttt{WHERE} clauses~\cite{DBLP:journals/kais/AligonGMRT14}.
 This codebook provides a bi-directional mapping from SQL queries to a bit-vector encoding, reducing the compression problem to one of compactly encoding a collection of feature-vectors.
-We further simplify the problem by observing that a common theme in use cases like automated performance tuning or query recommendation is the need for predominantly aggregate workload statistics.
+The problem is further simplified by observing that a common theme in use cases like automated performance tuning or query recommendation is the need for predominantly aggregate workload statistics.
 As these are order-independent, we are able to focus exclusively on compactly representing \emph{bags} of feature-vectors.
 
 \systemnameone works by identifying groups of co-occurring structural elements that we call patterns.  
-We define a family of \emph{pattern encodings} of access logs, which map patterns to their frequencies in the log.
-For pattern encodings, we consider two idealized measures of fidelity: 
+A family of \emph{pattern encodings} of access logs is defined, which map patterns to their frequencies in the log.
+For pattern encodings, two idealized measures of fidelity are considered: 
 (1) Ambiguity, which measures how much room the encoding leaves for interpretation; and 
 (2) Deviation, which measures how reliably the encoding approximates the original log.
 Neither Ambiguity nor Deviation can be computed efficiently for pattern encodings.
-Hence we propose a measure called \emph{\errorname} that is efficiently computable and that closely tracks both Ambiguity and Deviation.
+Hence a measure called \emph{\errorname} is proposed that is efficiently computable and that closely tracks both Ambiguity and Deviation.
 
 In general, the size of the encoding is inversely related with \errorname: The more detailed the encoding, the more faithfully it represents the original log.
 Thus, log compression may be defined as a search over the space of pattern-based encodings to identify the one that best trades off between these two properties.
 Unfortunately, searching for such an ideal encoding from the space can be computationally expensive~\cite{DBLP:journals/tkdd/MampaeyVT12,DBLP:journals/pvldb/GebalyAGKS14}.
-To overcome this limitation, we reduce the search space by first clustering entries in the log and then encoding each cluster separately, an approach that we call \textit{pattern mixture encoding}.
-Finally we identify a simple approach for encoding individual clusters that we call \textit{naive mixture encodings}, and show experimentally that it produces results competitive with more general techniques for log compression and summarization.
+To overcome this limitation, the search space is reduced by first clustering entries in the log and then encoding each cluster separately, an approach that we call \textit{pattern mixture encoding}.
+Finally I identify a simple approach for encoding individual clusters that we call \textit{naive mixture encodings}, and show experimentally that it produces results competitive with more general techniques for log compression and summarization.
 
-Concretely, in this paper we make the following contributions:
-(1) We define two families of compression for query logs: pattern and pattern mixture, 
-(2) We define a computationally efficient measure, \errorname, and demonstrate that it is a close approximation of Ambiguity and Deviation (two commonly used measures),
-(3) We propose a clustering-based approach to efficiently search for naive mixture encodings, and show how these encodings can be further optimized, and, 
-(4) We experimentally validate \systemnameone and show that it produces more precise encodings, faster than several state-of-the-art pattern encoding algorithms.
+Concretely, in this chapter I make the following contributions:
+(1) I define two families of compression for query logs: pattern and pattern mixture, 
+(2) I define a computationally efficient measure, \errorname, and demonstrate that it is a close approximation of Ambiguity and Deviation (two commonly used measures),
+(3) I propose a clustering-based approach to efficiently search for naive mixture encodings, and show how these encodings can be further optimized, and, 
+(4) I experimentally validate \systemnameone and show that it produces more precise encodings, faster than several state-of-the-art pattern encoding algorithms.
 
 \tinysection{Roadmap}
-The paper is organized as follows: Section~\ref{sec:problemdefinition} formally defines the log compression problem and the summary representation;
+This chapter is organized as follows: Section~\ref{sec:problemdefinition} formally defines the log compression problem and the summary representation;
 Section~\ref{sec:analyzingsummaries} then defines information loss of the summaries;
 Section~\ref{sec:practicalrepresentativeness} explains the difficulty in computing classical loss measures and provides a practical alternative;
 Section~\ref{sec:patternmixtureencodings} motivates data partitioning and generalizes the practical loss measure to partitioned data;
 Section~\ref{sec:constructingencodings} then introduces the proposed \systemnameone compression scheme;
 Section~\ref{sec:experiments} empirically validates the practical loss measure and evaluates the effectiveness of \systemnameone by comparing it with two state-of-the-art summarization methods;
-Section~\ref{sec:evaluatingalternativeapplications} further evaluates \systemnameone under applications of comparison methods;
-Section~\ref{sec:backgroundandrelatedwork} discusses related work.
-Section~\ref{sec:conclusion} concludes the paper and Section~\ref{sec:futurework} discusses future work.
+Section~\ref{sec:evaluatingalternativeapplications} further evaluates \systemnameone under applications of comparison methods.

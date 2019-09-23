@@ -1,26 +1,19 @@
 % !TEX root = ../paper.tex
-%This paper presents the first steps for \sysname{}.
-We have reviewed several similarity metrics for clustering queries and focused on three syntax-based methods that offer an end-to-end similarity metric. The advantage of this preference is that, syntax-based methods do not require access to the data in the database or database properties. Considering that only logs are usually transferred between organizations, and requiring access to the data for investigations can cause privacy violations, we preferred focusing on the syntax-based approach.
+We have reviewed several similarity metrics for clustering queries and focused on three syntax-based methods that offer an end-to-end similarity metric. 
+The advantage of this preference is that, syntax-based methods do not require access to the data in the database or database properties. Considering that only logs are usually transferred between organizations, and requiring access to the data for investigations can cause privacy violations, it is preferred to focus on the syntax-based approach.
 
-The survey we performed shows that most of the metrics make use of selection and join operations in the queries and consider them as the most important items for similarity calculation. Group-by aggregate follows them closely while projection items take the third most important item set. There are other possible feature sets that can be used, such as tables accessed or the abstract syntax tree (AST) of a query, but these feature sets are generally overlooked.
+The survey that is performed shows that most of the metrics make use of selection and join operations in the queries and consider them as the most important items for similarity calculation. Group-by aggregate follows them closely while projection items take the third most important item set. There are other possible feature sets that can be used, such as tables accessed or the abstract syntax tree (AST) of a query, but these feature sets are generally overlooked.
 
-%We have surveyed and measured the evaluation of query similarity metrics for clustering similar queries together and picked three methods that offer an end-to-end similarity metric. The survey shows that most of the metrics make use of selection and join predicates and consider them the most important items for similarity comparison. Group-by predicates follows them closely while projection items take the third most important item set. There are other possible feature sets that can be used in queries like the tables accessed or the AST of a query, but these feature sets are generally overlooked.
-
-%As shown in Figure~\ref{fig:comparison1}, apart from the Dunn index value for IIT Bombay dataset, Aligon \textit{et al.}~\cite{aligon2014similarity} performs the best amongst the surveyed methods.
-% All the approaches surveyed can provide the user with an immediate view on the quality of their clustering. 
-%The success of this method can be attributed to the choice of the feature set: selection, joins, group by and projection items separately have their own weightings in the general calculation of the similarity.
-Although Aouiche \textit{et al.}~\cite{aouiche2006}
-%have a similar strategy; making
-make use of the most important features selection, joins, and group-by items, they don't utilize the number of times an item appears, or after the parsing, they don't consider what kind of feature an item is. This means, it does not matter if a query has \texttt{rank} column in group-by, and the other one has \texttt{rank} column in selection; they are considered the same. Makiyama \textit{et al.}~\cite{makiyama2015text}, on the other hand, follow Aligon \textit{et al.}~\cite{aligon2014similarity} in separating the different features, and improves on it by making use of appearance count of items. However, while trying to make use of every item like \texttt{FROM} and \texttt{Order-By} predicates, they consider these low priority predicates with same importance as the selection and join predicates.
+Although Aouiche \textit{et al.}~\cite{aouiche2006} make use of the most important features selection, joins, and group-by items, they don't utilize the number of times an item appears, or after the parsing, they don't consider what kind of feature an item is. This means, it does not matter if a query has \texttt{rank} column in group-by, and the other one has \texttt{rank} column in selection; they are considered the same. Makiyama \textit{et al.}~\cite{makiyama2015text}, on the other hand, follow Aligon \textit{et al.}~\cite{aligon2014similarity} in separating the different features, and improves on it by making use of appearance count of items. However, while trying to make use of every item like \texttt{FROM} and \texttt{Order-By} predicates, they consider these low priority predicates with same importance as the selection and join predicates.
 
 Makiyama \textit{et al.}~\cite{makiyama2015text} use a more complete structure of the query AST, hence when the query is simple like in the PocketData-Google+ dataset, this technique can be slightly better.
 However, for a complex query with redundant features, mixing features captured from various components of a query without proper feature re-weighting will essentially decrease the weight of features that are more informative.
-Hence, in student exam datasets, we can observe that Aligon \textit{et al.}~\cite{aligon2014similarity} is better than the others while in PocketData-Google+ dataset, Makiyama \textit{et al.}~\cite{makiyama2015text} is better.
+Hence, in student exam datasets, one can observe that Aligon \textit{et al.}~\cite{aligon2014similarity} is better than the others while in PocketData-Google+ dataset, Makiyama \textit{et al.}~\cite{makiyama2015text} is better.
 
-We could further improve these methods by making use of the abstract syntax tree (AST) of a SQL statement.
+One could further improve these methods by making use of the abstract syntax tree (AST) of a SQL statement.
 As a declarative language, the AST of a SQL statement acts as a proxy for the task of the query author.
 This suggests that a comparison of ASTs can be a meaningful metric for query similarity.
-For instance, we can group a query $Q$ with other queries that have nearly (or completely) the same AST as $Q$.
+For instance, one can group a query $Q$ with other queries that have nearly (or completely) the same AST as $Q$.
 This structural definition of task has seen substantial use already, particularly in the translation of natural language queries into SQL~\cite{li2015NLPI}.
 For two SQL queries $Q_1$ and $Q_2$, one reasonable measure might be to count the number of connected subgraphs of $Q_1$ that are isomorphic to a subgraph of $Q_2$.  
 Subgraph isomorphism is NP-complete, but a computationally tractable simplification of this metric can be found in the Weisfeiler-Lehman (WL) Algorithm~\cite{WL2011, kul2016ettu}.
@@ -30,16 +23,4 @@ Especially, in Table~\ref{tab:ub_exam}, no two students answer a question using 
 This phenomenon motivates the need for regularization in comparing SQL queries.
 As the complexity of the query increases, the possible ways to create the query to achieve the same task increase.
 Figure~\ref{fig:comparison2} shows that our assumption that regularizing queries will improve overall clustering quality is correct.
-Our proposed feature engineering scheme improves the overall clustering quality of all three metrics on all three datasets, including both human- and machine-generated queries.
-
-%One caveat is that regularization is only suitable for query comparison purpose as some of its transformations do not retain equivalence.
-%In addition, once a nested sub-query is flattened and merged with its parent, aliases in the parent query pointing to it become invalid.
-%At the same time, names across different query bodies are merged and name uniqueness is not guaranteed any more.
-%Skewed names in the query will make query comparison error-prone.
-
-%Although we run our experiments on a multi-core server, our implementations are single-threaded.
-%We believe that modifying our algorithms to run parallel can significantly decrease the running time.
-
-%Hence we apply a recommended step before regularization that renames all entities in the query containing aliases. 
-
-%In Section~\ref{sec:WL}, we introduce a new similarity metric that is based on the feature extraction scheme based on the Weisfeiler--Lehman test of isomorphism on graphs where we make use of query ASTs instead of atomic features. Even with this naive approach, the performance of the metric is competitive with the metrics surveyed in this paper as can be seen in Figure~\ref{fig:comparison3}. The quality is further improved with the regularization scheme we proposed as shown in Figure~\ref{fig:comparison4}.  Furthermore, the algorithm can be benefit greatly from feature weighting (e.g. appointing higher weights to the features created from selection and joins) and dimensionality reduction with PCA, ICA or other feature selection techniques. Just like Makiyama \textit{et al.}~\cite{makiyama2015text}, we create many unimportant features along with the important ones, and feature selection can improve the accuracy of the metric greatly.
+The proposed feature engineering scheme improves the overall clustering quality of all three metrics on all three datasets, including both human- and machine-generated queries.

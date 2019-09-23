@@ -61,11 +61,7 @@ $$e(\encoding)=\entropy(\overline{\rho}_\encoding)-\entropy(\rho^*)\;\;\;\;\;\te
 
 In this section we prove that \errorname closely parallels Ambiguity. 
 We define a partial order lattice over encodings and show that for any pair of encodings on which the partial order is defined, a like relationship is implied for both \errorname and Ambiguity.
-We supplement the proofs given in this section with an empirical analysis relating \errorname to Deviation in Section~\ref{sec:motivateencodingerror}.
-
-
-% In this section we theoretically prove that \errorname parallels Ambiguity. That is, ordering encodings by Ambiguity is homomorphic to ordering them by \errorname. Our proof is organized as follows: We start by defining a partial order over encodings and show that for any pair of encodings for which the partial order is defined, a like relationship is implied for Ambiguity; We then prove that the total order given by \errorname is a superset of the partial order. 
-% We supplement the theoretical proofs given in this section with an empirical analysis relating \errorname to Deviation in Section~\ref{sec:motivateencodingerror}.
+I supplement the proofs given in this section with an empirical analysis relating \errorname to Deviation in Section~\ref{sec:motivateencodingerror}.
 
 \tinysection{Containment}
 %Recall that each encoding $\encoding$ induces a space of distributions $\Omega_\encoding$.
@@ -87,7 +83,8 @@ First we have $\Omega_{\encoding_2}\supseteq \Omega_{\encoding_1}\to\overline{\r
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\tinysection{Containment Captures Ambiguity} Next, we show that the partial order based on containment implies a like relationship between Ambiguities of pairs of encodings.
+\tinysection{Containment Captures Ambiguity} 
+Next, we show that the partial order based on containment implies a like relationship between Ambiguities of pairs of encodings.
 \begin{lemma}
 \label{prop:containmentrepresentativeness}
 Given encodings $\encoding_1,\encoding_2$ with uninformed prior on $\mathcal{P}_{\encoding_1},\mathcal{P}_{\encoding_2}$, it holds that $\encoding_1 \leq_\Omega \encoding_2\to \text{I}(\encoding_1)\leq \text{I}(\encoding_2)$.

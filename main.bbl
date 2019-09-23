@@ -489,6 +489,11 @@ Gokhan Kul, Shambhu~J. Upadhyaya, and Varun Chandola.
   drift.
 \newblock In {\em IEEE TrustCom}, pages 905--913, 2018.
 
+\bibitem{Green:2007:PS:1265530.1265535}
+Todd~J. Green, Grigoris Karvounarakis, and Val Tannen.
+\newblock Provenance semirings.
+\newblock In {\em ACM PODS}, 2007.
+
 \bibitem{DBLP:journals/prl/Jain10}
 Anil~K. Jain.
 \newblock Data clustering: 50 years beyond k-means.

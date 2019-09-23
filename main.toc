@@ -27,91 +27,91 @@
 \contentsline {subsection}{\numberline {3.4.2}Practical vs Idealized Information Loss}{28}{subsection..3.4.2}
 \contentsline {section}{\numberline {3.5}Pattern Mixture Encodings}{29}{section..3.5}
 \contentsline {subsection}{\numberline {3.5.1}Example: Naive Mixture Encodings}{30}{subsection..3.5.1}
-\contentsline {subsection}{\numberline {3.5.2}Generalized Encoding Fidelity}{32}{subsection..3.5.2}
-\contentsline {section}{\numberline {3.6}Pattern Mixture Compression}{34}{section..3.6}
-\contentsline {subsection}{\numberline {3.6.1}Constructing Naive Mixture Encodings}{34}{subsection..3.6.1}
-\contentsline {subsubsection}{\numberline {3.6.1.1}Clustering}{35}{subsubsection..3.6.1.1}
-\contentsline {subsection}{\numberline {3.6.2}Approximating Log Statistics}{36}{subsection..3.6.2}
-\contentsline {subsection}{\numberline {3.6.3}Pattern Synthesis \& Frequency Estimate}{37}{subsection..3.6.3}
-\contentsline {subsection}{\numberline {3.6.4}Naive Encoding Refinement}{39}{subsection..3.6.4}
-\contentsline {section}{\numberline {3.7}Experiments}{40}{section..3.7}
-\contentsline {subsection}{\numberline {3.7.1}Validating Reproduction Error\xspace }{42}{subsection..3.7.1}
-\contentsline {subsection}{\numberline {3.7.2}Feature-Correlation Refinement}{44}{subsection..3.7.2}
-\contentsline {subsubsection}{\numberline {3.7.2.1}Pattern-based vs Naive Mixture Encodings}{45}{subsubsection..3.7.2.1}
-\contentsline {subsubsection}{\numberline {3.7.2.2}Refining Naive Mixture Encodings}{46}{subsubsection..3.7.2.2}
-\contentsline {section}{\numberline {3.8}Alternative Applications}{47}{section..3.8}
-\contentsline {subsection}{\numberline {3.8.1}Experiments}{47}{subsection..3.8.1}
-\contentsline {subsubsection}{\numberline {3.8.1.1}Error Measures}{48}{subsubsection..3.8.1.1}
-\contentsline {subsubsection}{\numberline {3.8.1.2}Classical Laserlight and MTV}{49}{subsubsection..3.8.1.2}
-\contentsline {subsubsection}{\numberline {3.8.1.3}Generalizing Laserlight and MTV}{49}{subsubsection..3.8.1.3}
-\contentsline {subsubsection}{\numberline {3.8.1.4}Comparison with Naive Mixture Encoding}{50}{subsubsection..3.8.1.4}
-\contentsline {section}{\numberline {3.9}Acknowledgements}{51}{section..3.9}
-\contentsline {chapter}{\numberline {4}Further Study: Similarity Metrics for SQL Query Clustering}{52}{chapter..4}
-\contentsline {section}{\numberline {4.1}Introduction}{52}{section..4.1}
-\contentsline {section}{\numberline {4.2}Feature Engineering}{56}{section..4.2}
-\contentsline {subsection}{\numberline {4.2.1}Regularization Rules}{57}{subsection..4.2.1}
-\contentsline {section}{\numberline {4.3}Quality Metrics}{60}{section..4.3}
-\contentsline {subsection}{\numberline {4.3.1}Workloads}{61}{subsection..4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Clustering validation measures}{63}{subsection..4.3.2}
-\contentsline {section}{\numberline {4.4}Experiments}{66}{section..4.4}
-\contentsline {subsection}{\numberline {4.4.1}Evaluation on SQL similarity metrics}{66}{subsection..4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Evaluation of feature engineering}{69}{subsection..4.4.2}
-\contentsline {subsubsection}{\numberline {4.4.2.1}Per-Query Similarity}{69}{subsubsection..4.4.2.1}
-\contentsline {subsection}{\numberline {4.4.3}Case Study}{70}{subsection..4.4.3}
-\contentsline {subsection}{\numberline {4.4.4}Analysis of regularization by module}{74}{subsection..4.4.4}
-\contentsline {section}{\numberline {4.5}Discussion}{77}{section..4.5}
-\contentsline {section}{\numberline {4.6}Application Scenarios}{79}{section..4.6}
-\contentsline {chapter}{\numberline {5}Application: Interactive Semi-Structured Schema Design}{83}{chapter..5}
-\contentsline {section}{\numberline {5.1}Introduction}{83}{section..5.1}
-\contentsline {subsection}{\numberline {5.1.1}Extracting Relational Entities}{84}{subsection..5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Human-Scale $\texttt {S}^3\texttt {D}$\xspace }{85}{subsection..5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}Overview}{87}{subsection..5.1.3}
-\contentsline {section}{\numberline {5.2}Summarization}{87}{section..5.2}
-\contentsline {subsection}{\numberline {5.2.1}Data Model}{88}{subsection..5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Paths as Attributes}{89}{subsection..5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Schema Collections}{90}{subsection..5.2.3}
-\contentsline {subsection}{\numberline {5.2.4}Summarizing Schema Collections}{92}{subsection..5.2.4}
-\contentsline {section}{\numberline {5.3}Visualization}{95}{section..5.3}
-\contentsline {subsection}{\numberline {5.3.1}Schema Segmentation}{96}{subsection..5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}Schema Exploration}{99}{subsection..5.3.2}
-\contentsline {subsection}{\numberline {5.3.3}An Iterative Approach}{100}{subsection..5.3.3}
-\contentsline {chapter}{\numberline {6}Application: Summarizing Probabilistic Databases}{102}{chapter..6}
-\contentsline {section}{\numberline {6.1}Introduction}{102}{section..6.1}
-\contentsline {section}{\numberline {6.2}Problem Definition}{105}{section..6.2}
-\contentsline {subsection}{\numberline {6.2.1}Practical Input Representation}{107}{subsection..6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Summarizing Joint Distribution}{108}{subsection..6.2.2}
-\contentsline {subsection}{\numberline {6.2.3}Pattern-based Summary}{109}{subsection..6.2.3}
-\contentsline {section}{\numberline {6.3}Marginal Estimation}{110}{section..6.3}
-\contentsline {section}{\numberline {6.4}Summary Accuracy}{112}{section..6.4}
-\contentsline {subsection}{\numberline {6.4.1}Query Accuracy}{114}{subsection..6.4.1}
-\contentsline {subsubsection}{\numberline {6.4.1.1}Accuracy under join}{114}{subsubsection..6.4.1.1}
-\contentsline {subsubsection}{\numberline {6.4.1.2}Accuracy under selection predicate}{115}{subsubsection..6.4.1.2}
-\contentsline {subsubsection}{\numberline {6.4.1.3}Accuracy under project}{116}{subsubsection..6.4.1.3}
-\contentsline {section}{\numberline {6.5}Constructing Summaries}{117}{section..6.5}
-\contentsline {chapter}{\numberline {7}Conclusions and Future Work}{118}{chapter..7}
-\contentsline {section}{\numberline {7.1}Query Log Compression for Workload Analytics}{118}{section..7.1}
-\contentsline {subsection}{\numberline {7.1.1}Conclusion}{118}{subsection..7.1.1}
-\contentsline {subsection}{\numberline {7.1.2}Future Work}{119}{subsection..7.1.2}
-\contentsline {section}{\numberline {7.2}Similarity Metrics for SQL Query Clustering}{120}{section..7.2}
-\contentsline {subsection}{\numberline {7.2.1}Conclusion}{120}{subsection..7.2.1}
-\contentsline {subsection}{\numberline {7.2.2}Future Work}{120}{subsection..7.2.2}
-\contentsline {section}{\numberline {7.3}Interactive Semi-Structured Schema Design}{121}{section..7.3}
-\contentsline {subsection}{\numberline {7.3.1}Conclusion}{121}{subsection..7.3.1}
-\contentsline {subsection}{\numberline {7.3.2}Future Work}{121}{subsection..7.3.2}
-\contentsline {section}{\numberline {7.4}Summarizing Probabilistic Databases}{122}{section..7.4}
-\contentsline {subsection}{\numberline {7.4.1}Conclusion}{122}{subsection..7.4.1}
-\contentsline {subsection}{\numberline {7.4.2}Future Work}{122}{subsection..7.4.2}
-\contentsline {chapter}{Appendices}{123}{section*.33}
-\contentsline {chapter}{\numberline {A}Query Log Compression for workload Analytics}{124}{Appendix.1.A}
-\contentsline {section}{\numberline {A.1}NOMENCLATURE}{125}{section.1.A.1}
-\contentsline {section}{\numberline {A.2}Proof of Proposition\nobreakspace {}\ref {proposition:losslesssummary}}{126}{section.1.A.2}
-\contentsline {section}{\numberline {A.3}Marginal Selection}{127}{section.1.A.3}
-\contentsline {section}{\numberline {A.4}Sampling From Space of Distributions}{128}{section.1.A.4}
-\contentsline {subsection}{\numberline {A.4.1}Preliminary Sampling}{128}{subsection.1.A.4.1}
-\contentsline {subsection}{\numberline {A.4.2}Incorporating Constraints}{129}{subsection.1.A.4.2}
-\contentsline {section}{\numberline {A.5}Algorithm Configurations}{130}{section.1.A.5}
-\contentsline {subsection}{\numberline {A.5.1}Laserlight Algorithm}{131}{subsection.1.A.5.1}
-\contentsline {subsection}{\numberline {A.5.2}MTV Algorithm}{132}{subsection.1.A.5.2}
-\contentsline {subsection}{\numberline {A.5.3}Configuring Regularized Laserlight Mixture}{132}{subsection.1.A.5.3}
-\contentsline {section}{\numberline {A.6}Interpreting Naive Mixture Encoding}{133}{section.1.A.6}
-\contentsline {chapter}{Bibliography}{135}{section*.35}
+\contentsline {subsection}{\numberline {3.5.2}Generalized Encoding Fidelity}{35}{subsection..3.5.2}
+\contentsline {section}{\numberline {3.6}Pattern Mixture Compression}{36}{section..3.6}
+\contentsline {subsection}{\numberline {3.6.1}Constructing Naive Mixture Encodings}{37}{subsection..3.6.1}
+\contentsline {subsubsection}{\numberline {3.6.1.1}Clustering}{39}{subsubsection..3.6.1.1}
+\contentsline {subsection}{\numberline {3.6.2}Approximating Log Statistics}{40}{subsection..3.6.2}
+\contentsline {subsection}{\numberline {3.6.3}Pattern Synthesis \& Frequency Estimate}{41}{subsection..3.6.3}
+\contentsline {subsection}{\numberline {3.6.4}Naive Encoding Refinement}{42}{subsection..3.6.4}
+\contentsline {section}{\numberline {3.7}Experiments}{44}{section..3.7}
+\contentsline {subsection}{\numberline {3.7.1}Validating Reproduction Error\xspace }{46}{subsection..3.7.1}
+\contentsline {subsection}{\numberline {3.7.2}Feature-Correlation Refinement}{48}{subsection..3.7.2}
+\contentsline {subsubsection}{\numberline {3.7.2.1}Pattern-based vs Naive Mixture Encodings}{49}{subsubsection..3.7.2.1}
+\contentsline {subsubsection}{\numberline {3.7.2.2}Refining Naive Mixture Encodings}{50}{subsubsection..3.7.2.2}
+\contentsline {section}{\numberline {3.8}Alternative Applications}{52}{section..3.8}
+\contentsline {subsection}{\numberline {3.8.1}Experiments}{52}{subsection..3.8.1}
+\contentsline {subsubsection}{\numberline {3.8.1.1}Error Measures}{53}{subsubsection..3.8.1.1}
+\contentsline {subsubsection}{\numberline {3.8.1.2}Classical Laserlight and MTV}{54}{subsubsection..3.8.1.2}
+\contentsline {subsubsection}{\numberline {3.8.1.3}Generalizing Laserlight and MTV}{56}{subsubsection..3.8.1.3}
+\contentsline {subsubsection}{\numberline {3.8.1.4}Comparison with Naive Mixture Encoding}{56}{subsubsection..3.8.1.4}
+\contentsline {section}{\numberline {3.9}Acknowledgements}{57}{section..3.9}
+\contentsline {chapter}{\numberline {4}Further Study: Similarity Metrics for SQL Query Clustering}{59}{chapter..4}
+\contentsline {section}{\numberline {4.1}Introduction}{59}{section..4.1}
+\contentsline {section}{\numberline {4.2}Feature Engineering}{63}{section..4.2}
+\contentsline {subsection}{\numberline {4.2.1}Regularization Rules}{64}{subsection..4.2.1}
+\contentsline {section}{\numberline {4.3}Quality Metrics}{67}{section..4.3}
+\contentsline {subsection}{\numberline {4.3.1}Workloads}{68}{subsection..4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Clustering validation measures}{71}{subsection..4.3.2}
+\contentsline {section}{\numberline {4.4}Experiments}{74}{section..4.4}
+\contentsline {subsection}{\numberline {4.4.1}Evaluation on SQL similarity metrics}{75}{subsection..4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Evaluation of feature engineering}{77}{subsection..4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.2.1}Per-Query Similarity}{78}{subsubsection..4.4.2.1}
+\contentsline {subsection}{\numberline {4.4.3}Case Study}{79}{subsection..4.4.3}
+\contentsline {subsection}{\numberline {4.4.4}Analysis of regularization by module}{83}{subsection..4.4.4}
+\contentsline {section}{\numberline {4.5}Discussion}{86}{section..4.5}
+\contentsline {section}{\numberline {4.6}Application Scenarios}{88}{section..4.6}
+\contentsline {chapter}{\numberline {5}Application: Interactive Semi-Structured Schema Design}{90}{chapter..5}
+\contentsline {section}{\numberline {5.1}Introduction}{90}{section..5.1}
+\contentsline {subsection}{\numberline {5.1.1}Extracting Relational Entities}{91}{subsection..5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Human-Scale $\texttt {S}^3\texttt {D}$\xspace }{92}{subsection..5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Overview}{94}{subsection..5.1.3}
+\contentsline {section}{\numberline {5.2}Summarization}{94}{section..5.2}
+\contentsline {subsection}{\numberline {5.2.1}Data Model}{95}{subsection..5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Paths as Attributes}{96}{subsection..5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Schema Collections}{97}{subsection..5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}Summarizing Schema Collections}{99}{subsection..5.2.4}
+\contentsline {section}{\numberline {5.3}Visualization}{102}{section..5.3}
+\contentsline {subsection}{\numberline {5.3.1}Schema Segmentation}{103}{subsection..5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Schema Exploration}{106}{subsection..5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}An Iterative Approach}{107}{subsection..5.3.3}
+\contentsline {chapter}{\numberline {6}Application: Summarizing Probabilistic Databases}{109}{chapter..6}
+\contentsline {section}{\numberline {6.1}Introduction}{109}{section..6.1}
+\contentsline {section}{\numberline {6.2}Problem Definition}{112}{section..6.2}
+\contentsline {subsection}{\numberline {6.2.1}Practical Input Representation}{114}{subsection..6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Summarizing Joint Distribution}{115}{subsection..6.2.2}
+\contentsline {subsection}{\numberline {6.2.3}Pattern-based Summary}{116}{subsection..6.2.3}
+\contentsline {section}{\numberline {6.3}Marginal Estimation}{117}{section..6.3}
+\contentsline {section}{\numberline {6.4}Summary Accuracy}{119}{section..6.4}
+\contentsline {subsection}{\numberline {6.4.1}Query Accuracy}{121}{subsection..6.4.1}
+\contentsline {subsubsection}{\numberline {6.4.1.1}Accuracy under join}{121}{subsubsection..6.4.1.1}
+\contentsline {subsubsection}{\numberline {6.4.1.2}Accuracy under selection predicate}{122}{subsubsection..6.4.1.2}
+\contentsline {subsubsection}{\numberline {6.4.1.3}Accuracy under project}{123}{subsubsection..6.4.1.3}
+\contentsline {section}{\numberline {6.5}Constructing Summaries}{124}{section..6.5}
+\contentsline {chapter}{\numberline {7}Conclusions and Future Work}{125}{chapter..7}
+\contentsline {section}{\numberline {7.1}Query Log Compression for Workload Analytics}{125}{section..7.1}
+\contentsline {subsection}{\numberline {7.1.1}Conclusion}{125}{subsection..7.1.1}
+\contentsline {subsection}{\numberline {7.1.2}Future Work}{126}{subsection..7.1.2}
+\contentsline {section}{\numberline {7.2}Similarity Metrics for SQL Query Clustering}{127}{section..7.2}
+\contentsline {subsection}{\numberline {7.2.1}Conclusion}{127}{subsection..7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}Future Work}{127}{subsection..7.2.2}
+\contentsline {section}{\numberline {7.3}Interactive Semi-Structured Schema Design}{128}{section..7.3}
+\contentsline {subsection}{\numberline {7.3.1}Conclusion}{128}{subsection..7.3.1}
+\contentsline {subsection}{\numberline {7.3.2}Future Work}{128}{subsection..7.3.2}
+\contentsline {section}{\numberline {7.4}Summarizing Probabilistic Databases}{129}{section..7.4}
+\contentsline {subsection}{\numberline {7.4.1}Conclusion}{129}{subsection..7.4.1}
+\contentsline {subsection}{\numberline {7.4.2}Future Work}{129}{subsection..7.4.2}
+\contentsline {chapter}{Appendices}{130}{section*.38}
+\contentsline {chapter}{\numberline {A}Query Log Compression for workload Analytics}{131}{Appendix.1.A}
+\contentsline {section}{\numberline {A.1}NOMENCLATURE}{132}{section.1.A.1}
+\contentsline {section}{\numberline {A.2}Proof of Proposition\nobreakspace {}\ref {proposition:losslesssummary}}{133}{section.1.A.2}
+\contentsline {section}{\numberline {A.3}Marginal Selection}{134}{section.1.A.3}
+\contentsline {section}{\numberline {A.4}Sampling From Space of Distributions}{135}{section.1.A.4}
+\contentsline {subsection}{\numberline {A.4.1}Preliminary Sampling}{135}{subsection.1.A.4.1}
+\contentsline {subsection}{\numberline {A.4.2}Incorporating Constraints}{136}{subsection.1.A.4.2}
+\contentsline {section}{\numberline {A.5}Algorithm Configurations}{137}{section.1.A.5}
+\contentsline {subsection}{\numberline {A.5.1}Laserlight Algorithm}{138}{subsection.1.A.5.1}
+\contentsline {subsection}{\numberline {A.5.2}MTV Algorithm}{139}{subsection.1.A.5.2}
+\contentsline {subsection}{\numberline {A.5.3}Configuring Regularized Laserlight Mixture}{139}{subsection.1.A.5.3}
+\contentsline {section}{\numberline {A.6}Interpreting Naive Mixture Encoding}{140}{section.1.A.6}
+\contentsline {chapter}{Bibliography}{142}{section*.40}

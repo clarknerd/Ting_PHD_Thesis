@@ -1,5 +1,7 @@
 % !TEX root = ../paper.tex
-The grammar of SQL is declarative. By design, users can write queries in the way they feel most comfortable, letting well-established equivalence rules dictate a final evaluation strategy.  As a result, many syntactically distinct queries may still be semantically equivalent.  Recall example queries 1 and 3, paraphrased here:
+The grammar of SQL is declarative. By design, users can write queries in the way they feel most comfortable, letting well-established equivalence rules dictate a final evaluation strategy.  
+As a result, many syntactically distinct queries may still be semantically equivalent.  
+Recall example queries 1 and 3, paraphrased here:
 
 {\footnotesize
 \begin{enumerate}
@@ -15,18 +17,18 @@ UNION SELECT name FROM user WHERE rank = 's'
 \end{enumerate}
 }
 
-Though semantically distinct, these queries produce identical results for any input.  Unfortunately similarity of results is not practical to implement: General query equivalence is NP-complete~\cite{Chandra:1977:OIC:800105.803397} for SQL92 and earlier, while SQL99 and later versions of SQL are turing-complete, due to the introduction of recursive queries.  
+Though semantically distinct, these queries produce identical results for any input.  
+Unfortunately similarity of results is not practical to implement: General query equivalence is NP-complete~\cite{Chandra:1977:OIC:800105.803397} for SQL92 and earlier, while SQL99 and later versions of SQL are turing-complete, due to the introduction of recursive queries.  
 
 However, we can still significantly improve clustering quality by standardizing certain SQL features into a more regular form with techniques such as canonicalizing names and aliases, removing syntactic sugaring, and standardizing nested query predicates.
 This process of \emph{regularization} aims to produce a new query that is more likely to be \emph{structurally} similar to other \emph{semantically} similar queries. 
 Because the output is an ordinary SQL query, regularization may be used with any similarity metric.
 These process is similarly used in~\cite{Chandra:2016:PMA:3007263.3007304, sapia1999modeling}, where Chandra~\textit{et al.}~\cite{Chandra:2016:PMA:3007263.3007304} generate mutations of SQL queries to catch diversions from a baseline query, and Sapia~\cite{sapia1999modeling} creates OLAP query prototypes based on selected features and models user profiles.
 
-
-Although the techniques we utilize for regularization are widely used in other settings, to the best of our knowledge, we introduce their usage to improve clustering quality.
-We also test all the techniques we use individually to find their impact on the regularization's overall effect.
-Our experiments in Section~\ref{subsec:evaluation} show consistent improvements for all metrics evaluated in practical real world settings.
-In this section, we describe the transformations that we apply to regularize queries and the conditions under which they may be applied.  
+Although the techniques utilized for regularization are widely used in other settings, this chapter introduces their usage to improve clustering quality.
+All the techniques are tested individually to find their impact on the regularization's overall effect.
+Experiments in Section~\ref{subsec:evaluation} show consistent improvements for all metrics evaluated in practical real world settings.
+In this section, the transformations that we apply to regularize queries and the conditions under which they may be applied are described.  
 
 \subsection{Regularization Rules}
 \label{sec:regularizationrules}
@@ -47,7 +49,9 @@ FROM (SELECT name AS id FROM user) AS t
 \end{enumerate}
 }
 
-Although these queries are functionally identical, variable names are aliased in different ways.  This is especially damaging for the three structural heuristics that we evaluate, each of which assumes that variable names follow a globally consistent pattern.  Our first regularization step attempts to create a canonical naming scheme for both attributes and tables which is similar to one used in \cite{Chandra:2016:PMA:3007263.3007304}.
+Although these queries are functionally identical, variable names are aliased in different ways.  
+This is especially damaging for the three structural heuristics that we evaluate, each of which assumes that variable names follow a globally consistent pattern.  
+Our first regularization step attempts to create a canonical naming scheme for both attributes and tables which is similar to one used in \cite{Chandra:2016:PMA:3007263.3007304}.
 
 \begin{table}
 \centering
@@ -68,21 +72,23 @@ $b\; \{>, \geq\}\; a$ & $a\; \{<, \leq\}\; b$\\
 We remove SQL's redundant syntactic sugar following basic pattern-replacements as shown in Table~\ref{table:syntacticsugar}.  
 
 \tinysection{EXISTS Standardization}
-Although SQL admits four classes of nested query predicates: (\texttt{EXISTS}, \texttt{IN}, \texttt{ANY}, and \texttt{ALL}), the \texttt{EXISTS} predicate is general enough to capture the semantics of the remaining operators~\cite{Chandra:2016:PMA:3007263.3007304}.  Queries using the others are rewritten:\\
+Although SQL admits four classes of nested query predicates: (\texttt{EXISTS}, \texttt{IN}, \texttt{ANY}, and \texttt{ALL}), the \texttt{EXISTS} predicate is general enough to capture the semantics of the remaining operators~\cite{Chandra:2016:PMA:3007263.3007304}.  
+Queries using the others are rewritten:\\
 \noindent \texttt{x IN (SELECT y \ldots)} \textbf{becomes} \\\hspace*{22.5mm}\texttt{EXISTS (SELECT * \ldots WHERE x = y)}\\
 \noindent \texttt{x $<$ ANY (SELECT y \ldots)} \textbf{becomes}  \\\hspace*{22.5mm}\texttt{EXISTS (SELECT * \ldots WHERE x $<$ y)}\\
 \noindent \texttt{x $<$ ALL (SELECT y \ldots)} \textbf{becomes}  \\\hspace*{14.5mm}\texttt{NOT EXISTS (SELECT * \ldots WHERE x $\geq$ y)}
 
 \tinysection{DNF Normalization}
-We normalize all boolean-valued expressions by converting them to disjunctive normal form (DNF).  The choice of DNF is motivated by the ubiquity of conjunctive queries in most database applications, as well as by the natural correspondence between disjunctions and unions that we exploit below.
+All boolean-valued expressions are normalized by converting them to disjunctive normal form (DNF).  
+The choice of DNF is motivated by the ubiquity of conjunctive queries in most database applications, as well as by the natural correspondence between disjunctions and unions that we exploit below.
 
 \tinysection{Commutative Operator Ordering}
-We standardize the order of expressions involving commutative and associative operators (e.g., $\wedge$, $\vee$, $+$, and $\times$) by defining a canonical order of all operands and traversing the expression tree bottom-up to ensure consistent order of all operands.
+The order of expressions involving commutative and associative operators (e.g., $\wedge$, $\vee$, $+$, and $\times$) are standardized by defining a canonical order of all operands and traversing the expression tree bottom-up to ensure consistent order of all operands.
 
 %\smallskip
 
 \tinysection{Flatten FROM-Nesting}
-We merge nested sub-queries in a \texttt{FROM} clause with its parent query as described in \cite{Chandra:2016:PMA:3007263.3007304}.
+Nested sub-queries are merged in a \texttt{FROM} clause with its parent query as described in \cite{Chandra:2016:PMA:3007263.3007304}.
 
 \tinysection{Nested Query De-correlation}
 A common database optimization called nested-query de-correlation~\cite{492194} converts some \texttt{EXISTS} predicates into joins for more efficient evaluation. 
@@ -107,7 +113,8 @@ SELECT ... FROM R, (SELECT ... FROM S) WHERE q
 \end{verbatim}
 }
 
-To de-correlate a \texttt{NOT EXISTS} predicate, we use the set-difference operator \texttt{EXCEPT}.  If the input is of the form:
+To de-correlate a \texttt{NOT EXISTS} predicate, we use the set-difference operator \texttt{EXCEPT}.  
+If the input is of the form:
 {\footnotesize
 \begin{verbatim}
 SELECT DISTINCT... FROM R WHERE 
@@ -122,63 +129,14 @@ then the output will be of the form
            EXISTS (SELECT ... FROM S WHERE q))
 \end{verbatim}
 }
-%Ignoring EXISTS temporarily and one would get\begin{definition}
-%Pre-filter query (PFQuery):
-%The resulting query generated by replacing one of its boolean expressions that contains a sub-query with a tautology. 
-
-%Pre-filtered output (PFOut):
-%Output of PFQuery.
-%\end {definition}
-
-%In cases that attributes that belong to PFOut(before PROJECTION) appear in sub-query.
-%\begin{definition}
-%Correlated attributes:
-%Attributes belonging to PFOut that appear in filtering predicates of sub-query.
-%\end{definition}
-
-%Below gives a simple example of correlated attributes.\begin{example}
-%\begin{verbatim}SELECT A.a FROM A WHERE A.a<1 AND 
-%EXISTS(SELECT * FROM B WHERE B.b=A.b)
-%\end{verbatim}
-%\end{example}
-%Predicate B.b=A.b correlates PFQuery with sub-query in EXISTS by the correlated attribute A.b. This predicate is thus called \textit{correlated predicate}.
-
-%Sub-queries nested in EXISTS work as the following: For \textbf{each tuple} in the PFOut, in order to evaluate the EXISTS expression on it, an independent execution of the sub-query in the EXISTS is triggered. 
-%Correlated attributes on the side of sub-query, if there is any, will be assigned fixed values according to their counterparts on the side of PFQuery. 
-
-%In above example, suppose a tuple in PFOut(before PROJECTION) is assigned A.b=0, we execute sub-query SELECT * FROM B WHERE B.b=0. We name the output of this execution as \textit{response output} of this PFOut tuple. Thus whether a tuple in PFOut can survive the truth value test of EXISTS depends on whether its response output is non-empty. 
-
-%The solution we offer is to coalesce the query as if it is in FROM clause with a slgiht difference: instead of merging filtering conditions in its sub-query, replacing EXISTS with it.
-
-%Next we prove that coalesced query is equivalent to original query.
-%\begin{proof}
-%Denote $T$, $T_{sub}$ as a single tuple generated by PFQuery and that of sub-query respectively before any filtering operation. For any $T$, consider the following cases: \begin{itemize}
-%\item $\exists T_{sub}$ $s.t.$ $JT=T\times T_{sub}$ passes the test of filtering predicates in coalesced query or $JT$ \textbf{survives} in coalesced query. Now we prove that $T$ also survives in the original query.
-
-%Premises: (1) Filtering predicates original query is conjunctive and (2) EXISTS is replaced by the filtering predicates of the sub-query for translated query. 
-%The fact that $JT$ survives in coalesced query is equivalent to two facts: (1) $T_{sub}$ survives in the sub-query, with correlated attributes, if there is any, assigned corresponding values in $T$ and (2) $T$ satisfies all other boolean literals except for EXISTS in the original query, namely $T\in PFOut$. According the definition of response output, $T_{sub}$ is qualified as a member in the response output of $T$, namely the response output of $T$ is non-empty. Hence $T$ survives in the original query.
-  
-%\item Conversely, in case that there is no such $JT$ survives in translated query. Now we prove that $T$ fail to survive in the original query. 
-
-%Suppose $T\in PFOut$ because otherwise $T$ has already failed to survive. No such $T_sub$ exists means not a single $T_{sub}$ qualified for response output of $T$. Hence the response output of $T$ is empty and $T$ fail to survive in the original query. 
-%\end{itemize}
-%Thus we have proved that the survival of $T$ in original query is equivalent to the survival of any $JT=T\times T_{sub}$.
-
-%Since the sub-query appears in filtering predicates, attributes of its $T_{sub}$ will not influence PROJECTION of its parent query. In other words, after projecting out attributes of $T_{sub}$ of $JT$ in coalesced query, the survival of $T$ in coalesced query is equivalent to its survival in original query. 
-%\end{proof}
 
 \tinysection{OR-UNION Transform}
-We use a regularization transformation that exploits the relationship between OR and UNION. 
+A regularization transformation is used that exploits the relationship between OR and UNION. 
 This rewrite does not guarantee query result equivalence, also due to potentially duplicated rows in query result.
 Recall the equivalence between logical OR and UNION mentioned in our first example. 
 Naively, we might convert the DNF-form predicates into UNION queries:\\
-%\begin{transformation} 
-%\label{ORUNIONTRANS}
 \noindent\texttt{SELECT }\ldots\texttt{ WHERE q OR p OR }\ldots\texttt{} \textbf{becomes}\\
 \hspace*{5mm}\texttt{SELECT }\ldots\texttt{ WHERE q UNION SELECT }\ldots\texttt{ WHERE p UNION }\ldots\\
-%\end{transformation}
-% $Q_{F}$ stands for any query $Q$ with boolean formula $F$ as its predicates and $F\overset{DNF}{\longrightarrow}\overset{i}{\logicalOr} C_i$.
-% For each component query $Q_{C_i}$, its predicates are purely conjunctive.
 However, duplicates caused by the possible correlation between clauses in DNF will break the equivalence of this rewrite. Consider the following query:
 {\footnotesize
 \begin{verbatim}
@@ -188,40 +146,5 @@ However, duplicates caused by the possible correlation between clauses in DNF wi
 Students who pass the exam overlap with those whose score greater than 60.
 Thus the rewritten query would not be exactly equivalent, as it may include duplicate rows.
 As a result, we require the query to satisfy the same condition mentioned in previous rule \textit{nested query de-correlation}.
-%
-%. The transformation can only be applied when the final result of the query is not influenced by duplicates, e.g. aggregation \texttt{MAX(Score)} instead of \texttt{SUM(Score)}.
-%As we discuss shortly, it is useful to be able to separate queries into unions of independent partitions.
-%Naively, we might generate a sequence of mutually exclusive OR statements using Shannon expansion\cite{BLTJ:BLTJ3624}.
-%Unfortunately, Shanon expansion can create an exponential number of clauses, further exploding the number of features that need to be created.
-%But it will generate exponentially large number of clauses. Another similar solution is ordering clauses. Each clause is extended to rule out overlap from preceding clauses. e.g. $A\logicalOr B\rightarrow A\logicalOr(\neg A\logicalAnd B)$. 
-%However it is impractical to use because there exist combinatorially large number of equivalent orderings and heavy ambiguity is introduced. Approximation algorithms (e.g., \cite{Fink2013}) exist, but are beyond the scope of this paper.
-
-%A second alternative is to define a new form of duplicate-sensitive union, essentially a form of set-union (i.e., \texttt{UNION DISTINCT}) that relies on tuple provenance~\cite{Green:2007:PS:1265530.1265535} to limit duplicate values.  
-%Although it may not be reasonable to expect queries with this duplicate-sensitive union to be evaluated efficiently, the query itself is never evaluated, but simply compared against other queries.
-
-%For example:
-%\begin{example}
-%Bags of tuples $B_1=\{t_1,t_2\}$ and $B_2=\{t_2,t_3\}$. Suppose attribute $X$ is shared by all tuples and it is assigned values: $t_1.X=1$, $t_2.X=2$ and $t_3.X=3$.
-%\end{example}
-%
-%$B_1\Union B_2=\{t_1,t_2,t_3\}$ and $sum(sum_{X}(B_1)$, $sum_{X}(B_2))$ $=(1+2)+(2+3)\neq1+2+3$. Instead, We directly sum $t_1.X$, $t_2.X$, $t_3.X$ without assigning them values. More precisely, we get these two polynomials: $sum_{X}(B_1)=t_1.X+t_2.X$ and $sum_{X}(B_2)=t_2.X+t_3.X$. Summing them we have $t_1.X+2*t_2.X+t_3.X$ where duplicates of $t_2.X$ are properly documented in its coefficient. One can remove duplicates by setting coefficients to 1.
-%For query comparison purpose, the functionality of revised $sum$ need not to be implemented and one can replace the original $sum$ without additional efforts.
-%After revision, all aggregate functions are guaranteed to be duplicate-insensitive thus \textbf{the second constraint is also satisfied}.
-%To further motivate remapping \texttt{OR}s into \texttt{UNION}s, consider the following two queries:
-%\begin{enumerate}
-%\addtocounter{enumi}{6}
-%\item
-%\begin{verbatim}
-%	SELECT * FROM R WHERE R.r>1 OR (1=1)
-%\end{verbatim}
-%\item
-%\begin{verbatim}
-%	SELECT * FROM R WHERE R.r>1
-%\end{verbatim}
-%\end{enumerate}
-
-%The above two queries are similar in their syntactic structures based on the three similarity metrics that we are evaluating, though semantically the set of rows returned will be very different. 
-%Transforming OR into UNION for the first query will create two independent query syntax trees
-%This rewrite, in turn, provides visibility for similarity metrics that extract features at the granularity of queries.
 
 \tinysection{Union Pull-Out} Since the prior transformation may introduce UNION operator in nested subqueries, we push selection predicates down into the union as well.

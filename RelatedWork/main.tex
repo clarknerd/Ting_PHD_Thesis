@@ -59,6 +59,7 @@ Matrix decomposition methods including Principal Component Analysis (PCA)~\cite{
 But the resulting matrices after decomposition are not suited for inferring workload statistics.
 
 \section{Similarity Metrics for SQL Query Clustering}
+\label{sec:tkdebackground}
 Analyzing query logs mostly relies on the structure of queries~\cite{Kamra2007SyntaxBased}, although their motivations are different; some methods prefer using the log as a resource to collect information to build user profiles, and the others utilize structural similarity to perform tasks like query recommendation~\cite{giacometti2009, yang2009, chatzopoulou2011querie}, performance optimization~\cite{aouiche2006},  session identification~\cite{aligon2014similarity} and workload analysis~\cite{makiyama2015text}.  A summary of these methods is given in Table~\ref{table:literaturereview}.
 
 There are also other possible approaches; like data-centric query comparison~\cite{Mathew2010Raid}, and utilizing the \textit{access areas} of user queries by inspecting the data partition the query is interested in~\cite{nguyen2015identifying} from the \texttt{WHERE} condition.
